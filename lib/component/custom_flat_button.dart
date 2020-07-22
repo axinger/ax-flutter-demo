@@ -1,0 +1,80 @@
+import 'package:flutter/material.dart';
+
+class CustomFlatButton extends MaterialButton {
+  final BorderSide borderSide;
+  final Color disabledBorderColor;
+  final Color highlightedBorderColor;
+
+  const CustomFlatButton({
+    Key key,
+    @required onPressed,
+    this.borderSide,
+    this.disabledBorderColor,
+    this.highlightedBorderColor,
+    onLongPress,
+    onHighlightChanged,
+    textTheme,
+    textColor,
+    disabledTextColor,
+    color,
+    disabledColor,
+    focusColor,
+    hoverColor,
+    highlightColor,
+    splashColor,
+    colorBrightness,
+    elevation,
+    focusElevation,
+    hoverElevation,
+    highlightElevation,
+    disabledElevation,
+    padding = EdgeInsets.zero,
+    visualDensity,
+    shape,
+    clipBehavior = Clip.none,
+    focusNode,
+    autofocus = false,
+    animationDuration,
+    materialTapTargetSize = MaterialTapTargetSize.shrinkWrap,
+
+    ///强制0
+    double minWidth = 0,
+
+    ///强制0
+    double height = 0,
+    enableFeedback = true,
+    child,
+  }) : super(
+          key: key,
+          onPressed: onPressed,
+          onLongPress: onLongPress,
+          onHighlightChanged: onHighlightChanged,
+          textTheme: textTheme,
+          textColor: textColor,
+          disabledTextColor: disabledTextColor,
+          color: color,
+          disabledColor: disabledColor,
+          focusColor: focusColor,
+          hoverColor: hoverColor,
+          highlightColor: highlightColor,
+          splashColor: splashColor,
+          colorBrightness: colorBrightness,
+          elevation: elevation,
+          focusElevation: focusElevation,
+          hoverElevation: hoverElevation,
+          highlightElevation: highlightElevation,
+          disabledElevation: disabledElevation,
+          padding: padding,
+          visualDensity: visualDensity,
+          shape: shape,
+          clipBehavior: clipBehavior,
+          focusNode: focusNode,
+          autofocus: autofocus,
+          materialTapTargetSize: materialTapTargetSize,
+          animationDuration: animationDuration,
+          minWidth: minWidth,
+          height: height,
+          enableFeedback: enableFeedback,
+          child: child,
+        );
+}

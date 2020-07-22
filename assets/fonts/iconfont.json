@@ -1,0 +1,51 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "845790",
+      "name": "指纹",
+      "font_class": "zhiwen",
+      "unicode": "e64c",
+      "unicode_decimal": 58956
+    },
+    {
+      "icon_id": "15362915",
+      "name": "notice",
+      "font_class": "OOjs_UI_icon_notice",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "15363078",
+      "name": "advanced",
+      "font_class": "OOjs_UI_icon_advanced",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "15363119",
+      "name": "clock",
+      "font_class": "OOjs_UI_icon_clock",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "15363460",
+      "name": "userAvatar",
+      "font_class": "OOjs_UI_icon_userAvatar",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "15363525",
+      "name": "calendar",
+      "font_class": "OOjs_UI_icon_calendar-ltr",
+      "unicode": "e613",
+      "unicode_decimal": 58899
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh">
+    <meta charset="UTF-8" name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/>
+    <title>index</title>
+</head>
+<body>
+
+<div style="margin-top: 40px;color: #4ACF50;background-color: bisque">
+
+    <input id="text1" type="text" name="firstname" placeholder="请输入文字" style="margin-bottom: 20px;padding: 10px"></br>
+    <button id="button1" type="button" style="margin-bottom: 20px;padding: 10px">html自己事件</button></br>
+    <button id="button2" type="button" style="margin-bottom: 20px;padding: 10px">html 确定取消</button></br>
+    <button id="button3" style="margin-bottom: 20px;padding: 10px">html发送消息</button></br>
+    <p id="test" style="margin-bottom: 20px;padding: 10px">我是个文字</p></br>
+
+    <p style='font-size: 20px'>测试</p>
+
+</div>
+
+<script>
+
+
+    function nativeCallJsMethod(value) {
+        document.getElementById("test").innerText = value;
+        alert(value);
+    }
+
+    document.getElementById("button1").onclick = function () {
+        alert(document.getElementById("text1").value);
+    }
+
+
+    document.getElementById("button2").onclick = function () {
+        let second = confirm("继续吗");
+        if (second) {
+        } else {
+        }
+    }
+    document.getElementById("button3").onclick = function () {
+        //show_native_alert 这个是 flutter 注册的名称
+        // postMessage 是固定的方法名
+        show_native_alert.postMessage(document.getElementById("text1").value);
+    }
+
+
+</script>
+
+</body>
+<!--<script type="text/javascript" src="js/client.js"></script>-->
+<!--<script type="text/javascript" src="js/index.js"></script>-->
+<!--<link rel="stylesheet" type="text/css" href="css/index.css">-->
+
+
+</html>
+
+
+

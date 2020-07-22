@@ -1,0 +1,19 @@
+#button1 {
+    background: #4ACF50;
+    height: 50px;
+    font-size: 30px;
+}
+
+#button2,#button3 {
+    background: rgb(255,234,232);
+    height: 50px;
+    font-size: 30px;
+}
+
+#div1 {
+    background: rgb(150,150,150);
+    margin-top: 50px;
+    margin-left : 10px;
+    margin-right: 10px;
+}
+

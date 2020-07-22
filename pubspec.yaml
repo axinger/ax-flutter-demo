@@ -1,0 +1,247 @@
+name: ax_flutter_demo
+description: A new Flutter project.
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+version: 1.0.2+100
+
+environment:
+  sdk: ">=2.2.2 <3.0.0"
+#  sdk: ">=2.0.3 <2.1.0"
+#    flutter: ^1.17.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^0.1.2
+  css_colors: any
+  #通用提示库
+  fluttertoast: ^3.1.3
+  cached_network_image: ^2.0.0-rc
+  http: any
+  dio: any
+  json_annotation: any
+  #国际化,时间格式化
+  intl: any
+  #日期时间格式 另外一个库
+  date_format: any
+  scoped_model: any
+  # 国际化
+  flutter_localizations:
+    sdk: flutter
+
+  # RxDart基于ReactiveX，由Dart标准库中Stream扩展而成，是一个为Dart语言提供响应式编程的库。
+  rxdart: ^0.22.1
+  #日志输出
+  logger: ^0.7.0+2
+  #日志在应用端输出
+  logger_flutter: ^0.7.1
+  #image保存相册
+  #  image_gallery_saver: ^1.2.2
+  #图片压缩
+  #  flutter_luban: ^0.1.7
+  #  #包信息
+  #  package_info: ^0.4.0+13
+  #  # 红点插件
+  #  badges: ^1.1.0
+  #  #多图选择
+  #  multi_image_picker: ^4.6.1
+  #  #时间选择
+  #  flutter_cupertino_date_picker: ^1.0.23+1
+  #  #通用选择器
+  #  flutter_picker: 1.1.0
+  #  flutter_webview_plugin: ^0.3.11
+
+  # 准备停止维护,请使用谷歌的
+  #  flutter_webview_plugin: ^0.3.11
+  # listView 左右 侧滑
+  slide_item: ^1.0.6
+
+  #Hive是用纯Dart编写的轻量级且快速的键值数据库. 受Bitcask启发.
+  hive: ^1.4.1+1
+  hive_flutter: ^0.3.0+2
+
+  #刷新组件
+  flutter_easyrefresh: ^2.1.1
+  #事件管理
+  event_bus: ^1.1.0
+  image_gallery_saver: ^1.2.2
+  #谷歌字体
+  google_fonts: ^1.1.0
+  #  bloc: ^4.0.0
+
+  flutter_bloc: ^4.0.0
+  meta: ^1.1.6
+  # 继承类,判断类是否相同
+  equatable: ^1.1.1
+  # InheritedWidget的包装，使它们更易于使用和更可重用.
+  provider: ^4.1.2
+
+  w_popup_menu: ^0.3.1
+
+  #指纹
+  local_auth: 0.6.2+3
+
+  binding_helper: 0.0.1
+
+
+
+
+
+
+
+
+  ## 谷歌维护的库 https://github.com/flutter/plugins
+
+
+  device_info: '>=0.4.0'
+
+  image_picker: '>=0.6.0'
+
+  package_info: '>=0.4.0 <2.0.0'
+  # 用于查找文件系统上的常用位置. 支持iOS和Android.
+  path_provider: ^1.6.7
+
+  #传感器插件
+  #  sensors: 0.4.2
+
+  # 在Android上包装ACTION_SEND Intent，在iOS上包装UIActivityViewController.
+  #  share: 0.6.4+1
+
+  # 包装NSUserDefaults（在iOS上）和SharedPreferences（在Android上），
+  #为简单数据提供持久存储. 数据异步保存到磁盘.
+  #这两个平台都不能保证在返回后将写操作持久化到磁盘，并且该插件不得用于存储关键数据.
+  shared_preferences: 0.5.7+1
+
+  # Flutter插件，用于在移动平台中启动URL. 支持iOS和Android.
+  url_launcher: 5.4.5
+
+  #官方插件：webview_flutter
+  webview_flutter: ^0.3.21
+
+    #适用于iOS，Android和Web的Flutter插件，用于在Widget表面上播放视频.
+    #  video_player: 0.10.10
+
+    # lutter插件，用于访问有关运行应用程序的设备电池的各种信息.
+  #  battery: 1.0.0
+
+  #该插件允许Flutter应用发现网络连接并进行相应配置. 它可以区分蜂窝连接和WiFi连接. 该插件适用于iOS和Android.
+  #  connectivity: 0.4.8+5
+
+  #应用内购买的Flutter插件. 公开用于通过App Store（在iOS上）和Google Play（在Android上）进行应用内购买的API.
+  #  in_app_purchase: 0.3.3+1
+
+  #这个Flutter插件使您可以管理应用程序的主屏幕快速动作并与之交互.
+  #
+  #快速操作是指iOS上的同义概念以及Android上的App Shortcuts API（在Android 7.1 / API 25级中引入）.
+  #在Android的早期版本中运行此插件是安全的，因为它将产生Noop.
+  #quick_actions: 0.4.0+4
+  ##########################################################################
+
+  #  ax_flutter_util:
+  #    git:
+  #      url: 'https://github.com/AXinger/ax_flutter_util.git'
+  #  ax_flutter_plugin:
+  #    git:
+  #      url: 'https://github.com/AXinger/ax_flutter_plugin.git'
+  #  ax_flutter_toast:
+  #    git:
+  #      url: 'https://github.com/AXinger/ax_flutter_toast.git'
+
+
+  ax_flutter_util:
+    path: /Users/xing/Develop/GitHub/ax_flutter_util
+  ax_flutter_plugin:
+    path: /Users/xing/Develop/GitHub/ax_flutter_plugin
+  ax_flutter_toast:
+    path: /Users/xing/Develop/GitHub/ax_flutter_toast
+
+
+
+
+#  flutter_boost:
+#    git:
+#      url: 'https://github.com/alibaba/flutter_boost.git'
+#      ref: 'task/task_v1.9.1_support_hotfixes'
+
+#  flutter_boost:
+#    git:
+#      url: 'https://github.com/alibaba/flutter_boost.git'
+#      ref: ' 1.12.13'
+
+#    flutter_boost: any
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  #这两个是dev的，不要放到上面去了哦
+  build_runner: ^1.10.0
+  json_serializable: any
+
+#  hive_generator: ^0.7.0+2
+##  dartx: ^0.2.0
+##  quiver: '>=2.0.3 <2.1.0'
+#
+#
+#  test: ^1.9.4
+#  mockito: ^4.1.1
+#  pedantic: ^1.9.0
+#  dartx: ">=0.2.0 <1.0.0"
+#  path: ^1.6.4
+#  pointycastle: ^1.0.2
+#
+#  mobx_codegen: ^1.0.2
+#  moor_generator: ^2.4.0
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter.
+flutter:
+  fonts:
+    - family: myIcon
+      fonts:
+        - asset: assets/fonts/iconfont.ttf
+  uses-material-design: true
+  assets:
+    - assets/files/css/index.css
+    - assets/files/index.html
+    - assets/files/js/client.js
+    - assets/files/js/index.js
+    - assets/files/js/jquery-3.3.1.min.js
+    - assets/files/photo.html
+    - assets/fonts/iconfont.json
+    - assets/fonts/iconfont.svg
+    - assets/fonts/iconfont.ttf
+    - assets/image/A171.jpg
+    - assets/image/headIcon.png
+    - assets/image/Icon_Mac.png
+    - assets/image/IMG_3601.JPG
+    - assets/image/placeholderImage.png
+    - assets/image/tongxunlu.png
+    - assets/image/红包.png
+    - assets/test2/红包2.png
+    - assets/红包1.png
+  #           style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+  #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/custom-fonts/#from-packages
+flutter_intl:
+  enabled: true
