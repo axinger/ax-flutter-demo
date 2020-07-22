@@ -1,11 +1,11 @@
-import 'package:ax_flutter_demo/authentication/authentication.dart';
+import 'package:ax_flutter_demo/authentication/authentication_bloc.dart';
+import 'package:ax_flutter_demo/authentication/authentication_event.dart';
+import 'package:ax_flutter_demo/global_const.dart';
 import 'package:ax_flutter_demo/login/view/login_view.dart';
 import 'package:ax_flutter_demo/showpage/00-test_page.dart';
 import 'package:ax_flutter_util/ax_flutter_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../global_const.dart';
 
 class MinePage extends StatefulWidget {
   @override
@@ -19,68 +19,85 @@ class _MinePage extends State<MinePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       /// 导航栏 加高,添加背景图片
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(200),
-
-        /// 栈控件
-        child: Stack(
-          children: <Widget>[
-            Image.network(
-              "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2641512116,3445406201&fm=26&gp=0.jpg",
-              fit: BoxFit.cover,
-              width: double.infinity,
-              height: double.infinity,
+      appBar: AppBar(
+        title: Text(
+          localString.mine,
+          style: TextStyle(color: Colors.red),
+        ),
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/image/A171.jpg'),
+              fit: BoxFit.fill,
+//              repeat :ImageRepeat.repeatY,
             ),
-            AppBar(
-              title: Text(
-                localString.mine,
-                style: TextStyle(color: Colors.red),
-              ),
-              centerTitle: true,
-              backgroundColor: Colors.transparent,
-              actions: <Widget>[
-                FlatButton(
-                  child: Text("登录"),
-                  onPressed: () {
-                    print("========");
+            color: Colors.blue,
+          ),
+        ),
+
+        centerTitle: true,
+//              backgroundColor: Colors.transparent,
+        actions: <Widget>[
+          FlatButton(
+            child: Text("登录", style: TextStyle(color: Colors.red)),
+            onPressed: () {
+              print("========");
 //                    FlutterBoost.singleton.open("route_MaterialPage1");
 //                    Navigator.of(context).pushNamed('/route_login');
-                    push(context: context,widget:LoginView());
+              push(context: context, widget: LoginView());
+            },
+          ),
+          FlatButton(
+            child: Text("退出", style: TextStyle(color: Colors.red)),
+            onPressed: () {
+              BlocProvider.of<AuthenticationBloc>(context)
+                  .add(AuthenticationLoggedOutEvent());
+            },
+          ),
+          FlatButton(
+            child: Text("测试页面", style: TextStyle(color: Colors.red)),
+            onPressed: () {
+              print("========");
+              Navigator.push<String>(
+                context,
+                MaterialPageRoute(
+                  builder: (BuildContext context) {
+                    return ShowTestPage();
                   },
                 ),
-                FlatButton(
-                  child: Text("退出"),
-                  onPressed: () {
-                    BlocProvider.of<AuthenticationBloc>(context)
-                        .add(AuthenticationLoggedOutEvent());
-                  },
-                ),
-                FlatButton(
-                  child: Text("测试页面"),
-                  onPressed: () {
-                    print("========");
-                    Navigator.push<String>(
-                      context,
-                      MaterialPageRoute(
-                        builder: (BuildContext context) {
-                          return ShowTestPage();
-                        },
-                      ),
-                    );
-                  },
-                ),
-              ],
-            ),
-          ],
-        ),
+              );
+            },
+          )
+        ],
+
+//        flexibleSpace:  Image.network(
+//              "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2641512116,3445406201&fm=26&gp=0.jpg",
+//              fit: BoxFit.fill,
+//              width: double.infinity,
+//              height: double.infinity,
+//            ),
+
+//        bottom: PreferredSize(
+//          preferredSize: Size.fromHeight(100),
+//          child: Container(
+//            height: 100,
+////        padding: EdgeInsets.all(12),
+//            decoration: BoxDecoration(
+//              image: DecorationImage(
+//                image: AssetImage('assets/image/A171.jpg'),
+//                fit: BoxFit.cover,
+////              repeat :ImageRepeat.repeatY
+//              ),
+//              color: Colors.green,
+//            ),
+//          ),
+//        ),
       ),
 
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-
             Image.asset('assets/红包1.png'),
-
           ],
         ),
       ),
