@@ -131,9 +131,9 @@ dependencies:
   webview_flutter: ^0.3.21
 
     #适用于iOS，Android和Web的Flutter插件，用于在Widget表面上播放视频.
-    #  video_player: 0.10.10
+  #  video_player: 0.10.10
 
-    # lutter插件，用于访问有关运行应用程序的设备电池的各种信息.
+  # lutter插件，用于访问有关运行应用程序的设备电池的各种信息.
   #  battery: 1.0.0
 
   #该插件允许Flutter应用发现网络连接并进行相应配置. 它可以区分蜂窝连接和WiFi连接. 该插件适用于iOS和Android.
@@ -159,13 +159,12 @@ dependencies:
   #    git:
   #      url: 'https://github.com/AXinger/ax_flutter_toast.git'
 
-
   ax_flutter_util:
-    path: /Users/xing/Develop/GitHub/ax_flutter_util
+    path: ../ax_flutter_util
   ax_flutter_plugin:
-    path: /Users/xing/Develop/GitHub/ax_flutter_plugin
+    path: ../ax_flutter_plugin
   ax_flutter_toast:
-    path: /Users/xing/Develop/GitHub/ax_flutter_toast
+    path: ../ax_flutter_toast
 
 
 
