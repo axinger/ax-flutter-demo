@@ -84,51 +84,45 @@ class _MaterialPage1 extends State<P04MaterialPageDialog>
               );
             }),
 
-          _flatButton('全屏', () {
+            _flatButton('全屏', () {
 //            pop(context)
-            showDialog(
-                context: context,
-                barrierDismissible: true,
-                builder: (BuildContext context) {
-                  return Container(
-                    width:double.infinity,
-                    height: double.infinity,
-                    child:Padding(
-                      padding: EdgeInsets.only(left: 100,right: 100),
-                      child: Container(
-                        ///弹框背景和圆角
-                        decoration: ShapeDecoration(
-                          color: Colors.orange,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(8.0),
+              showDialog(
+                  context: context,
+                  barrierDismissible: true,
+                  builder: (BuildContext context) {
+                    return Container(
+                      width: double.infinity,
+                      height: double.infinity,
+                      child: Padding(
+                        padding: EdgeInsets.only(left: 100, right: 100),
+                        child: Container(
+                          ///弹框背景和圆角
+                          decoration: ShapeDecoration(
+                            color: Colors.orange,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(8.0),
+                              ),
                             ),
                           ),
-                        ),
-                        child: new Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: <Widget>[
-                            // new CircularProgressIndicator(),
-                            new Padding(
-                              padding: const EdgeInsets.only(
-                                top: 20.0,
+                          child: new Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: <Widget>[
+                              // new CircularProgressIndicator(),
+                              new Padding(
+                                padding: const EdgeInsets.only(
+                                  top: 20.0,
+                                ),
+                                // child: new Text(text),
                               ),
-                              // child: new Text(text),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                  );
-                });
-
-          }),
-
-
-
-
-
+                    );
+                  });
+            }),
 
             _flatButton('Android alert', () {
               showDialog(

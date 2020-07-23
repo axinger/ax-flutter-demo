@@ -1,11 +1,8 @@
-import 'package:ax_flutter_demo/authentication/authentication_bloc.dart';
-import 'package:ax_flutter_demo/authentication/authentication_event.dart';
 import 'package:ax_flutter_demo/global_const.dart';
 import 'package:ax_flutter_demo/login/view/login_view.dart';
 import 'package:ax_flutter_demo/showpage/00-test_page.dart';
 import 'package:ax_flutter_util/ax_flutter_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MinePage extends StatefulWidget {
   @override
@@ -39,9 +36,10 @@ class _MinePage extends State<MinePage> {
 //              backgroundColor: Colors.transparent,
         actions: <Widget>[
           FlatButton(
-
             color: Colors.purple,
-            child: Text("登录", style: TextStyle(color: Colors.red,backgroundColor: Colors.green)),
+            child: Text("登录",
+                style: TextStyle(
+                    color: Colors.red, backgroundColor: Colors.green)),
             onPressed: () {
               print("========");
 //                    FlutterBoost.singleton.open("route_MaterialPage1");
@@ -58,11 +56,15 @@ class _MinePage extends State<MinePage> {
 //            },
 //          ),
           Center(
-            child: Text("退出", style: TextStyle(color: Colors.red,backgroundColor: Colors.green)),
+            child: Text("退出",
+                style: TextStyle(
+                    color: Colors.red, backgroundColor: Colors.green)),
           ),
           FlatButton(
             color: Colors.purple,
-            child: Text("测试页面", style: TextStyle(color: Colors.red,backgroundColor: Colors.green)),
+            child: Text("测试页面",
+                style: TextStyle(
+                    color: Colors.red, backgroundColor: Colors.green)),
             onPressed: () {
               print("========");
               Navigator.push<String>(

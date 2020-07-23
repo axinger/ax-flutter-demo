@@ -136,7 +136,6 @@ class _FormTFState extends State<LoginViewFormTF> {
                     borderSide: BorderSide(color: Colors.greenAccent),
                   ),
 
-
                   ///选中时外边框颜色 有四边
 //                  focusedBorder: OutlineInputBorder(
 ////                    borderRadius: BorderRadius.circular(5.0),

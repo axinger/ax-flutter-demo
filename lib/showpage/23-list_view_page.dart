@@ -163,7 +163,7 @@ class _MyPage extends State<ListViewPage> {
 
                 /// 内容适配,无限尺寸,NeverScrollableScrollPhysics禁止滚动时候,需要自适应,不然不显示
                 shrinkWrap: true,
-
+//                  primary:true,
                 ///滑动类型设置 NeverScrollableScrollPhysics 禁止滑动
 //                physics: NeverScrollableScrollPhysics(),
 //              physics: FixedExtentScrollPhysics(),
@@ -174,7 +174,7 @@ class _MyPage extends State<ListViewPage> {
 //            cacheExtent: 30.0,
 
                 /// 分割线属性
-                padding: EdgeInsets.all(0),
+                padding: EdgeInsets.all(10),
                 separatorBuilder: (context, index) {
 //                  return Divider(
 //                    height: 5,
@@ -190,18 +190,44 @@ class _MyPage extends State<ListViewPage> {
                 itemCount: dataList.length,
                 /**listView item*/
                 itemBuilder: (BuildContext context, int index) {
-                  return GestureDetector(
-                    //单击事件响应
-                    onTap: () {
-                      print('点击了 $index');
-                    },
-                    child: Container(
-                      color: Colors.red,
-                      alignment: Alignment.centerLeft,
-                      height: 88,
-//                    width: 120,
-                      child: Text('内容 - $index'),
+//                  return GestureDetector(
+//                    //单击事件响应
+//                    onTap: () {
+//                      print('点击了 $index');
+//                    },
+//                    child: Container(
+//                      color: Colors.red,
+//                      alignment: Alignment.centerLeft,
+//                      height: 88,
+////                    width: 120,
+//                      child: Text('内容 - $index'),
+//                    ),
+//                  );
+
+                  return ListTile(
+                    leading: Text(
+                      'leading - $index',
+                      textAlign: TextAlign.start,
                     ),
+                    title: Text(
+                      'index - $index',
+                      textAlign: TextAlign.left,
+                    ),
+                    subtitle: Text(
+                      'subtitle - $index',
+                      textAlign: TextAlign.start,
+                    ),
+                    isThreeLine: index.isOdd,
+                    dense: index.isOdd,
+                    trailing: Icon(
+                      Icons.navigate_next,
+                      size: 22.0,
+                    ),
+                    selected: index.isOdd,
+//                  leading: Icon(Icons.message,color: Colors.orange,size: 22.0,),
+                    onTap: () {
+                      print('index = $index');
+                    },
                   );
                 },
               ),
@@ -212,8 +238,8 @@ class _MyPage extends State<ListViewPage> {
         emptyWidget: dataList.length > 0
             ? null
             : const Center(
-          child: Text('暂无数据'),
-        ),
+                child: Text('暂无数据'),
+              ),
       ),
     );
   }
@@ -230,5 +256,3 @@ class _AxRefreshState extends State<AxRefresh> {
     return Container();
   }
 }
-
-

@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:ffi';
 import 'dart:ui';
 
 import 'package:ax_flutter_demo/config.dart';
@@ -639,9 +638,7 @@ class _MyPage extends State<MaterialPage1> {
                       color: Colors.greenAccent,
                       disabledColor: Colors.orange,
                       child: Text('AbsorbPointer'),
-                      onPressed: value ? null :(){
-
-                      },
+                      onPressed: value ? null : () {},
                     ),
                   );
                 },

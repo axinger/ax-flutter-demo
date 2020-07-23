@@ -84,13 +84,12 @@ class _State extends State<P25MoreListViewPage> {
                   key: rootWidgetKey,
                   child: Container(
                     color: Colors.orange,
-
-                    child:Column(
+                    child: Column(
                       children: <Widget>[
                         Text('22'),
                         Expanded(
                           flex: 1,
-                          child:  ListView.builder(
+                          child: ListView.builder(
                               shrinkWrap: true,
                               itemCount: 100,
                               itemBuilder: (BuildContext context, int index) {

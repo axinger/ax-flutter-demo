@@ -277,7 +277,6 @@ class _MinePage extends State<ShowTestPage> {
         "40-获得尺寸",
         P40SizePage(),
       ),
-
     ];
 
     return Scaffold(

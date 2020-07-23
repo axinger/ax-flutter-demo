@@ -62,7 +62,7 @@ class _HomePage extends State<HomePage> {
 
             /*切换按钮放在导航栏中*/
             bottom: TabBar(
-              indicatorColor:Colors.red,
+              indicatorColor: Colors.red,
               tabs: <Widget>[
                 Tab(
                   text: "主页",
