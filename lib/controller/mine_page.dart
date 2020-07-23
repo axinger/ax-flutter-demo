@@ -39,7 +39,9 @@ class _MinePage extends State<MinePage> {
 //              backgroundColor: Colors.transparent,
         actions: <Widget>[
           FlatButton(
-            child: Text("登录", style: TextStyle(color: Colors.red)),
+
+            color: Colors.purple,
+            child: Text("登录", style: TextStyle(color: Colors.red,backgroundColor: Colors.green)),
             onPressed: () {
               print("========");
 //                    FlutterBoost.singleton.open("route_MaterialPage1");
@@ -47,15 +49,20 @@ class _MinePage extends State<MinePage> {
               push(context: context, widget: LoginView());
             },
           ),
-          FlatButton(
-            child: Text("退出", style: TextStyle(color: Colors.red)),
-            onPressed: () {
-              BlocProvider.of<AuthenticationBloc>(context)
-                  .add(AuthenticationLoggedOutEvent());
-            },
+//          FlatButton(
+//            color: Colors.indigo,
+//            child: Text("退出", style: TextStyle(color: Colors.red,backgroundColor: Colors.green)),
+//            onPressed: () {
+//              BlocProvider.of<AuthenticationBloc>(context)
+//                  .add(AuthenticationLoggedOutEvent());
+//            },
+//          ),
+          Center(
+            child: Text("退出", style: TextStyle(color: Colors.red,backgroundColor: Colors.green)),
           ),
           FlatButton(
-            child: Text("测试页面", style: TextStyle(color: Colors.red)),
+            color: Colors.purple,
+            child: Text("测试页面", style: TextStyle(color: Colors.red,backgroundColor: Colors.green)),
             onPressed: () {
               print("========");
               Navigator.push<String>(
