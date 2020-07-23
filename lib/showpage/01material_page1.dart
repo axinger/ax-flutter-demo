@@ -16,7 +16,7 @@ class MaterialPage1 extends StatefulWidget {
 
 class _MyPage extends State<MaterialPage1> {
   /// 悬浮按钮
-  var _floatingActionButton = FloatingActionButton(
+  final _floatingActionButton = FloatingActionButton(
     onPressed: () {},
     child: Icon(Icons.add),
     backgroundColor: Colors.orange,
@@ -28,11 +28,6 @@ class _MyPage extends State<MaterialPage1> {
     elevation: 0,
   );
 
-  var _floatingActionButton2 = FloatingActionButton.extended(
-    onPressed: () {},
-    icon: Icon(Icons.add),
-    label: Text("按钮"),
-  );
 
   bool isOffstage = false;
   bool isVisibility = false;
@@ -96,8 +91,8 @@ class _MyPage extends State<MaterialPage1> {
         }
 
         Navigator.of(context).pushNamed('/sub2', arguments: {
-          "title": "透传title",
-          "name": 'postbird',
+          'title': '透传title',
+          'name': 'postbird',
           'passw': '123456'
         });
 
@@ -110,7 +105,7 @@ class _MyPage extends State<MaterialPage1> {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: Text("按钮组件,WillPopScope会拦截ios返回手势"),
+          title: Text('按钮组件,WillPopScope会拦截ios返回手势'),
           actions: <Widget>[
             FlatButton(
               child: Text(widget.key.toString()),
@@ -160,10 +155,10 @@ class _MyPage extends State<MaterialPage1> {
               },
               //点击事件
               onSelected: (value) {
-                print("点击了$value");
+                print('点击了$value');
               },
               onCanceled: () {
-                print("取消了");
+                print('取消了');
               },
             ),
           ],
@@ -248,9 +243,9 @@ class _MyPage extends State<MaterialPage1> {
               );
             }),
         persistentFooterButtons: [
-          Text("A"),
-          Text("B"),
-          Text("C"),
+          Text('A'),
+          Text('B'),
+          Text('C'),
         ],
 
         body: Container(
@@ -352,7 +347,7 @@ class _MyPage extends State<MaterialPage1> {
               ),
 
               FlatButton(
-                child: Text("控制是否可以直接返回"),
+                child: Text('控制是否可以直接返回'),
                 splashColor: Colors.red,
                 color: Colors.green,
                 textColor: Colors.white,
@@ -364,7 +359,7 @@ class _MyPage extends State<MaterialPage1> {
                 height: 20,
               ),
               FlatButton(
-                child: Text("显示隐藏-Visibility"),
+                child: Text('显示隐藏-Visibility'),
                 splashColor: Colors.red,
                 color: Colors.green,
                 textColor: Colors.white,
@@ -375,7 +370,7 @@ class _MyPage extends State<MaterialPage1> {
                 },
               ),
               FlatButton(
-                child: Text("显示隐藏-Offstage"),
+                child: Text('显示隐藏-Offstage'),
                 splashColor: Colors.red,
                 color: Colors.green,
                 textColor: Colors.white,
@@ -404,7 +399,7 @@ class _MyPage extends State<MaterialPage1> {
                 height: 50,
               ),
               FlatButton(
-                child: Text("控制下面这个"),
+                child: Text('控制下面这个'),
                 splashColor: Colors.red,
                 color: Colors.green,
                 textColor: Colors.white,
@@ -415,7 +410,7 @@ class _MyPage extends State<MaterialPage1> {
               ),
               CupertinoButton(
                 color: Colors.orange,
-                child: Text("ios DatePicker"),
+                child: Text('ios DatePicker'),
                 onPressed: () {
                   _showCupertinoDatePicker(context);
                 },
@@ -449,7 +444,7 @@ class _MyPage extends State<MaterialPage1> {
                   /// 输入的文字
                   onChanged: (value) {
 //                      username = value;
-//                      print("username = " + username);
+//                      print('username = ' + username);
 //
 //                      /// 强制重绘
 //                      setState(() {});
@@ -464,7 +459,7 @@ class _MyPage extends State<MaterialPage1> {
                   /// 右下角 键盘类型
                   textInputAction: TextInputAction.send,
                   onSubmitted: (value) {
-                    print("提交手机号" + value);
+                    print('提交手机号' + value);
                   },
 
                   inputFormatters: <TextInputFormatter>[
@@ -483,8 +478,8 @@ class _MyPage extends State<MaterialPage1> {
                     icon: Icon(
                       Icons.phone,
                     ),
-                    hintText: "请输入手机号",
-                    labelText: "手机号",
+                    hintText: '请输入手机号',
+                    labelText: '手机号',
                     hintStyle: TextStyle(
                       fontSize: 16.0,
                       color: Colors.red,
@@ -500,7 +495,7 @@ class _MyPage extends State<MaterialPage1> {
                     /// right 小组件
                     suffixIcon: MaterialButton(
                       child: Text(
-                        "获取验证码5",
+                        '获取验证码5',
                         style: TextStyle(fontSize: 14.0),
                       ),
                       textColor: Colors.black,
@@ -514,7 +509,7 @@ class _MyPage extends State<MaterialPage1> {
                 height: 20,
               ),
               FlatButton(
-                child: Text("flutter日期选择"),
+                child: Text('flutter日期选择'),
                 onPressed: () {
                   _selectDateFunc();
                 },
@@ -527,7 +522,7 @@ class _MyPage extends State<MaterialPage1> {
               ),
               CupertinoButton(
                 color: Colors.orange,
-                child: Text("ios TimerPicker"),
+                child: Text('ios TimerPicker'),
                 onPressed: () {
                   _showCupertinoTimerPicker(context);
                 },
@@ -536,7 +531,7 @@ class _MyPage extends State<MaterialPage1> {
                 height: 20,
               ),
               FlatButton(
-                child: Text("flutter 时间选择"),
+                child: Text('flutter 时间选择'),
                 onPressed: () {
                   _selectTimeFunc();
                 },
@@ -549,7 +544,7 @@ class _MyPage extends State<MaterialPage1> {
               ),
               CupertinoButton(
                 color: Colors.orange,
-                child: Text("ios DatePicker"),
+                child: Text('ios DatePicker'),
                 onPressed: () {
                   _cupertinoDatePicker(context);
                 },
@@ -652,7 +647,7 @@ class _MyPage extends State<MaterialPage1> {
                 },
                 child: Padding(
                   padding: new EdgeInsets.all((50)),
-                  child: new Text("Padding测试Buton的宽度"),
+                  child: new Text('Padding测试Buton的宽度'),
                 ),
 //                  ///圆角
                 shape: RoundedRectangleBorder(
@@ -671,7 +666,7 @@ class _MyPage extends State<MaterialPage1> {
                 alignment: Alignment.center,
 //            height: 20,
                 child: FlatButton(
-                  child: Text("FlatButton 加宽"),
+                  child: Text('FlatButton 加宽'),
                   onPressed: () {},
                   splashColor: Colors.red,
                   color: Colors.green,
@@ -680,7 +675,7 @@ class _MyPage extends State<MaterialPage1> {
               ),
 
               FlatButton(
-                child: Text("FlatButton"),
+                child: Text('FlatButton'),
                 onPressed: () {},
                 splashColor: Colors.red,
                 color: Colors.green,
@@ -689,7 +684,7 @@ class _MyPage extends State<MaterialPage1> {
 
               FlatButton.icon(
                 icon: Icon(Icons.add),
-                label: Text("FlatButton.icon"),
+                label: Text('FlatButton.icon'),
                 onPressed: () {},
 
                 /// 点击高亮颜色
@@ -699,11 +694,11 @@ class _MyPage extends State<MaterialPage1> {
 
               FlatButton.icon(
                 ///
-                icon: Image.asset("assets/image/红包.png", width: 40, height: 40),
-                //ImageIcon(AssetImage("assets/image/红包.png")),
-//                  icon: ImageIcon(AssetImage("assets/image/红包.png"),color: Colors.red,),
+                icon: Image.asset('assets/image/红包.png', width: 40, height: 40),
+                //ImageIcon(AssetImage('assets/image/红包.png')),
+//                  icon: ImageIcon(AssetImage('assets/image/红包.png'),color: Colors.red,),
 
-                label: Text("FlatButton"),
+                label: Text('FlatButton'),
                 onPressed: () {},
                 splashColor: Colors.orange,
                 color: Colors.green,
@@ -712,7 +707,7 @@ class _MyPage extends State<MaterialPage1> {
               /// 点击有波纹效果 阴影效果
               RaisedButton.icon(
                 icon: Icon(Icons.add),
-                label: Text("RaisedButton.icon"),
+                label: Text('RaisedButton.icon'),
                 onPressed: () {},
 
                 /// 点击高亮颜色
@@ -724,7 +719,7 @@ class _MyPage extends State<MaterialPage1> {
               /// 描边
               OutlineButton.icon(
                 icon: Icon(Icons.add),
-                label: Text("OutlineButton.icon"),
+                label: Text('OutlineButton.icon'),
                 onPressed: () {},
 
                 /// 点击高亮颜色
@@ -737,7 +732,7 @@ class _MyPage extends State<MaterialPage1> {
 
               /// 描边
               OutlineButton(
-                child: Text("OutlineButton"),
+                child: Text('OutlineButton'),
                 onPressed: () {},
 
                 /// 点击高亮颜色
@@ -752,7 +747,7 @@ class _MyPage extends State<MaterialPage1> {
                 children: <Widget>[
                   Expanded(
                     child: FlatButton(
-                      child: Text("FlatButton"),
+                      child: Text('FlatButton'),
                       onPressed: () {},
                       splashColor: Colors.red,
                       color: Colors.green,
@@ -767,7 +762,7 @@ class _MyPage extends State<MaterialPage1> {
                   /// Expanded 可用空间
                   Expanded(
                     child: FlatButton(
-                      child: Text("FlatButton"),
+                      child: Text('FlatButton'),
                       onPressed: () {},
                       splashColor: Colors.red,
                       color: Colors.green,
@@ -782,7 +777,7 @@ class _MyPage extends State<MaterialPage1> {
                   Expanded(
                     flex: 2,
                     child: FlatButton(
-                      child: Text("FlatButton"),
+                      child: Text('FlatButton'),
                       onPressed: () {},
                       splashColor: Colors.red,
                       color: Colors.green,
@@ -797,21 +792,21 @@ class _MyPage extends State<MaterialPage1> {
                 alignment: MainAxisAlignment.center,
                 children: <Widget>[
                   FlatButton(
-                    child: Text("FlatButton"),
+                    child: Text('FlatButton'),
                     onPressed: () {},
                     splashColor: Colors.red,
                     color: Colors.green,
                     textColor: Colors.white,
                   ),
                   FlatButton(
-                    child: Text("ButtonBar-FlatButton"),
+                    child: Text('ButtonBar-FlatButton'),
                     onPressed: () {},
                     splashColor: Colors.red,
                     color: Colors.green,
                     textColor: Colors.white,
                   ),
                   FlatButton(
-                    child: Text("FlatButton"),
+                    child: Text('FlatButton'),
                     onPressed: () {},
                     splashColor: Colors.red,
                     color: Colors.green,
@@ -821,20 +816,20 @@ class _MyPage extends State<MaterialPage1> {
               ),
 
               SizedBox.fromSize(size: Size.fromHeight(20)),
-              Text("PopupMenuButton"),
+              Text('PopupMenuButton'),
               PopupMenuButton(
                 icon: Icon(Icons.add),
                 onSelected: (value) {
-                  print("value = $value");
+                  print('value = $value');
                 },
                 itemBuilder: (BuildContext context) => [
                   PopupMenuItem(
                     value: 1,
-                    child: Text("1"),
+                    child: Text('1'),
                   ),
                   PopupMenuItem(
                     value: 2,
-                    child: Text("2"),
+                    child: Text('2'),
                   ),
                 ],
               ),
@@ -842,7 +837,7 @@ class _MyPage extends State<MaterialPage1> {
               SizedBox.fromSize(size: Size.fromHeight(20)),
 
               /// 自动换行的row
-              Text("自动换行的row--Wrap"),
+              Text('自动换行的row--Wrap'),
               Wrap(children: <Widget>[for (String item in tags) TagItem(item)]),
 //              ],
 //            )
@@ -861,7 +856,7 @@ class _MyPage extends State<MaterialPage1> {
       use24hFormat: true,
       mode: CupertinoDatePickerMode.date,
       onDateTimeChanged: (date) {
-        print("the date is ${date.toString()}");
+        print('the date is ${date.toString()}');
       },
     );
 
@@ -964,16 +959,16 @@ class TagItem extends StatelessWidget {
 }
 
 const List<String> tags = [
-  "肯德基",
-  "小哥哥你的东西掉了",
-  "小姐姐好漂亮啊",
-  "这个东西是啥",
-  "哈哈哈",
-  "好困啊",
-  "今天好运",
-  "明天好运来",
-  "今年快结束了",
-  "我累啊",
-  "你写的什么代码",
-  "多多多"
+  '肯德基',
+  '小哥哥你的东西掉了',
+  '小姐姐好漂亮啊',
+  '这个东西是啥',
+  '哈哈哈',
+  '好困啊',
+  '今天好运',
+  '明天好运来',
+  '今年快结束了',
+  '我累啊',
+  '你写的什么代码',
+  '多多多'
 ];

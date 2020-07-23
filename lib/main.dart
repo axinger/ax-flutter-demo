@@ -208,7 +208,7 @@ class _MyApp extends State<MyApp> with WidgetsBindingObserver {
     return MaterialApp(
       title: 'Flutter Demo',
       navigatorKey: navigatorState,
-
+      debugShowCheckedModeBanner: false,
       /// 本地化
       localizationsDelegates: [
         /// 安卓风格国际化
