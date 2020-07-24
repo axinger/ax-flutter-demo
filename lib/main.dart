@@ -14,11 +14,11 @@ import 'package:flutter_easyrefresh/easy_refresh.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:package_info/package_info.dart';
 
-import 'authentication/authentication_event.dart';
+import 'module/authentication/authentication_event.dart';
 import 'controller/root_cupertino_tab_bar.dart';
 import 'controller/root_page.dart';
 import 'global_const.dart';
-import 'login/view/login_view.dart';
+import 'module/login/view/login_view.dart';
 //void main() => runApp(MyApp());
 
 //void main() async {
@@ -209,6 +209,7 @@ class _MyApp extends State<MyApp> with WidgetsBindingObserver {
       title: 'Flutter Demo',
       navigatorKey: navigatorState,
       debugShowCheckedModeBanner: false,
+
       /// 本地化
       localizationsDelegates: [
         /// 安卓风格国际化

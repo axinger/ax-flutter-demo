@@ -28,7 +28,6 @@ class _MyPage extends State<MaterialPage1> {
     elevation: 0,
   );
 
-
   bool isOffstage = false;
   bool isVisibility = false;
   bool isBack = true;

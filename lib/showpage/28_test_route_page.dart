@@ -44,25 +44,22 @@ class _MaterialPage extends State<P28RoutePage> {
               });
             },
           ),
-
           FlatButton(
             child: Text("pushReplacement"),
             onPressed: () {
-              pushReplacement(context: context,widget:P28RoutePageSub1() );
-
+              pushReplacement(context: context, widget: P28RoutePageSub1());
             },
           ),
           FlatButton(
             child: Text("pushAndRemoveUntil"),
             onPressed: () {
-              pushAndRemoveUntil(context: context,widget:P28RoutePageSub1() );
+              pushAndRemoveUntil(context: context, widget: P28RoutePageSub1());
 
-              Future.delayed(Duration(seconds: 2),(){
+              Future.delayed(Duration(seconds: 2), () {
                 pop(context);
               });
             },
           ),
-
         ],
       ),
     );

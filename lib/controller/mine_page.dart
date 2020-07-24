@@ -1,5 +1,5 @@
 import 'package:ax_flutter_demo/global_const.dart';
-import 'package:ax_flutter_demo/login/view/login_view.dart';
+import 'package:ax_flutter_demo/module/login/view/login_view.dart';
 import 'package:ax_flutter_demo/showpage/00-test_page.dart';
 import 'package:ax_flutter_util/ax_flutter_util.dart';
 import 'package:flutter/material.dart';

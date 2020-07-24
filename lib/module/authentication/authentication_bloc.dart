@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:convert' show json;
 
-import 'package:ax_flutter_demo/authentication/user_info.dart';
+import 'user_info.dart';
 import 'package:bloc/bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
