@@ -209,18 +209,44 @@ class _MyPage extends State<MaterialPage1> {
                                 child: FlatButton(
                                   child: Text('请求'),
                                   onPressed: () async {
-                                    Map<String, dynamic> params = {
-                                      'name': 'jim',
-                                      'age': 9
-                                    };
-
-                                    Dio _dio = new Dio(); // 使用默认配置
-                                    Response response = await _dio.post(
-                                      'http://localhost:8080/test21',
-                                      queryParameters: params,
+                                    var options = BaseOptions(
+                                      connectTimeout: 15000,
+                                      receiveTimeout: 15000,
+//                                      responseType: ResponseType.plain,
+//                                      validateStatus: (status) {
+//                                        print('status = $status');
+//                                        // 不使用http状态码判断状态，使用AdapterInterceptor来处理（适用于标准REST风格）
+//                                        return false;
+//                                      },
+                                      baseUrl: 'http://localhost:8080',
                                     );
 
-                                    print('response = ${response}');
+                                    Map<String, dynamic> params = {
+                                      'name': 'jim',
+                                    };
+
+                                    Dio _dio =  Dio(options); // 使用默认配置
+
+                                    _dio.post(
+                                      '/test6',
+                                      data:params,
+                                    ).catchError((onError){
+                                      print('onError = $onError');
+                                    }).then((value){
+                                      print('response = ${value}');
+                                    });
+
+
+
+//                                    try{
+//                                      Response response = await Dio().get(
+//                                          'http://127.0.0.1:8080//test4?name=jim'
+//                                      );
+//                                       print(response);
+//                                    }catch(e){
+//                                       print(e);
+//                                    }
+
                                   },
                                 ),
                               ),
