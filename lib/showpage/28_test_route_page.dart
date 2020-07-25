@@ -1,3 +1,4 @@
+import 'package:ax_flutter_util/ax_flutter_util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -40,6 +41,22 @@ class _MaterialPage extends State<P28RoutePage> {
                 "title": "透传title",
                 "name": 'postbird',
                 'passw': '123456'
+              });
+            },
+          ),
+          FlatButton(
+            child: Text("pushReplacement"),
+            onPressed: () {
+              pushReplacement(context: context, widget: P28RoutePageSub1());
+            },
+          ),
+          FlatButton(
+            child: Text("pushAndRemoveUntil"),
+            onPressed: () {
+              pushAndRemoveUntil(context: context, widget: P28RoutePageSub1());
+
+              Future.delayed(Duration(seconds: 2), () {
+                pop(context);
               });
             },
           ),

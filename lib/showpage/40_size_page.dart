@@ -70,10 +70,8 @@ class _MinePage extends State<P40SizePage> {
       body: Stack(
         overflow: Overflow.visible,
         children: <Widget>[
-
           Row(
             children: <Widget>[
-
               Container(
                 color: Colors.blue,
                 child: Column(
@@ -88,7 +86,6 @@ class _MinePage extends State<P40SizePage> {
                   ],
                 ),
               ),
-
               RectProvider(
                   child: Container(
                     margin: EdgeInsets.only(top: 30, right: 20),

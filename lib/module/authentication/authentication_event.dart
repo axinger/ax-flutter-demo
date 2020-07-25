@@ -1,4 +1,4 @@
-import 'package:ax_flutter_demo/login/model/user_repository.dart';
+import 'package:ax_flutter_demo/module/login/model/user_repository.dart';
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 

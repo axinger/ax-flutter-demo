@@ -1,10 +1,10 @@
-import 'package:ax_flutter_demo/authentication/authentication_event.dart';
-import 'package:ax_flutter_demo/login/model/user_repository.dart';
+import 'package:ax_flutter_demo/module/authentication/authentication_event.dart';
+import 'package:ax_flutter_demo/module/login/model/user_repository.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../../global_const.dart';
+import '../../../global_const.dart';
 import 'login_view_form_tf.dart';
 
 class LoginView extends StatefulWidget {
@@ -172,9 +172,8 @@ class _ContainerTF extends State<ContainerTF> {
                   textColor: Colors.black,
                   disabledTextColor: Colors.grey,
 //                  onPressed: (username.isEmpty) ? null : () {},
-                  onPressed:() {},
+                  onPressed: () {},
                 ),
-
               ),
             ),
 

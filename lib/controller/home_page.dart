@@ -1,3 +1,4 @@
+import 'package:ax_flutter_demo/module/login/view/login_view.dart';
 import 'package:ax_flutter_util/ax_flutter_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -7,8 +8,7 @@ import '../controller/content_page.dart';
 import '../controller/home_second_page.dart';
 import '../controller/page_view_widget.dart';
 import '../global_const.dart';
-import '../login/view/login_view.dart';
-import '../view/drawer_view.dart';
+import '../component/drawer_view.dart';
 
 class HomePage extends StatefulWidget {
   final String title;
@@ -62,6 +62,7 @@ class _HomePage extends State<HomePage> {
 
             /*切换按钮放在导航栏中*/
             bottom: TabBar(
+              indicatorColor: Colors.red,
               tabs: <Widget>[
                 Tab(
                   text: "主页",

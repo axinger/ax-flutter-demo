@@ -18,6 +18,7 @@ environment:
 #  sdk: ">=2.0.3 <2.1.0"
 #    flutter: ^1.17.0
 
+# 生产环境,不要用^获取组件版本号,不稳定
 dependencies:
   flutter:
     sdk: flutter
@@ -95,13 +96,7 @@ dependencies:
 
   binding_helper: 0.0.1
 
-
-
-
-
-
-
-
+  ##==============================谷歌组件======================================##
   ## 谷歌维护的库 https://github.com/flutter/plugins
 
 
@@ -130,7 +125,7 @@ dependencies:
   #官方插件：webview_flutter
   webview_flutter: ^0.3.21
 
-    #适用于iOS，Android和Web的Flutter插件，用于在Widget表面上播放视频.
+  #适用于iOS，Android和Web的Flutter插件，用于在Widget表面上播放视频.
   #  video_player: 0.10.10
 
   # lutter插件，用于访问有关运行应用程序的设备电池的各种信息.
@@ -147,7 +142,8 @@ dependencies:
   #快速操作是指iOS上的同义概念以及Android上的App Shortcuts API（在Android 7.1 / API 25级中引入）.
   #在Android的早期版本中运行此插件是安全的，因为它将产生Noop.
   #quick_actions: 0.4.0+4
-  ##########################################################################
+
+  ##==============================阿星组件======================================##
 
   #  ax_flutter_util:
   #    git:
@@ -166,6 +162,7 @@ dependencies:
   ax_flutter_toast:
     path: ../ax_flutter_toast
 
+  ##=============================================================================##
 
 
 

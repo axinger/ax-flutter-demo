@@ -4,6 +4,7 @@ import 'package:ax_flutter_demo/controller/mine_page.dart';
 import 'package:ax_flutter_demo/global_const.dart';
 import 'package:ax_flutter_demo/showpage/00-test_page.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class MyBottomItem {
@@ -12,8 +13,8 @@ class MyBottomItem {
     Icon icon,
     Widget activeIcon,
     Widget content,
-  })  : this.content = content,
-        this.barItem = BottomNavigationBarItem(
+  })  : content = content,
+        barItem = BottomNavigationBarItem(
           icon: icon,
           title: Text(
             title,
@@ -37,7 +38,7 @@ class MyBottomItem {
 
 // ignore: must_be_immutable
 class RootTabBar extends StatelessWidget {
-  List<MyBottomItem> _bottomItemList = <MyBottomItem>[
+  final _bottomItemList = <MyBottomItem>[
     MyBottomItem(
       title: localString.honeTitle,
       icon: Icon(Icons.home),
@@ -45,18 +46,18 @@ class RootTabBar extends StatelessWidget {
       content: HomePage(),
     ),
     MyBottomItem(
-      title: "记录",
+      title: '记录',
       icon: Icon(Icons.history),
       content: HistoryPage(),
     ),
     MyBottomItem(
-      title: "我的",
+      title: '我的',
       icon: Icon(Icons.person),
       activeIcon: Icon(Icons.person),
       content: MinePage(),
     ),
     MyBottomItem(
-      title: "测试",
+      title: '测试',
       icon: Icon(Icons.desktop_mac),
       content: ShowTestPage(),
     ),
@@ -67,6 +68,12 @@ class RootTabBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (kReleaseMode) {
+      print('Mode = kReleaseMode');
+    } else {
+      print('Mode = kBug');
+    }
+
     return CupertinoTabScaffold(
         controller: tabController,
         tabBar: CupertinoTabBar(

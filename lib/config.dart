@@ -1,4 +1,4 @@
-const KPlaceholderImageName = "assets/image/placeholderImage.png";
+const KPlaceholderImageName = 'assets/image/placeholderImage.png';
 
 String assetsOfImagePath(String name) {
   return 'assets/image/$name';

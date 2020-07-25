@@ -100,7 +100,7 @@ class _MinePage extends State<ShowTestPage> {
   @override
   void initState() {
     super.initState();
-    this.completeCallback = ({String name, int age}) {
+    completeCallback = ({String name, int age}) {
       print('name = ${name}');
     };
     print('ShowTestPage = ${widget.runtimeType}');
@@ -110,174 +110,173 @@ class _MinePage extends State<ShowTestPage> {
   Widget build(BuildContext context) {
     data = [
       _listCell(
-        "01-按钮组件1",
+        '01-按钮组件1',
         MaterialPage1(),
       ),
       _listCell(
-        "02-按钮组件2",
+        '02-按钮组件2',
         MaterialPage2(),
       ),
       _listCell(
-        "03-复选,开关等",
+        '03-复选,开关等',
         MaterialPageDate(),
       ),
       _listCell(
-        "04-弹窗",
+        '04-弹窗',
         P04MaterialPageDialog(),
       ),
       _listCell(
-        "05-Chip 标签",
+        '05-Chip 标签',
         MaterialPageChip(),
       ),
       _listCell(
-        "06-DataTable",
+        '06-DataTable',
         MaterialDataTablePage(),
       ),
       _listCell(
-        "07-分页DataTable",
+        '07-分页DataTable',
         MaterialPaginatedDataTablePage(),
       ),
       _listCell(
-        "08-卡片",
+        '08-卡片',
         MaterialPageCard(),
       ),
       _listCell(
-        "09-步骤",
+        '09-步骤',
         MaterialPageStepper(),
       ),
       _listCell(
-        "10-InheritedWidget子widget之间传参",
+        '10-InheritedWidget子widget之间传参',
         MaterialPageInheritedWidget(),
       ),
       _listCell(
-        "11-Stream 监听",
+        '11-Stream 监听',
         MaterialPageStream(),
       ),
       _listCell(
-        "12-RxDart",
+        '12-RxDart',
         MaterialPageRxDart(),
       ),
       _listCell(
-        "13-Bloc业务 依赖 Streams 独家使用输入（Sink）和输出（stream）",
+        '13-Bloc业务 依赖 Streams 独家使用输入（Sink）和输出（stream）',
         MaterialPageBloc(),
       ),
       _listCell(
-        "14-各种BuilderWidget",
+        '14-各种BuilderWidget',
         P14AllBuilderPage(),
       ),
       _listCell(
-        "15-动画",
+        '15-动画',
         MaterialPageAnimation(),
       ),
       _listCell(
-        "16-国际化",
+        '16-国际化',
         MaterialPageI18n(),
       ),
       _listCell(
-        "17-本地存储",
+        '17-本地存储',
         MaterialPageSql(),
       ),
       _listCell(
-        "18-多行Text",
+        '18-多行Text',
         MaterialPageMoreText(),
       ),
       _listCell(
-        "19-自定义插件",
+        '19-自定义插件',
         MaterialPagePlugin(),
       ),
       _listCell(
-        "20-相机和相册",
+        '20-相机和相册',
         ImagePickerWidget(),
       ),
       _listCell(
-        "21-FutureAndAwaitTest",
+        '21-FutureAndAwaitTest',
         FutureAndAwaitTest(),
       ),
       _listCell(
-        "22-1-WebView-https",
+        '22-1-WebView-https',
         WebViewPage(),
       ),
       _listCell(
-        "22-2-WebView-本地html",
+        '22-2-WebView-本地html',
         LocalHtmlPage(),
       ),
       _listCell(
-        "23-ListView",
+        '23-ListView',
         ListViewPage(),
       ),
       _listCell(
-        "24-ListView,第三方侧滑",
+        '24-ListView,第三方侧滑',
         ListViewActionPage(),
       ),
       _listCell(
-        "25-ListView,多个拼接,禁止滚动,截图",
+        '25-ListView,多个拼接,禁止滚动,截图',
         P25MoreListViewPage(),
       ),
       _listCell(
-        "26-EVENT_BUS,封装stream",
+        '26-EVENT_BUS,封装stream',
         P26TestEventPage(),
       ),
       _listCell(
-        "27- async和async*",
+        '27- async和async*',
         P27AsyncPage(),
       ),
       _listCell(
-        "28- 跳转路由",
+        '28- 跳转路由',
         P28RoutePage(),
       ),
       _listCell(
-        "29- AnimatedList",
+        '29- AnimatedList',
         AnimatedListSample(),
       ),
       _listCell(
-        "30-包含在溢出下拉菜单中",
+        '30-包含在溢出下拉菜单中',
         BasicAppBarSample(),
       ),
       _listCell(
-        "31-AnimatedWidget",
+        '31-AnimatedWidget',
         P31TestAnimation(),
       ),
       _listCell(
-        "32-AnimatedBuilder",
+        '32-AnimatedBuilder',
         P32TestAnimation(),
       ),
       _listCell(
-        "32-Hive数据存储",
+        '32-Hive数据存储',
         P33DbHive(),
       ),
       _listCell(
-        "34-单个Provider和Consumer",
+        '34-单个Provider和Consumer',
         P34Provider(),
       ),
       _listCell(
-        "34-多个Provider和Consumer",
+        '34-多个Provider和Consumer',
         P34MultiProvider(),
       ),
       _listCell(
-        "35-TestWidget",
+        '35-TestWidget',
         P35TestTodoList(),
       ),
       _listCell(
-        "36-识别",
+        '36-识别',
         P36TouchAuthDemoPage(),
       ),
       _listCell(
-        "37-P37PopupRoutePage",
+        '37-P37PopupRoutePage',
         P37PopupRoutePage(),
       ),
       _listCell(
-        "38-居中向上布局",
+        '38-居中向上布局',
         P38CenterUpPage(),
       ),
       _listCell(
-        "39-圆形图片",
+        '39-圆形图片',
         P39CirclePage(),
       ),
       _listCell(
-        "40-获得尺寸",
+        '40-获得尺寸',
         P40SizePage(),
       ),
-
     ];
 
     return Scaffold(
@@ -290,7 +289,7 @@ class _MinePage extends State<ShowTestPage> {
           children: <Widget>[
             /// 导航栏 背景图
             Image.asset(
-              "assets/image/A171.jpg",
+              'assets/image/A171.jpg',
               fit: BoxFit.cover,
               height: double.infinity,
               width: double.infinity,
@@ -299,7 +298,7 @@ class _MinePage extends State<ShowTestPage> {
             /// 导航栏
             AppBar(
               title: Text(
-                "测试",
+                '测试',
                 style: TextStyle(color: Colors.red),
               ),
               centerTitle: true,
@@ -307,14 +306,14 @@ class _MinePage extends State<ShowTestPage> {
               actions: <Widget>[
                 FlatButton(
                   color: Colors.red,
-                  child: Text("右1completeCallback"),
+                  child: Text('右1completeCallback'),
                   onPressed: () {
                     completeCallback(name: 'jim', age: 19);
                   },
                 ),
                 FlatButton(
                   color: Colors.orange,
-                  child: Text("右2"),
+                  child: Text('右2'),
                   onPressed: () {},
                 ),
                 FlatButton(

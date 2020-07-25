@@ -1,4 +1,3 @@
-
 import 'dart:io';
 import 'dart:ui';
 
@@ -8,19 +7,18 @@ import 'package:ax_flutter_demo/generated/l10n.dart';
 import 'package:ax_flutter_demo/showpage/01material_page1.dart';
 import 'package:ax_flutter_demo/showpage/28_test_route_page.dart';
 import 'package:device_info/device_info.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:package_info/package_info.dart';
 
-import 'authentication/authentication_event.dart';
+import 'module/authentication/authentication_event.dart';
 import 'controller/root_cupertino_tab_bar.dart';
 import 'controller/root_page.dart';
 import 'global_const.dart';
-import 'login/view/login_view.dart';
-
-import 'package:flutter/foundation.dart';
+import 'module/login/view/login_view.dart';
 //void main() => runApp(MyApp());
 
 //void main() async {
@@ -82,26 +80,25 @@ class _MyApp extends State<MyApp> with WidgetsBindingObserver {
 //      return true;
 //    };
 
-    if (kReleaseMode){ //
-    //release
-    print('Mode = kReleaseMode');
-    }else {
-    //debug
-    print('Mode = kBug');
+    if (kReleaseMode) {
+      //
+      //release
+      print('Mode = kReleaseMode');
+    } else {
+      //debug
+      print('Mode = kBug');
     }
-
 
     const bool inProduction = const bool.fromEnvironment("dart.vm.product");
     print('inProduction = $inProduction');
 
-    const basicMessageChannel = const BasicMessageChannel('Android_back', StringCodec());
-
+    const basicMessageChannel =
+        const BasicMessageChannel('Android_back', StringCodec());
 
 //接受并回复消息
     basicMessageChannel.setMessageHandler(
-          (String message) => Future<String>(() {
-
-            print('收到消息===============');
+      (String message) => Future<String>(() {
+        print('收到消息===============');
 
 //        setState(() {
 //          this.message = message;
@@ -208,11 +205,10 @@ class _MyApp extends State<MyApp> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
-
-
     return MaterialApp(
       title: 'Flutter Demo',
       navigatorKey: navigatorState,
+      debugShowCheckedModeBanner: false,
 
       /// 本地化
       localizationsDelegates: [
