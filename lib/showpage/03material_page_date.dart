@@ -111,186 +111,201 @@ class _MaterialPage1 extends State<MaterialPageDate> {
       appBar: AppBar(
         title: Text("按钮组件"),
       ),
-      body: Container(
-        padding: EdgeInsets.all(12),
-//        color: Colors.blue,
-        child: Column(
-          /// 垂直对齐
-          mainAxisAlignment: MainAxisAlignment.start,
+      body:Column(
+        /// 垂直对齐
+//            mainAxisAlignment: MainAxisAlignment.start,
+//
+//            /// 水平对齐
+//            crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
 
-          /// 水平对齐
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Checkbox(
+
+          Text('比例视图'),
+          Container(
+            color: Colors.red,
+            height: 50.0,
+              child: AspectRatio(
+                aspectRatio: 2, //横纵比 长宽比
+                child: SizedBox(
+                  width: 10,
+                  height: 10,
+                  child: Container(
+                    color: Colors.orange,
+                  ),
+                ),
+              ),
+          ),
+
+          Checkbox(
 //              tristate: true,
-                value: _checkbox_value,
-                activeColor: Colors.red,
-                checkColor: Colors.orange,
-                focusColor: Colors.red,
-                hoverColor: Colors.red,
-                onChanged: (value) {
-                  _checkbox_value = value;
-                  setState(() {});
-                }),
-            CheckboxListTile(
-              title: Text("A"),
-              subtitle: Text("a-subtitle"),
-              secondary: Icon(Icons.home),
-              selected: _checkboxListTile_value,
-              value: _checkboxListTile_value,
-              onChanged: (value) {
-                setState(() {
-                  _checkboxListTile_value = value;
-                });
-              },
-            ),
-
-            Row(
-              children: <Widget>[
-                /// 单选
-                Radio(
-                  value: 0,
-                  groupValue: _Radio_value,
-                  activeColor: Colors.red,
-                  onChanged: (int value) {
-                    setState(() {
-                      _Radio_value = value;
-                    });
-                  },
-                ),
-
-                Radio(
-                  value: 1,
-                  groupValue: _Radio_value,
-                  activeColor: Colors.red,
-                  onChanged: (int value) {
-                    setState(() {
-                      _Radio_value = value;
-                    });
-                  },
-                ),
-              ],
-            ),
-
-            ///用row 显示不出来
-            /// 含有文字单选
-            Column(
-              children: <Widget>[
-                /// 单选
-                RadioListTile(
-                  title: Text("男"),
-                  subtitle: Text("男-sub"),
-                  selected: _RadioListTile_value == 0,
-                  secondary: Icon(Icons.filter_1),
-                  value: 0,
-                  groupValue: _RadioListTile_value,
-                  activeColor: Colors.red,
-                  onChanged: (int value) {
-                    setState(() {
-                      _RadioListTile_value = value;
-                    });
-                  },
-                ),
-
-                RadioListTile(
-                  title: Text("女"),
-                  subtitle: Text("女-sub"),
-                  secondary: Icon(Icons.filter_2),
-                  selected: _RadioListTile_value == 1,
-                  value: 1,
-                  groupValue: _RadioListTile_value,
-                  activeColor: Colors.red,
-                  onChanged: (int value) {
-                    setState(() {
-                      _RadioListTile_value = value;
-                    });
-                  },
-                ),
-              ],
-            ),
-
-            Switch(
-              value: _Switch_value,
-              onChanged: (value) {
-                setState(() {
-                  _Switch_value = value;
-                });
-                debugPrint(value.toString());
-              },
-            ),
-
-            SwitchListTile(
-              title: Text("SwitchListTile"),
-              subtitle: Text("SwitchListTile-sub"),
-              secondary: Icon(Icons.remove_red_eye),
-              selected: _Switch_value,
-              value: _Switch_value,
-              onChanged: (value) {
-                setState(() {
-                  _Switch_value = value;
-                });
-                debugPrint(value.toString());
-              },
-            ),
-
-            Slider(
-              value: _Slider_value,
+              value: _checkbox_value,
               activeColor: Colors.red,
-              inactiveColor: Colors.grey,
-              min: 0.0,
-              max: 10.0,
-              divisions: 10,
-
-              ///  divisions 才能有值
-              label: _Slider_value.toString(),
+              checkColor: Colors.orange,
+              focusColor: Colors.red,
+              hoverColor: Colors.red,
               onChanged: (value) {
-                setState(() {
-                  _Slider_value = value;
-                });
-                debugPrint(value.toString());
-              },
-            ),
+                _checkbox_value = value;
+                setState(() {});
+              }),
+          CheckboxListTile(
+            title: Text("A"),
+            subtitle: Text("a-subtitle"),
+            secondary: Icon(Icons.home),
+            selected: _checkboxListTile_value,
+            value: _checkboxListTile_value,
+            onChanged: (value) {
+              setState(() {
+                _checkboxListTile_value = value;
+              });
+            },
+          ),
 
-            FlatButton(
-              child: Text("日期选择"),
-              onPressed: () {
-                _selectDateFunc();
-              },
-              splashColor: Colors.red,
-              color: Colors.green,
-              textColor: Colors.white,
-            ),
+          Row(
+            children: <Widget>[
+              /// 单选
+              Radio(
+                value: 0,
+                groupValue: _Radio_value,
+                activeColor: Colors.red,
+                onChanged: (int value) {
+                  setState(() {
+                    _Radio_value = value;
+                  });
+                },
+              ),
 
-            Text(
+              Radio(
+                value: 1,
+                groupValue: _Radio_value,
+                activeColor: Colors.red,
+                onChanged: (int value) {
+                  setState(() {
+                    _Radio_value = value;
+                  });
+                },
+              ),
+            ],
+          ),
+
+          ///用row 显示不出来
+          /// 含有文字单选
+          Column(
+            children: <Widget>[
+              /// 单选
+              RadioListTile(
+                title: Text("男"),
+                subtitle: Text("男-sub"),
+                selected: _RadioListTile_value == 0,
+                secondary: Icon(Icons.filter_1),
+                value: 0,
+                groupValue: _RadioListTile_value,
+                activeColor: Colors.red,
+                onChanged: (int value) {
+                  setState(() {
+                    _RadioListTile_value = value;
+                  });
+                },
+              ),
+
+              RadioListTile(
+                title: Text("女"),
+                subtitle: Text("女-sub"),
+                secondary: Icon(Icons.filter_2),
+                selected: _RadioListTile_value == 1,
+                value: 1,
+                groupValue: _RadioListTile_value,
+                activeColor: Colors.red,
+                onChanged: (int value) {
+                  setState(() {
+                    _RadioListTile_value = value;
+                  });
+                },
+              ),
+            ],
+          ),
+
+          Switch(
+            value: _Switch_value,
+            onChanged: (value) {
+              setState(() {
+                _Switch_value = value;
+              });
+              debugPrint(value.toString());
+            },
+          ),
+
+          SwitchListTile(
+            title: Text("SwitchListTile"),
+            subtitle: Text("SwitchListTile-sub"),
+            secondary: Icon(Icons.remove_red_eye),
+            selected: _Switch_value,
+            value: _Switch_value,
+            onChanged: (value) {
+              setState(() {
+                _Switch_value = value;
+              });
+              debugPrint(value.toString());
+            },
+          ),
+
+          Slider(
+            value: _Slider_value,
+            activeColor: Colors.red,
+            inactiveColor: Colors.grey,
+            min: 0.0,
+            max: 10.0,
+            divisions: 10,
+
+            ///  divisions 才能有值
+            label: _Slider_value.toString(),
+            onChanged: (value) {
+              setState(() {
+                _Slider_value = value;
+              });
+              debugPrint(value.toString());
+            },
+          ),
+
+          FlatButton(
+            child: Text("日期选择"),
+            onPressed: () {
+              _selectDateFunc();
+            },
+            splashColor: Colors.red,
+            color: Colors.green,
+            textColor: Colors.white,
+          ),
+
+          Text(
 //              DateFormat.yMMMd().format(selectDateTime),
 
 //              DateFormat("yyyy-MM-dd").format(selectDateTime),
 
-              formatDate(selectDateTime, [yyyy, '-', mm, '-', dd]),
+            formatDate(selectDateTime, [yyyy, '-', mm, '-', dd]),
 //           DateTime.fromMillisecondsSinceEpoch(selectDateTime.millisecondsSinceEpoch).toString(),
-            ),
+          ),
 
-            FlatButton(
-              child: Text("时间选择"),
-              onPressed: () {
-                _selectTimeFunc();
-              },
-              splashColor: Colors.red,
-              color: Colors.green,
-              textColor: Colors.white,
-            ),
+          FlatButton(
+            child: Text("时间选择"),
+            onPressed: () {
+              _selectTimeFunc();
+            },
+            splashColor: Colors.red,
+            color: Colors.green,
+            textColor: Colors.white,
+          ),
 
-            Text(
-              selectTime.format(context),
+          Text(
+            selectTime.format(context),
 //           DateTime.fromMillisecondsSinceEpoch(selectDateTime.millisecondsSinceEpoch).toString(),
-            ),
+          ),
 
-            Text(
-              formatTimeOfDayalUse24Hour(selectTime, context),
+          Text(
+            formatTimeOfDayalUse24Hour(selectTime, context),
 //           DateTime.fromMillisecondsSinceEpoch(selectDateTime.millisecondsSinceEpoch).toString(),
-            ),
-          ],
-        ),
+          ),
+
+        ],
       ),
     );
   }
