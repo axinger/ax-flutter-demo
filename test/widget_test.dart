@@ -91,9 +91,11 @@ Iterable<int> foo2() sync* {
 
 void main() {
 
-  String newValue = '18905155609';
 
- print(newValue.replaceRange(3, 3, ' ').replaceRange(8, 8, ' '));
+
+//  String newValue = '18905155609';
+//
+// print(newValue.replaceRange(3, 3, ' ').replaceRange(8, 8, ' '));
 
 //  print(newValue.replaceRange(8, 8, ' '));
 

@@ -114,7 +114,7 @@ class _MinePage extends State<ShowTestPage> {
         MaterialPage1(),
       ),
       _listCell(
-        '02-按钮组件2',
+        '02-组件',
         MaterialPage2(),
       ),
       _listCell(
