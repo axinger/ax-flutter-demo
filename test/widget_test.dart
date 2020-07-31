@@ -90,15 +90,26 @@ Iterable<int> foo2() sync* {
 }
 
 void main() {
+  void _selectionAwareTextManipulation(
+    String value,
+    String substringManipulation(String substring),
+  ) {
+    print('value = $value');
+    print('substringManipulation = ${substringManipulation('jim')}');
+  }
 
 
+  _selectionAwareTextManipulation('tom', (substring) {
+    print('substring =$substring');
+
+    return substring*2;
+  });
 
 //  String newValue = '18905155609';
 //
 // print(newValue.replaceRange(3, 3, ' ').replaceRange(8, 8, ' '));
 
 //  print(newValue.replaceRange(8, 8, ' '));
-
 
 //  DateTime birthday = DateTime.parse('2020-07-24');
 //  DateTime  now = DateTime.parse('2020-06-29');

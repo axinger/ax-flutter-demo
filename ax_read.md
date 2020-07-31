@@ -144,3 +144,21 @@ void configLoading() {
     return textPainter.size.width;
   }
 ```
+
+##  String substringManipulation(String substring) 回调
+```dart
+
+  void _selectionAwareTextManipulation(
+    String value,
+    String substringManipulation(String substring),
+  ) {
+    print('value = $value');
+    print('substringManipulation = ${substringManipulation('jim')}');
+  }
+
+  _selectionAwareTextManipulation('tom', (substring) {
+    print('substring =$substring');
+
+    return substring*2;
+  });
+```

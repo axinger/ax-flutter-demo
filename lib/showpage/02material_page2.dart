@@ -123,7 +123,7 @@ class _MaterialPage23 extends State<MaterialPage2> {
                     },
                     onEditingComplete: () {},
 
-                    maxLength: 11,
+//                    maxLength: 11,
 
                     ///键盘类型
 //                    keyboardType: TextInputType.number,
@@ -135,7 +135,27 @@ class _MaterialPage23 extends State<MaterialPage2> {
                     },
 
                     inputFormatters: <TextInputFormatter>[
-                      WhitelistingTextInputFormatter.digitsOnly, //只输入数字
+//                      WhitelistingTextInputFormatter.digitsOnly, //只输入数字
+//                      TestTextInputFormatter(),
+//                      WhitelistingTextInputFormatter(RegExp("[a-zA-Z]")),//只允许输入字母
+
+//                      WhitelistingTextInputFormatter(RegExp(r'(\d+)(.\d{0,2})?$/')),
+
+//                      WhitelistingTextInputFormatter(RegExp(r'\d+'))
+
+//                      ///零和非零开头的数字
+//                      WhitelistingTextInputFormatter(RegExp(r'^(0|[1-9][0-9]*)$'))
+
+                      ///有两位小数的正实数
+//                      WhitelistingTextInputFormatter(RegExp(r'^[a-zA-Z][a-zA-Z0-9_]{4,15}$'))
+
+//                      WhitelistingTextInputFormatterExtension.chinesePhone,
+//                      PhoneTextInputFormatter.digitsOnly,
+
+                      WhitelistingTextInputFormatter(RegExp(
+                          r'^((13[0-9])|(14[5,7,9])|(15[^4])|(18[0-9])|(17[0,1,3,5,6,7,8])|(19)[0-9])\d{8}$'))
+
+//                      WhitelistingTextInputFormatter,
 //                  PhoneTextInputFormatter.digitsOnly,
                     ],
 
