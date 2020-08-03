@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_keychain/flutter_keychain.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:path_provider/path_provider.dart';
@@ -83,6 +84,8 @@ class _P33DbHiveState extends State<P33DbHive> {
     allPersonBox = await Hive.openBox<Person>('allPerson');
   }
 
+  String keychain = '';
+
   @override
   Widget build(BuildContext context) {
     getApplicationDocumentsDirectory().then((value) => print('path = $value'));
@@ -142,6 +145,30 @@ class _P33DbHiveState extends State<P33DbHive> {
 
                 Box box2 = await Hive.openBox<Person>('allPerson');
                 print(box2.get('person'));
+              },
+            ),
+            Text(keychain),
+            FlatButton(
+              child: Text('keychain取数据'),
+              onPressed: () async {
+                var value = await FlutterKeychain.get(key: 'myName');
+
+                print('keychain取数据 = $value');
+                setState(() {
+                  keychain = value;
+                });
+              },
+            ),
+            FlatButton(
+              child: Text('keychain存数据'),
+              onPressed: () async {
+                await FlutterKeychain.put(key: 'myName', value: 'abc123');
+              },
+            ),
+            FlatButton(
+              child: Text('keychain清除'),
+              onPressed: () async {
+                await FlutterKeychain.put(key: 'myName', value: 'value');
               },
             ),
           ],

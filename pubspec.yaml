@@ -139,7 +139,7 @@ dependencies:
 
   #官方插件：webview_flutter
   webview_flutter: ^0.3.21
-
+  flutter_keychain: 1.0.0
   #适用于iOS，Android和Web的Flutter插件，用于在Widget表面上播放视频.
   #  video_player: 0.10.10
 
