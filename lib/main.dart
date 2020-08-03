@@ -10,14 +10,15 @@ import 'package:device_info/device_info.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_easyrefresh/easy_refresh.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:package_info/package_info.dart';
+import 'package:provider/provider.dart';
 
-import 'module/authentication/authentication_event.dart';
 import 'controller/root_cupertino_tab_bar.dart';
 import 'controller/root_page.dart';
 import 'global_const.dart';
+import 'main_config_model.dart';
+import 'module/authentication/authentication_event.dart';
 import 'module/login/view/login_view.dart';
 //void main() => runApp(MyApp());
 
@@ -205,28 +206,36 @@ class _MyApp extends State<MyApp> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      navigatorKey: navigatorState,
-      debugShowCheckedModeBanner: false,
-
-      /// 本地化
-      localizationsDelegates: [
-        /// 安卓风格国际化
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-
-        ///iOS 风格国际化
-        GlobalCupertinoLocalizations.delegate,
-
-        /// 第三方插件,国际化,需要注入
-        GlobalEasyRefreshLocalizations.delegate,
-        S.delegate,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => mainConfigModel),
       ],
-      supportedLocales: [
-        const Locale("en", ""),
-        const Locale("zh", "CN"),
-      ]..addAll(S.delegate.supportedLocales),
+      child: Consumer<MainConfigModel>(
+        builder: (context, value, child) {
+//      return Text(Provider.of<UserModel>(context).age.toString());
+
+          return MaterialApp(
+            title: 'Flutter Demo',
+            navigatorKey: navigatorState,
+            debugShowCheckedModeBanner: false,
+
+            /// 本地化
+            localizationsDelegates: [
+              /// 安卓风格国际化
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+
+              ///iOS 风格国际化
+              GlobalCupertinoLocalizations.delegate,
+
+              /// 第三方插件,国际化,需要注入
+//        GlobalEasyRefreshLocalizations.delegate,
+              S.delegate,
+            ],
+            supportedLocales: [
+              const Locale("en", ""),
+              const Locale("zh", "CN"),
+            ]..addAll(S.delegate.supportedLocales),
 
 //      home: RootPage(),
 
@@ -243,65 +252,69 @@ class _MyApp extends State<MyApp> with WidgetsBindingObserver {
 //          }
 //        },
 //      ),
-      home: StreamBuilder(
-        stream: EVENT_BUS.on<AuthenticationEvent>(),
+            home: StreamBuilder(
+              stream: EVENT_BUS.on<AuthenticationEvent>(),
 //        initialData: "初始值",
-        builder: (context, asyncSnapshot) {
-          if (asyncSnapshot.data is AuthenticationLoggedInEvent) {
-            print(
-                'main - asyncSnapshot = ${(asyncSnapshot.data as AuthenticationLoggedInEvent).user.username}');
-            return _rootView;
-          }
+              builder: (context, asyncSnapshot) {
+                if (asyncSnapshot.data is AuthenticationLoggedInEvent) {
+                  print(
+                      'main - asyncSnapshot = ${(asyncSnapshot.data as AuthenticationLoggedInEvent).user.username}');
+                  return _rootView;
+                }
 
 //          return LoginView();
-          return _rootView;
-        },
-      ),
+                return _rootView;
+              },
+            ),
 
 //      builder: FlutterBoost.init(postPush: _onRoutePushed),
 
-      theme: ThemeData(
-        /**
-         * primarySwatch不是Color.这是MaterialColor.
-            这意味着它是材质应用程序将使用的颜色的不同色调.
-            primaryColor是其中一种阴影.确切地说,primaryColor通常等于primarySwatch [500].
-            通常最好定义primarySwatch而不是primaryColor.因为某些材质组件可能会使用不同的primaryColor阴影来处理阴影,边框等
-         */
-        primaryColor: Colors.lightBlue,
+//            theme: ThemeData(
+//              /**
+//             * primarySwatch不是Color.这是MaterialColor.
+//                这意味着它是材质应用程序将使用的颜色的不同色调.
+//                primaryColor是其中一种阴影.确切地说,primaryColor通常等于primarySwatch [500].
+//                通常最好定义primarySwatch而不是primaryColor.因为某些材质组件可能会使用不同的primaryColor阴影来处理阴影,边框等
+//             */
+//              primaryColor: Colors.lightBlue,
+//
+//              /// 主要样品颜色 是 MaterialColor
+////        primarySwatch: Colors.lightBlue,
+//              highlightColor: Colors.grey,
+////bottomAppBarColor: Colors.orange,
+////        splashColor: Colors.orange,
+//
+//              appBarTheme: AppBarTheme(
+//                ///导航按钮颜色
+//                iconTheme: IconThemeData(color: Colors.white),
+//              ),
+//
+//              /// 按钮统一颜色
+//              buttonColor: Colors.deepPurpleAccent,
+//
+//              /// 容器默认背景色
+////        scaffoldBackgroundColor: ColorScheme().background,
+//              buttonTheme: ButtonThemeData(
+//                buttonColor: Colors.black,
+//              ),
+//            ),
 
-        /// 主要样品颜色 是 MaterialColor
-//        primarySwatch: Colors.lightBlue,
-        highlightColor: Colors.grey,
-//bottomAppBarColor: Colors.orange,
-//        splashColor: Colors.orange,
+//          theme:  Provider.of<MainConfigModel>(context).themeData,
 
-        appBarTheme: AppBarTheme(
-          ///导航按钮颜色
-          iconTheme: IconThemeData(color: Colors.white),
-        ),
+            theme: value.themeData,
 
-        /// 按钮统一颜色
-        buttonColor: Colors.deepPurpleAccent,
+            /// 根路由,一般设置 和 onGenerateRoute 冲突,不能同时存在
+            initialRoute: "/",
+            routes: {
+              "/Root": (context) => RootPage(),
+              "/route_login": (context) => LoginView(),
+              "/p28": (context) => P28RoutePage(),
+              "/sub1": (context) => P28RoutePageSub1(),
+              "/MaterialPage1": (context) => MaterialPage1(),
+            },
 
-        /// 容器默认背景色
-//        scaffoldBackgroundColor: ColorScheme().background,
-        buttonTheme: ButtonThemeData(
-          buttonColor: Colors.black,
-        ),
-      ),
-
-      /// 根路由,一般设置 和 onGenerateRoute 冲突,不能同时存在
-      initialRoute: "/",
-      routes: {
-        "/Root": (context) => RootPage(),
-        "/route_login": (context) => LoginView(),
-        "/p28": (context) => P28RoutePage(),
-        "/sub1": (context) => P28RoutePageSub1(),
-        "/MaterialPage1": (context) => MaterialPage1(),
-      },
-
-      /// Navigator.of(context).pushNamed('/new');  Navigator.pushNamed 时无法直接给新页面传参数
-      ///和 routes 冲突 可以传参的，相比于命名路由，可以多做一些相关的拦截
+            /// Navigator.of(context).pushNamed('/new');  Navigator.pushNamed 时无法直接给新页面传参数
+            ///和 routes 冲突 可以传参的，相比于命名路由，可以多做一些相关的拦截
 //      onGenerateRoute: (RouteSettings settings) {
 //        String routeName = settings.name;
 //        print("routeName = : $routeName");
@@ -322,6 +335,9 @@ class _MyApp extends State<MyApp> with WidgetsBindingObserver {
 //            });
 //        }
 //      },
+          );
+        },
+      ),
     );
   }
 

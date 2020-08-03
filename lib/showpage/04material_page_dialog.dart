@@ -151,7 +151,7 @@ class _MaterialPage1 extends State<P04MaterialPageDialog>
                 context: context,
                 title: "标题",
                 message: "内容",
-                actions: <Widget>[
+                actions: <CupertinoActionSheetAction>[
                   CupertinoActionSheetAction(
                     child: Text("相机"),
                     onPressed: () {

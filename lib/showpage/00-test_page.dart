@@ -1,4 +1,5 @@
 import 'package:ax_flutter_demo/util/my_icons.dart';
+import 'package:ax_flutter_util/ax_flutter_util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -43,6 +44,7 @@ import '37_popup_route_page.dart';
 import '38_center_up_page.dart';
 import '39_circle_page.dart';
 import '40_size_page.dart';
+import '41_flutter_redux_app.dart';
 
 class ShowTestPage extends StatefulWidget {
   @override
@@ -277,59 +279,61 @@ class _MinePage extends State<ShowTestPage> {
         '40-获得尺寸',
         P40SizePage(),
       ),
+      _listCell(
+        '41-flutter_redux',
+        P41FlutterReduxApp(),
+      ),
     ];
 
     return Scaffold(
       /// 导航栏 加高,添加背景图片
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(200),
+        child: AppBar(
+          title: Text(
+            '测试',
+            style: TextStyle(color: Colors.red),
+          ),
+//          flexibleSpace: Container(
+//            decoration: BoxDecoration(
+//              image: DecorationImage(
+//                image: AssetImage('assets/image/A171.jpg'),
+//                fit: BoxFit.fill,
+////              repeat :ImageRepeat.repeatY,
+//              ),
+//              color: Colors.blue,
+//            ),
+//          ),
 
-        /// 栈控件
-        child: Stack(
-          children: <Widget>[
-            /// 导航栏 背景图
-            Image.asset(
-              'assets/image/A171.jpg',
-              fit: BoxFit.cover,
-              height: double.infinity,
-              width: double.infinity,
-            ),
+          flexibleSpace: Image.asset(
+            'assets/image/A171.jpg',
+            fit: BoxFit.fill,
+            height: double.infinity,
+          ),
 
-            /// 导航栏
-            AppBar(
-              title: Text(
-                '测试',
-                style: TextStyle(color: Colors.red),
+          centerTitle: true,
+          actions: <Widget>[
+//          FlatButton(
+//            color: Colors.red,
+//            child: Text('右1completeCallback'),
+//            onPressed: () {
+//              completeCallback(name: 'jim', age: 19);
+//            },
+//          ),
+
+            FlatButton(
+              color: Colors.greenAccent,
+              child: Icon(
+                MyIcons.calendar,
+                color: Colors.orange,
+                size: 40,
               ),
-              centerTitle: true,
-              backgroundColor: Colors.transparent,
-              actions: <Widget>[
-                FlatButton(
-                  color: Colors.red,
-                  child: Text('右1completeCallback'),
-                  onPressed: () {
-                    completeCallback(name: 'jim', age: 19);
-                  },
-                ),
-                FlatButton(
-                  color: Colors.orange,
-                  child: Text('右2'),
-                  onPressed: () {},
-                ),
-                FlatButton(
-                  color: Colors.greenAccent,
-                  child: Icon(
-                    MyIcons.calendar,
-                    color: Colors.orange,
-                    size: 40,
-                  ),
-                  onPressed: () {},
-                ),
-              ],
+              onPressed: () {},
             ),
           ],
         ),
       ),
+
       body: ListView.separated(
         padding: EdgeInsets.only(bottom: 10),
         itemBuilder: _itemBuilder,

@@ -2,10 +2,13 @@ import 'dart:async';
 import 'dart:ui';
 
 import 'package:ax_flutter_demo/config.dart';
+import 'package:ax_flutter_util/ax_flutter_util.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
+import '../global_const.dart';
 
 class MaterialPage1 extends StatefulWidget {
   @override
@@ -104,60 +107,44 @@ class _MyPage extends State<MaterialPage1> {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: Text('按钮组件,WillPopScope会拦截ios返回手势'),
+          title: Text(
+            '测试',
+            style: TextStyle(color: Colors.red),
+          ),
+          centerTitle: true,
+
+//          backgroundColor: Colors.orange,
           actions: <Widget>[
+
             FlatButton(
-              child: Text(widget.key.toString()),
+              color: Colors.orange,
+              child: Text('改变主题色'),
               onPressed: () {
-                Navigator.pushNamed(context, '/MaterialPage1');
 
-                //      Navigator.push<String>(
-//        context,
-//        MaterialPageRoute(
-//          builder: (BuildContext context) {
-//            return TestOnePage();
-//          },
-//        ),
-//      );
-              },
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 10.0, right: 20.0),
-              child: GestureDetector(
-                onTap: () {
-                  showMenu(
-                      context: context,
-                      position: RelativeRect.fromLTRB(500.0, 76.0, 10.0, 0.0),
-                      items: <PopupMenuEntry>[
-                        _popupMenuItem('扫一扫', icon: Icons.search),
-//                        _popupMenuItem('添加',
-//                            imagePath: 'images/icon_menu_group.png'),
-                      ]);
-                },
-                child: Icon(Icons.add),
-              ),
-            ),
 
-            /**pop按钮 目前改不了背景色*/
-            PopupMenuButton(
-              icon: Icon(
-                Icons.add,
-                color: Colors.red,
-              ),
-              itemBuilder: (BuildContext context) {
-                return <PopupMenuItem>[
-                  PopupMenuItem(
-                    child: Text('1'),
-                    value: '1',
-                  ),
-                ];
-              },
-              //点击事件
-              onSelected: (value) {
-                print('点击了$value');
-              },
-              onCanceled: () {
-                print('取消了');
+                showCupertinoSheet(
+                  context: context,
+                  actions: <CupertinoActionSheetAction>[
+                    CupertinoActionSheetAction(
+                      child: Text('蓝色'),
+                      onPressed: () {
+                        mainConfigModel.themeData = Theme.of(context).copyWith(
+                          primaryColor: Colors.lightBlue,
+                        );
+                        Navigator.pop(context);
+                      },
+                    ),
+                    CupertinoActionSheetAction(
+                      child: Text('红色'),
+                      onPressed: () {
+                        Navigator.pop(context);
+                        mainConfigModel.themeData = Theme.of(context).copyWith(
+                          primaryColor: Colors.red,
+                        );
+                      },
+                    ),
+                  ],
+                );
               },
             ),
           ],

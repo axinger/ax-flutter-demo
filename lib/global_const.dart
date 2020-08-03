@@ -1,4 +1,5 @@
 import 'package:ax_flutter_demo/generated/l10n.dart';
+import 'package:ax_flutter_demo/main_config_model.dart';
 import 'package:event_bus/event_bus.dart';
 import 'package:flutter/widgets.dart';
 
@@ -36,3 +37,6 @@ const time1 = '1111';
 final time2 = DateTime.now();
 
 DateTime time3 = DateTime.now();
+
+
+MainConfigModel mainConfigModel = MainConfigModel();

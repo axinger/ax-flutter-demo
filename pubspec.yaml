@@ -86,8 +86,6 @@ dependencies:
   meta: ^1.1.6
   # 继承类,判断类是否相同
   equatable: ^1.1.1
-  # InheritedWidget的包装，使它们更易于使用和更可重用.
-  provider: ^4.1.2
 
   w_popup_menu: ^0.3.1
 
@@ -96,9 +94,26 @@ dependencies:
 
   binding_helper: 0.0.1
 
+#  redux主要由Store、Action、Reducer三部分组成
+#  Store用于存储和管理State
+#  Action用于用户触发的一种行为
+#  Reducer用于根据Action产生新的State
+
+#  flutter redux流程
+#  Widget通过StoreConnector绑定Store中的State数据
+#  Widget通过Action触发一种新的行为
+#  Reducer根据收到的Action更新State
+#  更新Store中的State绑定的Widget
+
+
+  flutter_redux: 0.6.0
+
   ##==============================谷歌组件======================================##
   ## 谷歌维护的库 https://github.com/flutter/plugins
 
+
+  # google推荐的Provider
+  provider: ^4.1.2
 
   device_info: '>=0.4.0'
 
