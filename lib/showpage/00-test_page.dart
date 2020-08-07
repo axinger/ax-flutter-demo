@@ -1,8 +1,8 @@
 import 'package:ax_flutter_demo/util/my_icons.dart';
-import 'package:ax_flutter_util/ax_flutter_util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../global_const.dart';
 import '01material_page1.dart';
 import '02material_page2.dart';
 import '03material_page_date.dart';
@@ -54,6 +54,8 @@ class ShowTestPage extends StatefulWidget {
 }
 
 class _MinePage extends State<ShowTestPage> {
+  var offsetNotifier = ValueNotifier<Offset>(Offset.zero);
+
   /// 封装一下
   Widget _listCell(String text, Widget contentWidget) {
     return ListTile(
@@ -106,6 +108,9 @@ class _MinePage extends State<ShowTestPage> {
       print('name = ${name}');
     };
     print('ShowTestPage = ${widget.runtimeType}');
+
+
+
   }
 
   @override
@@ -285,15 +290,19 @@ class _MinePage extends State<ShowTestPage> {
       ),
     ];
 
-    return Scaffold(
-      /// 导航栏 加高,添加背景图片
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(200),
-        child: AppBar(
-          title: Text(
-            '测试',
-            style: TextStyle(color: Colors.red),
-          ),
+
+
+    return Stack(
+      children: <Widget>[
+        Scaffold(
+          /// 导航栏 加高,添加背景图片
+          appBar: PreferredSize(
+            preferredSize: Size.fromHeight(200),
+            child: AppBar(
+              title: Text(
+                '测试',
+                style: TextStyle(color: Colors.red),
+              ),
 //          flexibleSpace: Container(
 //            decoration: BoxDecoration(
 //              image: DecorationImage(
@@ -305,14 +314,14 @@ class _MinePage extends State<ShowTestPage> {
 //            ),
 //          ),
 
-          flexibleSpace: Image.asset(
-            'assets/image/A171.jpg',
-            fit: BoxFit.fill,
-            height: double.infinity,
-          ),
+              flexibleSpace: Image.asset(
+                'assets/image/A171.jpg',
+                fit: BoxFit.fill,
+                height: double.infinity,
+              ),
 
-          centerTitle: true,
-          actions: <Widget>[
+              centerTitle: true,
+              actions: <Widget>[
 //          FlatButton(
 //            color: Colors.red,
 //            child: Text('右1completeCallback'),
@@ -321,25 +330,92 @@ class _MinePage extends State<ShowTestPage> {
 //            },
 //          ),
 
-            FlatButton(
-              color: Colors.greenAccent,
-              child: Icon(
-                MyIcons.calendar,
-                color: Colors.orange,
-                size: 40,
-              ),
-              onPressed: () {},
-            ),
-          ],
-        ),
-      ),
+                FlatButton(
+                  color: Colors.greenAccent,
+                  child: Icon(
+                    MyIcons.calendar,
+                    color: Colors.orange,
+                    size: 40,
+                  ),
+                  onPressed: () {
 
-      body: ListView.separated(
-        padding: EdgeInsets.only(bottom: 10),
-        itemBuilder: _itemBuilder,
-        separatorBuilder: _separatorBuilder,
-        itemCount: data.length,
-      ),
+                    var entry = OverlayEntry(
+                        maintainState: true,
+
+                        builder: (BuildContext context){
+
+          return  ValueListenableBuilder(
+            valueListenable: offsetNotifier,
+            builder: (BuildContext context, Offset value, Widget child) {
+
+//              return   Builder(builder: (BuildContext context) {
+//                return  Container(
+//                  padding: EdgeInsets.all(20),
+//                  decoration: ShapeDecoration(
+//                    color: Colors.black.withOpacity(0.8),
+//                    shape: RoundedRectangleBorder(
+//                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
+//                    ),
+//                  ),
+//                  child: Column(
+//                      mainAxisAlignment: MainAxisAlignment.center,
+//                      crossAxisAlignment: CrossAxisAlignment.center,
+//
+//                      ///尽可能的小尺寸
+//                      mainAxisSize: MainAxisSize.min,
+//                      children: [ Container(width: 50,height: 50,color: Colors.orange,),]),
+//                );
+//              });
+
+
+           return Positioned(
+             top: value.dy == 0 ? null : value.dy,
+             left: value.dx,
+             bottom: value.dy == 0 ? 100 : null,
+             child: Draggable(
+               //创建可以被拖动的Widget
+                 child: Container(
+                   width: 50,
+                   height: 50,
+                   color: Colors.orange,
+                 ),
+                 //拖动过程中的Widget
+                 feedback: Container(
+                   width: 50,
+                   height: 50,
+                   color: Colors.green,
+                 ),
+                 //拖动过程中，在原来位置停留的Widget，设定这个可以保留原本位置的残影，如果不需要可以直接设置为Container()
+                 childWhenDragging: Container(),
+                 //拖动结束后的Widget
+                 onDraggableCanceled: (Velocity velocity, Offset offset) {
+                   //更新位置信息
+                   offsetNotifier.value = offset;
+                 }),
+           );
+            },
+          );
+                        }
+                    );
+
+//                    Overlay.of(navigatorState.currentState.context).insert(entry);
+                    navigatorState.currentState.overlay.insert(entry);
+
+                  },
+                ),
+              ],
+            ),
+          ),
+
+          body: ListView.separated(
+            padding: EdgeInsets.only(bottom: 10),
+            itemBuilder: _itemBuilder,
+            separatorBuilder: _separatorBuilder,
+            itemCount: data.length,
+          ),
+        ),
+
+      ],
     );
   }
 }
