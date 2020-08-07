@@ -561,6 +561,17 @@ class _MyPage extends State<MaterialPage1> {
                   _cupertinoDatePicker(context);
                 },
               ),
+              /// 圆角
+              FlatButton(
+                color: Colors.pink,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(30),
+                  ),
+                ),
+                child: Text('颜色按钮'),
+                onPressed: () {},
+              ),
               DropdownButton(
                 hint: new Text('下拉选择你想要的数据'),
                 items: [
