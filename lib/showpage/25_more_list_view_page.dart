@@ -4,7 +4,7 @@ import 'dart:ui';
 import 'package:ax_flutter_util/ax_flutter_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:image_gallery_saver/image_gallery_saver.dart';
+//import 'package:image_gallery_saver/image_gallery_saver.dart';
 
 class P25MoreListViewPage extends StatefulWidget {
   @override
@@ -29,10 +29,10 @@ class _State extends State<P25MoreListViewPage> {
       ByteData byteData = await image.toByteData(format: ImageByteFormat.png);
       Uint8List pngBytes = byteData.buffer.asUint8List();
 
-      bool result = await ImageGallerySaver.saveImage(pngBytes); //这个是核心的保存图片的插件
-
-      showCupertinoCertainAlert(
-          context: context, title: result ? '保存成功' : '保存失败');
+//      bool result = await ImageGallerySaver.saveImage(pngBytes); //这个是核心的保存图片的插件
+//
+//      showCupertinoCertainAlert(
+//          context: context, title: result ? '保存成功' : '保存失败');
       return pngBytes;
     } catch (e) {
       print('截图失败 = $e');

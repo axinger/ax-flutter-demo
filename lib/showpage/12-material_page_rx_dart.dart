@@ -27,7 +27,7 @@ class _MaterialPage1 extends State<MaterialPageRxDart> {
 //    });
   }
 
-  Observable Observable_periodic;
+//  Observable Observable_periodic;
 
   @override
   void dispose() {
@@ -35,7 +35,7 @@ class _MaterialPage1 extends State<MaterialPageRxDart> {
     super.dispose();
     print("dispose = ");
 
-    Observable_periodic = null;
+//    Observable_periodic = null;
   }
 
   @override
@@ -88,11 +88,11 @@ class _MaterialPage1 extends State<MaterialPageRxDart> {
 */
 
                   /// 只有一个数据 T
-                  Observable _observable = Observable.just(list);
-
-                  _observable.listen((data) {
-                    debugPrint("StreamData = $data");
-                  });
+//                  Observable _observable = Observable.just(list);
+//
+//                  _observable.listen((data) {
+//                    debugPrint("StreamData = $data");
+//                  });
 
 //                  _observable = Observable.just("jim");
 //                  _observable.listen((data) {
@@ -108,12 +108,12 @@ class _MaterialPage1 extends State<MaterialPageRxDart> {
                 onPressed: () {
                   /// 重复触发
                   ///
-                  Observable_periodic =
-                      Observable.periodic(Duration(seconds: 1), (count) {
-                    return "返回给: $count";
-                  }).listen((data) {
-                    debugPrint("StreamData = $data");
-                  }) as Observable;
+//                  Observable_periodic =
+//                      Observable.periodic(Duration(seconds: 1), (count) {
+//                    return "返回给: $count";
+//                  }).listen((data) {
+//                    debugPrint("StreamData = $data");
+//                  }) as Observable;
 
                   /// 这个也是间隔,但
 //                  var obs = Observable(Stream.fromIterable([1, 2, 3, 4, 5]))
@@ -137,11 +137,11 @@ class _MaterialPage1 extends State<MaterialPageRxDart> {
 //                    return "tom";
 //                  }));
 
-                  var obs = Observable(stream).interval(Duration(seconds: 1));
-
-                  obs.listen((data) {
-                    print("data = ${data}");
-                  });
+//                  var obs = Observable(stream).interval(Duration(seconds: 1));
+//
+//                  obs.listen((data) {
+//                    print("data = ${data}");
+//                  });
                 },
               ),
               Divider(

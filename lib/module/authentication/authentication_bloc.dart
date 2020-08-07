@@ -10,6 +10,8 @@ import 'authentication_state.dart';
 
 class AuthenticationBloc
     extends Bloc<AuthenticationEvent, AuthenticationState> {
+  AuthenticationBloc(AuthenticationState initialState) : super(initialState);
+
   @override
   AuthenticationState get initialState => AuthenticationInitial();
 
