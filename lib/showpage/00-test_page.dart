@@ -54,8 +54,6 @@ class ShowTestPage extends StatefulWidget {
 }
 
 class _MinePage extends State<ShowTestPage> {
-  var offsetNotifier = ValueNotifier<Offset>(Offset.zero);
-
   /// 封装一下
   Widget _listCell(String text, Widget contentWidget) {
     return ListTile(
@@ -108,9 +106,6 @@ class _MinePage extends State<ShowTestPage> {
       print('name = ${name}');
     };
     print('ShowTestPage = ${widget.runtimeType}');
-
-
-
   }
 
   @override
@@ -290,8 +285,6 @@ class _MinePage extends State<ShowTestPage> {
       ),
     ];
 
-
-
     return Stack(
       children: <Widget>[
         Scaffold(
@@ -338,69 +331,75 @@ class _MinePage extends State<ShowTestPage> {
                     size: 40,
                   ),
                   onPressed: () {
+                    var OffsetY = MediaQuery.of(context).size.height - 200;
 
+//             var btn =  FlatButton(
+//                  child: Icon(Icons.add),
+//                  onPressed: (){
+//
+//                  },
+//                );
+
+                    Container(
+//                width: 50,
+                      height: 100,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+//                    shape:BoxShape.rectangle,
+                        border: Border.all(color: Colors.green, width: 1),
+                 borderRadius: BorderRadius.circular(20.0),
+
+                        color: Colors.orange,
+                      ),
+                      child: IconButton(
+                        icon: Icon(Icons.add),
+//                  iconSize: 100,
+//                iconSize: 50,
+                        onPressed: () {},
+                      ),
+                    );
+                    var btn = Material(
+                        shape: CircleBorder(
+                            side: BorderSide(
+                          color: Colors.green,
+                          width: 2,
+                          style: BorderStyle.solid,
+                        )),
+                        child: IconButton(
+                            icon: Icon(Icons.play_arrow),
+                            iconSize: 100,
+                            onPressed: () {}));
+
+                    var offsetNotifier =
+                        ValueNotifier<Offset>(Offset(0, OffsetY));
                     var entry = OverlayEntry(
                         maintainState: true,
-
-                        builder: (BuildContext context){
-
-          return  ValueListenableBuilder(
-            valueListenable: offsetNotifier,
-            builder: (BuildContext context, Offset value, Widget child) {
-
-//              return   Builder(builder: (BuildContext context) {
-//                return  Container(
-//                  padding: EdgeInsets.all(20),
-//                  decoration: ShapeDecoration(
-//                    color: Colors.black.withOpacity(0.8),
-//                    shape: RoundedRectangleBorder(
-//                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
-//                    ),
-//                  ),
-//                  child: Column(
-//                      mainAxisAlignment: MainAxisAlignment.center,
-//                      crossAxisAlignment: CrossAxisAlignment.center,
-//
-//                      ///尽可能的小尺寸
-//                      mainAxisSize: MainAxisSize.min,
-//                      children: [ Container(width: 50,height: 50,color: Colors.orange,),]),
-//                );
-//              });
-
-
-           return Positioned(
-             top: value.dy == 0 ? null : value.dy,
-             left: value.dx,
-             bottom: value.dy == 0 ? 100 : null,
-             child: Draggable(
-               //创建可以被拖动的Widget
-                 child: Container(
-                   width: 50,
-                   height: 50,
-                   color: Colors.orange,
-                 ),
-                 //拖动过程中的Widget
-                 feedback: Container(
-                   width: 50,
-                   height: 50,
-                   color: Colors.green,
-                 ),
-                 //拖动过程中，在原来位置停留的Widget，设定这个可以保留原本位置的残影，如果不需要可以直接设置为Container()
-                 childWhenDragging: Container(),
-                 //拖动结束后的Widget
-                 onDraggableCanceled: (Velocity velocity, Offset offset) {
-                   //更新位置信息
-                   offsetNotifier.value = offset;
-                 }),
-           );
-            },
-          );
-                        }
-                    );
-
-//                    Overlay.of(navigatorState.currentState.context).insert(entry);
+                        builder: (BuildContext context) {
+                          return ValueListenableBuilder(
+                            valueListenable: offsetNotifier,
+                            builder: (BuildContext context, Offset value,
+                                Widget child) {
+                              return Positioned(
+                                top: value.dy,
+                                left: value.dx,
+                                child: Draggable(
+                                    //创建可以被拖动的Widget
+                                    child: btn,
+                                    //拖动过程中的Widget
+                                    feedback: btn,
+                                    //拖动过程中，在原来位置停留的Widget，设定这个可以保留原本位置的残影，如果不需要可以直接设置为Container()
+                                    childWhenDragging: Container(),
+                                    //拖动结束后的Widget
+                                    onDraggableCanceled:
+                                        (Velocity velocity, Offset offset) {
+                                      //更新位置信息
+                                      offsetNotifier.value = offset;
+                                    }),
+                              );
+                            },
+                          );
+                        });
                     navigatorState.currentState.overlay.insert(entry);
-
                   },
                 ),
               ],
@@ -414,7 +413,6 @@ class _MinePage extends State<ShowTestPage> {
             itemCount: data.length,
           ),
         ),
-
       ],
     );
   }

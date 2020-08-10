@@ -115,13 +115,10 @@ class _MyPage extends State<MaterialPage1> {
 
 //          backgroundColor: Colors.orange,
           actions: <Widget>[
-
             FlatButton(
               color: Colors.orange,
               child: Text('改变主题色'),
               onPressed: () {
-
-
                 showCupertinoSheet(
                   context: context,
                   actions: <CupertinoActionSheetAction>[
@@ -205,18 +202,18 @@ class _MyPage extends State<MaterialPage1> {
                                       'name': 'jim',
                                     };
 
-                                    Dio _dio =  Dio(options); // 使用默认配置
+                                    Dio _dio = Dio(options); // 使用默认配置
 
-                                    _dio.post(
+                                    _dio
+                                        .post(
                                       '/test6',
-                                      data:params,
-                                    ).catchError((onError){
+                                      data: params,
+                                    )
+                                        .catchError((onError) {
                                       print('onError = $onError');
-                                    }).then((value){
+                                    }).then((value) {
                                       print('response = ${value}');
                                     });
-
-
 
 //                                    try{
 //                                      Response response = await Dio().get(
@@ -226,7 +223,6 @@ class _MyPage extends State<MaterialPage1> {
 //                                    }catch(e){
 //                                       print(e);
 //                                    }
-
                                   },
                                 ),
                               ),
@@ -561,6 +557,7 @@ class _MyPage extends State<MaterialPage1> {
                   _cupertinoDatePicker(context);
                 },
               ),
+
               /// 圆角
               FlatButton(
                 color: Colors.pink,
@@ -572,6 +569,101 @@ class _MyPage extends State<MaterialPage1> {
                 child: Text('颜色按钮'),
                 onPressed: () {},
               ),
+
+              Material(
+                shape: CircleBorder(
+                    side: BorderSide(
+                  color: Colors.green,
+                  width: 2,
+                  style: BorderStyle.solid,
+                )),
+                child: Container(
+                  child: FlatButton(
+                    onPressed: () {},
+                    child: Text(
+                      '22222222222',
+                    ),
+                  ),
+                ),
+
+//                child: IconButton(
+//                    icon: Icon(Icons.play_arrow),
+//                    iconSize: 100,
+//                    onPressed: () {}),
+              ),
+
+              CircleAvatar(
+                child: Container(
+                  child: FlatButton(
+                    onPressed: () {},
+                    child: Text(
+                      '22222222222',
+                    ),
+                  ),
+                ),
+              ),
+
+              FloatingActionButton(
+                  child: Text(
+                    '22222222222',
+                  ),
+                  onPressed: () {}),
+              Container(
+                height: 80,
+                child: RaisedButton(
+                  color: Colors.orange,
+                  child: Text('圆形按钮'),
+                  shape: CircleBorder(
+                    side: BorderSide(color: Colors.pink),
+                  ),
+                  onPressed: () {},
+                ),
+              ),
+
+              Container(
+//                width: 50,
+                height: 100,
+                decoration: BoxDecoration(
+                  shape:BoxShape.circle,
+//                    shape:BoxShape.rectangle,
+                  border:  Border.all(color: Colors.green, width: 1),
+//                 borderRadius: BorderRadius.circular(20.0),
+                  color: Colors.orange,
+                ),
+                child: IconButton(
+                  icon: Icon(Icons.add),
+//                  iconSize: 100,
+//                iconSize: 50,
+                  onPressed: (){},
+
+                ),
+              ),
+              Container(
+                width: 100,
+                height: 100,
+                child: FloatingActionButton(
+                    backgroundColor: Colors.orange,
+                    child: Icon(
+                      Icons.play_arrow,
+                      size: 60,
+                    ),
+                    onPressed: () {}),
+              ),
+
+              Material(
+
+                color: Colors.orange,
+                  shape: CircleBorder(
+                      side: BorderSide(
+                        color: Colors.green,
+                        width: 2,
+                        style: BorderStyle.solid,
+                      )),
+                  child: IconButton(
+                      icon: Icon(Icons.play_arrow),
+                      iconSize: 100,
+                      onPressed: () {})),
+
               DropdownButton(
                 hint: new Text('下拉选择你想要的数据'),
                 items: [
