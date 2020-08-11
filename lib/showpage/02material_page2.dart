@@ -16,7 +16,6 @@ class _MaterialPage23 extends State<MaterialPage2> {
 
   var passwordFocusNode = FocusNode();
 
-
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -219,6 +218,46 @@ class _MaterialPage23 extends State<MaterialPage2> {
                         ),
                       ),
                     ],
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.only(bottom: 50),
+                  child: Material(
+                    type: MaterialType.card,
+                    textStyle: TextStyle(color: Colors.orange, fontSize: 20),
+                    elevation: 1,
+                    color: Colors.red,
+
+                    /// 圆角
+//                   borderRadius:BorderRadius.circular(20),
+                    /// 边框 不能和圆角borderRadius 同时存在 ,圆角放shape 内部
+                     shape:CircleBorder(
+                         side: BorderSide(
+                           color: Colors.green,
+                           width: 2,
+                           style: BorderStyle.solid,
+                         ),),
+
+//                    shape: RoundedRectangleBorder(
+//                      side: BorderSide(
+//                        width: 1,
+//                        color: Colors.green,
+//                      ),
+//
+//                      /// 圆角
+//                      borderRadius: BorderRadius.circular(20),
+//                    ),
+
+                    ///边界前景  ,超出部分是否显示
+                    borderOnForeground: false,
+                    /// 超出部分剪切
+                    clipBehavior:Clip.antiAlias,
+                    child: Column(
+                      children: [
+                        Text('Material'),
+                        Text('Material2'),
+                      ],
+                    ),
                   ),
                 ),
                 Container(

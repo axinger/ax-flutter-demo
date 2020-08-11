@@ -63,6 +63,12 @@ class _MyApp extends State<MyApp> with WidgetsBindingObserver {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
+
+    /// build完成
+    WidgetsBinding.instance.addPostFrameCallback((callback) {
+      _overlayEntry();
+    });
+
     eventBus();
 
     getDeviceInfo();
@@ -145,6 +151,53 @@ class _MyApp extends State<MyApp> with WidgetsBindingObserver {
 // [GyroscopeEvent (x: 0.0, y: 0.0, z: 0.0)]
   }
 
+  /// 全局浮层
+  void _overlayEntry() {
+    var btn = Material(
+      shape: CircleBorder(
+        side: BorderSide(
+          color: Colors.green,
+          width: 2,
+          style: BorderStyle.solid,
+        ),
+      ),
+      child: IconButton(
+        icon: Icon(Icons.add),
+        iconSize: 50,
+        onPressed: () {},
+      ),
+    );
+    double OffsetY = 200;
+    ValueNotifier<Offset> offsetNotifier =
+        ValueNotifier<Offset>(Offset(0, OffsetY));
+    var entry = OverlayEntry(
+        maintainState: true,
+        builder: (BuildContext context) {
+          return ValueListenableBuilder(
+            valueListenable: offsetNotifier,
+            builder: (BuildContext context, Offset value, Widget child) {
+              return Positioned(
+                top: value.dy > 0 ? value.dy : 0,
+                left: value.dx > 0 ? value.dx : 0,
+                child: Draggable(
+                    //创建可以被拖动的Widget
+                    child: btn,
+                    //拖动过程中的Widget
+                    feedback: btn,
+                    //拖动过程中，在原来位置停留的Widget，设定这个可以保留原本位置的残影，如果不需要可以直接设置为Container()
+                    childWhenDragging: Container(),
+                    //拖动结束后的Widget
+                    onDraggableCanceled: (Velocity velocity, Offset offset) {
+                      //更新位置信息
+                      offsetNotifier.value = offset;
+                    }),
+              );
+            },
+          );
+        });
+    navigatorStateKey.currentState.overlay.insert(entry);
+  }
+
   void getDeviceInfo() async {
     DeviceInfoPlugin deviceInfo = new DeviceInfoPlugin();
     if (Platform.isIOS) {
@@ -216,20 +269,14 @@ class _MyApp extends State<MyApp> with WidgetsBindingObserver {
 
           return MaterialApp(
             title: 'Flutter Demo',
-            navigatorKey: navigatorState,
+            navigatorKey: navigatorStateKey,
             debugShowCheckedModeBanner: false,
 
             /// 本地化
             localizationsDelegates: [
-              /// 安卓风格国际化
               GlobalMaterialLocalizations.delegate,
               GlobalWidgetsLocalizations.delegate,
-
-              ///iOS 风格国际化
               GlobalCupertinoLocalizations.delegate,
-
-              /// 第三方插件,国际化,需要注入
-//        GlobalEasyRefreshLocalizations.delegate,
               S.delegate,
             ],
             supportedLocales: [

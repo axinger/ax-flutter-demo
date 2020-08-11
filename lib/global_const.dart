@@ -8,14 +8,14 @@ S localText(context) {
 }
 
 S get localString {
-  return S.of(navigatorState.currentContext);
+  return S.of(navigatorStateKey.currentContext);
 }
 
 class NavKey {
   static final navKey = GlobalKey<NavigatorState>();
 }
 
-GlobalKey<NavigatorState> navigatorState = GlobalKey();
+GlobalKey<NavigatorState> navigatorStateKey = GlobalKey();
 
 EventBus EVENT_BUS = EventBus();
 
