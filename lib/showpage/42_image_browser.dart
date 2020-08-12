@@ -12,17 +12,17 @@ class P42ImageBrowser extends StatefulWidget {
 }
 
 class _P42ImageBrowserState extends State<P42ImageBrowser> {
-  var photoList = <ImageBrowserItem>[
-    ImageBrowserItem(
-        url:
-            'https://t8.baidu.com/it/u=1484500186,1503043093&fm=79&app=86&size=h300&n=0&g=4n&f=jpeg?sec=1597713678&t=c028e49884a24624abee0e68eed45a23'),
-    ImageBrowserItem(
-        url:
-            'https://t8.baidu.com/it/u=2247852322,986532796&fm=79&app=86&size=h300&n=0&g=4n&f=jpeg?sec=1597713678&t=0ec67748e925da17f70d96312b41616e'),
-    ImageBrowserItem(
-        url:
-            'https://t7.baidu.com/it/u=3204887199,3790688592&fm=79&app=86&size=h300&n=0&g=4n&f=jpeg?sec=1597713678&t=fdf2e8ea73ef0a59c69588ff75b80e89'),
-  ];
+  var photoList = <ImageBrowserItem>[];
+
+  @override
+  void initState() {
+    super.initState();
+
+    for (int index = 1; index < 20; index++) {
+      photoList.add(ImageBrowserItem(
+          url: 'https://bing.ioliu.cn/v1/rand?key=a$index&w=400&h=200'));
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -60,8 +60,8 @@ class _P42ImageBrowserState extends State<P42ImageBrowser> {
               height: 100,
               color: Colors.green,
               alignment: Alignment.topLeft,
-              child:  IgnorePointer(
-              ignoring: false,
+              child: IgnorePointer(
+                ignoring: false,
                 child: RaisedButton(
                   onPressed: () => print('IgnorePointer Clicked!'),
                   child: Text('IgnorePointer'),
@@ -77,10 +77,6 @@ class _P42ImageBrowserState extends State<P42ImageBrowser> {
 //                ),
 //              ),
             ),
-
-
-
-
           ),
           _meetingPhotos(context),
         ],

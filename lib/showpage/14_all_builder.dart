@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:ax_flutter_demo/base/all_content_body.dart';
 import 'package:ax_flutter_util/ax_flutter_util.dart';
@@ -36,6 +37,8 @@ class _P14AllBuilderPageState extends State<P14AllBuilderPage> {
 
   List allData = [];
 
+  var listNotifier = ValueNotifier<List<String>>([]);
+
 //调用 //dynamic 类型自己定
   Future<List> _futureBuilderData() {
     return Future.wait<dynamic>([demo1(), demo2(), demo3()]).then((e) {
@@ -43,6 +46,14 @@ class _P14AllBuilderPageState extends State<P14AllBuilderPage> {
 
       return e;
     }).catchError((e) {});
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    listNotifier.addListener(() {
+      print('listNotifier = ${listNotifier.value}');
+    });
   }
 
   @override
@@ -61,6 +72,26 @@ class _P14AllBuilderPageState extends State<P14AllBuilderPage> {
         ),
         body: AllContentBody(
           children: [
+            AllContentBox(
+              title: 'list-ValueListenableBuilder',
+              child: Column(
+                children: <Widget>[
+                  FlatButton(
+                    color: Colors.grey,
+                    child: Text('listNotifier'),
+                    // 点击的时候用 ValueNotifier 来更新值
+                    onPressed: () {
+                      listNotifier.value.add(Random().nextInt(100).toString());
+                      print(listNotifier.value.hashCode);
+
+                      listNotifier.value = [...listNotifier.value];
+                      print(listNotifier.value.hashCode);
+                      
+                    },
+                  ),
+                ],
+              ),
+            ),
             AllContentBox(
               title: '数据监听-ValueListenableBuilder',
               child: Column(
