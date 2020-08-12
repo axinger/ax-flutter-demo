@@ -1,4 +1,5 @@
 import 'package:ax_flutter_demo/util/my_icons.dart';
+import 'package:ax_flutter_util/ax_flutter_util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -45,6 +46,7 @@ import '38_center_up_page.dart';
 import '39_circle_page.dart';
 import '40_size_page.dart';
 import '41_flutter_redux_app.dart';
+import '42_image_browser.dart';
 
 class ShowTestPage extends StatefulWidget {
   @override
@@ -69,19 +71,7 @@ class _MinePage extends State<ShowTestPage> {
           return contentWidget;
         }));
 
-//        Navigator.push<String>(
-//          context,
-//          MaterialPageRoute(
-//            builder: (BuildContext context) {
-//              return widget;
-//            },
-//          maintainState: false,
-//        ),
-//        ).then(
-//          (onValue) {
-//            debugPrint(onValue);
-//          },
-//        );
+//        push(context: context,widget: contentWidget);
       },
     );
   }
@@ -282,6 +272,10 @@ class _MinePage extends State<ShowTestPage> {
       _listCell(
         '41-flutter_redux',
         P41FlutterReduxApp(),
+      ),
+      _listCell(
+        '41-图片',
+        P42ImageBrowser(),
       ),
     ];
 

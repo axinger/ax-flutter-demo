@@ -94,6 +94,7 @@ dependencies:
 
   binding_helper: 0.0.1
 
+  photo_view: 0.9.2
 #  redux主要由Store、Action、Reducer三部分组成
 #  Store用于存储和管理State
 #  Action用于用户触发的一种行为
