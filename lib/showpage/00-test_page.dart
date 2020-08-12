@@ -393,7 +393,7 @@ class _MinePage extends State<ShowTestPage> {
                             },
                           );
                         });
-                    navigatorState.currentState.overlay.insert(entry);
+                    navigatorStateKey.currentState.overlay.insert(entry);
                   },
                 ),
               ],
