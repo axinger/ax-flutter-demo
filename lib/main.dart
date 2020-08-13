@@ -155,6 +155,7 @@ class _MyApp extends State<MyApp> with WidgetsBindingObserver {
   /// 全局浮层
   void _overlayEntry() {
     var btn = Material(
+      color: Colors.transparent,
       shape: CircleBorder(
         side: BorderSide(
           color: Colors.green,
@@ -164,8 +165,9 @@ class _MyApp extends State<MyApp> with WidgetsBindingObserver {
       ),
       child: GestureDetector(
         child: Container(
-          width: 50,
-          height: 50,
+          width: 80,
+          height: 80,
+          color: Colors.transparent,
           child: Icon(Icons.add),
         ),
         onTap: () {
@@ -234,7 +236,6 @@ class _MyApp extends State<MyApp> with WidgetsBindingObserver {
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
-    String name;
 
     print("state = " + state.toString());
     switch (state) {
