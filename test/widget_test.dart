@@ -4,8 +4,13 @@
 // utility that Flutter provides. For example, you can send tap and scroll
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
+import 'package:flutter/material.dart';
 
 class Person {
+
+  void _aa({@required  int age}){}
+
+
   int _age = 1;
 
   get age {
@@ -40,6 +45,8 @@ class Person {
         return '其它';
     }
   }
+
+
 }
 
 class Good {

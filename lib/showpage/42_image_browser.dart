@@ -18,10 +18,15 @@ class _P42ImageBrowserState extends State<P42ImageBrowser> {
   void initState() {
     super.initState();
 
-    for (int index = 1; index < 20; index++) {
-      photoList.add(ImageBrowserItem(
-          url: 'https://bing.ioliu.cn/v1/rand?key=a$index&w=400&h=200'));
-    }
+//    for (int index = 1; index < 20; index++) {
+//      photoList.add(ImageBrowserItem(
+//          url: 'https://bing.ioliu.cn/v1/rand?key=a$index&w=400&h=200'));
+//    }
+    photoList = List.generate(20, (index){
+      return ImageBrowserItem(
+          url: 'https://bing.ioliu.cn/v1/rand?key=a${index+1}&w=400&h=200');
+    });
+
   }
 
   @override
