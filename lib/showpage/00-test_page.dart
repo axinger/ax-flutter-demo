@@ -1,9 +1,6 @@
-import 'package:ax_flutter_demo/util/my_icons.dart';
-import 'package:ax_flutter_util/ax_flutter_util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../global_const.dart';
 import '01material_page1.dart';
 import '02material_page2.dart';
 import '03material_page_date.dart';
@@ -290,113 +287,13 @@ class _MinePage extends State<ShowTestPage> {
                 '测试',
                 style: TextStyle(color: Colors.red),
               ),
-//          flexibleSpace: Container(
-//            decoration: BoxDecoration(
-//              image: DecorationImage(
-//                image: AssetImage('assets/image/A171.jpg'),
-//                fit: BoxFit.fill,
-////              repeat :ImageRepeat.repeatY,
-//              ),
-//              color: Colors.blue,
-//            ),
-//          ),
-
               flexibleSpace: Image.asset(
                 'assets/image/A171.jpg',
                 fit: BoxFit.fill,
                 height: double.infinity,
               ),
-
               centerTitle: true,
-              actions: <Widget>[
-//          FlatButton(
-//            color: Colors.red,
-//            child: Text('右1completeCallback'),
-//            onPressed: () {
-//              completeCallback(name: 'jim', age: 19);
-//            },
-//          ),
-
-                FlatButton(
-                  color: Colors.greenAccent,
-                  child: Icon(
-                    MyIcons.calendar,
-                    color: Colors.orange,
-                    size: 40,
-                  ),
-                  onPressed: () {
-                    var OffsetY = MediaQuery.of(context).size.height - 200;
-
-//             var btn =  FlatButton(
-//                  child: Icon(Icons.add),
-//                  onPressed: (){
-//
-//                  },
-//                );
-
-                    Container(
-//                width: 50,
-                      height: 100,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-//                    shape:BoxShape.rectangle,
-                        border: Border.all(color: Colors.green, width: 1),
-                 borderRadius: BorderRadius.circular(20.0),
-
-                        color: Colors.orange,
-                      ),
-                      child: IconButton(
-                        icon: Icon(Icons.add),
-//                  iconSize: 100,
-//                iconSize: 50,
-                        onPressed: () {},
-                      ),
-                    );
-                    var btn = Material(
-                        shape: CircleBorder(
-                            side: BorderSide(
-                          color: Colors.green,
-                          width: 2,
-                          style: BorderStyle.solid,
-                        )),
-                        child: IconButton(
-                            icon: Icon(Icons.play_arrow),
-                            iconSize: 100,
-                            onPressed: () {}));
-
-                    var offsetNotifier =
-                        ValueNotifier<Offset>(Offset(0, OffsetY));
-                    var entry = OverlayEntry(
-                        maintainState: true,
-                        builder: (BuildContext context) {
-                          return ValueListenableBuilder(
-                            valueListenable: offsetNotifier,
-                            builder: (BuildContext context, Offset value,
-                                Widget child) {
-                              return Positioned(
-                                top: value.dy,
-                                left: value.dx,
-                                child: Draggable(
-                                    //创建可以被拖动的Widget
-                                    child: btn,
-                                    //拖动过程中的Widget
-                                    feedback: btn,
-                                    //拖动过程中，在原来位置停留的Widget，设定这个可以保留原本位置的残影，如果不需要可以直接设置为Container()
-                                    childWhenDragging: Container(),
-                                    //拖动结束后的Widget
-                                    onDraggableCanceled:
-                                        (Velocity velocity, Offset offset) {
-                                      //更新位置信息
-                                      offsetNotifier.value = offset;
-                                    }),
-                              );
-                            },
-                          );
-                        });
-                    navigatorStateKey.currentState.overlay.insert(entry);
-                  },
-                ),
-              ],
+              actions: <Widget>[],
             ),
           ),
 

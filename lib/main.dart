@@ -8,6 +8,7 @@ import 'package:ax_flutter_demo/showpage/01material_page1.dart';
 import 'package:ax_flutter_demo/showpage/28_test_route_page.dart';
 import 'package:device_info/device_info.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -161,12 +162,23 @@ class _MyApp extends State<MyApp> with WidgetsBindingObserver {
           style: BorderStyle.solid,
         ),
       ),
-      child: IconButton(
-        icon: Icon(Icons.add),
-        iconSize: 50,
-        onPressed: () {},
+      child: GestureDetector(
+        child: Container(
+          width: 50,
+          height: 50,
+          child: Icon(Icons.add),
+        ),
+        onTap: () {
+          print('add==========');
+        },
       ),
     );
+//      IconButton(
+//        icon: Icon(Icons.add),
+//        iconSize: 50,
+//        onPressed: () {},
+//      ),
+
     double OffsetY = 200;
     ValueNotifier<Offset> offsetNotifier =
         ValueNotifier<Offset>(Offset(0, OffsetY));
