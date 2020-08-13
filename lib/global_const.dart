@@ -1,5 +1,5 @@
 import 'package:ax_flutter_demo/generated/l10n.dart';
-import 'package:ax_flutter_demo/main_config_model.dart';
+import 'package:ax_flutter_demo/theme_data_config.dart';
 import 'package:event_bus/event_bus.dart';
 import 'package:flutter/widgets.dart';
 
@@ -39,4 +39,4 @@ final time2 = DateTime.now();
 DateTime time3 = DateTime.now();
 
 
-MainConfigModel mainConfigModel = MainConfigModel();
+ThemeDataConfig mainConfigModel = ThemeDataConfig();
