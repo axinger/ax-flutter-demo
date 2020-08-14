@@ -18,7 +18,7 @@ import 'package:provider/provider.dart';
 import 'controller/root_cupertino_tab_bar.dart';
 import 'controller/root_page.dart';
 import 'global_const.dart';
-import 'main_config_model.dart';
+import 'theme_data_config.dart';
 import 'module/authentication/authentication_event.dart';
 import 'module/login/view/login_view.dart';
 //void main() => runApp(MyApp());
@@ -276,7 +276,7 @@ class _MyApp extends State<MyApp> with WidgetsBindingObserver {
       providers: [
         ChangeNotifierProvider(create: (context) => mainConfigModel),
       ],
-      child: Consumer<MainConfigModel>(
+      child: Consumer<ThemeDataConfig>(
         builder: (context, value, child) {
 //      return Text(Provider.of<UserModel>(context).age.toString());
 

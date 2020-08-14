@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class MainConfigModel extends ChangeNotifier {
+class ThemeDataConfig extends ChangeNotifier {
 
 
 
