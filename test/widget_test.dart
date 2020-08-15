@@ -4,113 +4,158 @@
 // utility that Flutter provides. For example, you can send tap and scroll
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
-import 'package:flutter/material.dart';
 
-class Person {
+//class Person {
+//
+//  void _aa({@required  int age}){}
+//
+//
+//  int _age = 1;
+//
+//  get age {
+//    return _age + 1;
+//  }
+//
+//  set age(age) {
+//    _age = age;
+//  }
+//
+//  void log() {
+//    print("Person=======");
+//  }
+//
+//  String get claimTypeStr {
+//    String claimType;
+//    if (claimType == null) {
+//      claimType = '';
+//    }
+//    switch (claimType) {
+//      case '0':
+//        return '有责涉及死亡赔案';
+//      case '1':
+//        return '有责不涉及死亡赔案';
+//      case '2':
+//        return '无责赔案';
+//      case '3':
+//        return '垫付赔案';
+//      case '4':
+//        return '垫付救助基金';
+//      default:
+//        return '其它';
+//    }
+//  }
+//
+//
+//}
+//
+//class Good {
+//  void log() {
+//    print("Good==");
+//  }
+//}
+//
+//abstract class Bad {
+//  void log() {
+//    print("Bad==");
+//  }
+//}
+//
+//abstract class Hard {
+//  void log();
+//
+//  void log2() {
+//    print('log2');
+//  }
+//}
+//
+//class StudentHard implements Hard {
+//  @override
+//  void log() {
+//    // TODO: implement log
+//  }
+//
+//  @override
+//  void log2() {
+//    // TODO: implement log2
+//  }
+//}
+//
+//class Student extends Person with Good implements Bad {
+//  void log() {
+//    print("Student==");
+//  }
+//}
+//
+//Iterable<int> foo2() sync* {
+//  print('foo2 start');
+//  for (int i = 0; i < 3; i++) {
+//    print('运行了foo2，当前index：${i}');
+//    yield i;
+//  }
+//  print('foo2 stop');
+//}
+//
 
-  void _aa({@required  int age}){}
+abstract class Person {
+  factory Person() => createDio();
 
-
-  int _age = 1;
-
-  get age {
-    return _age + 1;
-  }
-
-  set age(age) {
-    _age = age;
-  }
-
-  void log() {
-    print("Person=======");
-  }
-
-  String get claimTypeStr {
-    String claimType;
-    if (claimType == null) {
-      claimType = '';
-    }
-    switch (claimType) {
-      case '0':
-        return '有责涉及死亡赔案';
-      case '1':
-        return '有责不涉及死亡赔案';
-      case '2':
-        return '无责赔案';
-      case '3':
-        return '垫付赔案';
-      case '4':
-        return '垫付救助基金';
-      default:
-        return '其它';
-    }
-  }
-
-
+  void test();
 }
 
-class Good {
-  void log() {
-    print("Good==");
-  }
-}
+Person createDio() => throw UnsupportedError('');
 
-abstract class Bad {
-  void log() {
-    print("Bad==");
-  }
-}
-
-abstract class Hard {
-  void log();
-
-  void log2() {
-    print('log2');
-  }
-}
-
-class StudentHard implements Hard {
+class Student implements Person {
   @override
-  void log() {
-    // TODO: implement log
+  void test() {
+    print('Student = test');
   }
+}
 
+class Student2 implements Person {
   @override
-  void log2() {
-    // TODO: implement log2
+  void test() {
+    print('Student2 = test');
   }
-}
 
-class Student extends Person with Good implements Bad {
-  void log() {
-    print("Student==");
-  }
-}
 
-Iterable<int> foo2() sync* {
-  print('foo2 start');
-  for (int i = 0; i < 3; i++) {
-    print('运行了foo2，当前index：${i}');
-    yield i;
-  }
-  print('foo2 stop');
+
+
 }
 
 void main() {
-  void _selectionAwareTextManipulation(
-    String value,
-    String substringManipulation(String substring),
-  ) {
-    print('value = $value');
-    print('substringManipulation = ${substringManipulation('jim')}');
-  }
+//  var person = Person();
+//  person.test();
+
+//  void _callBack(
+//    String value,
+//
+//    /// 直接方法名 ,  String Function(String name) nameCallBack 一样
+//    String nameCallBack(String name),
+//  ) {
+//    print('value = $value');
+//    var call = nameCallBack('jim');
+//    print('nameCallBack = $call');
+//  }
+//
+//  _callBack('jim', (name) {
+//    print(name);
+//    return '$name==2';
+//  });
 
 
-  _selectionAwareTextManipulation('tom', (substring) {
-    print('substring =$substring');
 
-    return substring*2;
-  });
+//  void test2(Object? object) {
+//
+//    if(object == null){
+//
+//    }
+//
+//
+//  }
+
+
+
+
 
 //  String newValue = '18905155609';
 //

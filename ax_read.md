@@ -162,3 +162,22 @@ void configLoading() {
     return substring*2;
   });
 ```
+
+## 参数回调
+```dart
+  void _callBack(
+    String value,
+
+    /// 直接方法名 ,  String Function(String name) nameCallBack 一样
+    String nameCallBack(String name),
+  ) {
+    print('value = $value');
+    var call = nameCallBack('jim');
+    print('nameCallBack = $call');
+  }
+
+  _callBack('jim', (name) {
+    print(name);
+    return '$name==2';
+  });
+```

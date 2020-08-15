@@ -13,17 +13,17 @@ class _P42NetTestPageState extends State<P42NetTestPage> {
   Future<dynamic> _net(){
 
 
-//    var options = BaseOptions(
-//      connectTimeout: 15000,
-//      receiveTimeout: 15000,
-//      baseUrl: 'http://localhost:8080',
-//    );
-//
-//    Map<String, dynamic> params = {
-//      'name': 'jim',
-//    };
-//
-//    Dio dio = Dio(options); // 使用默认配置
+    var options = BaseOptions(
+      connectTimeout: 15000,
+      receiveTimeout: 15000,
+      baseUrl: 'http://localhost:8080',
+    );
+
+    Map<String, dynamic> params = {
+      'name': 'jim',
+    };
+
+    Dio dio = Dio(options); // 使用默认配置
 
 // return  await dio.post('/test6', data: params).then((value) {
 //      print('成功 = ${value}');
