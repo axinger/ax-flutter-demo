@@ -116,13 +116,72 @@ class Student2 implements Person {
   void test() {
     print('Student2 = test');
   }
+}
 
+class Net {
+  String _success;
+  String _failure;
 
+  Net.post(String value) {
+    if (value == '1') {
 
+      print('bbb');
+      Future.delayed(Duration(seconds: 1),(){
+//        _success = '成功';
 
+      print('ccc');
+
+        return '成功';
+
+      }).then((value){
+
+        print('value >>> $value');
+        success((value){
+//          value = '成功';
+          return '成功';
+        });
+
+      });
+
+    } else {
+      _failure = '失败';
+    }
+  }
+
+  Net success(Function(String value) call) {
+    if (_success != null && call != null) {
+      call(_success);
+    }
+    return this;
+  }
+
+  Net failure(Function(String value) call) {
+    if (_failure != null && call != null) {
+      call(_failure);
+    }
+    return this;
+  }
 }
 
 void main() {
+//  Future.delayed(Duration(seconds: 1)).then((value){
+//
+//  }).catchError((onError){
+//
+//  });
+
+//  Future<R> then<R>(FutureOr<R> onValue(T value), {Function? onError});
+//  Net.post('2').success2((value){
+//
+//    print('value = $value');
+//  });
+
+  Net.post('1').success((value) {
+    print('success == $value');
+  }).failure((value) {
+    print('failure == $value');
+  });
+
 //  var person = Person();
 //  person.test();
 
@@ -142,8 +201,6 @@ void main() {
 //    return '$name==2';
 //  });
 
-
-
 //  void test2(Object? object) {
 //
 //    if(object == null){
@@ -152,10 +209,6 @@ void main() {
 //
 //
 //  }
-
-
-
-
 
 //  String newValue = '18905155609';
 //
