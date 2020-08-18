@@ -181,3 +181,19 @@ void configLoading() {
     return '$name==2';
   });
 ```
+
+## 重新父类属性 get方法
+```dart
+class Person {
+  String name;
+
+  Person({this.name});
+}
+
+class Student extends Person {
+  @override
+  // TODO: implement name
+//  String get name => super.name;
+ String get name => 'jim';
+}
+```
