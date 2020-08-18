@@ -45,6 +45,7 @@ import '40_size_page.dart';
 import '41_flutter_redux_app.dart';
 import '42_image_browser.dart';
 import '42_net_test_page.dart';
+import '43_search_page.dart';
 
 class ShowTestPage extends StatefulWidget {
   @override
@@ -279,8 +280,10 @@ class _MinePage extends State<ShowTestPage> {
         '42-net',
         P42NetTestPage(),
       ),
-
-
+      _listCell(
+        '43-搜索',
+        P43SearchPage(),
+      ),
     ];
 
     return Stack(

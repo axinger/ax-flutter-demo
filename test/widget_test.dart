@@ -96,6 +96,9 @@
 //}
 //
 
+import 'package:ax_flutter_demo/module/authentication/user_info.dart';
+import 'package:flutter/services.dart';
+
 abstract class Person {
   factory Person() => createDio();
 
@@ -161,6 +164,32 @@ class Net {
     }
     return this;
   }
+
+
+}
+
+extension SafeObject<E> on Object {
+
+  E safeElementAt(index){
+
+    print(this.runtimeType);
+    if((this as List<E>) != null){
+
+      if((this as List).length >index){
+
+        print(index);
+        return (this as List).elementAt(index);
+      }
+
+      return null;
+
+    }
+
+    return null;
+
+  }
+
+
 }
 
 void main() {
@@ -176,11 +205,21 @@ void main() {
 //    print('value = $value');
 //  });
 
-  Net.post('1').success((value) {
-    print('success == $value');
-  }).failure((value) {
-    print('failure == $value');
-  });
+//  Net.post('1').success((value) {
+//    print('success == $value');
+//  }).failure((value) {
+//    print('failure == $value');
+//  });
+
+
+
+List<List<String>> list=[['a']];
+
+print(list?.safeElementAt(0)?.safeElementAt(0) ??'bbb')  ;
+
+
+
+//print(list?.asMap()[0] ?? '空');
 
 //  var person = Person();
 //  person.test();

@@ -52,6 +52,11 @@ void main() async {
 
 class MyApp extends StatefulWidget {
 //  var adapter = Hive.registerAdapter(StudentAdapter(),0);
+//  void log(String? name){
+//print();
+//
+//  }
+
   @override
   State<StatefulWidget> createState() {
     return _MyApp();
