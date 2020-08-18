@@ -10,17 +10,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class Person {
-  String name;
 
-  Person({this.name});
-}
-
-class Stu extends Person {
-  @override
-  // TODO: implement name
-  String get name => super.name;
-}
 
 class P43SearchPage extends StatefulWidget {
   @override
