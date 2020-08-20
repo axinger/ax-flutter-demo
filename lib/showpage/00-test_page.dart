@@ -1,5 +1,7 @@
+import 'package:ax_flutter_util/ax_flutter_util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import '01material_page1.dart';
 import '02material_page2.dart';
@@ -95,10 +97,24 @@ class _MinePage extends State<ShowTestPage> {
       print('name = ${name}');
     };
     print('ShowTestPage = ${widget.runtimeType}');
+
   }
 
   @override
   Widget build(BuildContext context) {
+
+
+    var format = DateFormat.E('zh');
+    
+
+    print('time = ${format.format(DateTime.now())}');
+    print('DateTime.now().format() = ${DateTime.now().format(locale: 'zh')}');
+
+    for (int index=0 ; index<4; index++) {
+
+    }
+
+
     data = [
       _listCell(
         '01-按钮组件1',

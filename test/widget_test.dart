@@ -98,6 +98,7 @@
 
 import 'package:ax_flutter_demo/module/authentication/user_info.dart';
 import 'package:flutter/services.dart';
+import 'package:intl/intl.dart';
 
 abstract class Person {
   factory Person() => createDio();
@@ -192,7 +193,16 @@ extension SafeObject<E> on Object {
 
 }
 
+
+
+
 void main() {
+
+//  var format = DateFormat.yMd('CH');
+//  var dateString = format.format(DateTime.now());
+//  print(dateString);
+
+
 //  Future.delayed(Duration(seconds: 1)).then((value){
 //
 //  }).catchError((onError){

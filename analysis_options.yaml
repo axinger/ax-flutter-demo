@@ -1,4 +1,8 @@
 #include: package:pedantic/analysis_options.1.9.0.yaml
+analyzer:
+  enable-experiment:
+    - extension-methods
+
 ##analyzer:
 ##  exclude: [build/**]
 ###  为了不影响开发，暂时关闭，后面请大家可以打开这个选项进行检查
