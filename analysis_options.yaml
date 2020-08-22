@@ -1,7 +1,7 @@
 #include: package:pedantic/analysis_options.1.9.0.yaml
-analyzer:
-  enable-experiment:
-    - extension-methods
+#analyzer:
+#  enable-experiment:
+#    - extension-methods
 
 ##analyzer:
 ##  exclude: [build/**]

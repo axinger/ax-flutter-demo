@@ -1,4 +1,3 @@
-import 'package:ax_flutter_util/ax_flutter_util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -15,6 +14,18 @@ class _MaterialPage23 extends State<MaterialPage2> {
   var passwordTextEditingController = TextEditingController();
 
   var passwordFocusNode = FocusNode();
+  Map<String, Text> segmentedControlData = {
+    '0': Text('Apple'),
+    '1': Text('Orange'),
+    '2': Text('Banana')
+  };
+  String segmentedControlValue = '';
+
+  @override
+  void initState() {
+    super.initState();
+    segmentedControlValue = segmentedControlData.keys.first;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -139,7 +150,9 @@ class _MaterialPage23 extends State<MaterialPage2> {
                         inputFormatters: <TextInputFormatter>[
 //                      WhitelistingTextInputFormatter.digitsOnly, //只输入数字
 //                      TestTextInputFormatter(),
-//                      WhitelistingTextInputFormatter(RegExp("[a-zA-Z]")),//只允许输入字母
+                          FilteringTextInputFormatter(RegExp("[a-zA-Z]"),
+                              allow: true),
+                          //只允许输入字母
 
 //                      WhitelistingTextInputFormatter(RegExp(r'(\d+)(.\d{0,2})?$/')),
 
@@ -154,8 +167,10 @@ class _MaterialPage23 extends State<MaterialPage2> {
 //                      WhitelistingTextInputFormatterExtension.chinesePhone,
 //                      PhoneTextInputFormatter.digitsOnly,
 
-                          WhitelistingTextInputFormatter(RegExp(
-                              r'^((13[0-9])|(14[5,7,9])|(15[^4])|(18[0-9])|(17[0,1,3,5,6,7,8])|(19)[0-9])\d{8}$'))
+//                          WhitelistingTextInputFormatter(
+//                            RegExp(
+//                                r'^((13[0-9])|(14[5,7,9])|(15[^4])|(18[0-9])|(17[0,1,3,5,6,7,8])|(19)[0-9])\d{8}$'),
+//                          )
 
 //                      WhitelistingTextInputFormatter,
 //                  PhoneTextInputFormatter.digitsOnly,
@@ -217,27 +232,25 @@ class _MaterialPage23 extends State<MaterialPage2> {
                           ),
                         ),
                       ),
-                    ],
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.only(bottom: 50),
-                  child: Material(
-                    type: MaterialType.card,
-                    textStyle: TextStyle(color: Colors.orange, fontSize: 20),
-                    elevation: 1,
-                    color: Colors.red,
+                      Container(
+                        padding: EdgeInsets.only(bottom: 50),
+                        child: Material(
+                          type: MaterialType.card,
+                          textStyle:
+                              TextStyle(color: Colors.orange, fontSize: 20),
+                          elevation: 1,
+                          color: Colors.red,
 
-                    /// 圆角
+                          /// 圆角
 //                   borderRadius:BorderRadius.circular(20),
-                    /// 边框 不能和圆角borderRadius 同时存在 ,圆角放shape 内部
-                    shape: CircleBorder(
-                      side: BorderSide(
-                        color: Colors.green,
-                        width: 2,
-                        style: BorderStyle.solid,
-                      ),
-                    ),
+                          /// 边框 不能和圆角borderRadius 同时存在 ,圆角放shape 内部
+                          shape: CircleBorder(
+                            side: BorderSide(
+                              color: Colors.green,
+                              width: 2,
+                              style: BorderStyle.solid,
+                            ),
+                          ),
 
 //                    shape: RoundedRectangleBorder(
 //                      side: BorderSide(
@@ -249,34 +262,56 @@ class _MaterialPage23 extends State<MaterialPage2> {
 //                      borderRadius: BorderRadius.circular(20),
 //                    ),
 
-                    ///边界前景  ,超出部分是否显示
-                    borderOnForeground: false,
+                          ///边界前景  ,超出部分是否显示
+                          borderOnForeground: false,
 
-                    /// 超出部分剪切
-                    clipBehavior: Clip.antiAlias,
-                    child: Column(
-                      children: [
-                        Text('Material'),
-                        Text('Material2'),
-                      ],
-                    ),
-                  ),
-                ),
-                FlatButton(
-                  child: Text('aa'),
-                  onPressed: () {
-                    Net.post('1').success((value) {
-                      print('success = $value');
-                    }).failure((value) {
-                      print('failure = $value');
-                    });
+                          /// 超出部分剪切
+                          clipBehavior: Clip.antiAlias,
+                          child: Column(
+                            children: [
+                              Text('Material'),
+                              Text('Material2'),
+                            ],
+                          ),
+                        ),
+                      ),
+                      FlatButton(
+                        child: Text('aa'),
+                        onPressed: () {
+                          Net.post('1').success((value) {
+                            print('success = $value');
+                          }).failure((value) {
+                            print('failure = $value');
+                          });
 
 //                    Future.delayed(Duration(seconds: 0),(){
 //                      return 'jim';
 //                    }).then((value){
 //                      print('failure = $value');
 //                    });
-                  },
+                        },
+                      ),
+                      CupertinoSegmentedControl<String>(
+                        children: segmentedControlData,
+                        // 数据
+                        groupValue: segmentedControlValue,
+                        // 选中的数据
+                        onValueChanged: (fruit) {
+                          setState(() {
+                            // 数据改变时通过setState改变选中状态
+                            segmentedControlValue = fruit;
+                          });
+                        },
+                        unselectedColor: CupertinoColors.white,
+                        // 未选中颜色
+                        selectedColor: CupertinoColors.activeBlue,
+                        // 选中颜色
+                        borderColor: CupertinoColors.activeBlue,
+                        // 边框颜色
+                        pressedColor: const Color(0x33007AFF), // 点击时候的颜色
+                      ),
+                    ],
+                  ),
                 ),
                 Container(
                   height: 50,
@@ -317,9 +352,10 @@ class Net {
       });
     }
   }
+
 //  Future<R> then<R>(FutureOr<R> onValue(T value), {Function? onError});
 //  Net success(Function(String value) ) {
-  Net success(call(String value) ) {
+  Net success(call(String value)) {
     _successCall = call;
     if (_successCall != null && successResult != null) {
       _successCall(successResult);
@@ -332,22 +368,18 @@ class Net {
     return this;
   }
 
-  Future asyncDemo() async{
+  Future asyncDemo() async {
     Future<Null> future = new Future(() => null);
-    await  future.then((_){
+    await future.then((_) {
       print("then");
-    }).then((val){
+    }).then((val) {
       print("whenComplete");
-    }).catchError((_){
+    }).catchError((_) {
       print("catchError");
     });
-
-
   }
-
-
 }
-
+/*
 class _MaterialPage22 extends State<MaterialPage2> {
   @override
   Widget build(BuildContext context) {
@@ -385,8 +417,9 @@ class _MaterialPage22 extends State<MaterialPage2> {
       ),
     );
   }
-}
+}*/
 
+/*
 class _MaterialPage1 extends State<MaterialPage2>
     with AutomaticKeepAliveClientMixin {
   @override
@@ -517,3 +550,4 @@ class _MaterialPage1 extends State<MaterialPage2>
     );
   }
 }
+*/

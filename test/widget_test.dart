@@ -96,10 +96,6 @@
 //}
 //
 
-import 'package:ax_flutter_demo/module/authentication/user_info.dart';
-import 'package:flutter/services.dart';
-import 'package:intl/intl.dart';
-
 abstract class Person {
   factory Person() => createDio();
 
@@ -128,25 +124,20 @@ class Net {
 
   Net.post(String value) {
     if (value == '1') {
-
       print('bbb');
-      Future.delayed(Duration(seconds: 1),(){
+      Future.delayed(Duration(seconds: 1), () {
 //        _success = '成功';
 
-      print('ccc');
+        print('ccc');
 
         return '成功';
-
-      }).then((value){
-
+      }).then((value) {
         print('value >>> $value');
-        success((value){
+        success((value) {
 //          value = '成功';
           return '成功';
         });
-
       });
-
     } else {
       _failure = '失败';
     }
@@ -165,43 +156,28 @@ class Net {
     }
     return this;
   }
-
-
 }
 
 extension SafeObject<E> on Object {
-
-  E safeElementAt(index){
-
+  E safeElementAt(index) {
     print(this.runtimeType);
-    if((this as List<E>) != null){
-
-      if((this as List).length >index){
-
+    if ((this as List<E>) != null) {
+      if ((this as List).length > index) {
         print(index);
         return (this as List).elementAt(index);
       }
 
       return null;
-
     }
 
     return null;
-
   }
-
-
 }
 
-
-
-
 void main() {
-
 //  var format = DateFormat.yMd('CH');
 //  var dateString = format.format(DateTime.now());
 //  print(dateString);
-
 
 //  Future.delayed(Duration(seconds: 1)).then((value){
 //
@@ -221,13 +197,11 @@ void main() {
 //    print('failure == $value');
 //  });
 
+  List<List<String>> list = [
+    ['a']
+  ];
 
-
-List<List<String>> list=[['a']];
-
-print(list?.safeElementAt(0)?.safeElementAt(0) ??'bbb')  ;
-
-
+  print(list?.safeElementAt(0)?.safeElementAt(0) ?? 'bbb');
 
 //print(list?.asMap()[0] ?? '空');
 
