@@ -132,7 +132,7 @@ void configLoading() {
 }
 ```
 
-## 计算文件宽度
+## 计算文字宽度
 ```dart
   /// 计算文件宽度
   double paintWidthWithTextStyle(String text, TextStyle style) {
