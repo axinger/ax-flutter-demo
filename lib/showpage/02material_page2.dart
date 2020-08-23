@@ -26,6 +26,11 @@ class _MaterialPage23 extends State<MaterialPage2> {
     super.initState();
     segmentedControlValue = segmentedControlData.keys.first;
   }
+  @override
+  void deactivate() {
+    super.deactivate();
+    print('deactivate');
+  }
 
   @override
   Widget build(BuildContext context) {

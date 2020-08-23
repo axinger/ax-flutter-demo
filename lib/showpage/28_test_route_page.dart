@@ -15,6 +15,10 @@ class _MaterialPage extends State<P28RoutePage> {
     // TODO: implement initState
     super.initState();
   }
+  void deactivate() {
+    super.deactivate();
+    print('deactivate');
+  }
 
   @override
   Widget build(BuildContext context) {

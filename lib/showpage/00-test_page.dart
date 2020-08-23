@@ -48,6 +48,7 @@ import '41_flutter_redux_app.dart';
 import '42_image_browser.dart';
 import '42_net_test_page.dart';
 import '43_search_page.dart';
+import '44_camera_demo_page.dart';
 
 class ShowTestPage extends StatefulWidget {
   @override
@@ -300,6 +301,12 @@ class _MinePage extends State<ShowTestPage> {
         '43-搜索',
         P43SearchPage(),
       ),
+      _listCell(
+        '44-自定义相机',
+        CameraDemoPage(),
+      ),
+
+
     ];
 
     return Stack(

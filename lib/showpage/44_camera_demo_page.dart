@@ -6,8 +6,6 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:path_provider/path_provider.dart' as path_provider;
-import 'package:zking_claims_app/utils/object_util.dart';
 
 class CameraDemoPage extends StatefulWidget {
   /// TODO
@@ -26,19 +24,19 @@ class CameraDemoPageState extends State<CameraDemoPage> {
   VoidCallback videoPlayerListener;
   WidgetsBinding widgetsBinding;
 
-// 摄像头权限
+  /// 摄像头权限
   List<CameraDescription> cameras;
   String photoType = '';
 
-// 图片地址
-  var photoPath;
+  /// 图片地址
+  var photoPathList = <String>[];
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
     getCameras();
-    photoPath = '';
+
   }
 
   /// 获取权限
@@ -59,64 +57,100 @@ class CameraDemoPageState extends State<CameraDemoPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         key: _scaffoldKey,
+        appBar: AppBar(
+          backgroundColor: Colors.black,
+        ),
         body: Container(
           color: Colors.black,
-          child: Stack(children: <Widget>[
-            Column(
-              children: <Widget>[
-                Expanded(
-                  flex: 5, //flex用来设置当前可用空间的占优比
-                  child: Stack(children: <Widget>[
-                    _cameraPreviewWidget(), //相机视图
-                  ]),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: _takePictureLayout(), //拍照操作区域布局
-                ),
-              ],
-            ),
-            getPhotoPreview(), //图片预览布局或者预览是否展示图片
-          ]),
+          child: Column(
+            children: <Widget>[
+              Expanded(
+                flex: 5, //flex用来设置当前可用空间的占优比
+                child: Stack(children: <Widget>[
+                  _cameraPreviewWidget(), //相机视图
+                ]),
+              ),
+              Expanded(
+                flex: 1,
+                child: _takePictureLayout(), //拍照操作区域布局
+              ),
+            ],
+          ),
         ));
   }
 
   Widget _takePictureLayout() {
+    var url = (photoPathList?.isNotEmpty ?? false) ? photoPathList.last : '';
+    double wh = 60;
+
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
-        Offstage(
-          offstage: ObjectUtil.isEmpty(photoPath),
-          child: Image.file(File(photoPath)),
+        Container(
+          clipBehavior: Clip.hardEdge,
+          margin: EdgeInsets.only(left: 20, top: 20, bottom: 20, right: 10),
+          width: wh,
+          height: wh,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(5.0),
+          ),
+          child: url.isEmpty
+              ? null
+              : Stack(
+                  clipBehavior: Clip.none,
+                  overflow: Overflow.visible,
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                      clipBehavior: Clip.hardEdge,
+                      child: Image.file(
+                        File(url),
+                        fit: BoxFit.fill,
+                        width: wh,
+                        height: wh,
+                      ),
+                    ),
+                    Positioned(
+                      top: -7,
+                      right: -7,
+                      child: CircleAvatar(
+                        radius: 7,
+                        backgroundColor: Colors.red,
+                        child: Text(
+                          photoPathList?.length?.toString() ?? '',
+                          style: TextStyle(fontSize: 12),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
         ),
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: Container(
-            alignment: Alignment.center,
-            child: IconButton(
-              iconSize: 50.0,
-              onPressed: controller != null &&
-                      controller.value.isInitialized &&
-                      !controller.value.isRecordingVideo
-                  ? onTakePictureButtonPressed
-                  : null,
-              icon: Icon(
-                Icons.photo_camera,
-                color: Colors.white,
-              ),
+        Container(
+          alignment: Alignment.center,
+          child: IconButton(
+            iconSize: 50.0,
+            onPressed: controller != null &&
+                    controller.value.isInitialized &&
+                    !controller.value.isRecordingVideo
+                ? onTakePictureButtonPressed
+                : null,
+            icon: Icon(
+              Icons.camera_alt,
+              color: Colors.white,
             ),
           ),
         ),
+        Container(
+          margin: EdgeInsets.only(left: 20, right: 20),
+          width: 50,
+          height: 50,
+          color: Colors.transparent,
+        ),
       ],
     );
-  }
-
-  Widget _cameraFloatImage() {
-    return Positioned(
-        child: Container(
-      alignment: Alignment.center,
-      margin: const EdgeInsets.fromLTRB(30, 30, 30, 30),
-      child: Image.asset(photoType),
-    ));
   }
 
   Widget _cameraPreviewWidget() {
@@ -158,8 +192,6 @@ class CameraDemoPageState extends State<CameraDemoPage> {
       await controller.dispose();
     }
     controller = CameraController(cameraDescription, ResolutionPreset.high);
-
-// If the controller is updated then update the UI.
     try {
       await controller.initialize();
     } on CameraException catch (e) {}
@@ -175,15 +207,13 @@ class CameraDemoPageState extends State<CameraDemoPage> {
   /// TODO 理赔如果需要单次查勘，可以选择保存到磁盘（以当天为时间戳创建文件夹？.不确定）
   void onTakePictureButtonPressed() {
     takePicture().then((String filePath) {
-      if (mounted) {
-        setState(() {
-/* videoController = null;
-videoController?.dispose(); */
-        });
+      if (mounted && filePath != null) {
         if (filePath != null) {
-//showInSnackBar('Picture saved to $filePath');
-          photoPath = filePath;
-          setState(() {});
+          setState(() {
+//            photoPath = filePath;
+
+            photoPathList.add(filePath);
+          });
         }
       }
     });
@@ -196,7 +226,6 @@ videoController?.dispose(); */
     final String filePath = '$dirPath/${timestamp()}.jpg';
 
     if (controller.value.isTakingPicture) {
-// A capture is already pending, do nothing.
       return null;
     }
 
@@ -221,7 +250,7 @@ videoController?.dispose(); */
   }
 
   Future<String> getTempDir() async {
-    var dir = await path_provider.getTemporaryDirectory();
+    var dir = await getTemporaryDirectory();
     var targetPath = dir.absolute.path + "/temp.jpg";
     return targetPath;
   }
