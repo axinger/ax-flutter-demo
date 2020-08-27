@@ -49,264 +49,273 @@ import '42_image_browser.dart';
 import '42_net_test_page.dart';
 import '43_search_page.dart';
 import '44_camera_demo_page.dart';
+import '45_hero_demo.dart';
+import '46_material_motion.dart';
 
 class ShowTestPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _MinePage();
+    return _ShowTestPageState();
   }
 }
 
-class _MinePage extends State<ShowTestPage> {
-  /// 封装一下
-  Widget _listCell(String text, Widget contentWidget) {
-    return ListTile(
-      title: Text(
-        text,
-        style: TextStyle(color: Colors.red),
-      ),
-      onTap: () {
-        /// iOS风格push
-        Navigator.of(context, rootNavigator: true)
-            .push(CupertinoPageRoute(builder: (BuildContext context) {
-//          contentWidget.key = Key('111');
-          return contentWidget;
-        }));
-
-//        push(context: context,widget: contentWidget);
-      },
-    );
-  }
-
-  List<Widget> data = [];
-
-  Widget _itemBuilder(BuildContext context, int index) {
-    return data[index];
-  }
-
-  Widget _separatorBuilder(BuildContext context, int index) {
-    return Divider();
-  }
-
-  /// 定义回调函数
-  Function({String name, int age}) completeCallback;
-
-  @override
-  void initState() {
-    super.initState();
-    completeCallback = ({String name, int age}) {
-      print('name = ${name}');
-    };
-    print('ShowTestPage = ${widget.runtimeType}');
-
-  }
+class _ShowTestPageState extends State<ShowTestPage> {
+  List<CellItem> dataList = [];
 
   @override
   Widget build(BuildContext context) {
-
-
+    print('ShowTestPage = ${widget.runtimeType}');
     var format = DateFormat.E('zh');
-    
 
     print('time = ${format.format(DateTime.now())}');
     print('DateTime.now().format() = ${DateTime.now().format(locale: 'zh')}');
 
-    for (int index=0 ; index<4; index++) {
-
-    }
-
-
-    data = [
-      _listCell(
-        '01-按钮组件1',
-        MaterialPage1(),
-      ),
-      _listCell(
-        '02-组件',
-        MaterialPage2(),
-      ),
-      _listCell(
-        '03-复选,开关等',
-        MaterialPageDate(),
-      ),
-      _listCell(
-        '04-弹窗',
-        P04MaterialPageDialog(),
-      ),
-      _listCell(
-        '05-Chip 标签',
-        MaterialPageChip(),
-      ),
-      _listCell(
-        '06-DataTable',
-        MaterialDataTablePage(),
-      ),
-      _listCell(
-        '07-分页DataTable',
-        MaterialPaginatedDataTablePage(),
-      ),
-      _listCell(
-        '08-卡片',
-        MaterialPageCard(),
-      ),
-      _listCell(
-        '09-步骤',
-        MaterialPageStepper(),
-      ),
-      _listCell(
-        '10-InheritedWidget子widget之间传参',
-        MaterialPageInheritedWidget(),
-      ),
-      _listCell(
-        '11-Stream 监听',
-        MaterialPageStream(),
-      ),
-      _listCell(
-        '12-RxDart',
-        MaterialPageRxDart(),
-      ),
-      _listCell(
-        '13-Bloc业务 依赖 Streams 独家使用输入（Sink）和输出（stream）',
-        MaterialPageBloc(),
-      ),
-      _listCell(
-        '14-各种BuilderWidget',
-        P14AllBuilderPage(),
-      ),
-      _listCell(
-        '15-动画',
-        MaterialPageAnimation(),
-      ),
-      _listCell(
-        '16-国际化',
-        MaterialPageI18n(),
-      ),
-      _listCell(
-        '17-本地存储',
-        MaterialPageSql(),
-      ),
-      _listCell(
-        '18-多行Text',
-        MaterialPageMoreText(),
-      ),
-      _listCell(
-        '19-自定义插件',
-        MaterialPagePlugin(),
-      ),
-      _listCell(
-        '20-相机和相册',
-        ImagePickerWidget(),
-      ),
-      _listCell(
-        '21-FutureAndAwaitTest',
-        FutureAndAwaitTest(),
-      ),
-      _listCell(
-        '22-1-WebView-https',
-        WebViewPage(),
-      ),
-      _listCell(
-        '22-2-WebView-本地html',
-        LocalHtmlPage(),
-      ),
-      _listCell(
-        '23-ListView',
-        ListViewPage(),
-      ),
-      _listCell(
-        '24-ListView,第三方侧滑',
-        ListViewActionPage(),
-      ),
-      _listCell(
-        '25-ListView,多个拼接,禁止滚动,截图',
-        P25MoreListViewPage(),
-      ),
-      _listCell(
-        '26-EVENT_BUS,封装stream',
-        P26TestEventPage(),
-      ),
-      _listCell(
-        '27- async和async*',
-        P27AsyncPage(),
-      ),
-      _listCell(
-        '28- 跳转路由',
-        P28RoutePage(),
-      ),
-      _listCell(
-        '29- AnimatedList',
-        AnimatedListSample(),
-      ),
-      _listCell(
-        '30-包含在溢出下拉菜单中',
-        BasicAppBarSample(),
-      ),
-      _listCell(
-        '31-AnimatedWidget',
-        P31TestAnimation(),
-      ),
-      _listCell(
-        '32-AnimatedBuilder',
-        P32TestAnimation(),
-      ),
-      _listCell(
-        '32-Hive数据存储',
-        P33DbHive(),
-      ),
-      _listCell(
-        '34-单个Provider和Consumer',
-        P34Provider(),
-      ),
-      _listCell(
-        '34-多个Provider和Consumer',
-        P34MultiProvider(),
-      ),
-      _listCell(
-        '35-TestWidget',
-        P35TestTodoList(),
-      ),
-      _listCell(
-        '36-识别',
-        P36TouchAuthDemoPage(),
-      ),
-      _listCell(
-        '37-P37PopupRoutePage',
-        P37PopupRoutePage(),
-      ),
-      _listCell(
-        '38-居中向上布局',
-        P38CenterUpPage(),
-      ),
-      _listCell(
-        '39-圆形图片',
-        P39CirclePage(),
-      ),
-      _listCell(
-        '40-获得尺寸',
-        P40SizePage(),
-      ),
-      _listCell(
-        '41-flutter_redux',
-        P41FlutterReduxApp(),
-      ),
-      _listCell(
-        '41-图片',
-        P42ImageBrowser(),
-      ),
-      _listCell(
-        '42-net',
-        P42NetTestPage(),
-      ),
-      _listCell(
-        '43-搜索',
-        P43SearchPage(),
-      ),
-      _listCell(
-        '44-自定义相机',
-        CameraDemoPage(),
-      ),
-
-
+    dataList = [
+      CellItem(
+          title: '01-按钮组件1',
+          onTap: () {
+            push(context: context, widget: MaterialPage1());
+          }),
+      CellItem(
+          title: '02-组件',
+          onTap: () {
+            push(context: context, widget: MaterialPage2());
+          }),
+      CellItem(
+          title: '03-复选,开关等',
+          onTap: () {
+            push(context: context, widget: MaterialPageDate());
+          }),
+      CellItem(
+          title: '04-弹窗',
+          onTap: () {
+            push(context: context, widget: P04MaterialPageDialog());
+          }),
+      CellItem(
+          title: '05-Chip 标签',
+          onTap: () {
+            push(context: context, widget: MaterialPageChip());
+          }),
+      CellItem(
+          title: '06-DataTable',
+          onTap: () {
+            push(context: context, widget: MaterialDataTablePage());
+          }),
+      CellItem(
+          title: '07-分页DataTable',
+          onTap: () {
+            push(context: context, widget: MaterialPaginatedDataTablePage());
+          }),
+      CellItem(
+          title: '08-卡片',
+          onTap: () {
+            push(context: context, widget: MaterialPageCard());
+          }),
+      CellItem(
+          title: '09-步骤',
+          onTap: () {
+            push(context: context, widget: MaterialPageStepper());
+          }),
+      CellItem(
+          title: '10-InheritedWidget子widget之间传参',
+          onTap: () {
+            push(context: context, widget: MaterialPageInheritedWidget());
+          }),
+      CellItem(
+          title: '11-Stream 监听',
+          onTap: () {
+            push(context: context, widget: MaterialPageStream());
+          }),
+      CellItem(
+          title: '12-RxDart',
+          onTap: () {
+            push(context: context, widget: MaterialPageRxDart());
+          }),
+      CellItem(
+          title: '13-Bloc业务 依赖 Streams 独家使用输入（Sink）和输出（stream）',
+          onTap: () {
+            push(context: context, widget: MaterialPageBloc());
+          }),
+      CellItem(
+          title: '14-各种BuilderWidget',
+          onTap: () {
+            push(context: context, widget: P14AllBuilderPage());
+          }),
+      CellItem(
+          title: '15-动画',
+          onTap: () {
+            push(context: context, widget: MaterialPageAnimation());
+          }),
+      CellItem(
+          title: '16-国际化',
+          onTap: () {
+            push(context: context, widget: MaterialPageI18n());
+          }),
+      CellItem(
+          title: '17-本地存储',
+          onTap: () {
+            push(context: context, widget: MaterialPageSql());
+          }),
+      CellItem(
+          title: '18-多行Text',
+          onTap: () {
+            push(context: context, widget: MaterialPageMoreText());
+          }),
+      CellItem(
+          title: '19-自定义插件',
+          onTap: () {
+            push(context: context, widget: MaterialPagePlugin());
+          }),
+      CellItem(
+          title: '20-相机和相册',
+          onTap: () {
+            push(context: context, widget: ImagePickerWidget());
+          }),
+      CellItem(
+          title: '21-FutureAndAwaitTest',
+          onTap: () {
+            push(context: context, widget: FutureAndAwaitTest());
+          }),
+      CellItem(
+          title: '22-1-WebView-https',
+          onTap: () {
+            push(context: context, widget: WebViewPage());
+          }),
+      CellItem(
+          title: '22-2-WebView-本地html',
+          onTap: () {
+            push(context: context, widget: LocalHtmlPage());
+          }),
+      CellItem(
+          title: '23-ListView',
+          onTap: () {
+            push(context: context, widget: ListViewPage());
+          }),
+      CellItem(
+          title: '24-ListView,第三方侧滑',
+          onTap: () {
+            push(context: context, widget: ListViewActionPage());
+          }),
+      CellItem(
+          title: '25-ListView,多个拼接,禁止滚动,截图',
+          onTap: () {
+            push(context: context, widget: P25MoreListViewPage());
+          }),
+      CellItem(
+          title: '26-EVENT_BUS,封装stream',
+          onTap: () {
+            push(context: context, widget: P26TestEventPage());
+          }),
+      CellItem(
+          title: '27- async和async*',
+          onTap: () {
+            push(context: context, widget: P27AsyncPage());
+          }),
+      CellItem(
+          title: '28- 跳转路由',
+          onTap: () {
+            push(context: context, widget: P28RoutePage());
+          }),
+      CellItem(
+          title: '29- AnimatedList',
+          onTap: () {
+            push(context: context, widget: AnimatedListSample());
+          }),
+      CellItem(
+          title: '30-包含在溢出下拉菜单中',
+          onTap: () {
+            push(context: context, widget: BasicAppBarSample());
+          }),
+      CellItem(
+          title: '31-AnimatedWidget',
+          onTap: () {
+            push(context: context, widget: P31TestAnimation());
+          }),
+      CellItem(
+          title: '32-AnimatedBuilder',
+          onTap: () {
+            push(context: context, widget: P32TestAnimation());
+          }),
+      CellItem(
+          title: '32-Hive数据存储',
+          onTap: () {
+            push(context: context, widget: P33DbHive());
+          }),
+      CellItem(
+          title: '34-单个Provider和Consumer',
+          onTap: () {
+            push(context: context, widget: P34Provider());
+          }),
+      CellItem(
+          title: '34-多个Provider和Consumer',
+          onTap: () {
+            push(context: context, widget: P34MultiProvider());
+          }),
+      CellItem(
+          title: '35-TestWidget',
+          onTap: () {
+            push(context: context, widget: P35TestTodoList());
+          }),
+      CellItem(
+          title: '36-识别',
+          onTap: () {
+            push(context: context, widget: P36TouchAuthDemoPage());
+          }),
+      CellItem(
+          title: '37-P37PopupRoutePage',
+          onTap: () {
+            push(context: context, widget: P37PopupRoutePage());
+          }),
+      CellItem(
+          title: '38-居中向上布局',
+          onTap: () {
+            push(context: context, widget: P38CenterUpPage());
+          }),
+      CellItem(
+          title: '39-圆形图片',
+          onTap: () {
+            push(context: context, widget: P39CirclePage());
+          }),
+      CellItem(
+          title: '40-获得尺寸',
+          onTap: () {
+            push(context: context, widget: P40SizePage());
+          }),
+      CellItem(
+          title: '41-flutter_redux',
+          onTap: () {
+            push(context: context, widget: P41FlutterReduxApp());
+          }),
+      CellItem(
+          title: '41-图片',
+          onTap: () {
+            push(context: context, widget: P42ImageBrowser());
+          }),
+      CellItem(
+          title: '42-net',
+          onTap: () {
+            push(context: context, widget: P42NetTestPage());
+          }),
+      CellItem(
+          title: '43-搜索',
+          onTap: () {
+            push(context: context, widget: P43SearchPage());
+          }),
+      CellItem(
+          title: '44-自定义相机',
+          onTap: () {
+            push(context: context, widget: CameraDemoPage());
+          }),
+      CellItem(
+          title: '45-HeroDemo',
+          onTap: () {
+            push(context: context, widget: P45HeroDemo());
+          }),
+      CellItem(
+          title: '46-MaterialMotion',
+          onTap: () {
+            push(context: context, widget: P46MaterialMotion());
+          }),
     ];
 
     return Stack(
@@ -314,7 +323,7 @@ class _MinePage extends State<ShowTestPage> {
         Scaffold(
           /// 导航栏 加高,添加背景图片
           appBar: PreferredSize(
-            preferredSize: Size.fromHeight(200),
+            preferredSize: Size.fromHeight(20),
             child: AppBar(
               title: Text(
                 '测试',
@@ -329,15 +338,42 @@ class _MinePage extends State<ShowTestPage> {
               actions: <Widget>[],
             ),
           ),
-
-          body: ListView.separated(
-            padding: EdgeInsets.only(bottom: 10),
-            itemBuilder: _itemBuilder,
-            separatorBuilder: _separatorBuilder,
-            itemCount: data.length,
+          body: SingleChildScrollView(
+            child: Wrap(children: dataList.map((e) => Cell(e)).toList()),
           ),
         ),
       ],
+    );
+  }
+}
+
+class CellItem {
+  String title;
+  final Function() onTap;
+
+  CellItem({this.title, this.onTap});
+}
+
+class Cell extends StatelessWidget {
+  final CellItem item;
+
+  Cell(this.item);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      child: Container(
+        height: 40,
+        margin: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+        decoration: BoxDecoration(
+            border: Border.all(color: Colors.orange, width: 1.0),
+            borderRadius: BorderRadius.all(Radius.circular(5))),
+        child: Container(
+          margin: EdgeInsets.all(8),
+          child: Text(item.title),
+        ),
+      ),
+      onTap: item.onTap,
     );
   }
 }
