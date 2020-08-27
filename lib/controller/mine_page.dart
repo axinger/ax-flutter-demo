@@ -71,7 +71,7 @@ class _MinePage extends State<MinePage> {
                 context,
                 MaterialPageRoute(
                   builder: (BuildContext context) {
-                    return ShowTestPage();
+                    return P00ShowTestPage();
                   },
                 ),
               );

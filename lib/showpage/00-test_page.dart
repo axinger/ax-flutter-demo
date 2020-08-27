@@ -1,6 +1,7 @@
 import 'package:ax_flutter_util/ax_flutter_util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_boost/flutter_boost.dart';
 import 'package:intl/intl.dart';
 
 import '01material_page1.dart';
@@ -52,14 +53,14 @@ import '44_camera_demo_page.dart';
 import '45_hero_demo.dart';
 import '46_material_motion.dart';
 
-class ShowTestPage extends StatefulWidget {
+class P00ShowTestPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _ShowTestPageState();
+    return _P00ShowTestPageState();
   }
 }
 
-class _ShowTestPageState extends State<ShowTestPage> {
+class _P00ShowTestPageState extends State<P00ShowTestPage> {
   List<CellItem> dataList = [];
 
   @override
@@ -316,33 +317,48 @@ class _ShowTestPageState extends State<ShowTestPage> {
           onTap: () {
             push(context: context, widget: P46MaterialMotion());
           }),
+
+    CellItem(
+    title: '47-FlutterBoost',
+    onTap: () {
+
+      print('==============');
+      FlutterBoost.singleton.open('aa',
+          urlParams: <String, dynamic>{
+            'present': true
+          }).then((Map<dynamic, dynamic> value) {
+        print(
+            'FlutterBoost =  $value');
+      });
+
+    }),
+
+
     ];
 
-    return Stack(
-      children: <Widget>[
-        Scaffold(
-          /// 导航栏 加高,添加背景图片
-          appBar: PreferredSize(
-            preferredSize: Size.fromHeight(20),
-            child: AppBar(
-              title: Text(
-                '测试',
-                style: TextStyle(color: Colors.red),
-              ),
-              flexibleSpace: Image.asset(
-                'assets/image/A171.jpg',
-                fit: BoxFit.fill,
-                height: double.infinity,
-              ),
-              centerTitle: true,
-              actions: <Widget>[],
-            ),
+    return  Scaffold(
+      /// 导航栏 加高,添加背景图片
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(20),
+        child: AppBar(
+          title: Text(
+            '测试',
+            style: TextStyle(color: Colors.red),
           ),
-          body: SingleChildScrollView(
-            child: Wrap(children: dataList.map((e) => Cell(e)).toList()),
+          flexibleSpace: Image.asset(
+            'assets/image/A171.jpg',
+            fit: BoxFit.fill,
+            height: double.infinity,
           ),
+          centerTitle: true,
+          actions: <Widget>[],
         ),
-      ],
+      ),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Wrap(children: dataList.map((e) => Cell(e)).toList()),
+        ),
+      )
     );
   }
 }

@@ -79,7 +79,7 @@ class _RootController
       TabbarItemController(
         title: "测试",
         icon: Icon(Icons.desktop_mac),
-        controller: ShowTestPage(),
+        controller: P00ShowTestPage(),
       ),
     ];
   }
