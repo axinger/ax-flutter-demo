@@ -427,7 +427,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flutter",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ax.demo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ax.flutter;
 				PRODUCT_NAME = Runner;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -559,7 +559,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flutter",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ax.demo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ax.flutter;
 				PRODUCT_NAME = Runner;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -584,7 +584,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flutter",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ax.demo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ax.flutter;
 				PRODUCT_NAME = Runner;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
