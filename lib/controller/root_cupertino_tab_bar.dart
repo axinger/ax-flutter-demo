@@ -40,7 +40,7 @@ class MyBottomItem {
 class RootTabBar extends StatelessWidget {
   final _bottomItemList = <MyBottomItem>[
     MyBottomItem(
-      title: localString.honeTitle,
+      title: '首页',
       icon: Icon(Icons.home),
       activeIcon: Icon(Icons.home),
       content: HomePage(),
@@ -59,7 +59,7 @@ class RootTabBar extends StatelessWidget {
     MyBottomItem(
       title: '测试',
       icon: Icon(Icons.desktop_mac),
-      content: ShowTestPage(),
+      content: P00ShowTestPage(),
     ),
   ];
 
