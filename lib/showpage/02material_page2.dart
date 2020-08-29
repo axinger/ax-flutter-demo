@@ -20,7 +20,7 @@ class _MaterialPage23 extends State<MaterialPage2> {
     '2': Text('Banana')
   };
   String segmentedControlValue = '';
-
+  final _nameFocusNode = FocusNode();
   @override
   void initState() {
     super.initState();
@@ -35,6 +35,8 @@ class _MaterialPage23 extends State<MaterialPage2> {
 
   @override
   Widget build(BuildContext context) {
+    FocusScope.of(context)
+        .requestFocus(passwordFocusNode);
     return Stack(
       children: <Widget>[
         Scaffold(
@@ -135,6 +137,14 @@ class _MaterialPage23 extends State<MaterialPage2> {
 
                       children: <Widget>[
                         Text('TextFormField'),
+                        FlatButton(
+                          child: Text('编辑'),
+                          onPressed: (){
+
+                            FocusScope.of(context)
+                                .requestFocus(passwordFocusNode);
+                          },
+                        ),
                         TextFormField(
                           controller: passwordTextEditingController,
                           focusNode: passwordFocusNode,
