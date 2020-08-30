@@ -259,6 +259,8 @@ flutter:
     - assets/image/红包.png
     - assets/test2/红包2.png
     - assets/红包1.png
+    - assets/album/
+
   #           style: italic
   #   - family: Trajan Pro
   #     fonts:
