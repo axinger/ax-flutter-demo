@@ -15,15 +15,12 @@ import 'package:flutter/services.dart';
 import 'package:flutter_boost/flutter_boost.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:package_info/package_info.dart';
-import 'package:provider/provider.dart';
 
 import 'controller/root_cupertino_tab_bar.dart';
 import 'controller/root_page.dart';
 import 'global_const.dart';
-import 'module/authentication/authentication_event.dart';
 import 'module/login/view/login_view.dart';
 import 'showpage/47_route_widget.dart';
-import 'theme_data_config.dart';
 
 //void main() => runApp(MyApp());
 
@@ -108,22 +105,7 @@ class _MyApp extends State<MyApp> with WidgetsBindingObserver {
 
     const bool inProduction = const bool.fromEnvironment("dart.vm.product");
     print('inProduction = $inProduction');
-
-    const basicMessageChannel =
-        const BasicMessageChannel('Android_back', StringCodec());
-
-//接受并回复消息
-    basicMessageChannel.setMessageHandler(
-      (String message) => Future<String>(() {
-        print('收到消息===============');
-
-//        setState(() {
-//          this.message = message;
-//        });
-        return "回复native消息";
-      }),
-    );
-
+    _androidBack();
     _boost();
 
     /// FlutterBoost 注册
@@ -163,18 +145,35 @@ class _MyApp extends State<MyApp> with WidgetsBindingObserver {
 // [GyroscopeEvent (x: 0.0, y: 0.0, z: 0.0)]
   }
 
+  /// 监听安卓返回按键
+  void _androidBack() {
+    const basicMessageChannel =
+        const BasicMessageChannel('Android_back', StringCodec());
+
+//接受并回复消息
+    basicMessageChannel.setMessageHandler(
+      (String message) => Future<String>(() {
+        print('收到消息===============');
+
+//        setState(() {
+//          this.message = message;
+//        });
+        return "回复native消息";
+      }),
+    );
+  }
+
   /// 咸鱼路由
   void _boost() {
     FlutterBoost.singleton.registerPageBuilders(<String, PageBuilder>{
-      'P00ShowTestPage':
+      '/P28RoutePageSub1':
           (String pageName, Map<String, dynamic> params, String uniqueId) {
         print('P00ShowTestPage params:$params');
-        return P00ShowTestPage();
+        return P28RoutePageSub1();
       },
 
       ///可以在native层通过 getContainerParams 来传递参数
-      'aa':
-          (String pageName, Map<String, dynamic> params, String uniqueId) {
+      'aa': (String pageName, Map<String, dynamic> params, String uniqueId) {
         print('P47RouteWidget params:$params');
 
         return P47RouteWidget(map: params);
@@ -311,7 +310,7 @@ class _MyApp extends State<MyApp> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return MaterialApp(
       title: 'Flutter Demo',
       navigatorKey: navigatorStateKey,
       debugShowCheckedModeBanner: false,
@@ -335,13 +334,15 @@ class _MyApp extends State<MyApp> with WidgetsBindingObserver {
 //      builder: FlutterBoost.init(),
       /// 根路由,一般设置 和 onGenerateRoute 冲突,不能同时存在
 //      initialRoute: "/",
-//      routes: {
-//        "/Root": (context) => RootPage(),
-//        "/route_login": (context) => LoginView(),
-//        "/p28": (context) => P28RoutePage(),
-//        "/sub1": (context) => P28RoutePageSub1(),
-//        "/MaterialPage1": (context) => MaterialPage1(),
-//      },
+      routes: {
+        "/Root": (context) => RootPage(),
+        "/route_login": (context) => LoginView(),
+        "/P28RoutePage": (context) => P28RoutePage(),
+        "/P28RoutePageSub1": (context) => P28RoutePageSub1(),
+        "/P28RoutePageSub2": (context) => P28RoutePageSub2(),
+        "/P28RoutePageSub3": (context) => P28RoutePageSub3(),
+        "/MaterialPage1": (context) => MaterialPage1(),
+      },
 
       /// Navigator.of(context).pushNamed('/new');  Navigator.pushNamed 时无法直接给新页面传参数
       ///和 routes 冲突 可以传参的，相比于命名路由，可以多做一些相关的拦截
@@ -491,4 +492,3 @@ class TestBoostNavigatorObserver extends NavigatorObserver {
     print('flutterboost#didReplace');
   }
 }
-

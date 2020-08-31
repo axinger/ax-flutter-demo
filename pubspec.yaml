@@ -259,7 +259,7 @@ flutter:
     - assets/image/红包.png
     - assets/test2/红包2.png
     - assets/红包1.png
-    - assets/album/
+    - assets/image/album/
 
   #           style: italic
   #   - family: Trajan Pro
