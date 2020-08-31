@@ -13,7 +13,6 @@ class P28RoutePage extends StatefulWidget {
 class _MaterialPage extends State<P28RoutePage> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
   }
 
@@ -26,38 +25,51 @@ class _MaterialPage extends State<P28RoutePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("路由"),
+        title: Text('路由'),
       ),
       body: ListView(
         children: <Widget>[
           FlatButton(
-            child: Text("pushName-sub1,普通"),
+            child: Text('pushNamed - P28RoutePageSub1'),
             onPressed: () {
               Navigator.of(context).pushNamed('/P28RoutePageSub1', arguments: {
-                "title": "透传title",
-                "name": 'postbird',
+                'title': '透传title',
+                'name': 'postbird',
                 'passw': '123456'
               });
             },
           ),
           FlatButton(
-            child: Text("FlutterBoost 路由"),
+            child: Text('push - P28RoutePageSub1,\n方式该页面的子页面无法Navigator.popUntil'),
             onPressed: () {
-              FlutterBoost.singleton.open('/P28RoutePageSub1', urlParams: <String, dynamic>{
-                'present': true
-              }).then((Map<dynamic, dynamic> value) {
+              push(context: context, widget: P28RoutePageSub1());
+            },
+          ),
+          FlatButton(
+            child: Text('push-P28RoutePageSub1'),
+            onPressed: () {
+              push(context: context, widget: P28RoutePageSub1());
+            },
+          ),
+          FlatButton(
+            child: Text('FlutterBoost 路由'),
+            onPressed: () {
+              FlutterBoost.singleton.open('/P28RoutePageSub1',
+                  urlParams: <String, dynamic>{
+                    'present': true
+                  }).then((Map<dynamic, dynamic> value) {
                 print('FlutterBoost =  $value');
               });
             },
           ),
           FlatButton(
-            child: Text("pushReplacement"),
+            child: Text('pushReplacement'),
             onPressed: () {
               pushReplacement(context: context, widget: P28RoutePageSub1());
             },
           ),
           FlatButton(
-            child: Text("pushAndRemoveUntil"),
+            child: Text('pushAndRemoveUntil'),
             onPressed: () {
               pushAndRemoveUntil(context: context, widget: P28RoutePageSub1());
 
@@ -84,23 +96,31 @@ class P28RoutePageSub1 extends StatelessWidget {
     String tmp = ModalRoute.of(context).settings.arguments.toString();
     String tmp2 = this.sub1Map.toString();
 
-    print("tmp== $tmp");
-    print("tmp2== $tmp2");
+    print('tmp== $tmp');
+    print('tmp2== $tmp2');
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("P28RoutePageSub1"),
+        title: Text('P28RoutePageSub1'),
       ),
       body: ListView(
         children: <Widget>[
           FlatButton(
-            child: Text("pushName-sub1,普通"),
+            child: Text('pushName-sub1,普通'),
             onPressed: () {
               Navigator.of(context).pushNamed('/P28RoutePageSub2', arguments: {
-                "title": "透传title",
-                "name": 'postbird',
+                'title': '透传title',
+                'name': 'postbird',
                 'passw': '123456'
               });
+            },
+          ),
+
+          /// 这样的方式 Navigator.popUntil 无法被返回
+          FlatButton(
+            child: Text('push-P28RoutePageSub2'),
+            onPressed: () {
+              push(context: context, widget: P28RoutePageSub2());
             },
           ),
         ],
@@ -122,47 +142,20 @@ class P28RoutePageSub2 extends StatelessWidget {
     String tmp = ModalRoute.of(context).settings.arguments.toString();
     String tmp2 = this.sub2Map.toString();
 
-    print("tmp== $tmp");
-    print("tmp2== $tmp2");
+    print('tmp== $tmp');
+    print('tmp2== $tmp2');
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("P28RoutePageSub2"),
+        title: Text('P28RoutePageSub2'),
       ),
       body: ListView(
         children: <Widget>[
           FlatButton(
-            child: Text("to P28RoutePageSub3"),
+            child: Text('to P28RoutePageSub3'),
             onPressed: () {
-//              Navigator.of(context).popUntil(ModalRoute.withName('/P28RoutePage'));
-
-//              Navigator.popUntil(context, ModalRoute.withName('/P28RoutePageSub1'));
-//              Navigator.of(context).popUntil((route) => route.settings.name.startsWith('/P28RoutePage'));
-
               Navigator.of(context).pushNamed('/P28RoutePageSub3');
             },
-          ),
-          Container(
-            color: Colors.red,
-//            width: double.infinity-100,
-//            height: double.infinity,
-            padding: EdgeInsets.all(20),
-            margin: EdgeInsets.all(20),
-            child: Text(
-              '内容1',
-              style: TextStyle(backgroundColor: Colors.greenAccent),
-            ),
-          ),
-          Container(
-            color: Colors.red,
-//            width: double.infinity-100,
-//            height: double.infinity,
-            padding: EdgeInsets.all(20),
-            margin: EdgeInsets.all(20),
-            child: Text(
-              '内容2',
-              style: TextStyle(backgroundColor: Colors.greenAccent),
-            ),
           ),
         ],
       ),
@@ -179,50 +172,25 @@ class P28RoutePageSub3 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    /// 上下文获得参数
-    String tmp = ModalRoute.of(context).settings.arguments.toString();
-    String tmp2 = this.sub2Map.toString();
-
-    print("tmp== $tmp");
-    print("tmp2== $tmp2");
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("P28RoutePageSub3"),
+        title: Text('P28RoutePageSub3'),
       ),
       body: ListView(
         children: <Widget>[
           FlatButton(
-            child: Text("返回P28RoutePageSub1"),
+            child: Text('返回P28RoutePageSub1'),
             onPressed: () {
-//              Navigator.of(context).popUntil(ModalRoute.withName('/P28RoutePage'));
-
               Navigator.popUntil(
                   context, ModalRoute.withName('/P28RoutePageSub1'));
-//              Navigator.of(context).popUntil((route) => route.settings.name.startsWith('/P28RoutePage'));
             },
           ),
-          Container(
-            color: Colors.red,
-//            width: double.infinity-100,
-//            height: double.infinity,
-            padding: EdgeInsets.all(20),
-            margin: EdgeInsets.all(20),
-            child: Text(
-              '内容1',
-              style: TextStyle(backgroundColor: Colors.greenAccent),
-            ),
-          ),
-          Container(
-            color: Colors.red,
-//            width: double.infinity-100,
-//            height: double.infinity,
-            padding: EdgeInsets.all(20),
-            margin: EdgeInsets.all(20),
-            child: Text(
-              '内容2',
-              style: TextStyle(backgroundColor: Colors.greenAccent),
-            ),
+          FlatButton(
+            child: Text('返回/P28RoutePageSub1,这个会卡死,\n因为P28RoutePageSub1 不是通过String路由显示的'),
+            onPressed: () {
+              Navigator.popUntil(context, ModalRoute.withName('/P28RoutePageSub1'));
+            },
           ),
         ],
       ),
