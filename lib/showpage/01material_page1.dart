@@ -60,18 +60,18 @@ class _MyPage extends State<MaterialPage1> {
         children: <Widget>[
           imagePath != null
               ? Image.asset(
-                  imagePath,
-                  width: 30.0,
-                  height: 30.0,
-                )
+            imagePath,
+            width: 30.0,
+            height: 30.0,
+          )
               : SizedBox(
-                  width: 30.0,
-                  height: 30.0,
-                  child: Icon(
-                    icon,
-                    color: Colors.white,
-                  ),
-                ),
+            width: 30.0,
+            height: 30.0,
+            child: Icon(
+              icon,
+              color: Colors.white,
+            ),
+          ),
           Container(
             padding: const EdgeInsets.only(left: 15.0),
             child: Text(
@@ -153,7 +153,7 @@ class _MyPage extends State<MaterialPage1> {
         ///  悬浮按钮 位置 endDocked 有叠合效果 endFloat
         // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: StreamBuilder<bool>(
-            // 监听Stream，每次值改变的时候，更新Text中的内容
+          // 监听Stream，每次值改变的时候，更新Text中的内容
             stream: _streamController.stream,
 
             /// 第一次监听值
@@ -168,52 +168,53 @@ class _MyPage extends State<MaterialPage1> {
                 child: (!_isShow)
                     ? null
                     : Container(
-                        height: 80,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          mainAxisSize: MainAxisSize.max,
+                  height: 80,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisSize: MainAxisSize.max,
 
-                          ///交叉轴的布局方式，对于column来说就是水平方向的布局方式
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          verticalDirection: VerticalDirection.down,
-                          children: <Widget>[
-                            Expanded(
-                              flex: 1,
-                              child: Container(
-                                /// 充满 容器
-                                alignment: Alignment.center,
-                                color: Colors.orange,
-                                child: FlatButton(
-                                  child: Text('请求'),
-                                  onPressed: () async {
-                                    var options = BaseOptions(
-                                      connectTimeout: 15000,
-                                      receiveTimeout: 15000,
+                    ///交叉轴的布局方式，对于column来说就是水平方向的布局方式
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    verticalDirection: VerticalDirection.down,
+                    children: <Widget>[
+                      Expanded(
+                        flex: 1,
+                        child: Container(
+
+                          /// 充满 容器
+                          alignment: Alignment.center,
+                          color: Colors.orange,
+                          child: FlatButton(
+                            child: Text('请求'),
+                            onPressed: () async {
+                              var options = BaseOptions(
+                                connectTimeout: 15000,
+                                receiveTimeout: 15000,
 //                                      responseType: ResponseType.plain,
 //                                      validateStatus: (status) {
 //                                        print('status = $status');
 //                                        // 不使用http状态码判断状态，使用AdapterInterceptor来处理（适用于标准REST风格）
 //                                        return false;
 //                                      },
-                                      baseUrl: 'http://localhost:8080',
-                                    );
+                                baseUrl: 'http://localhost:8080',
+                              );
 
-                                    Map<String, dynamic> params = {
-                                      'name': 'jim',
-                                    };
+                              Map<String, dynamic> params = {
+                                'name': 'jim',
+                              };
 
-                                    Dio _dio = Dio(options); // 使用默认配置
+                              Dio _dio = Dio(options); // 使用默认配置
 
-                                    _dio
-                                        .post(
-                                      '/test6',
-                                      data: params,
-                                    )
-                                        .catchError((onError) {
-                                      print('onError = $onError');
-                                    }).then((value) {
-                                      print('response = ${value}');
-                                    });
+                              _dio
+                                  .post(
+                                '/test6',
+                                data: params,
+                              )
+                                  .catchError((onError) {
+                                print('onError = $onError');
+                              }).then((value) {
+                                print('response = ${value}');
+                              });
 
 //                                    try{
 //                                      Response response = await Dio().get(
@@ -223,28 +224,29 @@ class _MyPage extends State<MaterialPage1> {
 //                                    }catch(e){
 //                                       print(e);
 //                                    }
-                                  },
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              width: 1,
-                            ),
-                            Expanded(
-                              flex: 1,
-                              child: Container(
-                                /// 充满 容器
-                                alignment: Alignment.center,
-                                color: Colors.orange,
-                                child: FlatButton(
-                                  onPressed: () {},
-                                  child: Text('按钮1'),
-                                ),
-                              ),
-                            ),
-                          ],
+                            },
+                          ),
                         ),
                       ),
+                      SizedBox(
+                        width: 1,
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: Container(
+
+                          /// 充满 容器
+                          alignment: Alignment.center,
+                          color: Colors.orange,
+                          child: FlatButton(
+                            onPressed: () {},
+                            child: Text('按钮1'),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
 
                 /// 切形状 自动根据被 重叠部分
 //              shape: CircularNotchedRectangle(),
@@ -269,6 +271,31 @@ class _MyPage extends State<MaterialPage1> {
           child: ListView(
 //          padding: EdgeInsets.all(20),
             children: [
+
+              FlatButton(
+                child: Text('showModalBottomSheet 圆角'),
+                onPressed: () {
+                  showModalBottomSheet(
+                      context: context,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(10),
+                            topRight: Radius.circular(10),),
+                      ),
+                      builder: (context) {
+                        return Container(
+                          height:200,//对话框高度就是此高度
+                          child:ListView(
+                          children: List.generate(20, (index) {
+                            return Text('title - $index');
+                          }).toList(),
+                        )
+
+                        );
+
+                      });
+                },
+              ),
 //            Column(
 //              /// 垂直对齐
 //              mainAxisAlignment: MainAxisAlignment.start,
@@ -444,8 +471,8 @@ class _MyPage extends State<MaterialPage1> {
                 margin: EdgeInsets.only(left: 20, right: 20),
                 child:
 
-                    /// 手机号
-                    TextField(
+                /// 手机号
+                TextField(
 //                    controller: phoneTextEditingController,
 //                    focusNode: _contentFocusNode,
 
@@ -482,6 +509,7 @@ class _MyPage extends State<MaterialPage1> {
                   ),
 
                   decoration: InputDecoration(
+
                     /// 头部的图标
                     icon: Icon(
                       Icons.phone,
@@ -498,7 +526,7 @@ class _MyPage extends State<MaterialPage1> {
                     border: OutlineInputBorder(
 //                    borderRadius: BorderRadius.circular(15),
 //                    borderSide: BorderSide.none,
-                        ),
+                    ),
 
                     /// right 小组件
                     suffixIcon: MaterialButton(
@@ -573,10 +601,10 @@ class _MyPage extends State<MaterialPage1> {
               Material(
                 shape: CircleBorder(
                     side: BorderSide(
-                  color: Colors.green,
-                  width: 2,
-                  style: BorderStyle.solid,
-                )),
+                      color: Colors.green,
+                      width: 2,
+                      style: BorderStyle.solid,
+                    )),
                 child: Container(
                   child: FlatButton(
                     onPressed: () {},
@@ -624,9 +652,9 @@ class _MyPage extends State<MaterialPage1> {
 //                width: 50,
                 height: 100,
                 decoration: BoxDecoration(
-                  shape:BoxShape.circle,
+                  shape: BoxShape.circle,
 //                    shape:BoxShape.rectangle,
-                  border:  Border.all(color: Colors.green, width: 1),
+                  border: Border.all(color: Colors.green, width: 1),
 //                 borderRadius: BorderRadius.circular(20.0),
                   color: Colors.orange,
                 ),
@@ -634,7 +662,7 @@ class _MyPage extends State<MaterialPage1> {
                   icon: Icon(Icons.add),
 //                  iconSize: 100,
 //                iconSize: 50,
-                  onPressed: (){},
+                  onPressed: () {},
 
                 ),
               ),
@@ -652,7 +680,7 @@ class _MyPage extends State<MaterialPage1> {
 
               Material(
 
-                color: Colors.orange,
+                  color: Colors.orange,
                   shape: CircleBorder(
                       side: BorderSide(
                         color: Colors.green,
@@ -808,6 +836,7 @@ class _MyPage extends State<MaterialPage1> {
               ),
 
               FlatButton.icon(
+
                 ///
                 icon: Image.asset('assets/image/红包.png', width: 40, height: 40),
                 //ImageIcon(AssetImage('assets/image/红包.png')),
@@ -874,6 +903,7 @@ class _MyPage extends State<MaterialPage1> {
 
               Row(
                 children: <Widget>[
+
                   /// Expanded 可用空间
                   Expanded(
                     child: FlatButton(
@@ -937,7 +967,8 @@ class _MyPage extends State<MaterialPage1> {
                 onSelected: (value) {
                   print('value = $value');
                 },
-                itemBuilder: (BuildContext context) => [
+                itemBuilder: (BuildContext context) =>
+                [
                   PopupMenuItem(
                     value: 1,
                     child: Text('1'),
@@ -1006,6 +1037,7 @@ class _MyPage extends State<MaterialPage1> {
 
   _cupertinoDatePicker(cxt) {
     CupertinoPicker picker = CupertinoPicker(
+
       /// 每行的高度
       itemExtent: 50,
       children: <Widget>[
