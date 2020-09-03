@@ -355,17 +355,21 @@ class _P00ShowTestPageState extends State<P00ShowTestPage> {
         ),
         body: SafeArea(
           child: SingleChildScrollView(
-            child: Wrap(children: dataList.map((e) => Cell(e)).toList()),
+            child: Wrap(children: dataList.map((e){
+             e.index= dataList.indexOf(e);
+            return  Cell(e);
+            }).toList()),
           ),
         ));
   }
 }
 
 class CellItem {
+  int index;
   String title;
   final Function() onTap;
 
-  CellItem({this.title, this.onTap});
+  CellItem({this.index,this.title, this.onTap});
 }
 
 class Cell extends StatelessWidget {
