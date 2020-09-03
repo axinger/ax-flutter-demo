@@ -189,7 +189,10 @@ class P28RoutePageSub3 extends StatelessWidget {
           FlatButton(
             child: Text('返回/P28RoutePageSub1,这个会卡死,\n因为P28RoutePageSub1 不是通过String路由显示的'),
             onPressed: () {
-              Navigator.popUntil(context, ModalRoute.withName('/P28RoutePageSub1'));
+//              Navigator.popUntil(context, ModalRoute.withName('/P28RoutePageSub1'));
+              /// 用这个方法,避免个别路由是拼接参数的
+              Navigator.popUntil( context,(route) => route.settings.name.startsWith('/P28RoutePageSub1'));
+
             },
           ),
         ],
