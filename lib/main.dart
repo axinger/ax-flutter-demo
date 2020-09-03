@@ -7,6 +7,7 @@ import 'package:ax_flutter_demo/generated/l10n.dart';
 import 'package:ax_flutter_demo/showpage/00-test_page.dart';
 import 'package:ax_flutter_demo/showpage/01material_page1.dart';
 import 'package:ax_flutter_demo/showpage/28_test_route_page.dart';
+import 'package:ax_flutter_util/ax_flutter_util.dart';
 import 'package:device_info/device_info.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
@@ -302,8 +303,18 @@ class _MyApp extends State<MyApp> with WidgetsBindingObserver {
   }
 
   Widget get _rootView {
-    /// ios fe
-    return RootTabBar();
+    /// 全局点击空白处隐藏键盘
+    return GestureDetector(
+      onTap: () {
+        FocusScopeNode currentFocus = FocusScope.of(context);
+        if (!currentFocus.hasPrimaryFocus &&
+            currentFocus.focusedChild != null) {
+          FocusManager.instance.primaryFocus.unfocus();
+        }
+      },
+      child: P00ShowTestPage(),
+//      child: DismissKeyboardDemo(),
+    );
 
 //   return RootPage();
   }
@@ -327,9 +338,9 @@ class _MyApp extends State<MyApp> with WidgetsBindingObserver {
         const Locale("zh", "CN"),
       ]..addAll(S.delegate.supportedLocales),
 
-//      home:_rootView,
+      home: _rootView,
 
-      home: P00ShowTestPage(),
+//      home: P00ShowTestPage(),
       builder: FlutterBoost.init(postPush: _onRoutePushed),
 //      builder: FlutterBoost.init(),
       /// 根路由,一般设置 和 onGenerateRoute 冲突,不能同时存在
@@ -490,5 +501,36 @@ class TestBoostNavigatorObserver extends NavigatorObserver {
   @override
   void didReplace({Route<dynamic> newRoute, Route<dynamic> oldRoute}) {
     print('flutterboost#didReplace');
+  }
+}
+class DismissKeyboardDemo extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(),
+      body: Center(
+        child: FlatButton(
+          child: Text('0000'),
+          onPressed: (){
+            push(context: context, widget: DismissKeyboardDemo2());
+
+          },
+        ),
+      ),
+    );
+  }
+}
+
+class DismissKeyboardDemo2 extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(),
+      body: Center(
+        child: TextField(),
+      ),
+    );
   }
 }
