@@ -1,7 +1,6 @@
 import 'package:ax_flutter_util/ax_flutter_util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_boost/flutter_boost.dart';
 
 class P28RoutePage extends StatefulWidget {
   @override
@@ -54,12 +53,12 @@ class _MaterialPage extends State<P28RoutePage> {
           FlatButton(
             child: Text('FlutterBoost 路由'),
             onPressed: () {
-              FlutterBoost.singleton.open('/P28RoutePageSub1',
-                  urlParams: <String, dynamic>{
-                    'present': true
-                  }).then((Map<dynamic, dynamic> value) {
-                print('FlutterBoost =  $value');
-              });
+//              FlutterBoost.singleton.open('/P28RoutePageSub1',
+//                  urlParams: <String, dynamic>{
+//                    'present': true
+//                  }).then((Map<dynamic, dynamic> value) {
+//                print('FlutterBoost =  $value');
+//              });
             },
           ),
           FlatButton(

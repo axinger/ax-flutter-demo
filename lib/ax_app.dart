@@ -13,7 +13,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_boost/flutter_boost.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:package_info/package_info.dart';
 
@@ -138,30 +137,30 @@ class _MyApp extends State<AxApp> with WidgetsBindingObserver {
 
   /// 咸鱼路由
   void _boost() {
-    FlutterBoost.singleton.registerPageBuilders(<String, PageBuilder>{
-      '/P28RoutePageSub1':
-          (String pageName, Map<String, dynamic> params, String uniqueId) {
-        print('P00ShowTestPage params:$params');
-        return P28RoutePageSub1();
-      },
-
-      ///可以在native层通过 getContainerParams 来传递参数
-      'aa': (String pageName, Map<String, dynamic> params, String uniqueId) {
-        print('P47RouteWidget params:$params');
-
-        return P47RouteWidget(map: params);
-      },
-
-      ///可以在native层通过 getContainerParams 来传递参数
-      'P47RouteWidget2':
-          (String pageName, Map<String, dynamic> params, String uniqueId) {
-        print('P47RouteWidget2 params:$params');
-
-        return P47RouteWidget2();
-      },
-    });
-    FlutterBoost.singleton
-        .addBoostNavigatorObserver(TestBoostNavigatorObserver());
+//    FlutterBoost.singleton.registerPageBuilders(<String, PageBuilder>{
+//      '/P28RoutePageSub1':
+//          (String pageName, Map<String, dynamic> params, String uniqueId) {
+//        print('P00ShowTestPage params:$params');
+//        return P28RoutePageSub1();
+//      },
+//
+//      ///可以在native层通过 getContainerParams 来传递参数
+//      'aa': (String pageName, Map<String, dynamic> params, String uniqueId) {
+//        print('P47RouteWidget params:$params');
+//
+//        return P47RouteWidget(map: params);
+//      },
+//
+//      ///可以在native层通过 getContainerParams 来传递参数
+//      'P47RouteWidget2':
+//          (String pageName, Map<String, dynamic> params, String uniqueId) {
+//        print('P47RouteWidget2 params:$params');
+//
+//        return P47RouteWidget2();
+//      },
+//    });
+//    FlutterBoost.singleton
+//        .addBoostNavigatorObserver(TestBoostNavigatorObserver());
   }
 
   /// 全局浮层

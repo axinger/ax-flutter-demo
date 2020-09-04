@@ -1,7 +1,6 @@
 import 'package:ax_flutter_util/ax_flutter_util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_boost/flutter_boost.dart';
 import 'package:intl/intl.dart';
 
 import '01material_page1.dart';
@@ -321,11 +320,11 @@ class _P00ShowTestPageState extends State<P00ShowTestPage> {
           title: '47-FlutterBoost',
           onTap: () {
             print('==============');
-            FlutterBoost.singleton
-                .open('aa', urlParams: <String, dynamic>{'present': true}).then(
-                    (Map<dynamic, dynamic> value) {
-              print('FlutterBoost =  $value');
-            });
+//            FlutterBoost.singleton
+//                .open('aa', urlParams: <String, dynamic>{'present': true}).then(
+//                    (Map<dynamic, dynamic> value) {
+//              print('FlutterBoost =  $value');
+//            });
           }),
       CellItem(
           title: '48-图片浏览器',

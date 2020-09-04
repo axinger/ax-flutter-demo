@@ -109,10 +109,10 @@ dependencies:
   #FlutterBoost的理念是使用Flutter就像使用WebView一样容易.
   #在现有应用程序中，同时管理本机页面和Flutter页面并非易事.
   #FlutterBoost会为您解决页面分辨率问题. 您唯一需要关心的是页面名称（通常可以是URL）.
-  flutter_boost:
-    git:
-      url: 'https://github.com/alibaba/flutter_boost.git'
-      ref: '1.12.13+2'
+#  flutter_boost: ^1.12.13
+#    git:
+#      url: 'https://github.com/alibaba/flutter_boost.git'
+#      ref: '1.12.13+2'
 
   #自定义相机
   camera: 0.5.8+5
