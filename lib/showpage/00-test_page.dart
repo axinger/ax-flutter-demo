@@ -338,7 +338,7 @@ class _P00ShowTestPageState extends State<P00ShowTestPage> {
 
         /// 导航栏 加高,添加背景图片
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(20),
+          preferredSize: Size.fromHeight(200),
           child: AppBar(
             title: Text(
               '测试',
