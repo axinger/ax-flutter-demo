@@ -120,11 +120,19 @@ class _SurveyTasksImageBrowserState extends State<P47ImageBrowser> {
                       PhotoViewGallery.builder(
                         scrollDirection: Axis.horizontal,
                         scrollPhysics: const BouncingScrollPhysics(),
+                        loadFailedChild: Text('加载失败'),
+                        loadingBuilder:
+                            (BuildContext context, ImageChunkEvent event) {
+                          return Text('加载中');
+                        },
                         builder: (BuildContext context, int index) {
                           var item = _imageDataList[index];
                           return PhotoViewGalleryPageOptions(
                             imageProvider: ImageFileTypeImageProvider(item),
                             initialScale: PhotoViewComputedScale.contained * 1,
+
+                            /// hero 动画
+                            heroAttributes: PhotoViewHeroAttributes(tag: '1'),
                           );
                         },
                         itemCount: _imageDataList.length,
