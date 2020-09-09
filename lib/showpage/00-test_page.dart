@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import '01material_page1.dart';
+import '01material_page2.dart';
 import '02material_page2.dart';
 import '03material_page_date.dart';
 import '04material_page_dialog.dart';
@@ -76,6 +77,13 @@ class _P00ShowTestPageState extends State<P00ShowTestPage> {
           onTap: () {
             push(context: context, widget: MaterialPage1());
           }),
+
+      CellItem(
+          title: '01-形状',
+          onTap: () {
+            push(context: context, widget: P01MaterialPage2());
+          }),
+
       CellItem(
           title: '02-组件',
           onTap: () {

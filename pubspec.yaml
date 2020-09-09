@@ -241,24 +241,10 @@ flutter:
         - asset: assets/fonts/iconfont.ttf
   uses-material-design: true
   assets:
-    - assets/files/css/index.css
-    - assets/files/index.html
-    - assets/files/js/client.js
-    - assets/files/js/index.js
-    - assets/files/js/jquery-3.3.1.min.js
-    - assets/files/photo.html
     - assets/fonts/iconfont.json
     - assets/fonts/iconfont.svg
     - assets/fonts/iconfont.ttf
-    - assets/image/A171.jpg
-    - assets/image/headIcon.png
-    - assets/image/Icon_Mac.png
-    - assets/image/IMG_3601.JPG
-    - assets/image/placeholderImage.png
-    - assets/image/tongxunlu.png
-    - assets/image/红包.png
-    - assets/test2/红包2.png
-    - assets/红包1.png
+    - assets/image/
     - assets/image/album/
 
   #           style: italic
