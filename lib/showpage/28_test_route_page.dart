@@ -39,7 +39,8 @@ class _MaterialPage extends State<P28RoutePage> {
             },
           ),
           FlatButton(
-            child: Text('push - P28RoutePageSub1,\n方式该页面的子页面无法Navigator.popUntil'),
+            child:
+                Text('push - P28RoutePageSub1,\n方式该页面的子页面无法Navigator.popUntil'),
             onPressed: () {
               push(context: context, widget: P28RoutePageSub1());
             },
@@ -92,12 +93,15 @@ class P28RoutePageSub1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String tmp = ModalRoute.of(context).settings.arguments.toString();
-    String tmp2 = this.sub1Map.toString();
+//    String tmp = ModalRoute.of(context).settings.arguments.toString();
+//    String tmp2 = this.sub1Map.toString();
+//
+//    print('tmp== $tmp');
+//    print('tmp2== $tmp2');
 
-    print('tmp== $tmp');
-    print('tmp2== $tmp2');
-
+    var arguments = pushNameOfArguments<Map<String, dynamic>>(context: context);
+    print('arguments== $arguments');
+    print(arguments['title']);
     return Scaffold(
       appBar: AppBar(
         title: Text('P28RoutePageSub1'),
@@ -171,7 +175,6 @@ class P28RoutePageSub3 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: Text('P28RoutePageSub3'),
@@ -186,12 +189,15 @@ class P28RoutePageSub3 extends StatelessWidget {
             },
           ),
           FlatButton(
-            child: Text('返回/P28RoutePageSub1,这个会卡死,\n因为P28RoutePageSub1 不是通过String路由显示的'),
+            child: Text(
+                '返回/P28RoutePageSub1,这个会卡死,\n因为P28RoutePageSub1 不是通过String路由显示的'),
             onPressed: () {
 //              Navigator.popUntil(context, ModalRoute.withName('/P28RoutePageSub1'));
               /// 用这个方法,避免个别路由是拼接参数的
-              Navigator.popUntil( context,(route) => route.settings.name.startsWith('/P28RoutePageSub1'));
-
+              Navigator.popUntil(
+                  context,
+                  (route) =>
+                      route.settings.name.startsWith('/P28RoutePageSub1'));
             },
           ),
         ],

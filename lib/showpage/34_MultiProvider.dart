@@ -69,7 +69,10 @@ class _P34ProviderState extends State<P34Provider> {
             FlatButton(
               child: Text('下一页'),
               onPressed: () {
-                push(context: context, widget: NextPage());
+//                push(context: context, widget: NextPage());
+                push(context: context, widget: Consumer3());
+
+
               },
             ),
 
@@ -242,7 +245,35 @@ class Consumer2 extends StatelessWidget {
     );
   }
 }
+class Consumer3 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    AddModel _model = context.select<AddModel, AddModel>((value) => value);
 
+    return Scaffold(
+      body: Column(
+        children: [
+          Text('Consumer2'),
+          Consumer<AddModel>(builder: (context, value, child) {
+            print('Consumer2 收到消息');
+            return Column(
+              children: [
+                FlatButton(
+                  child: Text('add2,在子页面中'),
+                  onPressed: () {
+                    value.addAge2();
+                  },
+                ),
+
+                Text('Consumer2 = ${value.age2}'),
+              ],
+            );
+          }),
+        ],
+      ),
+    );
+  }
+}
 class P34MultiProvider extends StatefulWidget {
   @override
   _P34MultiProviderState createState() => _P34MultiProviderState();
