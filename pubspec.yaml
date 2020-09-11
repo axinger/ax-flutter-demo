@@ -28,7 +28,7 @@ dependencies:
   #  meta: 1.3.0-nullsafety.2
   #通用提示库
   fluttertoast: ^7.0.2
-  cached_network_image: ^2.0.0-rc
+  cached_network_image: ^2.3.2+1
   http: any
   dio: ^3.0.10
   #  json_annotation: any
