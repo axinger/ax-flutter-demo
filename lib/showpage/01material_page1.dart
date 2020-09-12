@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:ui';
 
 import 'package:ax_flutter_demo/config.dart';
 import 'package:ax_flutter_util/ax_flutter_util.dart';
@@ -15,7 +14,7 @@ class MaterialPage1 extends StatefulWidget {
   }
 }
 
-class _MyPage extends State<MaterialPage1> {
+class _MyPage extends State<MaterialPage1> with SingleTickerProviderStateMixin {
   /// 悬浮按钮
   final _floatingActionButton = FloatingActionButton(
     onPressed: () {},
@@ -32,6 +31,7 @@ class _MyPage extends State<MaterialPage1> {
   bool isOffstage = false;
   bool isVisibility = false;
   bool isBack = true;
+  TabController tabController;
 
   Visibility abv = Visibility(
     visible: true,
@@ -45,6 +45,17 @@ class _MyPage extends State<MaterialPage1> {
   bool _isShow = true;
 
   ValueNotifier<bool> isAbsorbPointer = ValueNotifier(true);
+
+  @override
+  void initState() {
+    super.initState();
+    tabController = TabController(length: 10, vsync: this);
+    tabController.addListener(() {
+      if (tabController.index == tabController.animation.value) {
+        print('tabController.index = ${tabController.index}');
+      }
+    });
+  }
 
   @override
   void dispose() {
@@ -110,6 +121,20 @@ class _MyPage extends State<MaterialPage1> {
             style: TextStyle(color: Colors.red),
           ),
           centerTitle: true,
+          bottom: TabBar(
+            controller: tabController,
+            indicatorWeight: 5,
+
+            /// isScrollable 是否滚动无限大
+            isScrollable: true,
+            indicatorColor: Colors.red,
+            tabs: List.generate(10, (index) {
+              return Tab(
+                text: "主页",
+                icon: Icon(Icons.local_florist),
+              );
+            }),
+          ),
         ),
 
         /// 悬浮按钮
