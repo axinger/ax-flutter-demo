@@ -7,6 +7,7 @@ import 'package:ax_flutter_demo/generated/l10n.dart';
 import 'package:ax_flutter_demo/showpage/00-test_page.dart';
 import 'package:ax_flutter_demo/showpage/01material_page1.dart';
 import 'package:ax_flutter_demo/showpage/28_test_route_page.dart';
+import 'package:ax_flutter_demo/theme_data_notifier.dart';
 import 'package:ax_flutter_util/ax_flutter_util.dart';
 import 'package:device_info/device_info.dart';
 import 'package:flutter/foundation.dart';
@@ -15,11 +16,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:package_info/package_info.dart';
+import 'package:provider/provider.dart';
 
 import 'controller/root_page.dart';
 import 'global_const.dart';
 import 'module/login/view/login_view.dart';
-import 'showpage/47_route_widget.dart';
 
 class AxApp extends StatefulWidget {
 //  var adapter = Hive.registerAdapter(StudentAdapter(),0);
@@ -115,6 +116,11 @@ class _MyApp extends State<AxApp> with WidgetsBindingObserver {
 //      print(event);
 //    });
 // [GyroscopeEvent (x: 0.0, y: 0.0, z: 0.0)]
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return _buildMultiProvider;
   }
 
   /// 监听安卓返回按键
@@ -286,12 +292,33 @@ class _MyApp extends State<AxApp> with WidgetsBindingObserver {
 //   return RootPage();
   }
 
-  @override
-  Widget build(BuildContext context) {
+  Widget get _buildMultiProvider {
+    return MultiProvider(
+      providers: [
+//        ChangeNotifierProvider(create: (context) => mainConfigModel),
+        ChangeNotifierProvider.value(value: ThemeDataNotifier())
+      ],
+      child: Consumer<ThemeDataNotifier>(
+        builder: (context, value, child) {
+          return _materialApp(value.themeData);
+        },
+      ),
+    );
+  }
+
+  MaterialApp _materialApp(ThemeData themeData) {
     return MaterialApp(
       title: 'Flutter Demo',
       navigatorKey: navigatorStateKey,
       debugShowCheckedModeBanner: false,
+      theme: ThemeData().copyWith(
+        primaryColor: themeData.primaryColor ?? Colors.red,
+        backgroundColor: Colors.lightBlue,
+        scaffoldBackgroundColor: Colors.lightBlueAccent,
+        buttonTheme: ButtonThemeData(
+          buttonColor: Colors.orange,
+        ),
+      ),
 
       /// 本地化
       localizationsDelegates: [
@@ -346,102 +373,6 @@ class _MyApp extends State<AxApp> with WidgetsBindingObserver {
 //        }
 //      },
     );
-//    return MultiProvider(
-//      providers: [
-//        ChangeNotifierProvider(create: (context) => mainConfigModel),
-//      ],
-//      child: Consumer<ThemeDataConfig>(
-//        builder: (context, value, child) {
-////      return Text(Provider.of<UserModel>(context).age.toString());
-//
-//          return MaterialApp(
-//            title: 'Flutter Demo',
-//            navigatorKey: navigatorStateKey,
-//            debugShowCheckedModeBanner: false,
-//
-//            /// 本地化
-//            localizationsDelegates: [
-//              GlobalMaterialLocalizations.delegate,
-//              GlobalWidgetsLocalizations.delegate,
-//              GlobalCupertinoLocalizations.delegate,
-//              S.delegate,
-//            ],
-//            supportedLocales: [
-//              const Locale("en", ""),
-//              const Locale("zh", "CN"),
-//            ]..addAll(S.delegate.supportedLocales),
-//
-////      home: RootPage(),
-//
-////      home: BlocBuilder<AuthenticationBloc, AuthenticationState>(
-////        builder: (context, state) {
-////          print("state ==1 $state");
-////
-////          if (state is AuthenticationSuccess) {
-////            return RootPage();
-////          } else if (state is AuthenticationFailure) {
-////            return LoginView();
-////          } else {
-////            return LoadingIndicator();
-////          }
-////        },
-////      ),
-////            home: StreamBuilder(
-////              stream: EVENT_BUS.on<AuthenticationEvent>(),
-//////        initialData: "初始值",
-////              builder: (context, asyncSnapshot) {
-////                if (asyncSnapshot.data is AuthenticationLoggedInEvent) {
-////                  print(
-////                      'main - asyncSnapshot = ${(asyncSnapshot.data as AuthenticationLoggedInEvent).user.username}');
-////                  return _rootView;
-////                }
-////
-//////          return LoginView();
-////                return _rootView;
-////              },
-////            ),
-//
-//              home:_rootView,
-//
-//            builder: FlutterBoost.init(postPush: _onRoutePushed),
-//            theme: value.themeData,
-//
-//            /// 根路由,一般设置 和 onGenerateRoute 冲突,不能同时存在
-//            initialRoute: "/",
-//            routes: {
-//              "/Root": (context) => RootPage(),
-//              "/route_login": (context) => LoginView(),
-//              "/p28": (context) => P28RoutePage(),
-//              "/sub1": (context) => P28RoutePageSub1(),
-//              "/MaterialPage1": (context) => MaterialPage1(),
-//            },
-//
-//            /// Navigator.of(context).pushNamed('/new');  Navigator.pushNamed 时无法直接给新页面传参数
-//            ///和 routes 冲突 可以传参的，相比于命名路由，可以多做一些相关的拦截
-////      onGenerateRoute: (RouteSettings settings) {
-////        String routeName = settings.name;
-////        print("routeName = : $routeName");
-////        print("settings.arguments: ${settings.arguments}");
-////        switch (routeName) {
-////          case "/sub2":
-////            return MaterialPageRoute(builder: (context) {
-////              return P28RoutePageSub2(
-////                sub2Map: settings.arguments,
-////              );
-////            });
-////          default:
-////            return MaterialPageRoute(builder: (BuildContext context) {
-////              return Scaffold(
-////                  body: Center(
-////                child: Text("Page not found"),
-////              ));
-////            });
-////        }
-////      },
-//          );
-//        },
-//      ),
-//    );
   }
 
   void _onRoutePushed(

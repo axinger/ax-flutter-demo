@@ -8,8 +8,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../global_const.dart';
-
 class MaterialPage1 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -112,39 +110,6 @@ class _MyPage extends State<MaterialPage1> {
             style: TextStyle(color: Colors.red),
           ),
           centerTitle: true,
-
-//          backgroundColor: Colors.orange,
-          actions: <Widget>[
-            FlatButton(
-              color: Colors.orange,
-              child: Text('改变主题色'),
-              onPressed: () {
-                showCupertinoSheet(
-                  context: context,
-                  actions: <CupertinoActionSheetAction>[
-                    CupertinoActionSheetAction(
-                      child: Text('蓝色'),
-                      onPressed: () {
-                        mainConfigModel.themeData = Theme.of(context).copyWith(
-                          primaryColor: Colors.lightBlue,
-                        );
-                        Navigator.pop(context);
-                      },
-                    ),
-                    CupertinoActionSheetAction(
-                      child: Text('红色'),
-                      onPressed: () {
-                        Navigator.pop(context);
-                        mainConfigModel.themeData = Theme.of(context).copyWith(
-                          primaryColor: Colors.red,
-                        );
-                      },
-                    ),
-                  ],
-                );
-              },
-            ),
-          ],
         ),
 
         /// 悬浮按钮
@@ -291,10 +256,10 @@ class _MyPage extends State<MaterialPage1> {
                       });
                 },
               ),
-              
+
               FlatButton(
                 child: Text('InteractiveViewer'),
-                onPressed: (){
+                onPressed: () {
                   push(context: context, widget: InteractiveViewerDemo());
                 },
               ),
@@ -1187,8 +1152,6 @@ const List<String> tags = [
   '多多多'
 ];
 
-
-
 ///
 /// desc:
 ///
@@ -1200,7 +1163,7 @@ class InteractiveViewerDemo extends StatefulWidget {
 
 class _InteractiveViewerDemoState extends State<InteractiveViewerDemo> {
   final TransformationController _transformationController =
-  TransformationController();
+      TransformationController();
 
   @override
   Widget build(BuildContext context) {
@@ -1217,7 +1180,8 @@ class _InteractiveViewerDemoState extends State<InteractiveViewerDemo> {
 //                maxScale: 2,
 //                minScale: 1,
                 scaleEnabled: true,
-                 /// maxScale 、minScale、scaleEnabled 是缩放相关参数，分别表示最大缩放倍数、最小缩放倍数、是否可以缩放
+
+                /// maxScale 、minScale、scaleEnabled 是缩放相关参数，分别表示最大缩放倍数、最小缩放倍数、是否可以缩放
                 child: Image.asset('assets/image/A171.jpg'),
                 transformationController: _transformationController,
               ),

@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 
-class ThemeDataConfig extends ChangeNotifier {
-
-
-
+class ThemeDataNotifier extends ChangeNotifier {
   ThemeData _themeData = ThemeData(
     /**
      * primarySwatch不是Color.这是MaterialColor.
@@ -13,7 +10,8 @@ class ThemeDataConfig extends ChangeNotifier {
      */
     primaryColor: Colors.lightBlue,
 
-//    textTheme:TextTheme(),
+    textTheme: TextTheme(),
+
     /// 主要样品颜色 是 MaterialColor
 //        primarySwatch: Colors.lightBlue,
     highlightColor: Colors.grey,
@@ -31,8 +29,9 @@ class ThemeDataConfig extends ChangeNotifier {
     /// 容器默认背景色
 //        scaffoldBackgroundColor: ColorScheme().background,
     buttonTheme: ButtonThemeData(
-      buttonColor: Colors.black,
+      buttonColor: Colors.orange,
     ),
+
   );
 
   get themeData {

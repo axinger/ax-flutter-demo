@@ -1,7 +1,12 @@
 import 'dart:ui';
 
+import 'package:ax_flutter_util/ax_flutter_util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../global_const.dart';
+import '../theme_data_notifier.dart';
 
 class P01MaterialPage2 extends StatefulWidget {
   @override
@@ -16,6 +21,47 @@ class _MyPage extends State<P01MaterialPage2> {
     return Scaffold(
       appBar: AppBar(
         title: Text('形状'),
+        actions: <Widget>[
+          FlatButton(
+            color: Colors.orange,
+            child: Text('改变主题色'),
+            onPressed: () {
+              showCupertinoSheet(
+                context: context,
+                actions: <CupertinoActionSheetAction>[
+                  CupertinoActionSheetAction(
+                    child: Text('蓝色'),
+                    onPressed: () {
+
+                      Navigator.pop(context);
+//                      mainConfigModel.themeData = Theme.of(context).copyWith(
+//                        primaryColor: Colors.lightBlue,
+//                      );
+                      Provider.of<ThemeDataNotifier>(context,listen: false).themeData =
+                          Theme.of(context).copyWith(
+                            primaryColor: Colors.lightBlue,
+                          );
+                    },
+                  ),
+                  CupertinoActionSheetAction(
+                    child: Text('红色'),
+                    onPressed: () {
+                      Navigator.pop(context);
+//                      mainConfigModel.themeData = Theme.of(context).copyWith(
+//                        primaryColor: Colors.red,
+//                      );
+
+                      Provider.of<ThemeDataNotifier>(context,listen: false).themeData =
+                          Theme.of(context).copyWith(
+                        primaryColor: Colors.red,
+                      );
+                    },
+                  ),
+                ],
+              );
+            },
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
