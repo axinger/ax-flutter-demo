@@ -4,7 +4,10 @@ import 'package:ax_flutter_demo/config.dart';
 import 'package:ax_flutter_util/ax_flutter_util.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 
 class MaterialPage1 extends StatefulWidget {
@@ -55,6 +58,19 @@ class _MyPage extends State<MaterialPage1> with SingleTickerProviderStateMixin {
         print('tabController.index = ${tabController.index}');
       }
     });
+    SchedulerBinding.instance.addPersistentFrameCallback((timeStamp) {
+
+    });
+    WidgetsBinding.instance.addPersistentFrameCallback((timeStamp) {
+
+    });
+    ServicesBinding.instance.addPersistentFrameCallback((timeStamp) {
+
+    });
+    RendererBinding.instance.addPersistentFrameCallback((timeStamp) {
+
+    });
+//    GestureBinding.instance
   }
 
   @override
