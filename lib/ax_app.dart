@@ -313,8 +313,8 @@ class _MyApp extends State<AxApp> with WidgetsBindingObserver {
       debugShowCheckedModeBanner: false,
       theme: ThemeData().copyWith(
         primaryColor: themeData.primaryColor ?? Colors.red,
-        backgroundColor: Colors.lightBlue,
-        scaffoldBackgroundColor: Colors.lightBlueAccent,
+//        backgroundColor: Colors.lightBlue,
+//        scaffoldBackgroundColor: Colors.lightBlueAccent,
         buttonTheme: ButtonThemeData(
           buttonColor: Colors.orange,
         ),
