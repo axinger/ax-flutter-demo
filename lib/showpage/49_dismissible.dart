@@ -13,7 +13,6 @@ class P49DismissibleWidget extends StatelessWidget {
         itemCount: items.length,
         itemBuilder: (context, index) {
           final item = items[index];
-
           return Dismissible(
             // Each Dismissible must contain a Key. Keys allow Flutter to
             // uniquely identify Widgets.
