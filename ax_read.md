@@ -197,3 +197,12 @@ class Student extends Person {
  String get name => 'jim';
 }
 ```
+
+## 取余
+```dart
+  print('向下整数取余 ${3~/2}'); // 1 取整);
+  print('取余 ${3%2}'); // 1 取整);
+
+  print('向下整数取余 ${3.6~/2}'); // 1 取整);
+  print('取余 ${3.6%2}'); // 1.6 取整);
+```

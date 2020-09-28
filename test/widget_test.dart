@@ -1,14 +1,10 @@
 void main() {
-  
-//  int a = double.maxFinite;
- String str;
 
- if(str?.isNotEmpty ?? false){
-   print(1111);
- }else{
-   print(222);
- }
-  print(str?.isEmpty);
 
+  print('向下整数取余 ${3~/2}'); // 1 取整);
+  print('取余 ${3%2}'); // 1 取整);
+
+  print('向下整数取余 ${3.6~/2}'); // 1 取整);
+  print('取余 ${3.6%2}'); // 1.6 取整);
 
 }
