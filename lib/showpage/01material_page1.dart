@@ -286,14 +286,19 @@ class _MyPage extends State<MaterialPage1> with SingleTickerProviderStateMixin {
                           topRight: Radius.circular(10),
                         ),
                       ),
+                      /// 能否满屏显示,
+//                      isScrollControlled: true,
                       builder: (context) {
+                        /// 不用高度,会给出一个默认高度
                         return Container(
-                            height: 200, //对话框高度就是此高度
+//                            height: 200, //对话框高度就是此高度
+                          color: Colors.red,
                             child: ListView(
                               children: List.generate(20, (index) {
                                 return Text('title - $index');
                               }).toList(),
-                            ));
+                            )
+                        );
                       });
                 },
               ),
