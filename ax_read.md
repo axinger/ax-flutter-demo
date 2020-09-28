@@ -206,3 +206,29 @@ class Student extends Person {
   print('向下整数取余 ${3.6~/2}'); // 1 取整);
   print('取余 ${3.6%2}'); // 1.6 取整);
 ```
+
+
+## is 和 as
+```dart
+  /**  is 、as 属于Type test operators。
+
+  is 判断是否是某a8个类型，返回true或者false。
+  如果a 是b的实现类，那么a is b 就返回true。
+
+  as 是类型转换，其相当于 ：先检测 其是不是，然后再调用的一种简写。
+  但是还不是完全一致，当不是的时候，as 会抛出exception。
+   */
+
+  
+
+  if (emp is Person) {
+  // Type check
+  emp.firstName = 'Bob';
+  }
+
+  可以简写为：
+
+  (emp as persion).firstName='Bob';
+
+//  如果emp 不是persion，name就会抛出exception。
+```
