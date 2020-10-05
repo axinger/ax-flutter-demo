@@ -5,7 +5,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../global_const.dart';
 import '../theme_data_notifier.dart';
 
 class P01MaterialPage2 extends StatefulWidget {
@@ -32,15 +31,14 @@ class _MyPage extends State<P01MaterialPage2> {
                   CupertinoActionSheetAction(
                     child: Text('蓝色'),
                     onPressed: () {
-
                       Navigator.pop(context);
 //                      mainConfigModel.themeData = Theme.of(context).copyWith(
 //                        primaryColor: Colors.lightBlue,
 //                      );
-                      Provider.of<ThemeDataNotifier>(context,listen: false).themeData =
-                          Theme.of(context).copyWith(
-                            primaryColor: Colors.lightBlue,
-                          );
+                      Provider.of<ThemeDataNotifier>(context, listen: false)
+                          .themeData = Theme.of(context).copyWith(
+                        primaryColor: Colors.lightBlue,
+                      );
                     },
                   ),
                   CupertinoActionSheetAction(
@@ -51,8 +49,8 @@ class _MyPage extends State<P01MaterialPage2> {
 //                        primaryColor: Colors.red,
 //                      );
 
-                      Provider.of<ThemeDataNotifier>(context,listen: false).themeData =
-                          Theme.of(context).copyWith(
+                      Provider.of<ThemeDataNotifier>(context, listen: false)
+                          .themeData = Theme.of(context).copyWith(
                         primaryColor: Colors.red,
                       );
                     },
@@ -66,6 +64,24 @@ class _MyPage extends State<P01MaterialPage2> {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            Text('child 在 FittedBox范围内，尽可能大'),
+            Container(
+              color: Colors.grey,
+              width: 300,
+//              height: 250,
+
+              //缩放布局
+              child: FittedBox(
+                fit: BoxFit.contain,
+                //对亲属性
+                alignment: Alignment.center,
+
+                child: Container(
+                  color: Colors.lightBlue,
+                  child: Text('还有谁'),
+                ),
+              ),
+            ),
             RaisedButton(
               shape: BeveledRectangleBorder(
                   side: BorderSide(width: 1, color: Colors.red),
