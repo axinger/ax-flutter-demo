@@ -53,6 +53,7 @@ import '45_hero_demo.dart';
 import '46_material_motion.dart';
 import '48_PhotoAlbumGridView.dart';
 import '49_dismissible.dart';
+import '50_on_pop_page.dart';
 
 class P00ShowTestPage extends StatefulWidget {
   @override
@@ -344,6 +345,12 @@ class _P00ShowTestPageState extends State<P00ShowTestPage> {
           title: '49-侧滑删除',
           onTap: () {
             push(context: context, widget: P49DismissibleWidget());
+          }),
+
+      CellItem(
+          title: '50-Navigator 2.0',
+          onTap: () {
+            push(context: context, widget: P50OnPopPage());
           }),
 
     ];

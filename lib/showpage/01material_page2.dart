@@ -17,6 +17,46 @@ class P01MaterialPage2 extends StatefulWidget {
 class _MyPage extends State<P01MaterialPage2> {
   @override
   Widget build(BuildContext context) {
+
+    Color _foregroundColor(Set<MaterialState> states) {
+
+//      const Set<MaterialState> interactiveStates = <MaterialState>{
+//        ///按下
+//        MaterialState.pressed,
+//        ///徘徊 应该是长按
+//        MaterialState.hovered,
+//        /// 集中
+//        MaterialState.focused,
+//        MaterialState.selected,
+//      };
+//
+//      if (states == MaterialState.pressed) {
+//        return Colors.orange;
+//      }
+//      if (states == MaterialState.hovered) {
+//        return Colors.orange;
+//      }
+//      if (states == MaterialState.selected) {
+//        return Colors.purple;
+//      }
+//      if (states.any(interactiveStates.contains)) {
+//        return Colors.blue;
+//      }
+//      return Colors.red;
+
+      if (states.contains(MaterialState.pressed)) {
+        return Colors.orange;
+      }
+      if (states.contains(MaterialState.disabled)) {
+        return Colors.grey;
+      }
+      if (states.contains(MaterialState.selected)) {
+        return Colors.purple;
+      }
+      return Colors.red;
+
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: Text('形状'),
@@ -64,6 +104,21 @@ class _MyPage extends State<P01MaterialPage2> {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            Text('TextButton,代替 FlatButton'),
+            TextButton(onPressed: (){}, child: Text('TextButton'),
+                style:ButtonStyle(
+                  /// foregroundColor 文字颜色
+//                  foregroundColor: MaterialStateColor.resolveWith(getColor),
+                  foregroundColor: MaterialStateColor.resolveWith(_foregroundColor),
+                ),
+            ),
+            FlatButton(onPressed: (){}, child: Text('FlatButton')),
+
+            Text('ElevatedButton,代替 RaisedButton'),
+
+            Text('OutlinedButton,代替 OutlineButton ,多个d'),
+
+
             Text('child 在 FittedBox范围内，尽可能大'),
             Container(
               color: Colors.grey,
