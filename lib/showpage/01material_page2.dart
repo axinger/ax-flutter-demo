@@ -17,9 +17,7 @@ class P01MaterialPage2 extends StatefulWidget {
 class _MyPage extends State<P01MaterialPage2> {
   @override
   Widget build(BuildContext context) {
-
     Color _foregroundColor(Set<MaterialState> states) {
-
 //      const Set<MaterialState> interactiveStates = <MaterialState>{
 //        ///按下
 //        MaterialState.pressed,
@@ -54,7 +52,6 @@ class _MyPage extends State<P01MaterialPage2> {
         return Colors.purple;
       }
       return Colors.red;
-
     }
 
     return Scaffold(
@@ -105,20 +102,48 @@ class _MyPage extends State<P01MaterialPage2> {
         child: Column(
           children: [
             Text('TextButton,代替 FlatButton'),
-            TextButton(onPressed: (){}, child: Text('TextButton'),
-                style:ButtonStyle(
-                  /// foregroundColor 文字颜色
+            TextButton(
+              onPressed: () {},
+              child: Text('TextButton'),
+              style: ButtonStyle(
+                /// foregroundColor 文字颜色
 //                  foregroundColor: MaterialStateColor.resolveWith(getColor),
-                  foregroundColor: MaterialStateColor.resolveWith(_foregroundColor),
-                ),
+                foregroundColor:
+                    MaterialStateColor.resolveWith(_foregroundColor),
+              ),
             ),
-            FlatButton(onPressed: (){}, child: Text('FlatButton')),
+            FlatButton(onPressed: () {}, child: Text('FlatButton')),
 
             Text('ElevatedButton,代替 RaisedButton'),
 
             Text('OutlinedButton,代替 OutlineButton ,多个d'),
+            Divider(color: Colors.red),
+            Text('IntrinsicHeight 子无Height 右父约束'),
+            IntrinsicHeight(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Container(color: Colors.blue, width: 50.0),
+                  Container(color: Colors.red, width: 50.0, height: 100.0),
+                  Container(color: Colors.yellow, width: 150.0),
+                ],
+              ),
+            ),
+            Divider(color: Colors.red),
+            Text('IntrinsicWidth 子无Width 右父约束'),
+            IntrinsicWidth(
+//              stepHeight: 450.0,
+              stepWidth: 300.0,
+              child: Column(
+                children: <Widget>[
+                  Container(color: Colors.blue, height: 100.0),
+                  Container(color: Colors.red, width: 150.0, height: 100.0),
+                  Container(color: Colors.yellow, height: 150.0),
+                ],
+              ),
+            ),
 
-
+            Divider(color: Colors.red),
             Text('child 在 FittedBox范围内，尽可能大'),
             Container(
               color: Colors.grey,
