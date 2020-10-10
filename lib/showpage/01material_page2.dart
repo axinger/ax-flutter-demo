@@ -1,3 +1,4 @@
+import 'dart:html';
 import 'dart:ui';
 
 import 'package:ax_flutter_util/ax_flutter_util.dart';
@@ -103,38 +104,46 @@ class _MyPage extends State<P01MaterialPage2> {
           children: [
             Divider(color: Colors.red),
             Text('Table 表格'),
-            Table(
-                border: TableBorder(
-                  top: BorderSide(color: Colors.red),
-                  left: BorderSide(color: Colors.red),
-                  right: BorderSide(color: Colors.red),
-                  bottom: BorderSide(color: Colors.red),
-                  horizontalInside: BorderSide(color: Colors.red),
-                  verticalInside: BorderSide(color: Colors.green),
-                ),
-              children: [
-                TableRow(
+            Padding(
+              padding: EdgeInsets.only(left: 40, right: 40),
+              child: Table(
+//                border: TableBorder(
+//                  top: BorderSide(color: Colors.red),
+//                  left: BorderSide(color: Colors.red),
+//                  right: BorderSide(color: Colors.red),
+//                  bottom: BorderSide(color: Colors.red),
+//                  horizontalInside: BorderSide(color: Colors.red),
+//                  verticalInside: BorderSide(color: Colors.green),
+//                ),
+                border: TableBorder.all(color: Colors.red),
+
+                children: [
+                  TableRow(
+//                    decoration: BoxDecoration(
+////                      color: Colors.orange,
+//                    ),
                     children: [
-                      TableCell(child: Text('姓名',textAlign: TextAlign.center,)),
-                      TableCell(child: Text('性别',textAlign: TextAlign.center)),
-                      TableCell(child: Text('年龄',textAlign: TextAlign.center)),
-                    ]
-                ),
-                TableRow(
+                      TableCell(child: Text('姓名', textAlign: TextAlign.center)),
+                      TableCell(child: Text('性别', textAlign: TextAlign.center)),
+                      TableCell(child: Text('年龄', textAlign: TextAlign.center)),
+                    ],
+                  ),
+                  TableRow(
                     children: [
-                      TableCell(child: Text('老孟',textAlign: TextAlign.center)),
-                      TableCell(child: Text('男',textAlign: TextAlign.center)),
-                      TableCell(child: Text('18',textAlign: TextAlign.center)),
-                    ]
-                ),
-                TableRow(
+                      TableCell(child: Text('老孟', textAlign: TextAlign.center)),
+                      TableCell(child: Text('男', textAlign: TextAlign.center)),
+                      TableCell(child: Text('18', textAlign: TextAlign.center)),
+                    ],
+                  ),
+                  TableRow(
                     children: [
                       TableCell(child: Text('小红')),
                       TableCell(child: Text('女')),
                       TableCell(child: Text('18')),
-                    ]
-                ),
-              ],
+                    ],
+                  ),
+                ],
+              ),
             ),
 
             Divider(color: Colors.red),
@@ -144,7 +153,7 @@ class _MyPage extends State<P01MaterialPage2> {
                 print('介绍事件——2：${notification.value}');
                 return true;
               },
-              child:  Builder(
+              child: Builder(
                 builder: (context) {
                   return RaisedButton(
                     child: Text('发送'),
@@ -288,8 +297,6 @@ class _MyPage extends State<P01MaterialPage2> {
             ),
             Divider(color: Colors.red),
             Text('NavigationToolbar是一个布局控件'),
-
-
 
             Divider(color: Colors.red),
             Text('child 在 FittedBox范围内，尽可能大'),
@@ -503,11 +510,9 @@ class _MyPage extends State<P01MaterialPage2> {
           ],
         ),
       ),
-
     );
   }
 }
-
 
 class CustomNotification extends Notification {
   CustomNotification(this.value);
