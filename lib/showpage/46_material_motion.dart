@@ -1,6 +1,6 @@
 //
 //  46_material_motion
-// 
+//
 //  ax_flutter_demo
 //
 //  Created by axinger on 2020/8/27 8:59 下午 .
@@ -16,7 +16,6 @@ class P46MaterialMotion extends StatefulWidget {
 }
 
 class _P46MaterialMotionState extends State<P46MaterialMotion> {
-
   var _duration = const Duration(seconds: 1);
 
   @override
@@ -37,29 +36,40 @@ class _P46MaterialMotionState extends State<P46MaterialMotion> {
             textColor: Theme.of(context).colorScheme.onPrimary,
             child: const Text('弹出对话框'),
           ),
-
         ],
       ),
-
       body: GridView.builder(
         padding: EdgeInsets.all(8),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2, crossAxisSpacing: 2, mainAxisSpacing: 4),
         itemBuilder: (context, index) {
-          return OpenContainer(
-            transitionDuration: _duration,
+          return GridTile(
+            header: GridTileBar(
+              title: Text('header'),
+              subtitle: Text('专注分享Flutter'),
+              backgroundColor: Colors.transparent,
+              leading: Icon(Icons.rotate_right),
+              trailing: Icon(Icons.details),
+
+            ),
+            child: OpenContainer(
+              transitionDuration: _duration,
 //              tappable:false,
-            closedBuilder: (BuildContext _, VoidCallback openContainer) {
-              return Container(
-                child: Image.asset(
-                  'assets/image/IMG_3601.JPG',
-                  fit: BoxFit.fitWidth,
-                ),
-              );
-            },
-            openBuilder: (BuildContext context, VoidCallback _) {
-              return _DetailPage();
-            },
+              closedBuilder: (BuildContext _, VoidCallback openContainer) {
+                return Container(
+                  child: Image.asset(
+                    'assets/image/IMG_3601.JPG',
+                    fit: BoxFit.fitWidth,
+                  ),
+                );
+              },
+              openBuilder: (BuildContext context, VoidCallback _) {
+                return _DetailPage();
+              },
+            ),
+            footer: GridTileBar(
+              title: Text('Footer'),
+            ),
           );
         },
         itemCount: 50,

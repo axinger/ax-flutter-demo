@@ -101,6 +101,67 @@ class _MyPage extends State<P01MaterialPage2> {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            Divider(color: Colors.red),
+            Text('Table 表格'),
+            Table(
+                border: TableBorder(
+                  top: BorderSide(color: Colors.red),
+                  left: BorderSide(color: Colors.red),
+                  right: BorderSide(color: Colors.red),
+                  bottom: BorderSide(color: Colors.red),
+                  horizontalInside: BorderSide(color: Colors.red),
+                  verticalInside: BorderSide(color: Colors.green),
+                ),
+              children: [
+                TableRow(
+                    children: [
+                      TableCell(child: Text('姓名',textAlign: TextAlign.center,)),
+                      TableCell(child: Text('性别',textAlign: TextAlign.center)),
+                      TableCell(child: Text('年龄',textAlign: TextAlign.center)),
+                    ]
+                ),
+                TableRow(
+                    children: [
+                      TableCell(child: Text('老孟',textAlign: TextAlign.center)),
+                      TableCell(child: Text('男',textAlign: TextAlign.center)),
+                      TableCell(child: Text('18',textAlign: TextAlign.center)),
+                    ]
+                ),
+                TableRow(
+                    children: [
+                      TableCell(child: Text('小红')),
+                      TableCell(child: Text('女')),
+                      TableCell(child: Text('18')),
+                    ]
+                ),
+              ],
+            ),
+
+            Divider(color: Colors.red),
+            Text('NotificationListener,必须包裹 Builder'),
+            NotificationListener<CustomNotification>(
+              onNotification: (CustomNotification notification) {
+                print('介绍事件——2：${notification.value}');
+                return true;
+              },
+              child:  Builder(
+                builder: (context) {
+                  return RaisedButton(
+                    child: Text('发送'),
+                    onPressed: () {
+                      CustomNotification('自定义事件').dispatch(context);
+                    },
+                  );
+                },
+              ),
+            ),
+            Divider(color: Colors.red),
+            Text('RotatedBox 旋转'),
+            RotatedBox(
+              quarterTurns: 3, //旋转90度(1/4圈)
+              child: Text("Hello world"),
+            ),
+            Divider(color: Colors.red),
             Text('TextButton,代替 FlatButton'),
             TextButton(
               onPressed: () {},
@@ -142,6 +203,93 @@ class _MyPage extends State<P01MaterialPage2> {
                 ],
               ),
             ),
+
+            Divider(color: Colors.red),
+            Text('FractionallySizedBox 比如当前按钮的宽度占父组件的70%'),
+            FractionallySizedBox(
+              widthFactor: 0.7,
+              alignment: Alignment.centerLeft,
+              child: Container(
+                color: Colors.yellow,
+                height: 30,
+              ),
+            ),
+            Divider(color: Colors.red),
+            Text(
+                'LinearProgressIndicator进度条 如果 value 为 null 或空，则显示一个动画，否则显示一个定值。Progress 的值只能设置 0 ~ 1.0，如果大于 1，则表示已经结束。'),
+            LinearProgressIndicator(
+//              value:null,
+              backgroundColor: Colors.orange,
+              valueColor: AlwaysStoppedAnimation<Color>(Colors.red),
+            ),
+            Divider(color: Colors.red),
+            Text('CircularProgressIndicator'),
+            CircularProgressIndicator(
+//              value:null,
+              backgroundColor: Colors.greenAccent,
+              valueColor: AlwaysStoppedAnimation<Color>(Colors.red),
+            ),
+            Divider(color: Colors.red),
+            Text('CupertinoActivityIndicator'),
+            CupertinoActivityIndicator(
+              radius: 30,
+            ),
+            Divider(color: Colors.red),
+            Text('RefreshProgressIndicator'),
+            RefreshProgressIndicator(
+//              value: 0.1,
+              backgroundColor: Colors.greenAccent,
+              valueColor: AlwaysStoppedAnimation<Color>(Colors.red),
+              strokeWidth: 2.0,
+              semanticsLabel: 'semanticsLabel',
+              semanticsValue: 'semanticsValue',
+            ),
+            Divider(color: Colors.red),
+            Text('MaterialBanner'),
+            MaterialBanner(
+              backgroundColor: Colors.orange,
+              leading: IconButton(
+                icon: Icon(Icons.person),
+                onPressed: () {},
+              ),
+              leadingPadding: EdgeInsets.all(5),
+              content: Text('老孟'),
+              actions: <Widget>[
+                IconButton(
+                  icon: Icon(Icons.add),
+                  onPressed: () {},
+                ),
+                IconButton(
+                  icon: Icon(Icons.close),
+                  onPressed: () {},
+                )
+              ],
+            ),
+
+            Divider(color: Colors.red),
+            Text('ModalBarrier是一个静态蒙层控件，ModalRoute控件就是间接使用的此控件，此控件有点击属性，点击会调用'),
+            Container(
+              height: 100,
+              width: 100,
+//              color: Colors.red,
+              child: ModalBarrier(
+                color: Colors.orange.withOpacity(0.1),
+              ),
+            ),
+
+            Divider(color: Colors.red),
+            Text('CalendarDatePicker'),
+            CalendarDatePicker(
+              initialCalendarMode: DatePickerMode.day,
+              initialDate: DateTime(2020, 5, 3),
+              firstDate: DateTime(2020, 5, 1),
+              lastDate: DateTime(2099, 5, 31),
+              onDateChanged: (value) {},
+            ),
+            Divider(color: Colors.red),
+            Text('NavigationToolbar是一个布局控件'),
+
+
 
             Divider(color: Colors.red),
             Text('child 在 FittedBox范围内，尽可能大'),
@@ -355,6 +503,14 @@ class _MyPage extends State<P01MaterialPage2> {
           ],
         ),
       ),
+
     );
   }
+}
+
+
+class CustomNotification extends Notification {
+  CustomNotification(this.value);
+
+  final String value;
 }
