@@ -44,7 +44,7 @@ dependencies:
   date_format: any
   scoped_model: any
   # 1.0.0
-#  cupertino_icon: ^1.0.0
+  #  cupertino_icon: ^1.0.0
   # RxDart基于ReactiveX，由Dart标准库中Stream扩展而成，是一个为Dart语言提供响应式编程的库。
   rxdart: ^0.24.1
   #日志输出
@@ -114,17 +114,20 @@ dependencies:
   #FlutterBoost的理念是使用Flutter就像使用WebView一样容易.
   #在现有应用程序中，同时管理本机页面和Flutter页面并非易事.
   #FlutterBoost会为您解决页面分辨率问题. 您唯一需要关心的是页面名称（通常可以是URL）.
-#  flutter_boost: ^1.12.13
-#    git:
-#      url: 'https://github.com/alibaba/flutter_boost.git'
-#      ref: '1.12.13+2'
+  #  flutter_boost: ^1.12.13
+  #    git:
+  #      url: 'https://github.com/alibaba/flutter_boost.git'
+  #      ref: '1.12.13+2'
 
   #自定义相机
   camera: 0.5.8+5
   #图片压缩
   flutter_image_compress: 0.7.0
 
-  ##==============================谷歌组件======================================##
+  # cell 侧滑删除
+  #  flutter_swipe_action_cell: ^1.2.2
+
+  ##  ⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬ 谷歌组件 ⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
   ## 谷歌维护的库 https://github.com/flutter/plugins
 
   #在 Flutter 1.17 发布大会上，Flutter 团队还发布了新的 Animations 软件包，
@@ -177,7 +180,7 @@ dependencies:
   #在Android的早期版本中运行此插件是安全的，因为它将产生Noop.
   #quick_actions: 0.4.0+4
 
-  ##==============================阿星组件======================================##
+  ## ⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬阿星组件 ⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
 
   #  ax_flutter_util:
   #    git:
