@@ -1,12 +1,12 @@
 import 'dart:async';
 import 'dart:convert' show json;
 
-import 'user_info.dart';
 import 'package:bloc/bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'authentication_event.dart';
 import 'authentication_state.dart';
+import 'user_info.dart';
 
 class AuthenticationBloc
     extends Bloc<AuthenticationEvent, AuthenticationState> {

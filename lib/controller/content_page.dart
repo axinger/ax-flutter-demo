@@ -21,7 +21,7 @@ class _ContentPage extends State<ContentPage>
   @override
   void initState() {
     super.initState();
-    this.dataList = PostEntity.dataList();
+    this.dataList = PostEntity.dataList;
     print("首页第一个===========");
   }
 

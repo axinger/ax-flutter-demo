@@ -15,7 +15,7 @@ class _PageViewWidget extends State<PageViewWidget> {
 
   @override
   Widget build(BuildContext context) {
-    this.dataList = PostEntity.dataList();
+    this.dataList = PostEntity.dataList;
 
     return _GridView_builder();
 //    return _pageview();
@@ -33,7 +33,7 @@ class _GridView_builder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    this.dataList = PostEntity.dataList();
+    this.dataList = PostEntity.dataList;
 
     return GridView.builder(
 
@@ -127,7 +127,7 @@ class _GridView_count extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    this.dataList = PostEntity.dataList();
+    this.dataList = PostEntity.dataList;
 
     List<Widget> _cell() {
       ///自动生成Widget
@@ -152,7 +152,7 @@ class _pageviewbuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    this.dataList = PostEntity.dataList();
+    this.dataList = PostEntity.dataList;
 
     return PageView.builder(
       itemCount: dataList.length,

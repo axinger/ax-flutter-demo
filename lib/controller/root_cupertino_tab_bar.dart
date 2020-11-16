@@ -1,7 +1,6 @@
 import 'package:ax_flutter_demo/controller/history_page.dart';
 import 'package:ax_flutter_demo/controller/home_page.dart';
 import 'package:ax_flutter_demo/controller/mine_page.dart';
-import 'package:ax_flutter_demo/global_const.dart';
 import 'package:ax_flutter_demo/showpage/00-test_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';

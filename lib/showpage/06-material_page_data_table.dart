@@ -13,7 +13,7 @@ class _MaterialPage1 extends State<MaterialDataTablePage> {
   int _sortColumnIndex = 0;
   bool _sortAscending = false;
 
-  List<PostEntity> dataList = List.from(PostEntity.dataList());
+  List<PostEntity> dataList = List.from(PostEntity.dataList);
 
   @override
   Widget build(BuildContext context) {

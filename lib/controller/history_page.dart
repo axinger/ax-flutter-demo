@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../config.dart';
 import '../model/post_entity.dart';
 
 class HistoryPage extends StatelessWidget {
@@ -78,7 +77,7 @@ class _SliverListDemo extends StatelessWidget {
 //                      /// 比例
 //                      aspectRatio: 16 / 9,
 //                      child: Image.network(
-//                        PostEntity.dataList()[index].imageUrl,
+//                        PostEntity.dataList[index].imageUrl,
 //                        fit: BoxFit.fill,
 //                      ),
 //                    ),
@@ -106,12 +105,12 @@ class _SliverListDemo extends StatelessWidget {
                         child: AspectRatio(
                           /// 比例
                           aspectRatio: 16 / 9,
-                          child: FadeInImage.assetNetwork(
-                            placeholder: KPlaceholderImageName,
-                            image: PostEntity.dataList()[index].imageUrl,
-                            fit: BoxFit.cover,
-                          ),
-
+                          // child: FadeInImage.assetNetwork(
+                          //   placeholder: KPlaceholderImageName,
+                          //   image: PostEntity.dataList[index].imageUrl,
+                          //   fit: BoxFit.cover,
+                          // ),
+                            child:Image.asset('assets/image/A171.jpg') ,
 //                            CachedNetworkImage(
 //                              width: 120,
 //                              fit: BoxFit.fill,
@@ -133,7 +132,7 @@ class _SliverListDemo extends StatelessWidget {
 //                        ),
 
 //                          Image.network(
-////                            PostEntity.dataList()[index].imageUrl,
+////                            PostEntity.dataList[index].imageUrl,
 //                "https://123.png",
 //                            fit: BoxFit.cover,
 //                          ),
@@ -169,13 +168,13 @@ class _SliverListDemo extends StatelessWidget {
 //
 //                      /// 比例 widget
 //                      child: Image.network(
-//                        PostEntity.dataList()[index].imageUrl,
+//                        PostEntity.dataList[index].imageUrl,
 //                        fit: BoxFit.cover,
 //                      ),
 //                    )
                 );
               },
-              childCount: PostEntity.dataList().length,
+              childCount: PostEntity.dataList.length,
             ),
           ),
         ),
@@ -184,34 +183,3 @@ class _SliverListDemo extends StatelessWidget {
   }
 }
 
-class _CustomScrollView extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    return CustomScrollView(
-      slivers: <Widget>[
-        SliverPadding(
-          padding: EdgeInsets.all(10),
-          sliver: SliverGrid(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              crossAxisSpacing: 8.0,
-              mainAxisSpacing: 10.0,
-            ),
-            delegate: SliverChildBuilderDelegate(
-              (BuildContext context, int index) {
-                return Container(
-                  child: Image.network(
-                    PostEntity.dataList()[index].imageUrl,
-                    fit: BoxFit.cover,
-                  ),
-                );
-              },
-              childCount: PostEntity.dataList().length,
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-}

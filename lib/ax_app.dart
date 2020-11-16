@@ -4,7 +4,6 @@ import 'dart:ui';
 import 'package:ax_flutter_demo/event/login_success_event.dart';
 import 'package:ax_flutter_demo/event/update_user_info_event.dart';
 import 'package:ax_flutter_demo/generated/l10n.dart';
-import 'package:ax_flutter_demo/showpage/00-test_page.dart';
 import 'package:ax_flutter_demo/showpage/01material_page1.dart';
 import 'package:ax_flutter_demo/showpage/28_test_route_page.dart';
 import 'package:ax_flutter_demo/theme_data_notifier.dart';
@@ -288,7 +287,8 @@ class _MyApp extends State<AxApp> with WidgetsBindingObserver {
 ////      child: DismissKeyboardDemo(),
 //    );
 
-    return P00ShowTestPage();
+    // return P00ShowTestPage();
+    return RootPage();
 //   return RootPage();
   }
 

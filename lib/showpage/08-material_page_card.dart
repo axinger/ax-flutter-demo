@@ -17,7 +17,7 @@ class _MaterialPage1 extends State<MaterialPageCard> {
         title: Text("卡片"),
       ),
       body: ListView(
-        children: PostEntity.dataList().map((post) {
+        children: PostEntity.dataList.map((post) {
           /// Card 会自动圆角
           return Card(
             child: Column(

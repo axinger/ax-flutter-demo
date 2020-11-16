@@ -39,11 +39,11 @@ class PostEntity extends Object {
     return 'PostEntity{title: $title, author: $author, imageUrl: $imageUrl}';
   }
 
-  static List<PostEntity> dataList() {
+  static List<PostEntity> get dataList {
     List<Map<String, dynamic>> list = List.generate(20, (index) {
       return {
         'title': '内容-$index',
-        'imageUrl': 'https://bing.ioliu.cn/v1/rand?key=b$index&w=640&h=360',
+        'imageUrl': 'https://bing.ioliu.cn/v1/rand?key=b$index&w=160&h=90',
         'author': 'author-$index',
       };
     });

@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 import '../controller/history_page.dart';
-import '../controller/home_page.dart';
-import '../controller/mine_page.dart';
 import '../showpage/00-test_page.dart';
 
 class TabbarItemController {
@@ -17,7 +15,7 @@ class TabbarItemController {
         _activeIcon = activeIcon,
         this.controller = controller,
         this.item = BottomNavigationBarItem(
-          title: Text(title),
+          label: title,
           icon: icon,
 //          activeIcon: activeIcon,
           backgroundColor: Colors.white,
@@ -45,7 +43,7 @@ class _RootController
 //  PageController _pageController;
 
   //PageController 没有记录index,所以自定义
-  int _tabItemCurrentIndex = 3;
+  int _tabItemCurrentIndex = 1;
 
   List<TabbarItemController> _tabbarItemControllerList;
 
@@ -56,26 +54,26 @@ class _RootController
 
   void _initPageList() {
     _tabbarItemControllerList = <TabbarItemController>[
-      TabbarItemController(
-        title: "首页",
-        icon: Icon(Icons.home),
-        activeIcon: Icon(
-          Icons.home,
-        ),
-        controller: HomePage(),
-      ),
+      // TabbarItemController(
+      //   title: "首页",
+      //   icon: Icon(Icons.home),
+      //   activeIcon: Icon(
+      //     Icons.home,
+      //   ),
+      //   controller: HomePage(),
+      // ),
       TabbarItemController(
         title: "记录",
         icon: Icon(Icons.history),
         activeIcon: Icon(Icons.history),
         controller: HistoryPage(),
       ),
-      TabbarItemController(
-        title: "我的",
-        icon: Icon(Icons.person),
-        activeIcon: Icon(Icons.person),
-        controller: MinePage(),
-      ),
+      // TabbarItemController(
+      //   title: "我的",
+      //   icon: Icon(Icons.person),
+      //   activeIcon: Icon(Icons.person),
+      //   controller: MinePage(),
+      // ),
       TabbarItemController(
         title: "测试",
         icon: Icon(Icons.desktop_mac),

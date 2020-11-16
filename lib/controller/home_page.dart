@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../component/drawer_view.dart';
 import '../controller/content_page.dart';
 import '../controller/home_second_page.dart';
 import '../controller/page_view_widget.dart';
 import '../global_const.dart';
-import '../component/drawer_view.dart';
 
 class HomePage extends StatefulWidget {
   final String title;

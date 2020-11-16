@@ -1,5 +1,4 @@
 import 'package:ax_flutter_demo/generated/l10n.dart';
-import 'package:ax_flutter_demo/theme_data_notifier.dart';
 import 'package:event_bus/event_bus.dart';
 import 'package:flutter/widgets.dart';
 

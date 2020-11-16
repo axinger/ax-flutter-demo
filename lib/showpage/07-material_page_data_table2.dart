@@ -10,7 +10,7 @@ class MaterialPaginatedDataTablePage extends StatefulWidget {
 }
 
 class PostDataSource extends DataTableSource {
-  List<PostEntity> _dataList = List.from(PostEntity.dataList());
+  List<PostEntity> _dataList = List.from(PostEntity.dataList);
 
   int _selectedRowCount = 0;
 
