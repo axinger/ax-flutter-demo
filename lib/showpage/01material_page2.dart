@@ -17,42 +17,7 @@ class P01MaterialPage2 extends StatefulWidget {
 class _MyPage extends State<P01MaterialPage2> {
   @override
   Widget build(BuildContext context) {
-    Color _foregroundColor(Set<MaterialState> states) {
-//      const Set<MaterialState> interactiveStates = <MaterialState>{
-//        ///按下
-//        MaterialState.pressed,
-//        ///徘徊 应该是长按
-//        MaterialState.hovered,
-//        /// 集中
-//        MaterialState.focused,
-//        MaterialState.selected,
-//      };
-//
-//      if (states == MaterialState.pressed) {
-//        return Colors.orange;
-//      }
-//      if (states == MaterialState.hovered) {
-//        return Colors.orange;
-//      }
-//      if (states == MaterialState.selected) {
-//        return Colors.purple;
-//      }
-//      if (states.any(interactiveStates.contains)) {
-//        return Colors.blue;
-//      }
-//      return Colors.red;
 
-      if (states.contains(MaterialState.pressed)) {
-        return Colors.orange;
-      }
-      if (states.contains(MaterialState.disabled)) {
-        return Colors.grey;
-      }
-      if (states.contains(MaterialState.selected)) {
-        return Colors.purple;
-      }
-      return Colors.red;
-    }
 
     return Scaffold(
       appBar: AppBar(
@@ -173,15 +138,30 @@ class _MyPage extends State<P01MaterialPage2> {
             Text('TextButton,代替 FlatButton'),
             TextButton(
               onPressed: () {},
-              child: Text('TextButton'),
+                // onPressed:null,
+              child: Text('TextButton-MaterialStateProperty属性'),
               style: ButtonStyle(
-                /// foregroundColor 文字颜色
-//                  foregroundColor: MaterialStateColor.resolveWith(getColor),
-                foregroundColor:
-                    MaterialStateColor.resolveWith(_foregroundColor),
+
+                /// all 所有状态颜色
+                // foregroundColor:MaterialStateProperty.all(Colors.red),
+                /// 这里设置文字颜色无效
+                textStyle: MaterialStateProperty.all(TextStyle(color: Colors.white,fontSize: 20)),
+                // minimumSize: MaterialStateProperty.all(Size(100, 30)),
+                /// 如何去掉边距(padding)
+                // minimumSize: MaterialStateProperty.all(Size(0, 0)),
+                // padding: MaterialStateProperty.all(EdgeInsets.zero),
+                // backgroundColor: MaterialStateProperty.all(Colors.orange),
+
               ),
             ),
-            FlatButton(onPressed: () {}, child: Text('FlatButton')),
+            FlatButton(
+              onPressed: () {},
+              child: Text('FlatButton'),
+              /// flatButton它们要实现边距为0就比较难了.最终通过各种探索,
+              /// 找到一个实现方法,MaterialTapTargetSize.shrinkWrap,让内容紧裹,并且边距为0,
+              materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+              padding: EdgeInsets.zero,
+            ),
 
             Text('ElevatedButton,代替 RaisedButton'),
 

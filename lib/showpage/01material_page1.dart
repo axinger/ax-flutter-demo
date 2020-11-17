@@ -332,33 +332,33 @@ class _MyPage extends State<MaterialPage1> with SingleTickerProviderStateMixin {
                   height: 100,
                   color: Colors.orange,
                 ),
-                new Expanded(
+                Expanded(
                   flex: 1,
                   child: GestureDetector(
                     onTap: () {
                       print('===========');
                     },
                     child: Container(
-                      child: new Text('Text1', textAlign: TextAlign.center),
+                      child: Text('Text1', textAlign: TextAlign.center),
                       height: 100,
                       alignment: AlignmentDirectional.center,
                       color: Colors.grey,
                     ),
                   ),
                 ),
-                new Expanded(
+                Expanded(
                   flex: 1,
-                  child: new Container(
-                    child: new Text('Text2', textAlign: TextAlign.center),
+                  child: Container(
+                    child: Text('Text2', textAlign: TextAlign.center),
                     height: 100,
                     alignment: AlignmentDirectional.center,
                     color: Colors.blue,
                   ),
                 ),
-                new Expanded(
+                Expanded(
                   flex: 1,
-                  child: new Container(
-                    child: new Text('Text3', textAlign: TextAlign.center),
+                  child: Container(
+                    child: Text('Text3', textAlign: TextAlign.center),
                     height: 100,
                     alignment: AlignmentDirectional.center,
                     color: Colors.cyan,
@@ -729,14 +729,14 @@ class _MyPage extends State<MaterialPage1> with SingleTickerProviderStateMixin {
                       onPressed: () {})),
 
               DropdownButton(
-                hint: new Text('下拉选择你想要的数据'),
+                hint: Text('下拉选择你想要的数据'),
                 items: [
                   DropdownMenuItem(
-                    child: new Text('1'),
+                    child: Text('1'),
                     value: '1',
                   ),
                   DropdownMenuItem(
-                    child: new Text('2'),
+                    child: Text('2'),
                     value: '2',
                   ),
                 ],
@@ -825,8 +825,8 @@ class _MyPage extends State<MaterialPage1> with SingleTickerProviderStateMixin {
                   print('登陆');
                 },
                 child: Padding(
-                  padding: new EdgeInsets.all((50)),
-                  child: new Text('Padding测试Buton的宽度'),
+                  padding: EdgeInsets.all((50)),
+                  child: Text('Padding测试Buton的宽度'),
                 ),
 //                  ///圆角
                 shape: RoundedRectangleBorder(
