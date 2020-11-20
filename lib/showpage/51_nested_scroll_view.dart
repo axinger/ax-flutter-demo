@@ -12,7 +12,7 @@ class _P51NestedScrollViewState extends State<P51NestedScrollView> {
       expandedHeight: 200,
       flexibleSpace: FlexibleSpaceBar(
         background: Image.asset(
-        'assets/image/A171.jpg',
+          'assets/image/A171.jpg',
           fit: BoxFit.cover,
         ),
         collapseMode: CollapseMode.parallax,
@@ -31,6 +31,8 @@ class _P51NestedScrollViewState extends State<P51NestedScrollView> {
 
   @override
   Widget build(BuildContext context) {
+    
+
     return Scaffold(
       // appBar: AppBar(
       //   title: Text('NestedScrollView'),

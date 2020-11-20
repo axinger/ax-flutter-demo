@@ -232,3 +232,13 @@ class Student extends Person {
 
 //  如果emp 不是persion，name就会抛出exception。
 ```
+
+## 不可变数组
+```dart
+List<String> list = List.unmodifiable(["2"]);
+try{
+list.add('3');
+}catch(e){
+print('添加数据 $e');
+}
+```
