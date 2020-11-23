@@ -1,3 +1,4 @@
+import 'package:ax_flutter_demo/generated/l10n.dart';
 import 'package:ax_flutter_util/ax_flutter_util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -74,6 +75,20 @@ class _P00ShowTestPageState extends State<P00ShowTestPage> {
 
     print('time = ${format.format(DateTime.now())}');
     print('DateTime.now().format() = ${DateTime.now().format(locale: 'zh')}');
+
+    var f = NumberFormat('###.00#', 'en_US');
+    print(f.format(1234567.345678));
+
+    print(NumberFormat('###.00#', 'zh_CN').format(1234567.345678));
+
+    var aDateTime = DateTime.now();
+    DateFormat.yMMMMEEEEd().format(aDateTime);
+
+   print(DateFormat('yyyy-MM-ddEEEEE', 'en_US').format(aDateTime));
+    print( DateFormat('yyyy-MM-ddEEEEE', 'zh_CN').format(aDateTime));
+
+
+
 
     dataList = [
       CellItem(
@@ -366,8 +381,6 @@ class _P00ShowTestPageState extends State<P00ShowTestPage> {
           onTap: () {
             push(context: context, widget: P51NestedScrollView());
           }),
-
-
     ];
 
     return Scaffold(
@@ -377,7 +390,7 @@ class _P00ShowTestPageState extends State<P00ShowTestPage> {
           preferredSize: Size.fromHeight(200),
           child: AppBar(
             title: Text(
-              '测试',
+              S.of(context).test_title,
               style: TextStyle(color: Colors.red),
             ),
             flexibleSpace: Image.asset(

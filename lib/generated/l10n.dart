@@ -1,7 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-
 import 'intl/messages_all.dart';
 
 // **************************************************************************
@@ -61,6 +60,16 @@ class S {
     return Intl.message(
       'Mine',
       name: 'mine',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `test Title`
+  String get test_title {
+    return Intl.message(
+      'test Title',
+      name: 'test_title',
       desc: '',
       args: [],
     );
