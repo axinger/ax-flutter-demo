@@ -57,6 +57,7 @@ import '48_PhotoAlbumGridView.dart';
 import '49_dismissible.dart';
 import '50_on_pop_page.dart';
 import '51_nested_scroll_view.dart';
+import '52scrollable_positioned_list.dart';
 
 class P00ShowTestPage extends StatefulWidget {
   @override
@@ -381,6 +382,14 @@ class _P00ShowTestPageState extends State<P00ShowTestPage> {
           onTap: () {
             push(context: context, widget: P51NestedScrollView());
           }),
+
+      CellItem(
+          title: '52-跳转指定位置',
+          onTap: () {
+            push(context: context, widget: P52ScrollablePositionedList());
+          }),
+
+
     ];
 
     return Scaffold(

@@ -133,7 +133,8 @@ dependencies:
   #在 Flutter 1.17 发布大会上，Flutter 团队还发布了新的 Animations 软件包，
   #该软件包提供了实现新的 Material motion 规范的预构建动画。该软件包并不是内置的，而是第三方插件的形式。
   animations: ^1.1.1
-
+  #  跳转指定位置
+  scrollable_positioned_list: ^0.1.8
   # google推荐的Provider
   provider: ^4.1.2
 
