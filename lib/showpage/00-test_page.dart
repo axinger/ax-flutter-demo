@@ -58,6 +58,7 @@ import '49_dismissible.dart';
 import '50_on_pop_page.dart';
 import '51_nested_scroll_view.dart';
 import '52scrollable_positioned_list.dart';
+import '53draggable_scrollable_sheet.dart';
 
 class P00ShowTestPage extends StatefulWidget {
   @override
@@ -388,7 +389,11 @@ class _P00ShowTestPageState extends State<P00ShowTestPage> {
           onTap: () {
             push(context: context, widget: P52ScrollablePositionedList());
           }),
-
+      CellItem(
+          title: '53-拖拽滚动布局',
+          onTap: () {
+            push(context: context, widget: P53DraggableScrollableSheet());
+          }),
 
     ];
 
