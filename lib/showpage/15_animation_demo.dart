@@ -1,14 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class MaterialPageAnimation extends StatefulWidget {
+class P15AnimationDemo extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return _MaterialPage1();
   }
 }
 
-class _MaterialPage1 extends State<MaterialPageAnimation>
+class _MaterialPage1 extends State<P15AnimationDemo>
     with TickerProviderStateMixin {
   AnimationController _animationController;
 
@@ -22,7 +22,6 @@ class _MaterialPage1 extends State<MaterialPageAnimation>
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
     /// 值只能是数,
@@ -95,98 +94,20 @@ class _MaterialPage1 extends State<MaterialPageAnimation>
       appBar: AppBar(
         title: Text("动画"),
       ),
-//      body: Center(
-//        child: FlatButton(
-//          child: Text(_animationController.value.toString()),
-//          onPressed: (){
-//            _animationController.forward();
-//          },
-//        ),
-//      ),
-/*
-
-      body: Center(
-        child: IconButton(
-          icon: Icon(Icons.favorite),
-          iconSize: _animationController.value,
-          onPressed: (){
-            /// 向前运行
-//            _animationController.forward();
-          /// 重复
-//            _animationController.repeat();
-
-          switch(_animationController.status){
-            case AnimationStatus.completed:
-              ///reverse 相反
-              _animationController.reverse();
-              break;
-
-            default:
-              _animationController.forward();
-              break;
-          }
-          },
-        ),
-      ),
-*/
-
-      /*     body: Center(
-        child: IconButton(
-          icon: Icon(Icons.favorite),
-          iconSize: _animation.value,
-          onPressed: (){
-            /// 向前运行
-//            _animationController.forward();
-            /// 重复
-//            _animationController.repeat();
-
-            switch(_animationController.status){
-              case AnimationStatus.completed:
-              ///reverse 相反
-                _animationController.reverse();
-                break;
-
-              default:
-                _animationController.forward();
-                break;
-            }
-          },
-        ),
-      ),*/
-
-      /*    body: Center(
-        child: IconButton(
-          icon: Icon(Icons.favorite),
-          iconSize: _animation.value,
-          color: _animationColor.value,
-          onPressed: () {
-            /// 向前运行
-//            _animationController.forward();
-            /// 重复
-//            _animationController.repeat();
-
-            switch (_animationController.status) {
-              case AnimationStatus.completed:
-
-                ///reverse 相反
-                _animationController.reverse();
-                break;
-
-              default:
-                _animationController.forward();
-                break;
-            }
-          },
-        ),
-      ),*/
-      body: Center(
-        child: AnimationHeader(
-          animatedList: [
-            _animation,
-            _animationColor,
-          ],
-          animationController: _animationController,
-        ),
+      body: ListView(
+        children: [
+          AnimationHeader(
+            animatedList: [
+              _animation,
+              _animationColor,
+            ],
+            animationController: _animationController,
+          ),
+          Divider(
+            color: Colors.red,
+          ),
+          AnimationDemo(),
+        ],
       ),
     );
   }
@@ -202,7 +123,8 @@ class AnimationHeader extends AnimatedWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      icon: Icon(Icons.favorite),
+      // icon: Icon(Icons.favorite),
+      icon: Text('点击大小,颜色变换动画'),
       iconSize: animatedList[0].value,
       color: animatedList[1].value,
       onPressed: () {
@@ -224,5 +146,62 @@ class AnimationHeader extends AnimatedWidget {
         }
       },
     );
+  }
+}
+
+class AnimationDemo extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() => _AnimationDemo();
+}
+
+class _AnimationDemo extends State<AnimationDemo>
+    with SingleTickerProviderStateMixin {
+  AnimationController _animationController;
+  Animation _animation;
+
+  @override
+  void initState() {
+    _animationController =
+        AnimationController(duration: Duration(seconds: 2), vsync: this);
+
+    _animation = ColorTween(begin: Colors.red, end: Colors.blue)
+        .animate(_animationController);
+
+    _animationController.addListener(() {
+      if (_animationController.isCompleted) {
+        print('动画完成');
+        _animationController.animateBack(0.0);
+      }
+    });
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        FlatButton(
+            onPressed: () {
+              //开始动画
+              _animationController.forward();
+            },
+            child: Text('点击变换颜色')),
+        Container(
+          height: 100,
+          width: 100,
+
+          /// 继承 AnimatedWidget
+          child: AnimatedModalBarrier(
+            color: _animation,
+          ),
+        ),
+      ],
+    );
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
   }
 }

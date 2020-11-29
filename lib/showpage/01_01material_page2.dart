@@ -14,14 +14,34 @@ class P01MaterialPage2 extends StatefulWidget {
   }
 }
 
-class _MyPage extends State<P01MaterialPage2> {
+class _MyPage extends State<P01MaterialPage2> with SingleTickerProviderStateMixin{
+
+  AnimationController _animationController;
+  Animation _animation;
+
+  @override
+  void initState() {
+
+    super.initState();
+    _animationController =
+        AnimationController(duration: Duration(seconds: 2), vsync: this);
+
+    _animation = ColorTween(
+        begin: Colors.red,
+        end: Colors.blue)
+        .animate(_animationController);
+
+    //开始动画
+    _animationController.forward();
+  }
+
   @override
   Widget build(BuildContext context) {
 
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('形状'),
+        title: Text('01_01形状'),
         actions: <Widget>[
           FlatButton(
             color: Colors.orange,

@@ -4,8 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import '01material_page1.dart';
-import '01material_page2.dart';
+import '01_00material_page1.dart';
+import '01_01material_page2.dart';
 import '02-slivergrid_page.dart';
 import '02material_page2.dart';
 import '03material_page_date.dart';
@@ -20,7 +20,7 @@ import '11-material_page_stream.dart';
 import '12-material_page_rx_dart.dart';
 import '13-material_page_bloc.dart';
 import '14_all_builder.dart';
-import '15-material_page_animation.dart';
+import '15_animation_demo.dart';
 import '16-material_page_i18n.dart';
 import '17-material_page_sql.dart';
 import '18-material_page_more_text.dart';
@@ -94,13 +94,13 @@ class _P00ShowTestPageState extends State<P00ShowTestPage> {
 
     dataList = [
       CellItem(
-          title: '01-按钮组件1',
+          title: '01_00-按钮组件1',
           onTap: () {
             push(context: context, widget: MaterialPage1());
           }),
 
       CellItem(
-          title: '01-组件',
+          title: '01_01-组件',
           onTap: () {
             push(context: context, widget: P01MaterialPage2());
           }),
@@ -179,7 +179,7 @@ class _P00ShowTestPageState extends State<P00ShowTestPage> {
       CellItem(
           title: '15-动画',
           onTap: () {
-            push(context: context, widget: MaterialPageAnimation());
+            push(context: context, widget: P15AnimationDemo());
           }),
       CellItem(
           title: '16-国际化',
