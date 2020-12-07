@@ -43,7 +43,7 @@ class PostEntity extends Object {
     List<Map<String, dynamic>> list = List.generate(20, (index) {
       return {
         'title': '内容-$index',
-        'imageUrl': 'https://bing.ioliu.cn/v1/rand?key=b$index&w=160&h=90',
+        'imageUrl': 'https://via.placeholder.com/160x90?text=icon${index}',
         'author': 'author-$index',
       };
     });

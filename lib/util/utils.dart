@@ -7,7 +7,7 @@ class Utils {
     String key = 'rand',
   }) {
     return List.generate(count, (index) {
-      return 'https://bing.ioliu.cn/v1/rand?key=$key${index + 1}&w=$width&h=$height';
+      return 'https://via.placeholder.com/${width}x${height}?text=$key$index';
     });
   }
 }

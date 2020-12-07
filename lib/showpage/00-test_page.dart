@@ -327,7 +327,7 @@ class _P00ShowTestPageState extends State<P00ShowTestPage> {
 //            push(context: context, widget: P42ImageBrowser());
           }),
       CellItem(
-          title: '42-net',
+          title: '42-自定义服务器请求',
           onTap: () {
             push(context: context, widget: P42NetTestPage());
           }),
