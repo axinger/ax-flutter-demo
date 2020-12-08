@@ -404,6 +404,15 @@ class _MyApp extends State<AxApp> with WidgetsBindingObserver {
         const Locale("zh", "CN"),
       ]..addAll(S.delegate.supportedLocales),
 
+      builder: (context, child) => Scaffold(
+        // Global GestureDetector that will dismiss the keyboard
+        body: GestureDetector(
+          onTap: () {
+            hideKeyboard(context);
+          },
+          child: child,
+        ),
+      ),
       home: _rootView,
 
 //      home: P00ShowTestPage(),
@@ -445,6 +454,15 @@ class _MyApp extends State<AxApp> with WidgetsBindingObserver {
 //        }
 //      },
     );
+  }
+
+  ///   全局隐藏键盘
+  void hideKeyboard(BuildContext context) {
+    FocusScopeNode currentFocus = FocusScope.of(context);
+    if (!currentFocus.hasPrimaryFocus && currentFocus.focusedChild != null) {
+      // FocusManager.instance.primaryFocus.unfocus();///会反复弹起
+      SystemChannels.textInput.invokeMethod('TextInput.hide');
+    }
   }
 
   void _onRoutePushed(
