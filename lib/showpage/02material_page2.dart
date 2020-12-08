@@ -322,7 +322,19 @@ class _MaterialPage23 extends State<MaterialPage2> {
                             ),
                           ),
                         ),
-
+                        Text('FormField\n'
+                            'FormField是一个表单控件，此控件包含表单的状态，方便更新UI，'
+                            '通常情况下，我们不会直接使用FormField，而是使用TextFormField。'),
+                      FormField(
+                        autovalidateMode: AutovalidateMode.always,
+                        builder: (FormFieldState state) {
+                          return Container(
+                            width: 200,
+                            height: 100,
+                            color: Colors.red,
+                          );
+                        },
+                      ),
                         FlatButton(
                           child: Text('aa'),
                           onPressed: () {
