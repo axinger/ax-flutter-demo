@@ -29,9 +29,7 @@ class AxApp extends StatefulWidget {
 //  }
 
   @override
-  State<StatefulWidget> createState() {
-    return _MyApp();
-  }
+  State<StatefulWidget> createState() =>_MyApp();
 }
 
 ///WidgetsBindingObserver 进入后台
