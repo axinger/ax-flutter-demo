@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -45,7 +46,7 @@ class _SliverListDemo extends StatelessWidget {
               ),
             ),
             background: Image.network(
-              "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2641512116,3445406201&fm=26&gp=0.jpg",
+              'http://via.placeholder.com/350x160/1296db?text=cat',
               fit: BoxFit.cover,
             ),
           ),
@@ -106,11 +107,35 @@ class _SliverListDemo extends StatelessWidget {
                           /// 比例
                           aspectRatio: 16 / 9,
                           // child: FadeInImage.assetNetwork(
-                          //   placeholder: KPlaceholderImageName,
+                          //   placeholder: 'assets/image/placeholderImage.png',
                           //   image: PostEntity.dataList[index].imageUrl,
                           //   fit: BoxFit.cover,
                           // ),
-                            child:Image.asset('assets/image/A171.jpg') ,
+                          // child:Image(image: CachedNetworkImageProvider(PostEntity.dataList[index].imageUrl)),
+
+                          child: CachedNetworkImage(
+                            imageUrl: PostEntity.dataList[index].imageUrl,
+                            imageBuilder: (context, imageProvider) => Container(
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  image: imageProvider,
+                                  fit: BoxFit.cover,
+                                  // colorFilter:ColorFilter.mode(Colors.red, BlendMode.colorBurn)
+                                ),
+                              ),
+                            ),
+                            placeholder: (context, url) => Center(
+                              child: Container(
+                                width: 50,
+                                height: 50,
+                                child: CircularProgressIndicator(),
+                              ),
+                            ),
+                            errorWidget: (context, url, error) =>
+                                Icon(Icons.error),
+                          ),
+
+                          //   child:Image.asset('assets/image/A171.jpg') ,
 //                            CachedNetworkImage(
 //                              width: 120,
 //                              fit: BoxFit.fill,
@@ -120,22 +145,21 @@ class _SliverListDemo extends StatelessWidget {
 //                            )
 
 //                          /**网络缓存图片库*/
-//                          CachedNetworkImage(
+//                           child:  CachedNetworkImage(
 //                          width: 60,
 //                          height: 60,
-//                          imageUrl: "http://1.png",
+//                          imageUrl: PostEntity.dataList[index].imageUrl,
 //                          placeholder: (context, url) =>Image.asset(
-//                            KPlaceholderImageName,
+//                            'assets/image/placeholderImage.png',
 //                            width: 60,
 //                            height: 60,
 //                          ),
 //                        ),
 
-//                          Image.network(
-////                            PostEntity.dataList[index].imageUrl,
-//                "https://123.png",
-//                            fit: BoxFit.cover,
-//                          ),
+                          //  child:   Image.network(
+                          //   PostEntity.dataList[index].imageUrl,
+                          //   fit: BoxFit.cover,
+                          // ),
                         )),
                   ),
 
@@ -182,4 +206,3 @@ class _SliverListDemo extends StatelessWidget {
     );
   }
 }
-
