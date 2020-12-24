@@ -1,4 +1,5 @@
 import 'package:ax_flutter_demo/generated/l10n.dart';
+
 import 'package:ax_flutter_util/ax_flutter_util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -59,6 +60,8 @@ import '50_on_pop_page.dart';
 import '51_nested_scroll_view.dart';
 import '52scrollable_positioned_list.dart';
 import '53draggable_scrollable_sheet.dart';
+import '54_sliver_persisten.dart';
+
 
 class P00ShowTestPage extends StatefulWidget {
   @override
@@ -393,6 +396,12 @@ class _P00ShowTestPageState extends State<P00ShowTestPage> {
           title: '53-拖拽滚动布局',
           onTap: () {
             push(context: context, widget: P53DraggableScrollableSheet());
+          }),
+
+      CellItem(
+          title: '54 吸顶效果1',
+          onTap: () {
+            push(context: context, widget: P54SliverPersisten());
           }),
 
     ];

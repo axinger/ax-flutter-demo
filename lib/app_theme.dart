@@ -89,11 +89,8 @@ class AppTheme {
   }
 
   // 3.暗黑主题
-  static final ThemeData darkTheme = ThemeData(
-      primaryColor: Colors.grey,
-      primaryTextTheme: TextTheme(
-          title: TextStyle(color: Colors.white, fontSize: _titleFontSize)),
-      textTheme: TextTheme(
-          title: TextStyle(color: Colors.white),
-          body1: TextStyle(color: Colors.white70)));
+  static final ThemeData darkTheme = ThemeData.dark().copyWith(
+
+  );
+
 }
