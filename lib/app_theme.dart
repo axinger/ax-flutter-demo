@@ -89,8 +89,5 @@ class AppTheme {
   }
 
   // 3.暗黑主题
-  static final ThemeData darkTheme = ThemeData.dark().copyWith(
-
-  );
-
+  static final ThemeData darkTheme = ThemeData.dark().copyWith();
 }

@@ -9,8 +9,6 @@ class P54SliverPersisten extends StatefulWidget {
 
 class CustomScrollView1State extends State<P54SliverPersisten>
     with SingleTickerProviderStateMixin {
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,8 +21,7 @@ class CustomScrollView1State extends State<P54SliverPersisten>
               collapsedHeight: 43.0,
               expandedHeight: 220.0,
               paddingTop: 27.0,
-              coverImgUrl:
-                  'http://via.placeholder.com/350x160/1296db?text=cat',
+              coverImgUrl: 'http://via.placeholder.com/350x160/1296db?text=cat',
               title: '标题',
             ),
           ),
@@ -148,4 +145,3 @@ class SliverCustomHeaderDelegate extends SliverPersistentHeaderDelegate {
     return true;
   }
 }
-

@@ -31,7 +31,6 @@ class ThemeDataNotifier extends ChangeNotifier {
     buttonTheme: ButtonThemeData(
       buttonColor: Colors.orange,
     ),
-
   );
 
   get themeData {

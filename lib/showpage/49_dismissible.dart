@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 class P49DismissibleWidget extends StatelessWidget {
   final List<String> items = List.generate(20, (index) => index.toString());
 
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(

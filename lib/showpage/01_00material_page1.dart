@@ -50,7 +50,6 @@ class _MyPage extends State<MaterialPage1> with SingleTickerProviderStateMixin {
 
   @override
   void initState() {
-
     ListView();
     ScrollController scrollController;
 

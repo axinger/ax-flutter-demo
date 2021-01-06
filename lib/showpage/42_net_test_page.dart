@@ -9,10 +9,7 @@ class P42NetTestPage extends StatefulWidget {
 }
 
 class _P42NetTestPageState extends State<P42NetTestPage> {
-
-  Future<dynamic> _net(){
-
-
+  Future<dynamic> _net() {
     var options = BaseOptions(
       connectTimeout: 15000,
       receiveTimeout: 15000,
@@ -33,18 +30,14 @@ class _P42NetTestPageState extends State<P42NetTestPage> {
 //      return '失败12';
 //    });
 
-
- return Future.delayed(Duration(seconds: 1),(){
-   throw Exception('Expected at least 1 section');
-   throw FormatException('Expected at least 1 section');
-   return '成功';
- }).catchError((onError){
-
-   return '失败12';
- });
-
+    return Future.delayed(Duration(seconds: 1), () {
+      throw Exception('Expected at least 1 section');
+      throw FormatException('Expected at least 1 section');
+      return '成功';
+    }).catchError((onError) {
+      return '失败12';
+    });
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -56,11 +49,11 @@ class _P42NetTestPageState extends State<P42NetTestPage> {
         children: [
           FlatButton(
             child: Text('get'),
-            onPressed:  () async{
-            var success   = await _net().catchError((onError){
-              print('onError2 = $onError');
-            });
-            print(success);
+            onPressed: () async {
+              var success = await _net().catchError((onError) {
+                print('onError2 = $onError');
+              });
+              print(success);
             },
           ),
         ],

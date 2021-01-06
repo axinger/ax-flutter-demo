@@ -95,12 +95,12 @@ class _RootController
     return Scaffold(
 
         /// 子页面保持状态数据,不会每次刷新
-       body: IndexedStack(
-         index: _tabItemCurrentIndex,
-         children: _tabbarItemControllerList.map((item) {
-           return item.controller;
-         }).toList(),
-       ),
+        body: IndexedStack(
+          index: _tabItemCurrentIndex,
+          children: _tabbarItemControllerList.map((item) {
+            return item.controller;
+          }).toList(),
+        ),
 
         // body: _tabbarItemControllerList[_tabItemCurrentIndex].controller,
         bottomNavigationBar: BottomNavigationBar(

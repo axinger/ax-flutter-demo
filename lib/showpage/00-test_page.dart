@@ -1,5 +1,4 @@
 import 'package:ax_flutter_demo/generated/l10n.dart';
-
 import 'package:ax_flutter_util/ax_flutter_util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -61,7 +60,7 @@ import '51_nested_scroll_view.dart';
 import '52scrollable_positioned_list.dart';
 import '53draggable_scrollable_sheet.dart';
 import '54_sliver_persisten.dart';
-
+import '55_bottom_tab_bar_widget.dart';
 
 class P00ShowTestPage extends StatefulWidget {
   @override
@@ -89,11 +88,8 @@ class _P00ShowTestPageState extends State<P00ShowTestPage> {
     var aDateTime = DateTime.now();
     DateFormat.yMMMMEEEEd().format(aDateTime);
 
-   print(DateFormat('yyyy-MM-ddEEEEE', 'en_US').format(aDateTime));
-    print( DateFormat('yyyy-MM-ddEEEEE', 'zh_CN').format(aDateTime));
-
-
-
+    print(DateFormat('yyyy-MM-ddEEEEE', 'en_US').format(aDateTime));
+    print(DateFormat('yyyy-MM-ddEEEEE', 'zh_CN').format(aDateTime));
 
     dataList = [
       CellItem(
@@ -101,13 +97,11 @@ class _P00ShowTestPageState extends State<P00ShowTestPage> {
           onTap: () {
             push(context: context, widget: MaterialPage1());
           }),
-
       CellItem(
           title: '01_01-组件',
           onTap: () {
             push(context: context, widget: P01MaterialPage2());
           }),
-
       CellItem(
           title: '02-组件',
           onTap: () {
@@ -118,7 +112,6 @@ class _P00ShowTestPageState extends State<P00ShowTestPage> {
           onTap: () {
             push(context: context, widget: P02SlivergridPage());
           }),
-
       CellItem(
           title: '03-复选,开关等',
           onTap: () {
@@ -374,19 +367,16 @@ class _P00ShowTestPageState extends State<P00ShowTestPage> {
           onTap: () {
             push(context: context, widget: P49DismissibleWidget());
           }),
-
       CellItem(
           title: '50-Navigator 2.0',
           onTap: () {
             push(context: context, widget: P50OnPopPage());
           }),
-
       CellItem(
           title: '51-NestedScrollView',
           onTap: () {
             push(context: context, widget: P51NestedScrollView());
           }),
-
       CellItem(
           title: '52-跳转指定位置',
           onTap: () {
@@ -397,13 +387,16 @@ class _P00ShowTestPageState extends State<P00ShowTestPage> {
           onTap: () {
             push(context: context, widget: P53DraggableScrollableSheet());
           }),
-
       CellItem(
           title: '54 吸顶效果1',
           onTap: () {
             push(context: context, widget: P54SliverPersisten());
           }),
-
+      CellItem(
+          title: 'P55BottomTabBarWidget',
+          onTap: () {
+            push(context: context, widget: P55BottomTabBarWidget());
+          }),
     ];
 
     return Scaffold(
@@ -427,9 +420,10 @@ class _P00ShowTestPageState extends State<P00ShowTestPage> {
         ),
         body: SafeArea(
           child: SingleChildScrollView(
-            child: Wrap(children: dataList.map((e){
-             e.index= dataList.indexOf(e);
-            return  Cell(e);
+            child: Wrap(
+                children: dataList.map((e) {
+              e.index = dataList.indexOf(e);
+              return Cell(e);
             }).toList()),
           ),
         ));
@@ -441,7 +435,7 @@ class CellItem {
   String title;
   final Function() onTap;
 
-  CellItem({this.index,this.title, this.onTap});
+  CellItem({this.index, this.title, this.onTap});
 }
 
 class Cell extends StatelessWidget {

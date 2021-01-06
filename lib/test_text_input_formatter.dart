@@ -20,9 +20,7 @@ class TestTextInputFormatter extends TextInputFormatter {
         'start = $start '
         'end = $end '
         'old_start = $old_start '
-        'old_end = $old_end '
-    );
-
+        'old_end = $old_end ');
 
 //    List list = [];
 //    String phone = '';

@@ -71,8 +71,6 @@ class _P34ProviderState extends State<P34Provider> {
               onPressed: () {
 //                push(context: context, widget: NextPage());
                 push(context: context, widget: Consumer3());
-
-
               },
             ),
 
@@ -133,7 +131,6 @@ class NextPage extends StatefulWidget {
 }
 
 class _NextPageState extends State<NextPage> {
-
   @override
   Widget build(BuildContext context) {
 //    print(' context.read<AddModel>() =  ${context.read<AddModel>()}');
@@ -161,12 +158,11 @@ class _NextPageState extends State<NextPage> {
           FlatButton(
             child: Text('add2'),
             onPressed: () {
-              print('read =  ${  context.read<AddModel>()}');
+              print('read =  ${context.read<AddModel>()}');
 //              context?.read<AddModel>()?.add1Age1();
 //              context?.watch<AddModel>()?.add1Age1();
             },
           ),
-
         ],
       ),
     );
@@ -236,7 +232,6 @@ class Consumer2 extends StatelessWidget {
                   value.addAge2();
                 },
               ),
-
               Text('Consumer2 = ${value.age2}'),
             ],
           );
@@ -245,6 +240,7 @@ class Consumer2 extends StatelessWidget {
     );
   }
 }
+
 class Consumer3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -264,7 +260,6 @@ class Consumer3 extends StatelessWidget {
                     value.addAge2();
                   },
                 ),
-
                 Text('Consumer2 = ${value.age2}'),
               ],
             );
@@ -274,6 +269,7 @@ class Consumer3 extends StatelessWidget {
     );
   }
 }
+
 class P34MultiProvider extends StatefulWidget {
   @override
   _P34MultiProviderState createState() => _P34MultiProviderState();

@@ -25,7 +25,8 @@ class _HeroDemo extends State<P45HeroDemo> {
 
 //                Navigator.push(context, LeftToRightPageRoute(_Hero1Demo()));
 
-                Navigator.push(context, CustomPageRoute(this.widget, _Hero1Demo()));
+                Navigator.push(
+                    context, CustomPageRoute(this.widget, _Hero1Demo()));
               },
 
               ///2个页面都有Hero控件，且tag参数一致。
@@ -93,42 +94,41 @@ class LeftToRightPageRoute extends PageRouteBuilder {
         );
 }
 
-
 class CustomPageRoute extends PageRouteBuilder {
   final Widget currentPage;
   final Widget newPage;
 
   CustomPageRoute(this.currentPage, this.newPage)
       : super(
-    pageBuilder: (
-        BuildContext context,
-        Animation<double> animation,
-        Animation<double> secondaryAnimation,
-        ) =>
-    currentPage,
-    transitionsBuilder: (
-        BuildContext context,
-        Animation<double> animation,
-        Animation<double> secondaryAnimation,
-        Widget child,
-        ) =>
-        Stack(
-          children: <Widget>[
-            SlideTransition(
-              position: new Tween<Offset>(
-                begin: const Offset(0, 0),
-                end: const Offset(0, -1),
-              ).animate(animation),
-              child: currentPage,
-            ),
-            SlideTransition(
-              position: new Tween<Offset>(
-                begin: const Offset(0, 1),
-                end: Offset(0, 0),
-              ).animate(animation),
-              child: newPage,
-            )
-          ],
-        ),
-  );
+          pageBuilder: (
+            BuildContext context,
+            Animation<double> animation,
+            Animation<double> secondaryAnimation,
+          ) =>
+              currentPage,
+          transitionsBuilder: (
+            BuildContext context,
+            Animation<double> animation,
+            Animation<double> secondaryAnimation,
+            Widget child,
+          ) =>
+              Stack(
+            children: <Widget>[
+              SlideTransition(
+                position: new Tween<Offset>(
+                  begin: const Offset(0, 0),
+                  end: const Offset(0, -1),
+                ).animate(animation),
+                child: currentPage,
+              ),
+              SlideTransition(
+                position: new Tween<Offset>(
+                  begin: const Offset(0, 1),
+                  end: Offset(0, 0),
+                ).animate(animation),
+                child: newPage,
+              )
+            ],
+          ),
+        );
 }

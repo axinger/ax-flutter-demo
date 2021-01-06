@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 /**
  * 该应用程序显式创建一个导航器，并为其提供代表完整堆栈的页面列表。我们创建一个空的_selectedColor，
  * 以指示尚未选择任何颜色，因此我们最初不显示ColorScreen。当用户选择一种颜色时，
@@ -25,9 +26,9 @@ class _P50OnPopPageState extends State<P50OnPopPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text('Navigator 2.0'),
-        ),
+      appBar: AppBar(
+        title: Text('Navigator 2.0'),
+      ),
       body: Navigator(
         // you can see and decide on every page in this list
         pages: [
@@ -37,7 +38,8 @@ class _P50OnPopPageState extends State<P50OnPopPage> {
               onTapped: (color) => setState(() => _selectedColor = color),
             ),
           ),
-          if (_selectedColor != null) MaterialPage(child: ColorScreen(color: _selectedColor)),
+          if (_selectedColor != null)
+            MaterialPage(child: ColorScreen(color: _selectedColor)),
         ],
         onPopPage: (route, result) {
           print('result = $result');
@@ -52,8 +54,6 @@ class _P50OnPopPageState extends State<P50OnPopPage> {
         },
       ),
     );
-
-
   }
 //  @override
 //  Widget build(BuildContext context) => MaterialApp(
@@ -84,8 +84,6 @@ class _P50OnPopPageState extends State<P50OnPopPage> {
 //  );
 }
 
-
-
 class ColorListScreen extends StatelessWidget {
   final List<Color> colors;
   final void Function(Color color) onTapped;
@@ -93,20 +91,20 @@ class ColorListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(title: Text('Colors')),
-    body: Column(
-      children: [
-        // you can see and decide on every color in this list
-        for (final color in colors)
-          Expanded(
-            child: GestureDetector(
-              child: Container(color: color),
-              onTap: () => onTapped(color),
-            ),
-          )
-      ],
-    ),
-  );
+        appBar: AppBar(title: Text('Colors')),
+        body: Column(
+          children: [
+            // you can see and decide on every color in this list
+            for (final color in colors)
+              Expanded(
+                child: GestureDetector(
+                  child: Container(color: color),
+                  onTap: () => onTapped(color),
+                ),
+              )
+          ],
+        ),
+      );
 }
 
 class ColorScreen extends StatelessWidget {
@@ -115,12 +113,14 @@ class ColorScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(title: Text('Color')),
-    body: Container(color: color,child: FlatButton(
-      child: Text('返回'),
-      onPressed: (){
-        Navigator.pop(context,Colors.purple);
-      },
-    )),
-  );
+        appBar: AppBar(title: Text('Color')),
+        body: Container(
+            color: color,
+            child: FlatButton(
+              child: Text('返回'),
+              onPressed: () {
+                Navigator.pop(context, Colors.purple);
+              },
+            )),
+      );
 }

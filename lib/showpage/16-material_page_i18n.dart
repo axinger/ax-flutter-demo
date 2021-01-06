@@ -11,8 +11,8 @@ class MaterialPageI18n extends StatefulWidget {
 }
 
 class _MaterialPage1 extends State<MaterialPageI18n> {
-  String _name='-1';
-  String _name2='-1';
+  String _name = '-1';
+  String _name2 = '-1';
   @override
   Widget build(BuildContext context) {
     Locale _locale = Localizations.localeOf(context);
@@ -51,7 +51,7 @@ class _MaterialPage1 extends State<MaterialPageI18n> {
 class TextDemo extends StatefulWidget {
   final String name;
   final String name2;
-  TextDemo({this.name,this.name2});
+  TextDemo({this.name, this.name2});
 
   @override
   _TextDemoState createState() => _TextDemoState();

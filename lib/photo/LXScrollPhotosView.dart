@@ -44,7 +44,10 @@ class _LXScrollPhotosViewState extends State<LXScrollPhotosView> {
       appBar: AppBar(
         leading: Container(),
         backgroundColor: Colors.black,
-        title: Text('${_indexPage+1}/${widget.currentList.length}',style: TextStyle(color: Colors.white),),
+        title: Text(
+          '${_indexPage + 1}/${widget.currentList.length}',
+          style: TextStyle(color: Colors.white),
+        ),
       ),
       body: GestureDetector(
         behavior: HitTestBehavior.opaque,
@@ -54,24 +57,21 @@ class _LXScrollPhotosViewState extends State<LXScrollPhotosView> {
         },
         child: Hero(
           tag: widget.currentList[_indexPage].imgUrl,
-          child:  PageView.builder(
+          child: PageView.builder(
             itemBuilder: (BuildContext context, int index) {
               return Container(
                 alignment: Alignment.center,
 //                  padding: EdgeInsets.symmetric(
 //                      horizontal: MediaQuery.of(context).size.width * 0.03),
                 child: GestureDetector(
-                  onTap: () {
-                  },
-                  child:  Container(
+                  onTap: () {},
+                  child: Container(
                     child: Image(
                       image: NetworkImage(widget.currentList[index].imgUrl),
                       fit: BoxFit.fitWidth,
                     ),
                   ),
                 ),
-
-
               );
             },
             controller: _pageController,

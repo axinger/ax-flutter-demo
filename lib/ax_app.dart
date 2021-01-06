@@ -30,7 +30,7 @@ class AxApp extends StatefulWidget {
 //  }
 
   @override
-  State<StatefulWidget> createState() =>_MyApp();
+  State<StatefulWidget> createState() => _MyApp();
 }
 
 ///WidgetsBindingObserver 进入后台
@@ -306,14 +306,13 @@ class _MyApp extends State<AxApp> with WidgetsBindingObserver {
   }
 
   MaterialApp _materialApp(ThemeData themeData) {
-
     return MaterialApp(
       title: '阿星 Flutter Demo',
       navigatorKey: navigatorStateKey,
       debugShowCheckedModeBanner: false,
       // theme: ThemeData.dark(),
       /// 分别设置,就表示 跟随系统,
-      theme: AppTheme.lightTheme(themeData:themeData),
+      theme: AppTheme.lightTheme(themeData: themeData),
       // darkTheme: ThemeData.dark(),
 
       /// 本地化

@@ -36,7 +36,6 @@ class CameraDemoPageState extends State<CameraDemoPage> {
   void initState() {
     super.initState();
     getCameras();
-
   }
 
   /// 获取权限

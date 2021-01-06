@@ -31,8 +31,6 @@ class _P51NestedScrollViewState extends State<P51NestedScrollView> {
 
   @override
   Widget build(BuildContext context) {
-    
-
     return Scaffold(
       // appBar: AppBar(
       //   title: Text('NestedScrollView'),

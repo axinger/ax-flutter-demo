@@ -50,7 +50,6 @@ class _P46MaterialMotionState extends State<P46MaterialMotion> {
               backgroundColor: Colors.transparent,
               leading: Icon(Icons.rotate_right),
               trailing: Icon(Icons.details),
-
             ),
             child: OpenContainer(
               transitionDuration: _duration,

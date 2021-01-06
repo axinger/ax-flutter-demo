@@ -14,21 +14,18 @@ class P01MaterialPage2 extends StatefulWidget {
   }
 }
 
-class _MyPage extends State<P01MaterialPage2> with SingleTickerProviderStateMixin{
-
+class _MyPage extends State<P01MaterialPage2>
+    with SingleTickerProviderStateMixin {
   AnimationController _animationController;
   Animation _animation;
 
   @override
   void initState() {
-
     super.initState();
     _animationController =
         AnimationController(duration: Duration(seconds: 2), vsync: this);
 
-    _animation = ColorTween(
-        begin: Colors.red,
-        end: Colors.blue)
+    _animation = ColorTween(begin: Colors.red, end: Colors.blue)
         .animate(_animationController);
 
     //开始动画
@@ -37,14 +34,13 @@ class _MyPage extends State<P01MaterialPage2> with SingleTickerProviderStateMixi
 
   @override
   Widget build(BuildContext context) {
-
-
     return Scaffold(
       /// 类似约束 top 和vc还是和nav 齐平
       // extendBodyBehindAppBar: true,
       appBar: AppBar(
         /// 状态栏的背景颜色
         backgroundColor: Colors.red,
+
         /// 状态栏的文字颜色
         brightness: Brightness.light,
         title: Text('01_01形状'),
@@ -114,16 +110,22 @@ class _MyPage extends State<P01MaterialPage2> with SingleTickerProviderStateMixi
 ////                      color: Colors.orange,
 //                    ),
                       children: [
-                        TableCell(child: Text('姓名', textAlign: TextAlign.center)),
-                        TableCell(child: Text('性别', textAlign: TextAlign.center)),
-                        TableCell(child: Text('年龄', textAlign: TextAlign.center)),
+                        TableCell(
+                            child: Text('姓名', textAlign: TextAlign.center)),
+                        TableCell(
+                            child: Text('性别', textAlign: TextAlign.center)),
+                        TableCell(
+                            child: Text('年龄', textAlign: TextAlign.center)),
                       ],
                     ),
                     TableRow(
                       children: [
-                        TableCell(child: Text('老孟', textAlign: TextAlign.center)),
-                        TableCell(child: Text('男', textAlign: TextAlign.center)),
-                        TableCell(child: Text('18', textAlign: TextAlign.center)),
+                        TableCell(
+                            child: Text('老孟', textAlign: TextAlign.center)),
+                        TableCell(
+                            child: Text('男', textAlign: TextAlign.center)),
+                        TableCell(
+                            child: Text('18', textAlign: TextAlign.center)),
                       ],
                     ),
                     TableRow(
@@ -165,25 +167,25 @@ class _MyPage extends State<P01MaterialPage2> with SingleTickerProviderStateMixi
               Text('TextButton,代替 FlatButton'),
               TextButton(
                 onPressed: () {},
-                  // onPressed:null,
+                // onPressed:null,
                 child: Text('TextButton-MaterialStateProperty属性'),
                 style: ButtonStyle(
-
                   /// all 所有状态颜色
                   // foregroundColor:MaterialStateProperty.all(Colors.red),
                   /// 这里设置文字颜色无效
-                  textStyle: MaterialStateProperty.all(TextStyle(color: Colors.white,fontSize: 20)),
+                  textStyle: MaterialStateProperty.all(
+                      TextStyle(color: Colors.white, fontSize: 20)),
                   // minimumSize: MaterialStateProperty.all(Size(100, 30)),
                   /// 如何去掉边距(padding)
                   // minimumSize: MaterialStateProperty.all(Size(0, 0)),
                   // padding: MaterialStateProperty.all(EdgeInsets.zero),
                   // backgroundColor: MaterialStateProperty.all(Colors.orange),
-
                 ),
               ),
               FlatButton(
                 onPressed: () {},
                 child: Text('FlatButton'),
+
                 /// flatButton它们要实现边距为0就比较难了.最终通过各种探索,
                 /// 找到一个实现方法,MaterialTapTargetSize.shrinkWrap,让内容紧裹,并且边距为0,
                 materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
@@ -282,7 +284,8 @@ class _MyPage extends State<P01MaterialPage2> with SingleTickerProviderStateMixi
               ),
 
               Divider(color: Colors.red),
-              Text('ModalBarrier是一个静态蒙层控件，ModalRoute控件就是间接使用的此控件，此控件有点击属性，点击会调用'),
+              Text(
+                  'ModalBarrier是一个静态蒙层控件，ModalRoute控件就是间接使用的此控件，此控件有点击属性，点击会调用'),
               Container(
                 height: 100,
                 width: 100,

@@ -1,6 +1,6 @@
 //
 //  47_route_widget
-// 
+//
 //  ax_flutter_demo
 //
 //  Created by axinger on 2020/8/27 11:53 下午 .
@@ -23,8 +23,7 @@ class _P47RouteWidgetState extends State<P47RouteWidget> {
       body: Container(
         child: FlatButton(
           child: Text('下一页'),
-          onPressed: (){
-
+          onPressed: () {
 //            FlutterBoost.singleton.open('P47RouteWidget2',
 //                urlParams: <String, dynamic>{
 //                  'present': true
@@ -32,15 +31,12 @@ class _P47RouteWidgetState extends State<P47RouteWidget> {
 //              print(
 //                  'FlutterBoost =  $value');
 //            });
-
           },
         ),
       ),
     );
   }
 }
-
-
 
 class P47RouteWidget2 extends StatefulWidget {
   @override
@@ -55,7 +51,7 @@ class _P47RouteWidget2State extends State<P47RouteWidget2> {
       body: Container(
         child: FlatButton(
           child: Text('返回上上一个'),
-          onPressed: (){
+          onPressed: () {
 //            FlutterBoost.singleton.close('P00ShowTestPage');
           },
         ),

@@ -1,4 +1,4 @@
 class LXPhotosData {
-         final String imgUrl;
-         LXPhotosData(this.imgUrl);
+  final String imgUrl;
+  LXPhotosData(this.imgUrl);
 }

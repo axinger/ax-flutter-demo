@@ -10,8 +10,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-
-
 class P43SearchPage extends StatefulWidget {
   @override
   _P43SearchPageState createState() => _P43SearchPageState();

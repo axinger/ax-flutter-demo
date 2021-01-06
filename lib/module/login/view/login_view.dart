@@ -63,15 +63,15 @@ class _ContainerTF extends State<ContainerTF> {
   String username = "", password = "";
 
   FocusNode _contentFocusNode = FocusNode();
-@override
+  @override
   void initState() {
     super.initState();
     _contentFocusNode.addListener(() {
       // 失去焦点
-      if (!_contentFocusNode.hasFocus) {
-      }
+      if (!_contentFocusNode.hasFocus) {}
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Container(

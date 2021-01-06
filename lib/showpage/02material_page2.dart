@@ -35,8 +35,7 @@ class _MaterialPage23 extends State<MaterialPage2> {
 
   @override
   Widget build(BuildContext context) {
-    FocusScope.of(context)
-        .requestFocus(passwordFocusNode);
+    FocusScope.of(context).requestFocus(passwordFocusNode);
     return Stack(
       children: <Widget>[
         Scaffold(
@@ -62,7 +61,6 @@ class _MaterialPage23 extends State<MaterialPage2> {
                   /// 超出部分剪切
                   clipBehavior: Clip.hardEdge,
 
-
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     color: Colors.purpleAccent,
@@ -76,18 +74,17 @@ class _MaterialPage23 extends State<MaterialPage2> {
                     /// 圆角
 //                    borderRadius: BorderRadius.all(Radius.circular(18)),
                   ),
-                  child:  Column(
+                  child: Column(
                     children: [
                       Text('Material'),
                       Text('Material2'),
                     ],
                   ),
                 ),
-
                 Text('Material - StatefulWidget'),
                 Material(
                   type: MaterialType.card,
-                  textStyle:TextStyle(color: Colors.orange, fontSize: 20),
+                  textStyle: TextStyle(color: Colors.orange, fontSize: 20),
                   elevation: 1,
                   color: Colors.red,
 
@@ -124,7 +121,6 @@ class _MaterialPage23 extends State<MaterialPage2> {
                     ],
                   ),
                 ),
-
                 Expanded(
 //              child: Container(
 //                height: 50,
@@ -134,13 +130,11 @@ class _MaterialPage23 extends State<MaterialPage2> {
                   child: Container(
                     color: Colors.indigoAccent,
                     child: ListView(
-
                       children: <Widget>[
                         Text('TextFormField'),
                         FlatButton(
                           child: Text('编辑'),
-                          onPressed: (){
-
+                          onPressed: () {
                             FocusScope.of(context)
                                 .requestFocus(passwordFocusNode);
                           },
@@ -325,16 +319,16 @@ class _MaterialPage23 extends State<MaterialPage2> {
                         Text('FormField\n'
                             'FormField是一个表单控件，此控件包含表单的状态，方便更新UI，'
                             '通常情况下，我们不会直接使用FormField，而是使用TextFormField。'),
-                      FormField(
-                        autovalidateMode: AutovalidateMode.always,
-                        builder: (FormFieldState state) {
-                          return Container(
-                            width: 200,
-                            height: 100,
-                            color: Colors.red,
-                          );
-                        },
-                      ),
+                        FormField(
+                          autovalidateMode: AutovalidateMode.always,
+                          builder: (FormFieldState state) {
+                            return Container(
+                              width: 200,
+                              height: 100,
+                              color: Colors.red,
+                            );
+                          },
+                        ),
                         FlatButton(
                           child: Text('aa'),
                           onPressed: () {

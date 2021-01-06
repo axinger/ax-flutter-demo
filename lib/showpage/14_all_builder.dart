@@ -86,7 +86,6 @@ class _P14AllBuilderPageState extends State<P14AllBuilderPage> {
 
                       listNotifier.value = [...listNotifier.value];
                       print(listNotifier.value.hashCode);
-
                     },
                   ),
                 ],

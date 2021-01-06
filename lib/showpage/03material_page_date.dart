@@ -111,29 +111,27 @@ class _MaterialPage1 extends State<MaterialPageDate> {
       appBar: AppBar(
         title: Text("按钮组件"),
       ),
-      body:Column(
+      body: Column(
         /// 垂直对齐
 //            mainAxisAlignment: MainAxisAlignment.start,
 //
 //            /// 水平对齐
 //            crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-
-
           Text('比例视图'),
           Container(
             color: Colors.red,
             height: 50.0,
-              child: AspectRatio(
-                aspectRatio: 2, //横纵比 长宽比
-                child: SizedBox(
-                  width: 10,
-                  height: 10,
-                  child: Container(
-                    color: Colors.orange,
-                  ),
+            child: AspectRatio(
+              aspectRatio: 2, //横纵比 长宽比
+              child: SizedBox(
+                width: 10,
+                height: 10,
+                child: Container(
+                  color: Colors.orange,
                 ),
               ),
+            ),
           ),
 
           Checkbox(
@@ -304,7 +302,6 @@ class _MaterialPage1 extends State<MaterialPageDate> {
             formatTimeOfDayalUse24Hour(selectTime, context),
 //           DateTime.fromMillisecondsSinceEpoch(selectDateTime.millisecondsSinceEpoch).toString(),
           ),
-
         ],
       ),
     );
