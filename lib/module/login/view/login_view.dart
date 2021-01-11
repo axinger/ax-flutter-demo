@@ -22,32 +22,80 @@ class _LoginPage extends State<LoginView> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Droid Sans',
+//     return MaterialApp(
+//       title: 'Droid Sans',
+//
+//       ///点击空白隐藏键盘
+//       home: GestureDetector(
+//         behavior: HitTestBehavior.translucent,
+//         onTap: () {
+//           print("=============");
+//           FocusScope.of(context).requestFocus(FocusNode());
+//         },
+//         child: Scaffold(
+//           appBar: AppBar(
+//             title: Text(
+//               '登录',
+//               style: TextStyle(fontFamily: 'Droid Sans'),
+//             ),
+//             elevation: 0,
+//           ),
+//           backgroundColor: Colors.white,
+//           body: LoginViewFormTF(),
+//
+// //          body: ContainerTF(),
+//         ),
+//       ),
+//     );
 
-      ///点击空白隐藏键盘
-      home: GestureDetector(
-        behavior: HitTestBehavior.translucent,
-        onTap: () {
-          print("=============");
-          FocusScope.of(context).requestFocus(FocusNode());
-        },
-        child: Scaffold(
-          appBar: AppBar(
-            title: Text(
-              '登录',
-              style: TextStyle(fontFamily: 'Droid Sans'),
-            ),
-            elevation: 0,
-          ),
-          backgroundColor: Colors.white,
-          body: LoginViewFormTF(),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          '登录',
+          style: TextStyle(fontFamily: 'Droid Sans'),
+        ),
+        elevation: 0,
+        /// 取消返回按钮
+        automaticallyImplyLeading: false,
+      ),
+      backgroundColor: Colors.white,
+      body: LoginViewFormTF(),
 
 //          body: ContainerTF(),
-        ),
-      ),
     );
   }
+
+
+
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'Droid Sans',
+//
+//       ///点击空白隐藏键盘
+//       home: GestureDetector(
+//         behavior: HitTestBehavior.translucent,
+//         onTap: () {
+//           print("=============");
+//           FocusScope.of(context).requestFocus(FocusNode());
+//         },
+//         child: Scaffold(
+//           appBar: AppBar(
+//             title: Text(
+//               '登录',
+//               style: TextStyle(fontFamily: 'Droid Sans'),
+//             ),
+//             elevation: 0,
+//           ),
+//           backgroundColor: Colors.white,
+//           body: LoginViewFormTF(),
+//
+// //          body: ContainerTF(),
+//         ),
+//       ),
+//     );
+//   }
 }
 
 class ContainerTF extends StatefulWidget {

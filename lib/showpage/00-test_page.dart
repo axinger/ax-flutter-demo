@@ -1,4 +1,5 @@
 import 'package:ax_flutter_demo/generated/l10n.dart';
+import 'package:ax_flutter_demo/module/login/view/login_view.dart';
 import 'package:ax_flutter_util/ax_flutter_util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -75,23 +76,43 @@ class _P00ShowTestPageState extends State<P00ShowTestPage> {
   @override
   Widget build(BuildContext context) {
     print('ShowTestPage = ${widget.runtimeType}');
-    var format = DateFormat.E('zh');
-
-    print('time = ${format.format(DateTime.now())}');
-    print('DateTime.now().format() = ${DateTime.now().format(locale: 'zh')}');
-
-    var f = NumberFormat('###.00#', 'en_US');
-    print(f.format(1234567.345678));
-
-    print(NumberFormat('###.00#', 'zh_CN').format(1234567.345678));
-
-    var aDateTime = DateTime.now();
-    DateFormat.yMMMMEEEEd().format(aDateTime);
-
-    print(DateFormat('yyyy-MM-ddEEEEE', 'en_US').format(aDateTime));
-    print(DateFormat('yyyy-MM-ddEEEEE', 'zh_CN').format(aDateTime));
 
     dataList = [
+      CellItem(
+          title: 'DateTime',
+          onTap: () {
+            var format = DateFormat.E('zh');
+
+            print('time = ${format.format(DateTime.now())}');
+            print(
+                'DateTime.now().format() = ${DateTime.now().format(locale: 'zh')}');
+
+            var f = NumberFormat('###.00#', 'en_US');
+            print(f.format(1234567.345678));
+
+            print(NumberFormat('###.00#', 'zh_CN').format(1234567.345678));
+
+            var aDateTime = DateTime.now();
+            DateFormat.yMMMMEEEEd().format(aDateTime);
+
+            print(DateFormat('yyyy-MM-ddEEEEE', 'en_US').format(aDateTime));
+            print(DateFormat('yyyy-MM-ddEEEEE', 'zh_CN').format(aDateTime));
+          }),
+      CellItem(
+          title: 'LoginView',
+          onTap: () {
+            // push(context: context, widget: LoginView());
+
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (context){
+                  return LoginView();
+                },
+              /// 从下往上
+                fullscreenDialog: true,
+            ));
+
+
+          }),
       CellItem(
           title: '01_00-按钮组件1',
           onTap: () {
