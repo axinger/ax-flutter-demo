@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:ax_flutter_demo/generated/l10n.dart';
 import 'package:ax_flutter_demo/module/login/view/login_view.dart';
 import 'package:ax_flutter_util/ax_flutter_util.dart';
@@ -72,6 +74,42 @@ class P00ShowTestPage extends StatefulWidget {
 
 class _P00ShowTestPageState extends State<P00ShowTestPage> {
   List<CellItem> dataList = [];
+
+
+  ///Flutter&Dart Callback转同步 https://www.jianshu.com/p/e5cba8ca96bc
+  Future<void> initFinish()  async{
+    Completer<void> completer = Completer();
+
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      print('回调=============1');
+      completer.complete();
+
+    });
+
+    print('回调=============2');
+    return completer.future;
+  }
+
+
+  @override
+  void initState(){
+    // TODO: implement initState
+    super.initState();
+
+    // WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+    //   print('回调=============1');
+    // });
+    //
+    // print('回调=============2');
+
+    // initFinish().then((value){
+    //   print('回调=============3');
+    // });
+    // print('回调=============4');
+  }
+
+
+
 
   @override
   Widget build(BuildContext context) {
