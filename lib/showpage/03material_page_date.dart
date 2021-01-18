@@ -136,21 +136,23 @@ class _MaterialPage1 extends State<MaterialPageDate> {
 
           Checkbox(
 //              tristate: true,
-              value: _checkbox_value,
-              activeColor: Colors.red,
-              checkColor: Colors.orange,
-              focusColor: Colors.red,
-              hoverColor: Colors.red,
-              onChanged: (value) {
-                _checkbox_value = value;
-                setState(() {});
-              }),
+            value: _checkbox_value,
+            activeColor: Colors.red,
+            checkColor: Colors.orange,
+            focusColor: Colors.red,
+            hoverColor: Colors.red,
+            onChanged: (value) {
+              _checkbox_value = value;
+              setState(() {});
+            },
+          ),
           CheckboxListTile(
             title: Text("A"),
             subtitle: Text("a-subtitle"),
             secondary: Icon(Icons.home),
             selected: _checkboxListTile_value,
             value: _checkboxListTile_value,
+            isThreeLine: false,
             onChanged: (value) {
               setState(() {
                 _checkboxListTile_value = value;
