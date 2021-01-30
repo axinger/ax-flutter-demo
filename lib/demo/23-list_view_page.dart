@@ -1,8 +1,9 @@
-import 'package:ax_flutter_demo/model/converse_model.dart';
-import 'package:ax_flutter_demo/showpage/converse_list_header.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
+
+import '../demo/converse_list_header.dart';
+import '../model/converse_model.dart';
 
 class ListViewPage extends StatefulWidget {
   @override

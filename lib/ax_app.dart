@@ -1,12 +1,6 @@
 import 'dart:io';
 import 'dart:ui';
 
-import 'package:ax_flutter_demo/app_theme.dart';
-import 'package:ax_flutter_demo/event/login_success_event.dart';
-import 'package:ax_flutter_demo/event/update_user_info_event.dart';
-import 'package:ax_flutter_demo/generated/l10n.dart';
-import 'package:ax_flutter_demo/showpage/01_00material_page1.dart';
-import 'package:ax_flutter_demo/showpage/28_test_route_page.dart';
 import 'package:ax_flutter_demo/theme_data_notifier.dart';
 import 'package:ax_flutter_util/ax_flutter_util.dart';
 import 'package:device_info/device_info.dart';
@@ -18,7 +12,13 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:package_info/package_info.dart';
 import 'package:provider/provider.dart';
 
+import 'app_theme.dart';
 import 'controller/root_page.dart';
+import 'demo/01_00material_page1.dart';
+import 'demo/28_test_route_page.dart';
+import 'event/login_success_event.dart';
+import 'event/update_user_info_event.dart';
+import 'generated/l10n.dart';
 import 'global_const.dart';
 import 'module/login/view/login_view.dart';
 

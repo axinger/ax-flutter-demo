@@ -64,6 +64,7 @@ import '52scrollable_positioned_list.dart';
 import '53draggable_scrollable_sheet.dart';
 import '54_sliver_persisten.dart';
 import '55_bottom_tab_bar_widget.dart';
+import '56_stateful_builder.dart';
 
 class P00ShowTestPage extends StatefulWidget {
   @override
@@ -456,6 +457,12 @@ class _P00ShowTestPageState extends State<P00ShowTestPage> {
           onTap: () {
             push(context: context, widget: P55BottomTabBarWidget());
           }),
+      CellItem(
+          title: 'P56StatefulBuilder局部刷新',
+          onTap: () {
+            push(context: context, widget: P56StatefulBuilder());
+          }),
+
     ];
 
     return Scaffold(

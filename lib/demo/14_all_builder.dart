@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:math';
 
-import 'package:ax_flutter_demo/base/all_content_body.dart';
+import 'package:ax_flutter_demo/component/all_content_body.dart';
 import 'package:ax_flutter_util/ax_flutter_util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
