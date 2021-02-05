@@ -65,6 +65,7 @@ import '53draggable_scrollable_sheet.dart';
 import '54_sliver_persisten.dart';
 import '55_bottom_tab_bar_widget.dart';
 import '56_stateful_builder.dart';
+import '57_custom_route.dart';
 
 class P00ShowTestPage extends StatefulWidget {
   @override
@@ -461,6 +462,11 @@ class _P00ShowTestPageState extends State<P00ShowTestPage> {
           title: 'P56StatefulBuilder局部刷新',
           onTap: () {
             push(context: context, widget: P56StatefulBuilder());
+          }),
+      CellItem(
+          title: 'P57自定义路由动画',
+          onTap: () {
+            push(context: context, widget: P57CustomRoute());
           }),
 
     ];
