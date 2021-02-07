@@ -5,23 +5,68 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../global_const.dart';
 import '../theme_data_notifier.dart';
 
-class P01MaterialPage2 extends StatefulWidget {
+class P01ContentPage2 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return _MyPage();
   }
 }
 
-class _MyPage extends State<P01MaterialPage2>
-    with SingleTickerProviderStateMixin {
+class _MyPage extends State<P01ContentPage2>
+    with SingleTickerProviderStateMixin, RouteAware {
   AnimationController _animationController;
   Animation _animation;
+
+  /// Flutter里的viewWillAppear
+  /// 2.重写didChangeDependencies方法加入监听
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    routeObserver.subscribe(this, ModalRoute.of(context));
+  }
+
+  /// 3.在页面dispose时销毁监听
+  @override
+  void dispose() {
+    routeObserver.unsubscribe(this);
+    super.dispose();
+  }
+
+  /// 当Push到该页面时：
+  @override
+  void didPush() {
+    super.didPush();
+    print('didPush');
+  }
+
+  ///当Pop到该页面时：
+  @override
+  void didPopNext() {
+    super.didPopNext();
+    print('didPopNext');
+  }
+
+  /// 当该页面Push到其他页面时：
+  @override
+  void didPushNext() {
+    super.didPushNext();
+    print('didPushNext');
+  }
+
+  /// 当该页面被Pop时：
+  @override
+  void didPop() {
+    super.didPop();
+    print('didPop');
+  }
 
   @override
   void initState() {
     super.initState();
+    print('initState');
     _animationController =
         AnimationController(duration: Duration(seconds: 2), vsync: this);
 
@@ -34,6 +79,7 @@ class _MyPage extends State<P01MaterialPage2>
 
   @override
   Widget build(BuildContext context) {
+    print('build');
     return Scaffold(
       /// 类似约束 top 和vc还是和nav 齐平
       // extendBodyBehindAppBar: true,

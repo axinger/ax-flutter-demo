@@ -128,6 +128,8 @@ dependencies:
 
   # cell 侧滑删除
   #  flutter_swipe_action_cell: ^1.2.2
+  # 状态管理,和google推荐的Provider 类似
+  get: ^3.24.0
 
   ##  ⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬ 谷歌组件 ⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
   ## 谷歌维护的库 https://github.com/flutter/plugins
@@ -137,9 +139,8 @@ dependencies:
   animations: ^1.1.1
   #  跳转指定位置
   scrollable_positioned_list: ^0.1.8
-  # google推荐的Provider
+  # google推荐的Provider  Provider 代替 Provide 成为官方推荐的状态管理方式之一。
   provider: ^4.1.2
-
   device_info: 0.4.2+4
 
   image_picker: '>=0.6.0'

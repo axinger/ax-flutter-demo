@@ -16,6 +16,11 @@ class NavKey {
 
 GlobalKey<NavigatorState> navigatorStateKey = GlobalKey();
 
+/// Flutter里的viewWillAppear
+RouteObserver<PageRoute> routeObserver = RouteObserver<PageRoute>();
+
+
+
 EventBus EVENT_BUS = EventBus();
 
 final testStr = 'jim';

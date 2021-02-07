@@ -8,15 +8,53 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-
-class MaterialPage1 extends StatefulWidget {
+import '../global_const.dart';
+class P01ContentPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return _MyPage();
   }
 }
 
-class _MyPage extends State<MaterialPage1> with SingleTickerProviderStateMixin {
+class _MyPage extends State<P01ContentPage> with SingleTickerProviderStateMixin , RouteAware {
+
+
+  /// Flutter里的viewWillAppear
+  /// 2.重写didChangeDependencies方法加入监听
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    routeObserver.subscribe(this, ModalRoute.of(context));
+  }
+  /// 3.在页面dispose时销毁监听
+  @override
+  void dispose() {
+    routeObserver.unsubscribe(this);
+    super.dispose();
+    _streamController?.close();
+  }
+  /// 当Push到该页面时：
+  @override
+  void didPush() {
+    print('didPush');
+  }
+  ///当Pop到该页面时：
+  @override
+  void didPopNext() {
+    print('didPopNext');
+  }
+  /// 当该页面Push到其他页面时：
+  @override
+  void didPushNext() {
+    print('didPushNext');
+  }
+  /// 当该页面被Pop时：
+  @override
+  void didPop() {
+    print('didPop');
+  }
+
+
   /// 悬浮按钮
   final _floatingActionButton = FloatingActionButton(
     onPressed: () {},
@@ -65,12 +103,6 @@ class _MyPage extends State<MaterialPage1> with SingleTickerProviderStateMixin {
     ServicesBinding.instance.addPersistentFrameCallback((timeStamp) {});
     RendererBinding.instance.addPersistentFrameCallback((timeStamp) {});
 //    GestureBinding.instance
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    _streamController?.close();
   }
 
   _popupMenuItem(String title, {String imagePath, IconData icon}) {
@@ -497,7 +529,8 @@ class _MyPage extends State<MaterialPage1> with SingleTickerProviderStateMixin {
                   },
 
                   inputFormatters: <TextInputFormatter>[
-                    WhitelistingTextInputFormatter.digitsOnly, //只输入数字
+                    // WhitelistingTextInputFormatter.digitsOnly, //只输入数字
+                    FilteringTextInputFormatter.digitsOnly,
 //                  PhoneTextInputFormatter.digitsOnly,
                   ],
 

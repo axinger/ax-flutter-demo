@@ -9,12 +9,14 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:get/get.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:package_info/package_info.dart';
 import 'package:provider/provider.dart';
 
 import 'app_theme.dart';
 import 'controller/root_page.dart';
-import 'demo/01_00material_page1.dart';
+import 'demo/01_content_page1.dart';
 import 'demo/28_test_route_page.dart';
 import 'event/login_success_event.dart';
 import 'event/update_user_info_event.dart';
@@ -35,6 +37,7 @@ class AxApp extends StatefulWidget {
 
 ///WidgetsBindingObserver 进入后台
 class _MyApp extends State<AxApp> with WidgetsBindingObserver {
+
   @override
   void initState() {
     super.initState();
@@ -118,7 +121,9 @@ class _MyApp extends State<AxApp> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
-    return _buildMultiProvider;
+    // return _buildMultiProvider;
+
+    return _getMaterialApp;
   }
 
   /// 监听安卓返回按键
@@ -304,11 +309,91 @@ class _MyApp extends State<AxApp> with WidgetsBindingObserver {
       ),
     );
   }
+/// get库
+  Widget get _getMaterialApp {
+    return GetMaterialApp(
+      title: '阿星 Flutter Demo',
+      navigatorKey: navigatorStateKey,
+      ///Flutter里的viewWillAppear
+      navigatorObservers: [routeObserver],
+      debugShowCheckedModeBanner: false,
+      // theme: ThemeData.dark(),
+      /// 分别设置,就表示 跟随系统,
+      // theme: AppTheme.lightTheme(),
+      // darkTheme: ThemeData.dark(),
+
+      // theme: Get.isDarkMode ? ThemeData.light() : ThemeData.dark(),
+
+      /// 本地化
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        S.delegate,
+      ],
+      supportedLocales: [
+        const Locale("en", ""),
+        const Locale("zh", "CN"),
+      ]..addAll(S.delegate.supportedLocales),
+
+      builder: (context, child) => Scaffold(
+        // Global GestureDetector that will dismiss the keyboard
+        body: GestureDetector(
+          onTap: () {
+            hideKeyboard(context);
+          },
+          child: child,
+        ),
+      ),
+      home: _rootView,
+
+//      home: P00ShowTestPage(),
+      /// 影响我的浮层
+//      builder: FlutterBoost.init(postPush: _onRoutePushed),
+//      builder: FlutterBoost.init(),
+      /// 根路由,一般设置 和 onGenerateRoute 冲突,不能同时存在
+//      initialRoute: "/",
+      routes: {
+        "/Root": (context) => RootPage(),
+        "/route_login": (context) => LoginView(),
+        "/P28RoutePage": (context) => P28RoutePage(),
+        "/P28RoutePageSub1": (context) => P28RoutePageSub1(),
+        "/P28RoutePageSub2": (context) => P28RoutePageSub2(),
+        "/P28RoutePageSub3": (context) => P28RoutePageSub3(),
+        "/MaterialPage1": (context) => P01ContentPage(),
+      },
+
+      /// Navigator.of(context).pushNamed('/new');  Navigator.pushNamed 时无法直接给新页面传参数
+      ///和 routes 冲突 可以传参的，相比于命名路由，可以多做一些相关的拦截
+//      onGenerateRoute: (RouteSettings settings) {
+//        String routeName = settings.name;
+//        print("routeName = : $routeName");
+//        print("settings.arguments: ${settings.arguments}");
+//        switch (routeName) {
+//          case "/sub2":
+//            return MaterialPageRoute(builder: (context) {
+//              return P28RoutePageSub2(
+//                sub2Map: settings.arguments,
+//              );
+//            });
+//          default:
+//            return MaterialPageRoute(builder: (BuildContext context) {
+//              return Scaffold(
+//                  body: Center(
+//                child: Text("Page not found"),
+//              ));
+//            });
+//        }
+//      },
+    );
+  }
 
   MaterialApp _materialApp(ThemeData themeData) {
     return MaterialApp(
       title: '阿星 Flutter Demo',
       navigatorKey: navigatorStateKey,
+      ///Flutter里的viewWillAppear
+      navigatorObservers: [routeObserver],
       debugShowCheckedModeBanner: false,
       // theme: ThemeData.dark(),
       /// 分别设置,就表示 跟随系统,
@@ -351,7 +436,7 @@ class _MyApp extends State<AxApp> with WidgetsBindingObserver {
         "/P28RoutePageSub1": (context) => P28RoutePageSub1(),
         "/P28RoutePageSub2": (context) => P28RoutePageSub2(),
         "/P28RoutePageSub3": (context) => P28RoutePageSub3(),
-        "/MaterialPage1": (context) => MaterialPage1(),
+        "/MaterialPage1": (context) => P01ContentPage(),
       },
 
       /// Navigator.of(context).pushNamed('/new');  Navigator.pushNamed 时无法直接给新页面传参数

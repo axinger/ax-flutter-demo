@@ -48,7 +48,7 @@ class AppTheme {
   static ThemeData lightTheme({ThemeData themeData}) {
     // return ThemeData.dark();
     return ThemeData().copyWith(
-      primaryColor: themeData.primaryColor ?? Colors.red,
+      primaryColor: themeData?.primaryColor ?? Colors.red,
 //        backgroundColor: Colors.lightBlue,
 //        scaffoldBackgroundColor: Colors.lightBlueAccent,
       buttonTheme: ButtonThemeData(

@@ -5,10 +5,11 @@ import 'package:ax_flutter_demo/module/login/view/login_view.dart';
 import 'package:ax_flutter_util/ax_flutter_util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
-import '01_00material_page1.dart';
-import '01_01material_page2.dart';
+import '01_content_page1.dart';
+import '01_content_page2.dart';
 import '02-slivergrid_page.dart';
 import '02material_page2.dart';
 import '03material_page_date.dart';
@@ -156,12 +157,12 @@ class _P00ShowTestPageState extends State<P00ShowTestPage> {
       CellItem(
           title: '01_00-按钮组件1',
           onTap: () {
-            push(context: context, widget: MaterialPage1());
+            push(context: context, widget: P01ContentPage());
           }),
       CellItem(
           title: '01_01-组件',
           onTap: () {
-            push(context: context, widget: P01MaterialPage2());
+            push(context: context, widget: P01ContentPage2());
           }),
       CellItem(
           title: '02-组件',
@@ -468,6 +469,12 @@ class _P00ShowTestPageState extends State<P00ShowTestPage> {
           onTap: () {
             push(context: context, widget: P57CustomRoute());
           }),
+
+    CellItem(
+    title: 'Get框架 改变主题',
+    onTap: () {
+      Get.changeTheme(Get.isDarkMode ? ThemeData.light() : ThemeData.dark());
+    }),
 
     ];
 
