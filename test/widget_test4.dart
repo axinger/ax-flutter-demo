@@ -1,42 +1,41 @@
-import 'package:rxdart/rxdart.dart';
-
-abstract class Person {
-
-  Person() {
-    print('Person 构造函数');
+abstract class Order {
+  Order() {
+    print('Order 构造函数');
   }
 
-  void eat() {
+  void order() {
     print('abstract eat');
   }
 }
 
-mixin Dance on Person {
+mixin OrderA on Order {
+  orderA() {
+    print('Sing sing');
+  }
+
+  @override
+  void order() {
+    super.order();
+    print('OrderA order');
+  }
+}
+
+mixin OrderB on Order {
   // class 没有构造函数的也可以混入
   // with 混入的对象,不能有构造函数,使用用 mixin 可以进行检测
   // Dance(){
   //
   // }
-  dance(String name) {
+  orderB(String name) {
     print('Dance dance = $name');
   }
-  @override
-  void eat() {
-    // TODO: implement eat
-    super.eat();
-    print('Dance eat');
-  }
-}
 
-mixin Sing on Person{
-  sing() {
-    print('Sing sing');
-  }
   @override
-  void eat() {
-    // TODO: implement eat
-    super.eat();
-    print('Sing eat');
+  void order() {
+    /// 这个关键,假如没有,多个with 不会执行 前面的
+    super.order();
+    print('OrderB order');
+
   }
 }
 
@@ -46,16 +45,10 @@ mixin Code {
   }
 }
 
-class Student extends Person with Dance,Sing {
-
-}
-
-class Teacher extends Person with Sing, Code {}
+class Student extends Order with OrderA, OrderB {}
 
 void main() {
-  Student student = Student();
-  student.dance('jim');
-
-  student.eat();
+  var student = Student();
+  student.order();
   // student.eat2();
 }
