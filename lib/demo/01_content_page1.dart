@@ -331,7 +331,7 @@ class _MyPage extends State<P01ContentPage> with SingleTickerProviderStateMixin 
               ),
 
               FlatButton(
-                child: Text('InteractiveViewer'),
+                child: Text('InteractiveViewer如: 平移，缩放和拖动“N”下降甚至大小调整'),
                 onPressed: () {
                   push(context: context, widget: InteractiveViewerDemo());
                 },

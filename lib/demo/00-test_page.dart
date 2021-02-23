@@ -67,6 +67,7 @@ import '54_sliver_persisten.dart';
 import '55_bottom_tab_bar_widget.dart';
 import '56_stateful_builder.dart';
 import '57_custom_route.dart';
+import '58_navigation_rail_page.dart';
 
 class P00ShowTestPage extends StatefulWidget {
   @override
@@ -78,24 +79,21 @@ class P00ShowTestPage extends StatefulWidget {
 class _P00ShowTestPageState extends State<P00ShowTestPage> {
   List<CellItem> dataList = [];
 
-
   ///Flutter&Dart Callback转同步 https://www.jianshu.com/p/e5cba8ca96bc
-  Future<void> initFinish()  async{
+  Future<void> initFinish() async {
     Completer<void> completer = Completer();
 
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       print('回调=============1');
       completer.complete();
-
     });
 
     print('回调=============2');
     return completer.future;
   }
 
-
   @override
-  void initState(){
+  void initState() {
     // TODO: implement initState
     super.initState();
 
@@ -110,9 +108,6 @@ class _P00ShowTestPageState extends State<P00ShowTestPage> {
     // });
     // print('回调=============4');
   }
-
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -145,14 +140,13 @@ class _P00ShowTestPageState extends State<P00ShowTestPage> {
             // push(context: context, widget: LoginView());
 
             Navigator.of(context).push(MaterialPageRoute(
-                builder: (context){
-                  return LoginView();
-                },
+              builder: (context) {
+                return LoginView();
+              },
+
               /// 从下往上
-                fullscreenDialog: true,
+              fullscreenDialog: true,
             ));
-
-
           }),
       CellItem(
           title: '01_00-按钮组件1',
@@ -469,12 +463,21 @@ class _P00ShowTestPageState extends State<P00ShowTestPage> {
           onTap: () {
             push(context: context, widget: P57CustomRoute());
           }),
+      CellItem(
+          title: 'Get框架 改变主题',
+          onTap: () {
+            Get.changeTheme(
+                Get.isDarkMode ? ThemeData.light() : ThemeData.dark());
+          }),
+      CellItem(
+          title: '通常展示在应用程序的左边或者右边',
+          onTap: () {
+            push(context: context, widget: P58NavigationRailPage());
 
-    CellItem(
-    title: 'Get框架 改变主题',
-    onTap: () {
-      Get.changeTheme(Get.isDarkMode ? ThemeData.light() : ThemeData.dark());
-    }),
+
+
+          }),
+
 
     ];
 
