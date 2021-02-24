@@ -16,6 +16,7 @@ import 'package:provider/provider.dart';
 
 import 'app_theme.dart';
 import 'controller/root_page.dart';
+import 'demo/00_test_home.dart';
 import 'demo/01_content_page1.dart';
 import 'demo/28_test_route_page.dart';
 import 'event/login_success_event.dart';
@@ -292,7 +293,8 @@ class _MyApp extends State<AxApp> with WidgetsBindingObserver {
 //    );
 
     // return P00ShowTestPage();
-    return RootPage();
+    // return RootPage();
+    return TestHomePage();
 //   return RootPage();
   }
 

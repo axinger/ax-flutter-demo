@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 import '../controller/history_page.dart';
-import '../demo/00-test_page.dart';
+import '../demo/00_test_home.dart';
 
 class TabbarItemController {
   TabbarItemController({
@@ -77,7 +77,7 @@ class _RootController
       TabbarItemController(
         title: "测试",
         icon: Icon(Icons.desktop_mac),
-        controller: P00ShowTestPage(),
+        controller: TestHomePage(),
       ),
     ];
   }

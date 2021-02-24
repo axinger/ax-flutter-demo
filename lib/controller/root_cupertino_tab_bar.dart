@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import '../demo/00-test_page.dart';
+import '../demo/00_test_home.dart';
 
 class MyBottomItem {
   MyBottomItem({
@@ -59,7 +59,7 @@ class RootTabBar extends StatelessWidget {
     MyBottomItem(
       title: '测试',
       icon: Icon(Icons.desktop_mac),
-      content: P00ShowTestPage(),
+      content: TestHomePage(),
     ),
   ];
 

@@ -129,7 +129,7 @@ dependencies:
   # cell 侧滑删除
   #  flutter_swipe_action_cell: ^1.2.2
   # 状态管理,和google推荐的Provider 类似
-  get: ^3.24.0
+  get: ^3.25.0
 
   ##  ⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬ 谷歌组件 ⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
   ## 谷歌维护的库 https://github.com/flutter/plugins

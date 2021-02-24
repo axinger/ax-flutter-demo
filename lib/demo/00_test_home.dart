@@ -68,17 +68,51 @@ import '55_bottom_tab_bar_widget.dart';
 import '56_stateful_builder.dart';
 import '57_custom_route.dart';
 import '58_navigation_rail_page.dart';
+import '59_get_value_page.dart';
+import '60_get_more_page.dart';
 
-class P00ShowTestPage extends StatefulWidget {
+class Cell extends StatelessWidget {
+  final CellItem item;
+
+  Cell(this.item);
+
   @override
-  State<StatefulWidget> createState() {
-    return _P00ShowTestPageState();
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      child: Container(
+        margin: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+        decoration: BoxDecoration(
+            border: Border.all(color: Colors.orange, width: 1.0),
+            borderRadius: BorderRadius.all(Radius.circular(5))),
+        child: Container(
+          margin: EdgeInsets.all(8),
+          child: Text(
+            item.title,
+            maxLines: 3,
+          ),
+        ),
+      ),
+      onTap: item.onTap,
+    );
   }
 }
 
-class _P00ShowTestPageState extends State<P00ShowTestPage> {
-  List<CellItem> dataList = [];
+class CellItem {
+  int index;
+  String title;
+  final Function() onTap;
 
+  CellItem({this.index, this.title, this.onTap});
+}
+
+class TestHomePage extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _TestHomePageState();
+  }
+}
+
+class _TestHomePageState extends State<TestHomePage> {
   ///Flutter&Dart Callback转同步 https://www.jianshu.com/p/e5cba8ca96bc
   Future<void> initFinish() async {
     Completer<void> completer = Completer();
@@ -113,7 +147,38 @@ class _P00ShowTestPageState extends State<P00ShowTestPage> {
   Widget build(BuildContext context) {
     print('ShowTestPage = ${widget.runtimeType}');
 
-    dataList = [
+    return Scaffold(
+
+        /// 导航栏 加高,添加背景图片
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(200),
+          child: AppBar(
+            title: Text(
+              S.of(context).test_title,
+              style: TextStyle(color: Colors.red),
+            ),
+            flexibleSpace: Image.asset(
+              'assets/image/A171.jpg',
+              fit: BoxFit.fill,
+              height: double.infinity,
+            ),
+            centerTitle: true,
+            actions: <Widget>[],
+          ),
+        ),
+        body: SafeArea(
+          child: SingleChildScrollView(
+            child: Wrap(
+                children: dataList.map((e) {
+              e.index = dataList.indexOf(e);
+              return Cell(e);
+            }).toList()),
+          ),
+        ));
+  }
+
+  List<CellItem> get dataList {
+    return [
       CellItem(
           title: 'DateTime',
           onTap: () {
@@ -464,82 +529,28 @@ class _P00ShowTestPageState extends State<P00ShowTestPage> {
             push(context: context, widget: P57CustomRoute());
           }),
       CellItem(
+          title: '通常展示在应用程序的左边或者右边',
+          onTap: () {
+            push(context: context, widget: P58NavigationRailPage());
+          }),
+      CellItem(
           title: 'Get框架 改变主题',
           onTap: () {
             Get.changeTheme(
                 Get.isDarkMode ? ThemeData.light() : ThemeData.dark());
           }),
       CellItem(
-          title: '通常展示在应用程序的左边或者右边',
+          title: 'Get传值,\n用Get.to跳转,才能恢复初始值',
           onTap: () {
-            push(context: context, widget: P58NavigationRailPage());
-
-
-
+            // push(context: context, widget: P59CounterGetPage());
+            Get.to(P59CounterGetPage());
           }),
-
-
+      CellItem(
+          title: 'Get跨页面传值',
+          onTap: () {
+            // push(context: context, widget: P60JumpOnePage());
+            Get.to(P60JumpOnePage());
+          }),
     ];
-
-    return Scaffold(
-
-        /// 导航栏 加高,添加背景图片
-        appBar: PreferredSize(
-          preferredSize: Size.fromHeight(200),
-          child: AppBar(
-            title: Text(
-              S.of(context).test_title,
-              style: TextStyle(color: Colors.red),
-            ),
-            flexibleSpace: Image.asset(
-              'assets/image/A171.jpg',
-              fit: BoxFit.fill,
-              height: double.infinity,
-            ),
-            centerTitle: true,
-            actions: <Widget>[],
-          ),
-        ),
-        body: SafeArea(
-          child: SingleChildScrollView(
-            child: Wrap(
-                children: dataList.map((e) {
-              e.index = dataList.indexOf(e);
-              return Cell(e);
-            }).toList()),
-          ),
-        ));
-  }
-}
-
-class CellItem {
-  int index;
-  String title;
-  final Function() onTap;
-
-  CellItem({this.index, this.title, this.onTap});
-}
-
-class Cell extends StatelessWidget {
-  final CellItem item;
-
-  Cell(this.item);
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      child: Container(
-        height: 40,
-        margin: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
-        decoration: BoxDecoration(
-            border: Border.all(color: Colors.orange, width: 1.0),
-            borderRadius: BorderRadius.all(Radius.circular(5))),
-        child: Container(
-          margin: EdgeInsets.all(8),
-          child: Text(item.title),
-        ),
-      ),
-      onTap: item.onTap,
-    );
   }
 }

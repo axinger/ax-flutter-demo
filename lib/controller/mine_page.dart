@@ -1,7 +1,7 @@
 import 'package:ax_flutter_util/ax_flutter_util.dart';
 import 'package:flutter/material.dart';
 
-import '../demo/00-test_page.dart';
+import '../demo/00_test_home.dart';
 import '../global_const.dart';
 import '../module/login/view/login_view.dart';
 
@@ -72,7 +72,7 @@ class _MinePage extends State<MinePage> {
                 context,
                 MaterialPageRoute(
                   builder: (BuildContext context) {
-                    return P00ShowTestPage();
+                    return TestHomePage();
                   },
                 ),
               );

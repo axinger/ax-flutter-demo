@@ -210,7 +210,7 @@ class _MyPage extends State<P01ContentPage2>
                 child: Text("Hello world"),
               ),
               Divider(color: Colors.red),
-              Text('TextButton,代替 FlatButton'),
+              Text('新按钮 TextButton,代替 FlatButton'),
               TextButton(
                 onPressed: () {},
                 // onPressed:null,
