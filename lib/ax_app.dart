@@ -24,7 +24,6 @@ import 'event/update_user_info_event.dart';
 import 'generated/l10n.dart';
 import 'global_const.dart';
 import 'module/login/view/login_view.dart';
-
 class AxApp extends StatefulWidget {
 //  var adapter = Hive.registerAdapter(StudentAdapter(),0);
 //  void log(String? name){

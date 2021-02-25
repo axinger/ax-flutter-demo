@@ -8,6 +8,27 @@ abstract class Order {
   }
 }
 
+class OrderClassA implements Order {
+  orderA() {
+    print('Sing sing');
+  }
+
+  @override
+  void order() {
+    print('OrderClassA');
+  }
+}
+class OrderClassB implements Order {
+  orderA() {
+    print('Sing sing');
+  }
+
+  @override
+  void order() {
+    print('OrderClassB');
+  }
+}
+
 mixin OrderA on Order {
   orderA() {
     print('Sing sing');
@@ -48,7 +69,31 @@ mixin Code {
 class Student extends Order with OrderA, OrderB {}
 
 void main() {
+
+
   var student = Student();
   student.order();
   // student.eat2();
+  print('compare =  ${Comparable.compare('1.8', '1.9')}');
+  print('compare =  ${Comparable.compare('1.9', '1.10')}');
+  print('compareTo =  ${ '1.9'.compareTo('1.10')}');
+  print('=== ${1.9 < 1.10}');
+  print('=== ${1.8 < 1.9}');
+
+  test1(order: OrderClassA());
+  test1(order: OrderClassB());
+}
+void test1({Order order}){
+  print('test1');
+  order.order();
+  print('runtimeType = ${order.runtimeType}');
+
+  if(order.runtimeType == OrderClassA){
+    (order as OrderClassA).orderA();
+  }
+
+  if(order is OrderClassA){
+    order.orderA();
+  }
+
 }
