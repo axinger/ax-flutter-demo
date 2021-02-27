@@ -44,8 +44,15 @@ class P59CounterGetPage extends StatelessWidget {
             ),
             Obx(() {
               print('count更新');
-              return Text('count ${logic.count.value}',
-                  style: TextStyle(fontSize: 30.0));
+            // int height = () %2 ? 40 : 80;;
+              // %2 ? 40 : 80;
+              double padding =(logic.count.value %2)==0 ? 10 : 40;
+              return Container(
+                color: Colors.red,
+                padding: EdgeInsets.all(padding),
+                child: Text('count ${logic.count.value}',
+                    style: TextStyle(backgroundColor: Colors.orange,fontSize: 30.0)),
+              );
             }),
             Obx(() {
               print('count2更新');

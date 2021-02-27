@@ -130,6 +130,8 @@ dependencies:
   #  flutter_swipe_action_cell: ^1.2.2
   # 状态管理,和google推荐的Provider 类似
   get: ^3.25.0
+  # 侧滑
+  flutter_slidable: ^0.5.7
 
   ##  ⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬ 谷歌组件 ⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
   ## 谷歌维护的库 https://github.com/flutter/plugins

@@ -529,24 +529,24 @@ class _TestHomePageState extends State<TestHomePage> {
             push(context: context, widget: P57CustomRoute());
           }),
       CellItem(
-          title: '通常展示在应用程序的左边或者右边',
+          title: 'P58通常展示在应用程序的左边或者右边',
           onTap: () {
             push(context: context, widget: P58NavigationRailPage());
           }),
       CellItem(
-          title: 'Get框架 改变主题',
+          title: 'P59Get框架 改变主题',
           onTap: () {
             Get.changeTheme(
                 Get.isDarkMode ? ThemeData.light() : ThemeData.dark());
           }),
       CellItem(
-          title: 'Get传值,\n用Get.to跳转,才能恢复初始值',
+          title: 'P59Get传值,\n用Get.to跳转,才能恢复初始值',
           onTap: () {
             // push(context: context, widget: P59CounterGetPage());
             Get.to(P59CounterGetPage());
           }),
       CellItem(
-          title: 'Get跨页面传值',
+          title: 'P59Get跨页面传值',
           onTap: () {
             // push(context: context, widget: P60JumpOnePage());
             Get.to(P60JumpOnePage());
