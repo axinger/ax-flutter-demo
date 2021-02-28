@@ -26,8 +26,7 @@ class CounterController2 {
 class P59CounterGetPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    CounterController2 logic =
-        Get.put<CounterController2>(CounterController2());
+    var logic = Get.put<CounterController2>(CounterController2());
     return Scaffold(
       appBar: AppBar(title: const Text('多个分别更新值')),
       body: Center(
