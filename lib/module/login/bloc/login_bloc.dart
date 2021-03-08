@@ -17,11 +17,10 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   final AuthenticationBloc authenticationBloc;
 
   LoginBloc({
-//    @required this.userRepository,
-    @required this.authenticationBloc,
-  }) : super(null);
+//    required this.userRepository,
+    required this.authenticationBloc,
+  }) : super(LoginSuccess());
 
-  @override
   LoginState get initialState => LoginSuccess();
 
   @override

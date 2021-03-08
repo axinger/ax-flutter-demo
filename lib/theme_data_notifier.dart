@@ -33,7 +33,7 @@ class ThemeDataNotifier extends ChangeNotifier {
     ),
   );
 
-  get themeData {
+  ThemeData get themeData {
     return _themeData;
   }
 

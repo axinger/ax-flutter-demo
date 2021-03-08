@@ -42,7 +42,7 @@ class _MaterialPage1 extends State<MaterialPageSql> {
                       prefs.then((onValue) {
                         onValue.setString("name", "小明");
                       }).whenComplete(() {
-                        _scaffoldkey.currentState.showSnackBar(SnackBar(
+                        _scaffoldkey.currentState?.showSnackBar(SnackBar(
                           content: Text('set succssed'),
                           duration: Duration(milliseconds: 100),
                         ));
@@ -58,7 +58,7 @@ class _MaterialPage1 extends State<MaterialPageSql> {
                         print(
                             "onValue.getString(mUserName)=   ${onValue.getString("name")}");
                         setState(() {
-                          name = onValue.getString("name");
+                          name=  onValue.getString('name')??'';
                         });
                       });
                     },
@@ -70,7 +70,7 @@ class _MaterialPage1 extends State<MaterialPageSql> {
                         onValue.remove("name");
 //                onValue.clear();///清除所有
                         setState(() {
-                          name = onValue.getString("name");
+                          name = onValue.getString("name") ??'';
                         });
                       });
                     },
@@ -95,10 +95,10 @@ class _MaterialPage1 extends State<MaterialPageSql> {
                     onPressed: () {
                       SharedPreferences.getInstance().then((onValue) {
                         print("读取所有数据 = ${onValue.getKeys()}");
-                        List<String> list = List();
+                        List<String> list = <String>[];
 
                         onValue.getKeys().forEach((key) => {
-                              list.add(onValue.get(key)),
+                              list.add(onValue.getString(key)??''),
                             });
 
                         print("list = ${list}");
@@ -144,7 +144,7 @@ class _MaterialPage1 extends State<MaterialPageSql> {
                     onPressed: () {
                       KeyChain.get(key: 'name').then((onValue) {
                         print("读取数据onValue == ${onValue.toString()}");
-                        Object object;
+                        Object? object;
 
                         print(" >>>>>>>> ${object}");
 

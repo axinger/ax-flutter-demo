@@ -6,10 +6,10 @@ import '../demo/00_test_home.dart';
 
 class TabbarItemController {
   TabbarItemController({
-    String title,
-    Widget icon,
-    Widget activeIcon,
-    Widget controller,
+    required String title,
+    required Widget icon,
+     Widget? activeIcon,
+    required  Widget controller,
   })  : _icon = icon,
         _title = title,
         _activeIcon = activeIcon,
@@ -23,7 +23,7 @@ class TabbarItemController {
 
   final String _title;
   final Widget _icon;
-  final Widget _activeIcon;
+  final Widget? _activeIcon;
   final BottomNavigationBarItem item;
   final Widget controller;
 }
@@ -45,7 +45,7 @@ class _RootController
   //PageController 没有记录index,所以自定义
   int _tabItemCurrentIndex = 1;
 
-  List<TabbarItemController> _tabbarItemControllerList;
+  List<TabbarItemController>? _tabbarItemControllerList;
 
   @override
   void initState() {
@@ -97,7 +97,7 @@ class _RootController
         /// 子页面保持状态数据,不会每次刷新
         body: IndexedStack(
           index: _tabItemCurrentIndex,
-          children: _tabbarItemControllerList.map((item) {
+          children: _tabbarItemControllerList!.map((item) {
             return item.controller;
           }).toList(),
         ),
@@ -114,7 +114,7 @@ class _RootController
             //选中,非选中颜色
             type: BottomNavigationBarType.fixed,
             //fixedColor 才起作用
-            items: _tabbarItemControllerList.map((item) {
+            items: _tabbarItemControllerList!.map((item) {
               return item.item;
             }).toList(),
             currentIndex: _tabItemCurrentIndex,

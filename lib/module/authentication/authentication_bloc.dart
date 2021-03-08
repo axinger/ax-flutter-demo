@@ -27,7 +27,7 @@ class AuthenticationBloc
 
       yield AuthenticationInProgress();
       SharedPreferences preferences = await SharedPreferences.getInstance();
-      String userJson = preferences?.getString('user') ?? null;
+      String userJson = (preferences?.getString('user') ?? null)!;
       print('userJson == $userJson');
 
       Map<String, dynamic> map = (userJson == null || userJson.length == 0)
@@ -60,7 +60,7 @@ class AuthenticationBloc
       preferences.remove('user');
 
       SharedPreferences preferences2 = await SharedPreferences.getInstance();
-      String userJson = preferences2?.getString('user') ?? null;
+      String userJson = (preferences2.getString('user') ?? null)!;
       print('userJson2 == $userJson');
       yield AuthenticationFailure();
     }

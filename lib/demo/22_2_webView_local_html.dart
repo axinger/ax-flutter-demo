@@ -17,7 +17,7 @@ class _TestPage extends State<LocalHtmlPage> {
     return await rootBundle.loadString('assets/files/index.html');
   }
 
-  WebViewController _webViewController;
+  WebViewController? _webViewController;
 
   @override
   void initState() {
@@ -50,7 +50,8 @@ class _TestPage extends State<LocalHtmlPage> {
       return Future.value('');
     }
     return _webViewController
-        .evaluateJavascript('${channel}.postMessage(${jsCode});');
+            ?.evaluateJavascript('${channel}.postMessage(${jsCode});') ??
+        Future.value('');
   }
 
   @override
@@ -67,7 +68,7 @@ class _TestPage extends State<LocalHtmlPage> {
           child: Text('调用js方法'),
           onPressed: () {
             /// 调用js方法,给js方法传参
-            _webViewController.evaluateJavascript("nativeCallJsMethod('jim')");
+            _webViewController?.evaluateJavascript("nativeCallJsMethod('jim')");
           },
         ),
         FlatButton(
@@ -75,7 +76,7 @@ class _TestPage extends State<LocalHtmlPage> {
           child: Text('调用自己注册的js方法'),
           onPressed: () {
             /// 调用js方法,给js方法传参
-            _webViewController.evaluateJavascript('alert.postMessage("tom");');
+            _webViewController?.evaluateJavascript('alert.postMessage("tom");');
           },
         ),
       ],
@@ -87,7 +88,7 @@ class _TestPage extends State<LocalHtmlPage> {
             return WebView(
               javascriptMode: JavascriptMode.unrestricted,
               javascriptChannels: _javascriptChannels(context),
-              initialUrl: Uri.dataFromString(snapshot.data,
+              initialUrl: Uri.dataFromString(snapshot?.data ?? '',
                       mimeType: 'text/html',
                       encoding: Encoding.getByName('utf-8'))
                   .toString(),

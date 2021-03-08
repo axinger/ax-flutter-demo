@@ -7,7 +7,7 @@ class DetailPage extends StatelessWidget {
   final PostEntity postEntity;
 
   DetailPage({
-    @required this.postEntity,
+    required this.postEntity,
   });
 
   @override

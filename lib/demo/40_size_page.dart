@@ -34,7 +34,7 @@ class _MinePage extends State<P40SizePage> {
   void _onAfterRendering(Duration timeStamp) {
     //这里编写获取元素大小和位置的方法
 
-    Size size0 = qrBgKey.currentContext.size;
+    Size? size0 = qrBgKey?.currentContext?.size;
 
 //    final topLeftPosition = box.localToGlobal(Offset.zero);
 //    return topLeftPosition.dy;
@@ -43,25 +43,22 @@ class _MinePage extends State<P40SizePage> {
 
 //    RenderObject
 
-    RenderBox box = qrBgKey.currentContext.findRenderObject();
-    Size size1 = box.size;
-    Offset topLeftPosition = box.localToGlobal(Offset.zero);
+    var box = qrBgKey.currentContext?.findRenderObject();
+    Size? size1 = (box as RenderBox)?.size;
+    Offset? topLeftPosition = box?.localToGlobal(Offset.zero);
 
     print('size1 = $size1');
-    print('topLeftPosition.dy = ${topLeftPosition.dy}');
+    print('topLeftPosition.dy = ${topLeftPosition?.dy}');
     print(
         'MediaQuery.of(context).padding.top= ${MediaQuery.of(context).padding.top}');
 //    const double kToolbarHeight = 56.0;
 //    print('MediaQueryData.fromWindow(window).padding.top= ${MediaQueryData.fromWindow(window).padding.top}');
-    _valueNotifier.value = topLeftPosition.dy -
-        kToolbarHeight -
-        MediaQuery.of(context).padding.top +
-        size1.height;
+    _valueNotifier.value = topLeftPosition?.dy ??0 -kToolbarHeight - MediaQuery.of(context).padding.top + (size1?.height??0);
   }
 
   @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback(_onAfterRendering);
+    WidgetsBinding.instance?.addPostFrameCallback(_onAfterRendering);
 
     return Scaffold(
       appBar: AppBar(
@@ -113,7 +110,7 @@ class _MinePage extends State<P40SizePage> {
             children: <Widget>[
               ValueListenableBuilder<double>(
                 valueListenable: _valueNotifier,
-                builder: (BuildContext context, value, Widget child) {
+                builder: (BuildContext context, value, Widget? child) {
                   print('value = $value');
                   return Positioned(
                       top: value,

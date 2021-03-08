@@ -20,7 +20,7 @@ class SqlProvider<T extends AbstractJsonObject> {
   prepare(name, String createSql) async {
     isTableExits = await SqlManager.isTableExits(name);
     if (!isTableExits) {
-      Database db = await SqlManager.getCurrentDatabase();
+      Database db = (await SqlManager.getCurrentDatabase())!;
       return await db.execute(createSql);
     }
   }
@@ -61,11 +61,11 @@ class SqlProvider<T extends AbstractJsonObject> {
   }
 
   ///查询总数量
-  Future<int> count({String contion}) async {
+  Future<int> count({required String contion}) async {
 //    LogUtil.get().i('查询本地表数据,表明${dbTable.tableName}条件:${contion}');
     Database db = await getDataBase();
     int size = Sqflite.firstIntValue(await db
-        .rawQuery('SELECT COUNT(*) FROM ${dbTable.tableName}  ${contion}'));
+        .rawQuery('SELECT COUNT(*) FROM ${dbTable.tableName}  ${contion}'))!;
     return size;
   }
 
@@ -81,23 +81,23 @@ class SqlProvider<T extends AbstractJsonObject> {
       whereArgs: whereArgs,
       limit: 1,
     );
-    if (null != resultList && resultList.length > 0) {
+    if (resultList.length > 0) {
       return resultList[0];
     }
-    return null;
+    return Map();
   }
 
   ///查询--此处为了保证和原有接口一致,只是移除了表明属性,是否有必要
   Future<List<Map<String, dynamic>>> query(
-      {bool distinct,
-      List<String> columns,
-      String where,
-      List<dynamic> whereArgs,
-      String groupBy,
-      String having,
-      String orderBy,
-      int limit,
-      int offset}) async {
+      {bool? distinct,
+      List<String>? columns,
+      String? where,
+      List<dynamic>? whereArgs,
+      String? groupBy,
+      String? having,
+      String? orderBy,
+      int? limit,
+      int? offset}) async {
 //    LogUtil.get().i('查询本地表数据,表名222${dbTable.tableName}');
     Database db = await getDataBase();
     List<Map<String, dynamic>> resultList = await db.query(dbTable.tableName,
@@ -110,11 +110,11 @@ class SqlProvider<T extends AbstractJsonObject> {
         orderBy: orderBy,
         limit: limit,
         offset: offset);
-    List<Map<String, dynamic>> resultList2 = await db
-        .rawQuery("SELECT * FROM t_base_config WHERE code='USER_INFO'")
-        .then((onValue) {
-      print("SELECT == ${onValue}");
-    });
+    // List<Map<String, dynamic>> resultList2 = await db
+    //     .rawQuery("SELECT * FROM t_base_config WHERE code='USER_INFO'")
+    //     .then((onValue) {
+    //   // print("SELECT == ${onValue}");
+    // });
 
     List<Map<String, dynamic>> resultList3 =
         await db.rawQuery("SELECT * FROM t_base_config WHERE code='USER_INFO'");

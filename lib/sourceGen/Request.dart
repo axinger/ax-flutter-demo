@@ -5,7 +5,7 @@ class Request {
 class ApiMethod {
   final String url;
   final String method;
-  final Map head;
+  final Map? head;
 
   const ApiMethod(this.url, this.method, {this.head});
 }

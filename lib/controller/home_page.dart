@@ -13,7 +13,7 @@ import '../global_const.dart';
 class HomePage extends StatefulWidget {
   final String title;
 
-  HomePage({Key key, this.title = "Home"}) : super(key: key);
+  HomePage({Key? key, this.title = "Home"}) : super(key: key);
 
   @override
   _HomePage createState() => new _HomePage();
@@ -30,7 +30,7 @@ class _HomePage extends State<HomePage> {
           backgroundColor: Colors.grey[100],
           appBar: AppBar(
             title: Text(localString.honeTitle,
-                style: GoogleFonts.oswald(
+                style: GoogleFonts?.oswald(
                     textStyle: TextStyle(fontSize: 20, color: Colors.red))),
             centerTitle: true,
             actions: <Widget>[

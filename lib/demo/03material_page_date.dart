@@ -26,7 +26,7 @@ class _MaterialPage1 extends State<MaterialPageDate> {
   TimeOfDay selectTime = TimeOfDay.now();
 
   _selectDateFunc() async {
-    DateTime dateTime = await showDatePicker(
+    DateTime? dateTime = await showDatePicker(
       context: context,
       firstDate: DateTime(1900),
       initialDate: selectDateTime,
@@ -48,7 +48,7 @@ class _MaterialPage1 extends State<MaterialPageDate> {
   }
 
   _selectTimeFunc() async {
-    TimeOfDay timeOfDay = await showTimePicker(
+    TimeOfDay? timeOfDay = await showTimePicker(
       context: context,
       initialTime: selectTime,
     );
@@ -142,7 +142,7 @@ class _MaterialPage1 extends State<MaterialPageDate> {
             focusColor: Colors.red,
             hoverColor: Colors.red,
             onChanged: (value) {
-              _checkbox_value = value;
+              _checkbox_value = value ??false;
               setState(() {});
             },
           ),
@@ -155,7 +155,7 @@ class _MaterialPage1 extends State<MaterialPageDate> {
             isThreeLine: false,
             onChanged: (value) {
               setState(() {
-                _checkboxListTile_value = value;
+                _checkboxListTile_value = value??false;
               });
             },
           ),
@@ -163,24 +163,24 @@ class _MaterialPage1 extends State<MaterialPageDate> {
           Row(
             children: <Widget>[
               /// 单选
-              Radio(
+              Radio<int>(
                 value: 0,
                 groupValue: _Radio_value,
                 activeColor: Colors.red,
-                onChanged: (int value) {
+                onChanged: (int? value) {
                   setState(() {
-                    _Radio_value = value;
+                    _Radio_value = value??0;
                   });
                 },
               ),
 
-              Radio(
+              Radio<int>(
                 value: 1,
                 groupValue: _Radio_value,
                 activeColor: Colors.red,
-                onChanged: (int value) {
+                onChanged: (int? value) {
                   setState(() {
-                    _Radio_value = value;
+                    _Radio_value = value??0;
                   });
                 },
               ),
@@ -192,7 +192,7 @@ class _MaterialPage1 extends State<MaterialPageDate> {
           Column(
             children: <Widget>[
               /// 单选
-              RadioListTile(
+              RadioListTile<int>(
                 title: Text("男"),
                 subtitle: Text("男-sub"),
                 selected: _RadioListTile_value == 0,
@@ -200,14 +200,14 @@ class _MaterialPage1 extends State<MaterialPageDate> {
                 value: 0,
                 groupValue: _RadioListTile_value,
                 activeColor: Colors.red,
-                onChanged: (int value) {
+                onChanged: (int? value) {
                   setState(() {
-                    _RadioListTile_value = value;
+                    _RadioListTile_value = value ??0;
                   });
                 },
               ),
 
-              RadioListTile(
+              RadioListTile<int>(
                 title: Text("女"),
                 subtitle: Text("女-sub"),
                 secondary: Icon(Icons.filter_2),
@@ -215,9 +215,9 @@ class _MaterialPage1 extends State<MaterialPageDate> {
                 value: 1,
                 groupValue: _RadioListTile_value,
                 activeColor: Colors.red,
-                onChanged: (int value) {
+                onChanged: (int? value) {
                   setState(() {
-                    _RadioListTile_value = value;
+                    _RadioListTile_value = value ??0;
                   });
                 },
               ),

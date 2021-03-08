@@ -34,34 +34,34 @@ class P59CounterGetPage extends StatelessWidget {
           children: [
             Text('Obx 中有一个就对应的更新一个,有多个就更新多个'),
             TextButton(
-              onPressed: () => logic.increase(),
+              onPressed: () => logic?.increase(),
               child: const Text('count更新'),
             ),
             TextButton(
-              onPressed: () => logic.increase2(),
+              onPressed: () => logic?.increase2(),
               child: const Text('count2更新'),
             ),
             Obx(() {
               print('count更新');
             // int height = () %2 ? 40 : 80;;
               // %2 ? 40 : 80;
-              double padding =(logic.count.value %2)==0 ? 10 : 40;
+              double padding =(logic?.count.value ?? 0 %2)==0 ? 10 : 40;
               return Container(
                 color: Colors.red,
                 padding: EdgeInsets.all(padding),
-                child: Text('count ${logic.count.value}',
+                child: Text('count ${logic?.count.value}',
                     style: TextStyle(backgroundColor: Colors.orange,fontSize: 30.0)),
               );
             }),
             Obx(() {
               print('count2更新');
-              return Text('count2 ${logic.count2.value}',
+              return Text('count2 ${logic?.count2.value}',
                   style: TextStyle(fontSize: 30.0));
             }),
 
             Obx(() {
               print('count 和 count2');
-              return Text('count 和 count2 ${logic.count.value} ${logic.count2.value}',
+              return Text('count 和 count2 ${logic?.count.value} ${logic?.count2.value}',
                   style: TextStyle(fontSize: 30.0));
             }),
           ],

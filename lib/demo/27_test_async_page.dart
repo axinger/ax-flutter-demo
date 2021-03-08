@@ -35,7 +35,7 @@ class _MaterialPage extends State<P27AsyncPage> {
   ///上面的代码大概的意思就是每隔 interval = 2 秒发射一次数据, 数据从 0 开始累加,
   ///直到数据等于 maxCount=5 时停止发射. 需要注意的是只有调用了 listen 异步函数体才会被执行, 该函数返回的是一个 Subscription
   ///可以通过 pause 函数来暂停一个 Subscription 发射数据:
-  Stream<int> timedCounter(Duration interval, [int maxCount]) async* {
+  Stream<int> timedCounter(Duration interval, [int maxCount=0]) async* {
     int i = 0;
     while (true) {
       await Future.delayed(interval);
@@ -53,7 +53,7 @@ class _MaterialPage extends State<P27AsyncPage> {
     });
   }
 
-  Stream syncIterator2;
+  Stream? syncIterator2;
 
   Stream<int> getData() async* {
     for (int i = 1; i < 4; i++) {
@@ -63,7 +63,7 @@ class _MaterialPage extends State<P27AsyncPage> {
     }
   }
 
-  Stream<String> stream2;
+  Stream<String>? stream2;
 
   /// async* 异步返回  Stream
   Stream<String> getData2() async* {
@@ -74,7 +74,7 @@ class _MaterialPage extends State<P27AsyncPage> {
     yield 'tom';
   }
 
-  Stream<String> stream4;
+  Stream<String>? stream4;
 
   /// async* 异步返回  Stream
   Future<String> getData4() {
@@ -109,7 +109,7 @@ class _MaterialPage extends State<P27AsyncPage> {
 //    }
 //  }
 
-  Iterator syncIterator1;
+  Iterator? syncIterator1;
 
   Iterable<int> syncTest1() sync* {
     for (int i = 0; i < 3; i++) {
@@ -186,13 +186,13 @@ class _MaterialPage extends State<P27AsyncPage> {
                 FlatButton(
                   child: Text("调用 async* moveNext,然后才有值"),
                   onPressed: () {
-                    syncIterator1.moveNext();
+                    syncIterator1?.moveNext();
                   },
                 ),
                 FlatButton(
                   child: Text("调用 async* current,无moveNext,值不变"),
                   onPressed: () {
-                    print(syncIterator1.current);
+                    print(syncIterator1?.current);
                   },
                 ),
               ],
@@ -213,7 +213,7 @@ class _MaterialPage extends State<P27AsyncPage> {
                 FlatButton(
                   child: Text("2 Stream调用 async* listen,然后才有值"),
                   onPressed: () {
-                    syncIterator2.listen((event) {
+                    syncIterator2?.listen((event) {
                       print("event=2= $event");
                     });
                   },

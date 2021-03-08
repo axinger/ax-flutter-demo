@@ -85,9 +85,9 @@ class _MaterialPage extends State<P28RoutePage> {
 }
 
 class P28RoutePageSub1 extends StatelessWidget {
-  final Map sub1Map;
+  final Map? sub1Map;
 
-  P28RoutePageSub1({Key key, this.sub1Map}) : super(key: key) {
+  P28RoutePageSub1({Key? key, this.sub1Map}) : super(key: key) {
     print(this.sub1Map);
   }
 
@@ -101,7 +101,7 @@ class P28RoutePageSub1 extends StatelessWidget {
 
     var arguments = pushNameOfArguments<Map<String, dynamic>>(context: context);
     print('arguments== $arguments');
-    print(arguments['title']);
+    print((arguments as Map)['title']);
     return Scaffold(
       appBar: AppBar(
         title: Text('P28RoutePageSub1'),
@@ -133,16 +133,16 @@ class P28RoutePageSub1 extends StatelessWidget {
 }
 
 class P28RoutePageSub2 extends StatelessWidget {
-  final Map sub2Map;
+  final Map? sub2Map;
 
-  P28RoutePageSub2({Key key, this.sub2Map}) : super(key: key) {
+  P28RoutePageSub2({Key? key, this.sub2Map}) : super(key: key) {
     print(this.sub2Map);
   }
 
   @override
   Widget build(BuildContext context) {
     /// 上下文获得参数
-    String tmp = ModalRoute.of(context).settings.arguments.toString();
+    String tmp = ModalRoute?.of(context)?.settings.arguments.toString() ??'';
     String tmp2 = this.sub2Map.toString();
 
     print('tmp== $tmp');
@@ -167,9 +167,9 @@ class P28RoutePageSub2 extends StatelessWidget {
 }
 
 class P28RoutePageSub3 extends StatelessWidget {
-  final Map sub2Map;
+  final Map? sub2Map;
 
-  P28RoutePageSub3({Key key, this.sub2Map}) : super(key: key) {
+  P28RoutePageSub3({Key? key, this.sub2Map,}) : super(key: key) {
     print(this.sub2Map);
   }
 
@@ -197,7 +197,7 @@ class P28RoutePageSub3 extends StatelessWidget {
               Navigator.popUntil(
                   context,
                   (route) =>
-                      route.settings.name.startsWith('/P28RoutePageSub1'));
+                      route.settings.name!.startsWith('/P28RoutePageSub1'));
             },
           ),
         ],

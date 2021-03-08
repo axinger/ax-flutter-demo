@@ -4,11 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class AddModel extends ChangeNotifier {
-  int _age1;
-  int _age2;
+  int _age1 = 0;
+  int _age2 = 0;
 
-  AddModel({int age1, int age2})
-      : _age1 = age1,
+  AddModel({
+    int age1 = 0,
+    int age2=0,
+  })  : _age1 = age1,
         _age2 = age2;
 
   int get age1 => _age1;
@@ -28,9 +30,9 @@ class AddModel extends ChangeNotifier {
 }
 
 class PlusModel extends ChangeNotifier {
-  int _age;
+  int _age=0;
 
-  PlusModel({int age}) : _age = age;
+  PlusModel({int age=0}) : _age = age;
 
   get age => _age;
 
@@ -87,7 +89,7 @@ class _P34ProviderState extends State<P34Provider> {
 
             ///  Selector<AddModel,int> 第一个泛型 selector ,第二个泛型 builder 的值
             Selector<AddModel, int>(
-                builder: (BuildContext context, int data, Widget child) {
+                builder: (BuildContext context, int data, Widget? child) {
               print('Selector1=============');
               return Text(
                   //获取数据
@@ -102,7 +104,7 @@ class _P34ProviderState extends State<P34Provider> {
 
             Consumer2(),
             Selector<AddModel, int>(
-                builder: (BuildContext context, int data, Widget child) {
+                builder: (BuildContext context, int data, Widget? child) {
               print('Selector2=========');
               return Text(
                   //获取数据

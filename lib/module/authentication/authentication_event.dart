@@ -14,7 +14,7 @@ class AuthenticationStartedEvent extends AuthenticationEvent {}
 class AuthenticationLoggedInEvent extends AuthenticationEvent {
   final UserRepository user;
 
-  const AuthenticationLoggedInEvent({@required this.user});
+  const AuthenticationLoggedInEvent({required this.user});
 
   @override
   List<Object> get props => [user];

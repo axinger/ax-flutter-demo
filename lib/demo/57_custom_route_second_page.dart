@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class P57CustomRouteSecondPage extends StatelessWidget {
-  P57CustomRouteSecondPage({Key key}) : super(key: key);
+  P57CustomRouteSecondPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

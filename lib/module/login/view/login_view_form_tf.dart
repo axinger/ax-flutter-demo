@@ -23,8 +23,8 @@ class _FormTFState extends State<LoginViewFormTF> {
   TextEditingController passwordTextEditingController = TextEditingController();
   FocusNode phoneFocusNode = FocusNode();
   FocusNode passwordFocusNode = FocusNode();
-  String username;
-  String password;
+  String username = '';
+  String password = '';
 
   @override
   void initState() {
@@ -225,7 +225,7 @@ class _FormTFState extends State<LoginViewFormTF> {
               },
 
               onSaved: (value) {
-                debugPrint("保存密码 " + value);
+                debugPrint("保存密码 " + value!);
                 password = value;
               },
 
@@ -241,7 +241,7 @@ class _FormTFState extends State<LoginViewFormTF> {
               ],
 
               validator: (value) {
-                if (value.length < 6) {
+                if (value!.length < 6) {
                   return "输入6位密码";
                 }
                 return null;
@@ -307,7 +307,7 @@ class _FormTFState extends State<LoginViewFormTF> {
                         ? null
                         : () {
                             debugPrint("账号: $username  密码: $password");
-                            loginFomKey.currentState.save();
+                            loginFomKey!.currentState!.save();
                             debugPrint("账号: $username  密码: $password");
                             Navigator.pop(context);
                           },

@@ -11,7 +11,7 @@ class P56StatefulBuilder extends StatefulWidget {
 class _P56StatefulBuilderState extends State<P56StatefulBuilder> {
   var name1 = 'name1';
   var name2 = 'name2';
-  StateSetter _stateSetter;
+  StateSetter? _stateSetter;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class _P56StatefulBuilderState extends State<P56StatefulBuilder> {
         actions: [
           FlatButton(
               onPressed: () {
-                _stateSetter(() {
+                _stateSetter!(() {
                   name1 = '${100.random}';
                   name2 = '${100.random}';
                 });

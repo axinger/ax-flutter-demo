@@ -11,7 +11,7 @@ void tryCatch(Function f) {
   }
 }
 
-T asT<T>(dynamic value) {
+T? asT<T>(dynamic value) {
   if (value is T) {
     return value;
   }
@@ -30,6 +30,7 @@ T asT<T>(dynamic value) {
       return bool.fromEnvironment(value.toString()) as T;
     }
   }
+  // return Object<T>();
   return null;
 }
 
@@ -47,7 +48,7 @@ class UserInfo {
 //   ());
 
   ///当你需要构造函数不是每次都创建一个新的对象时，使用factory关键字。
-  factory UserInfo({String userName, String passWord, String token}) {
+  factory UserInfo({String userName='', String passWord='', String token=''}) {
     if (_instance == null) {
       _instance = UserInfo._(
         userName: userName,
@@ -59,19 +60,18 @@ class UserInfo {
   }
 
   /// 私有方法,json解析,也不要用
-  UserInfo._({this.userName, this.passWord, this.token});
+  UserInfo._({this.userName='', this.passWord='', this.token=''});
 
-  static UserInfo _instance;
+  static UserInfo _instance=UserInfo._();
 
-  String userName;
-  String passWord;
-  String token;
+  String userName='';
+  String passWord='';
+  String token='';
 
   factory UserInfo.fromJson(Map<String, dynamic> jsonRes) {
     return UserInfo(
-      userName: asT<String>(jsonRes['userName']),
-      passWord: asT<String>(jsonRes['passWord']),
-      token: asT<String>(jsonRes['token']),
+      passWord: asT<String>(jsonRes['passWord'])??'',
+      token: asT<String>(jsonRes['token'])??'',
     );
   }
 

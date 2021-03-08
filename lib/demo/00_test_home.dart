@@ -100,9 +100,9 @@ class Cell extends StatelessWidget {
 class CellItem {
   int index;
   String title;
-  final Function() onTap;
+  final Function()? onTap;
 
-  CellItem({this.index, this.title, this.onTap});
+  CellItem({this.index=0, this.title='', this.onTap});
 }
 
 class TestHomePage extends StatefulWidget {
@@ -117,7 +117,7 @@ class _TestHomePageState extends State<TestHomePage> {
   Future<void> initFinish() async {
     Completer<void> completer = Completer();
 
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+    WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
       print('回调=============1');
       completer.complete();
     });

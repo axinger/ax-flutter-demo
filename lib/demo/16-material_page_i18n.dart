@@ -51,15 +51,15 @@ class _MaterialPage1 extends State<MaterialPageI18n> {
 class TextDemo extends StatefulWidget {
   final String name;
   final String name2;
-  TextDemo({this.name, this.name2});
+  TextDemo({this.name='', this.name2=''});
 
   @override
   _TextDemoState createState() => _TextDemoState();
 }
 
 class _TextDemoState extends State<TextDemo> {
-  String _name;
-  String _name2;
+  String _name='';
+  String _name2='';
   @override
   void initState() {
     super.initState();

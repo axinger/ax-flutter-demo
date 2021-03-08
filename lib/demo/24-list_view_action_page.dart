@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:slide_item/slide_item.dart';
 
 class ListViewActionPage extends StatefulWidget {
-  ListViewActionPage({Key key, this.title}) : super(key: key);
+  ListViewActionPage({Key? key, this.title=''}) : super(key: key);
   final String title;
 
   @override
@@ -20,7 +20,7 @@ class Item {
 }
 
 class _MyHomePageState extends State<ListViewActionPage> {
-  List<Item> itemList;
+  List<Item> itemList=<Item>[];
 
   @override
   void initState() {

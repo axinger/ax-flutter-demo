@@ -9,7 +9,7 @@ class WebViewPage extends StatefulWidget {
 
 /// 加载网络的
 class _WebViewPageState extends State<WebViewPage> {
-  WebViewController _controller;
+  WebViewController? _controller;
   String _title = "webview";
 
   @override
@@ -30,7 +30,7 @@ class _WebViewPageState extends State<WebViewPage> {
             _controller = controller;
           },
           onPageFinished: (url) {
-            _controller.evaluateJavascript("document.title").then((result) {
+            _controller?.evaluateJavascript("document.title").then((result) {
               setState(() {
                 _title = result;
               });

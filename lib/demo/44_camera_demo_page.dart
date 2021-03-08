@@ -19,13 +19,13 @@ class CameraDemoPage extends StatefulWidget {
 }
 
 class CameraDemoPageState extends State<CameraDemoPage> {
-  CameraController controller;
-  String videoPath;
-  VoidCallback videoPlayerListener;
-  WidgetsBinding widgetsBinding;
+  CameraController? controller;
+  String? videoPath;
+  VoidCallback? videoPlayerListener;
+  WidgetsBinding? widgetsBinding;
 
   /// 摄像头权限
-  List<CameraDescription> cameras;
+  List<CameraDescription>? cameras;
   String photoType = '';
 
   /// 图片地址
@@ -45,7 +45,7 @@ class CameraDemoPageState extends State<CameraDemoPage> {
       cameras = await availableCameras();
 
       /// TODO同时只能选择一个，可以提供切换按钮，传入参数控制是否展示切换按钮
-      onNewCameraSelected(cameras[0]); // 后置摄像头
+      onNewCameraSelected(cameras![0]); // 后置摄像头
 // onNewCameraSelected(cameras[1]);// 前置摄像头
     } on CameraException catch (e) {
       print(e.toString());
@@ -132,8 +132,8 @@ class CameraDemoPageState extends State<CameraDemoPage> {
           child: IconButton(
             iconSize: 50.0,
             onPressed: controller != null &&
-                    controller.value.isInitialized &&
-                    !controller.value.isRecordingVideo
+                    controller!.value.isInitialized &&
+                    !controller!.value.isRecordingVideo
                 ? onTakePictureButtonPressed
                 : null,
             icon: Icon(
@@ -153,7 +153,7 @@ class CameraDemoPageState extends State<CameraDemoPage> {
   }
 
   Widget _cameraPreviewWidget() {
-    if (controller == null || !controller.value.isInitialized) {
+    if (controller == null || !controller!.value.isInitialized) {
       return const Text(
         '相机',
         style: TextStyle(
@@ -166,8 +166,8 @@ class CameraDemoPageState extends State<CameraDemoPage> {
       return Container(
         width: double.infinity,
         child: AspectRatio(
-          aspectRatio: controller.value.aspectRatio,
-          child: CameraPreview(controller),
+          aspectRatio: controller!.value.aspectRatio,
+          child: CameraPreview(controller!),
         ),
       );
     }
@@ -188,11 +188,11 @@ class CameraDemoPageState extends State<CameraDemoPage> {
   ///TODO 预留重新拍摄
   void onNewCameraSelected(CameraDescription cameraDescription) async {
     if (controller != null) {
-      await controller.dispose();
+      await controller?.dispose();
     }
     controller = CameraController(cameraDescription, ResolutionPreset.high);
     try {
-      await controller.initialize();
+      await controller?.initialize();
     } on CameraException catch (e) {}
 
     if (mounted) {
@@ -205,7 +205,7 @@ class CameraDemoPageState extends State<CameraDemoPage> {
   /// TODO 图片保存入参是Uint8List格式需要处理下
   /// TODO 理赔如果需要单次查勘，可以选择保存到磁盘（以当天为时间戳创建文件夹？.不确定）
   void onTakePictureButtonPressed() {
-    takePicture().then((String filePath) {
+    takePicture().then((String? filePath) {
       if (mounted && filePath != null) {
         if (filePath != null) {
           setState(() {
@@ -218,18 +218,19 @@ class CameraDemoPageState extends State<CameraDemoPage> {
     });
   }
 
-  Future<String> takePicture() async {
+  Future<String?> takePicture() async {
     final Directory extDir = await getApplicationDocumentsDirectory();
     final String dirPath = '${extDir.path}/Pictures/flutter_test';
     await Directory(dirPath).create(recursive: true);
     final String filePath = '$dirPath/${timestamp()}.jpg';
 
-    if (controller.value.isTakingPicture) {
+    if (controller!.value.isTakingPicture) {
       return null;
     }
 
     try {
-      await controller.takePicture(filePath);
+      // Future<XFile>
+      await controller!.takePicture();
     } on CameraException catch (e) {
       return null;
     }

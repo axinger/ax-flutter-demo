@@ -92,7 +92,7 @@ class MaterialPageInheritedWidget extends StatefulWidget {
 
 class _InheritedWidgetTestContainerState
     extends State<MaterialPageInheritedWidget> {
-  MyInheritedTestModel inheritedTestModel;
+  MyInheritedTestModel inheritedTestModel = MyInheritedTestModel(0);
 
   _initData() {
     inheritedTestModel = MyInheritedTestModel(0);
@@ -185,7 +185,7 @@ class MyInheritedTestModel {
 
 /// 使用第三方的model
 class InheritedTestModel2 extends Model {
-  int _count;
+  int _count = 0;
 
   int get count => _count;
 
@@ -206,15 +206,15 @@ class MyInheritedWidget extends InheritedWidget {
   final Function() reduce;
 
   MyInheritedWidget({
-    Key key,
-    @required this.inheritedTestModel,
-    @required this.increment,
-    @required this.reduce,
-    @required Widget child,
+    Key? key,
+    required this.inheritedTestModel,
+    required this.increment,
+    required this.reduce,
+    required Widget child,
   }) : super(key: key, child: child);
 
   /// 根据上下文 获得 MyInheritedWidget 包装一下方法,统一调用
-  static MyInheritedWidget of(BuildContext context) {
+  static MyInheritedWidget? of(BuildContext context) {
     return context.dependOnInheritedWidgetOfExactType<MyInheritedWidget>();
   }
 
@@ -229,18 +229,18 @@ class TestWidgetA extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     /// 根据 context 获得 TestWidgetA 包在外层的 MyInheritedWidget extends InheritedWidget
-    final MyInheritedWidget myInheritedWidget = MyInheritedWidget.of(context);
+    final MyInheritedWidget? myInheritedWidget = MyInheritedWidget.of(context);
 
-    final MyInheritedTestModel myInheritedTestModel =
-        myInheritedWidget.inheritedTestModel;
+    final MyInheritedTestModel? myInheritedTestModel =
+        myInheritedWidget?.inheritedTestModel;
 
-    print('TestWidgetA 中count的值:  ${myInheritedTestModel.count}');
+    print('TestWidgetA 中count的值:  ${myInheritedTestModel?.count}');
     return Padding(
       padding: const EdgeInsets.only(left: 10.0, top: 10.0, right: 10.0),
       child: RaisedButton(
           textColor: Colors.black,
           child: Text('+ 改变model值,中间控件获取model最新值'),
-          onPressed: myInheritedWidget.increment),
+          onPressed: myInheritedWidget?.increment),
     );
   }
 }
@@ -249,16 +249,16 @@ class TestWidgetA extends StatelessWidget {
 class TestWidgetB extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final MyInheritedWidget inheritedContext = MyInheritedWidget.of(context);
+    final MyInheritedWidget? inheritedContext = MyInheritedWidget.of(context);
 
-    final inheritedTestModel = inheritedContext.inheritedTestModel;
+    final inheritedTestModel = inheritedContext?.inheritedTestModel;
 
-    print('TestWidgetB 中count的值:  ${inheritedTestModel.count}');
+    print('TestWidgetB 中count的值:  ${inheritedTestModel?.count}');
 
     return Padding(
       padding: const EdgeInsets.only(left: 10.0, top: 10.0, right: 10.0),
       child: Text(
-        '当前count:${inheritedTestModel.count}',
+        '当前count:${inheritedTestModel?.count}',
         style: TextStyle(fontSize: 20.0),
       ),
     );
@@ -267,20 +267,20 @@ class TestWidgetB extends StatelessWidget {
 
 /// 直接修改 model的值,然后回调
 class TestWidgetC extends StatelessWidget {
-  void Function(int value) callBack;
+  final void Function(int value) callBack;
 
   TestWidgetC({
-    @required this.callBack,
+    required this.callBack,
   });
 
   @override
   Widget build(BuildContext context) {
-    final MyInheritedWidget myInheritedWidget = MyInheritedWidget.of(context);
+    final MyInheritedWidget? myInheritedWidget = MyInheritedWidget?.of(context);
 
-    final MyInheritedTestModel inheritedTestModel =
-        myInheritedWidget.inheritedTestModel;
+    final MyInheritedTestModel? inheritedTestModel =
+        myInheritedWidget?.inheritedTestModel;
 
-    print('TestWidgetC 中count的值:  ${inheritedTestModel.count}');
+    print('TestWidgetC 中count的值:  ${inheritedTestModel?.count}');
 
     return Padding(
       padding: const EdgeInsets.only(left: 10.0, top: 10.0, right: 10.0),
@@ -289,8 +289,8 @@ class TestWidgetC extends StatelessWidget {
         child: Text('- 改变model值,中间控件获取model最新值'),
 //        onPressed: myInheritedWidget.reduce,
         onPressed: () {
-          inheritedTestModel.count--;
-          this.callBack(inheritedTestModel.count);
+          inheritedTestModel?.count--;
+          this.callBack(inheritedTestModel?.count ?? 0);
         },
       ),
     );

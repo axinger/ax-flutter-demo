@@ -9,8 +9,8 @@ class LoginButtonPressedEvent extends LoginEvent {
   final String password;
 
   const LoginButtonPressedEvent({
-    @required this.username,
-    @required this.password,
+    required this.username,
+    required this.password,
   });
 
   @override

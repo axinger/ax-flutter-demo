@@ -5,12 +5,12 @@ import 'package:flutter/material.dart';
 ///cell*/
 class ConverseListCell extends StatelessWidget {
   ConverseListCell({
-    this.model,
+   required this.model,
     this.onPressed,
   });
 
   final ConverseModel model;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,7 @@ class ConverseListCell extends StatelessWidget {
     CachedNetworkImage headIconImage = CachedNetworkImage(
       width: 60,
       height: 60,
-      imageUrl: model.headIcon,
+      imageUrl: model!.headIcon,
       placeholder: (context, url) => Image.asset(
         'assets/image/headIcon.png',
         width: 60,
@@ -45,7 +45,7 @@ class ConverseListCell extends StatelessWidget {
     /**未读红点view*/
     Container unReadMsgContainer = Container();
 
-    if (model.unreadCount > 0) {
+    if (model!.unreadCount > 0) {
       unReadMsgContainer = Container(
         width: 20,
         height: 20,

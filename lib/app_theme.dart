@@ -36,7 +36,7 @@ class AppTheme {
       ///按下时的颜色
       return Colors.lightBlueAccent;
     } else if (states.contains(MaterialState.disabled)) {
-      return Colors.grey[600];
+      return Colors.grey;
     } else if (states.contains(MaterialState.selected)) {
       return Colors.purple;
     } else {
@@ -45,7 +45,7 @@ class AppTheme {
   }
 
   /// 2.亮色主题
-  static ThemeData lightTheme({ThemeData themeData}) {
+  static ThemeData lightTheme({ThemeData? themeData}) {
     // return ThemeData.dark();
     return ThemeData().copyWith(
       primaryColor: themeData?.primaryColor ?? Colors.red,
@@ -61,7 +61,7 @@ class AppTheme {
           /// foregroundColor 文字颜色
 //                  foregroundColor: MaterialStateColor.resolveWith(getColor),
           /// 这里可以控制不同状态颜色
-          foregroundColor: MaterialStateColor.resolveWith(_foregroundColor),
+          foregroundColor: MaterialStateColor.resolveWith(_foregroundColor!),
 
           /// all 所有状态颜色
           // foregroundColor:MaterialStateProperty.all(Colors.red),

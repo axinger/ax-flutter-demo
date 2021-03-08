@@ -46,9 +46,9 @@ class _MaterialPage extends State<MaterialPagePlugin> {
                     onPressed: () {
                       KeyChain.get(key: 'name').then((onValue) {
                         print('读取数据onValue == ${onValue.toString()}');
-                        Object object;
+                        Object? object;
 
-                        print(' >>>>>>>> ${object}');
+                        print(' >>>>>>>> ${object??''}');
 
                         setState(() {
                           show_oc_text = onValue;

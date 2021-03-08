@@ -21,6 +21,7 @@ class _MaterialPage23 extends State<MaterialPage2> {
   };
   String segmentedControlValue = '';
   final _nameFocusNode = FocusNode();
+
   @override
   void initState() {
     super.initState();
@@ -160,7 +161,7 @@ class _MaterialPage23 extends State<MaterialPage2> {
                           },
 
                           onSaved: (value) {
-                            debugPrint('保存密码 ' + value);
+                            debugPrint('保存密码 $value');
                           },
 
                           ///输入文本的样式
@@ -175,7 +176,7 @@ class _MaterialPage23 extends State<MaterialPage2> {
                           ],
 
                           validator: (value) {
-                            if (value.length < 6) {
+                            if (value!.length < 6) {
                               return '输入6位密码';
                             }
                             return null;
@@ -384,10 +385,11 @@ class _MaterialPage23 extends State<MaterialPage2> {
 }
 
 class Net {
-  Net Function(String value) _successCall;
-  String successResult;
+  Function(String value)? _successCall;
 
-  Function(String value) _failureCall;
+  String successResult = '';
+
+  Function(String value)? _failureCall;
 
   Net.post(String value) {
     if (value == '1') {
@@ -396,13 +398,13 @@ class Net {
       Future.delayed(Duration(seconds: 1), () {
         successResult = '成功2';
         if (_successCall != null && successResult != null) {
-          _successCall(successResult);
+          _successCall!(successResult);
         }
       });
     } else {
       Future.delayed(Duration(seconds: 1), () {
         if (_failureCall != null) {
-          _failureCall('失败');
+          _failureCall!('失败');
         }
       });
     }
@@ -410,10 +412,10 @@ class Net {
 
 //  Future<R> then<R>(FutureOr<R> onValue(T value), {Function? onError});
 //  Net success(Function(String value) ) {
-  Net success(call(String value)) {
+  Net success(call(String value)?) {
     _successCall = call;
     if (_successCall != null && successResult != null) {
-      _successCall(successResult);
+      _successCall!(successResult);
     }
     return this;
   }

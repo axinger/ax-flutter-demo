@@ -30,7 +30,7 @@ class _MaterialPage1 extends State<P04MaterialPageDialog>
 
   List _isExpandedList = [false, false];
 
-  AnimationController _animationController;
+  AnimationController? _animationController;
 
   @override
   void initState() {
@@ -253,7 +253,7 @@ class _MaterialPage1 extends State<P04MaterialPageDialog>
             }),
 
             _flatButton("会消失的", () {
-              _scaffoldKey.currentState.showSnackBar(
+              _scaffoldKey.currentState?.showSnackBar(
                 SnackBar(
                   content: Text('Are you talkin\' to me?'),
                   duration: Duration(seconds: 2),
@@ -332,11 +332,11 @@ class _MaterialPage1 extends State<P04MaterialPageDialog>
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 RaisedButton(
-                  onPressed: () => _animationController.forward(),
+                  onPressed: () => _animationController?.forward(),
                   child: Text('Forward'),
                 ),
                 RaisedButton(
-                  onPressed: () => _animationController.reverse(),
+                  onPressed: () => _animationController?.reverse(),
                   child: Text('Reverse'),
                 ),
               ],
@@ -347,8 +347,8 @@ class _MaterialPage1 extends State<P04MaterialPageDialog>
             CupertinoFullscreenDialogTransition(
 //              animation: _animationController,
               linearTransition: false,
-              primaryRouteAnimation: _animationController,
-              secondaryRouteAnimation: _animationController,
+              primaryRouteAnimation: _animationController!,
+              secondaryRouteAnimation: _animationController!,
               child: Container(
                 color: Colors.orange,
                 height: 300,
@@ -389,7 +389,7 @@ class _ShowSnackBar extends StatelessWidget {
 class AlertDialogWidget extends StatelessWidget {
   final Widget child;
 
-  const AlertDialogWidget({this.child});
+  const AlertDialogWidget({required this.child});
 
   @override
   Widget build(BuildContext context) {

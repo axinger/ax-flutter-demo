@@ -71,7 +71,7 @@ class SearchBarDelegate extends SearchDelegate<String> {
           icon: AnimatedIcons.menu_arrow, progress: transitionAnimation),
       onPressed: () {
         if (query.isEmpty) {
-          close(context, null);
+          close(context, '');
         } else {
           /// 清空搜索文字
           query = "";
@@ -173,10 +173,10 @@ class _SearchItemViewState extends State<SearchItemView> {
 }
 
 class SearchItem extends StatefulWidget {
-  @required
+
   final String title;
 
-  const SearchItem({Key key, this.title}) : super(key: key);
+  const SearchItem({Key? key, required this.title}) : super(key: key);
 
   @override
   _SearchItemState createState() => _SearchItemState();

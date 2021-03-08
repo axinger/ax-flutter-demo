@@ -41,10 +41,10 @@ class _MyApp extends State<AxApp> with WidgetsBindingObserver {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addObserver(this);
+    WidgetsBinding.instance?.addObserver(this);
 
     /// build完成
-    WidgetsBinding.instance.addPostFrameCallback((callback) {
+    WidgetsBinding.instance?.addPostFrameCallback((callback) {
 //      _overlayEntry();
       if (mounted) {
         _overlayEntry();
@@ -132,9 +132,10 @@ class _MyApp extends State<AxApp> with WidgetsBindingObserver {
         const BasicMessageChannel('Android_back', StringCodec());
 
 //接受并回复消息
+
     basicMessageChannel.setMessageHandler(
-      (String message) => Future<String>(() {
-        print('收到消息===============');
+      (String? message) => Future<String>(() {
+        // print('收到消息===============');
 
 //        setState(() {
 //          this.message = message;
@@ -204,9 +205,9 @@ class _MyApp extends State<AxApp> with WidgetsBindingObserver {
         builder: (BuildContext context) {
           return ValueListenableBuilder(
             valueListenable: offsetNotifier,
-            builder: (BuildContext context, Offset value, Widget child) {
+            builder: (BuildContext? context, Offset? value, Widget? child) {
               return Positioned(
-                top: value.dy > 0 ? value.dy : 0,
+                top: value!.dy > 0 ? value.dy : 0,
                 left: value.dx > 0 ? value.dx : 0,
                 child: Draggable(
                     //创建可以被拖动的Widget
@@ -482,22 +483,22 @@ class _MyApp extends State<AxApp> with WidgetsBindingObserver {
 
 class TestBoostNavigatorObserver extends NavigatorObserver {
   @override
-  void didPush(Route<dynamic> route, Route<dynamic> previousRoute) {
+  void didPush(Route<dynamic> route, Route<dynamic>? previousRoute) {
     print('flutterboost#didPush');
   }
 
   @override
-  void didPop(Route<dynamic> route, Route<dynamic> previousRoute) {
+  void didPop(Route<dynamic> route, Route<dynamic>? previousRoute) {
     print('flutterboost#didPop');
   }
 
   @override
-  void didRemove(Route<dynamic> route, Route<dynamic> previousRoute) {
+  void didRemove(Route<dynamic> route, Route<dynamic>? previousRoute) {
     print('flutterboost#didRemove');
   }
 
   @override
-  void didReplace({Route<dynamic> newRoute, Route<dynamic> oldRoute}) {
+  void didReplace({Route<dynamic>? newRoute, Route<dynamic>? oldRoute}) {
     print('flutterboost#didReplace');
   }
 }

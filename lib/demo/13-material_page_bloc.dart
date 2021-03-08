@@ -37,19 +37,19 @@ class ConterHome extends StatefulWidget {
 class _ConterHome extends State<ConterHome> {
   @override
   Widget build(BuildContext context) {
-    ConterBloc _conterBloc = MyInheritedWidget.of(context).bloc;
+    ConterBloc? _conterBloc = MyInheritedWidget.of(context)?.bloc;
 
     return Center(
       child: StreamBuilder(
         initialData: 0,
-        stream: _conterBloc.stream,
+        stream: _conterBloc?.stream,
 
         /// 获得输出流
         builder: (context, snapshot) {
           return ActionChip(
             label: Text("${snapshot.data}"),
             onPressed: () {
-              _conterBloc.sink.add(1);
+              _conterBloc?.sink.add(1);
             },
           );
         },
@@ -68,13 +68,13 @@ class ButtomHome extends StatefulWidget {
 class _ButtomHome extends State<ButtomHome> {
   @override
   Widget build(BuildContext context) {
-    ConterBloc bloc = MyInheritedWidget.of(context).bloc;
+    ConterBloc? bloc = MyInheritedWidget.of(context)?.bloc;
 
     return FloatingActionButton(
       child: Icon(Icons.add),
       onPressed: () {
 //        bloc.log();
-        bloc.sink.add(1);
+        bloc?.sink.add(1);
       },
     );
   }
@@ -85,12 +85,12 @@ class MyInheritedWidget extends InheritedWidget {
   final ConterBloc bloc;
 
   MyInheritedWidget({
-    Key key,
-    @required this.child,
-    @required this.bloc,
+    Key? key,
+    required this.child,
+    required this.bloc,
   }) : super(key: key, child: child);
 
-  static MyInheritedWidget of(BuildContext context) {
+  static MyInheritedWidget? of(BuildContext context) {
 //    return context.inheritFromWidgetOfExactType(MyInheritedWidget);
 
     return context.dependOnInheritedWidgetOfExactType<MyInheritedWidget>();
@@ -116,12 +116,12 @@ class ConterBloc {
   int _count = 0;
 
   /// 这个为了传出 值 输出（stream）
-  final StreamController _countStreamController = StreamController<int>();
+  final StreamController<int> _countStreamController = StreamController<int>();
 
   Stream<int> get stream => _countStreamController.stream;
 
   ///这个是为了接收值 输入（Sink）
-  final StreamController _streamController = StreamController<int>();
+  final StreamController<int> _streamController = StreamController<int>();
 
   StreamSink<int> get sink => _streamController.sink;
 

@@ -3,7 +3,7 @@ class AxJsonKey {
   final String ignore;
 
   const AxJsonKey({
-    this.name,
-    this.ignore,
+    this.name='',
+    this.ignore='',
   });
 }

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ConverseListHeader extends StatelessWidget {
   ConverseListHeader({this.onPressed});
 
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
   ///get 方法, 不需要() 格式
   String get showText => "当前登录";

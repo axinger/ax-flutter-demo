@@ -7,7 +7,7 @@ S localText(context) {
 }
 
 S get localString {
-  return S.of(navigatorStateKey.currentContext);
+  return S.of(navigatorStateKey.currentContext!);
 }
 
 class NavKey {

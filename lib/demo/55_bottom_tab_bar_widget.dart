@@ -8,6 +8,7 @@ class P55BottomTabBarWidget extends StatefulWidget {
 class _BottomTabBarWidgetState extends State<P55BottomTabBarWidget> {
   // 默认选中
   int selectedIndex = 0;
+
   // 页面数组
 
   @override
@@ -52,8 +53,13 @@ class _BottomTabBarWidgetState extends State<P55BottomTabBarWidget> {
     );
   }
 
-  buildTabBarItem(int currentIndex, int flagIndex,
-      {Widget selectedIcon, Widget icon, String title}) {
+  buildTabBarItem(
+    int currentIndex,
+    int flagIndex, {
+    Widget? selectedIcon,
+    Widget? icon,
+    String? title,
+  }) {
     // 文本状态
     TextStyle textStyle = TextStyle(color: Colors.grey, fontSize: 13);
 
@@ -63,7 +69,7 @@ class _BottomTabBarWidgetState extends State<P55BottomTabBarWidget> {
 
       if (currentIndex == flagIndex) {
         textStyle = TextStyle(color: Colors.blue);
-        rsIcon = selectedIcon;
+        rsIcon = selectedIcon!;
       }
 
       tabBarItem = GestureDetector(

@@ -11,13 +11,13 @@ class UserRepository {
   final String password;
 
   UserRepository({
-    this.username,
-    this.password,
+    this.username='',
+    this.password='',
   });
 
   Future<String> authenticate({
-    @required String username,
-    @required String password,
+    required String username,
+    required String password,
   }) async {
     await Future.delayed(Duration(seconds: 1));
     return 'token';

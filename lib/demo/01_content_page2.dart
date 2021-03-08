@@ -17,15 +17,15 @@ class P01ContentPage2 extends StatefulWidget {
 
 class _MyPage extends State<P01ContentPage2>
     with SingleTickerProviderStateMixin, RouteAware {
-  AnimationController _animationController;
-  Animation _animation;
+  AnimationController? _animationController;
+  Animation? _animation;
 
   /// Flutter里的viewWillAppear
   /// 2.重写didChangeDependencies方法加入监听
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    routeObserver.subscribe(this, ModalRoute.of(context));
+    // routeObserver.subscribe(this, (ModalRoute.of(context))!);
   }
 
   /// 3.在页面dispose时销毁监听
@@ -71,10 +71,10 @@ class _MyPage extends State<P01ContentPage2>
         AnimationController(duration: Duration(seconds: 2), vsync: this);
 
     _animation = ColorTween(begin: Colors.red, end: Colors.blue)
-        .animate(_animationController);
+        .animate(_animationController!);
 
     //开始动画
-    _animationController.forward();
+    _animationController?.forward();
   }
 
   @override

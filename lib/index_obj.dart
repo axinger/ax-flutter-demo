@@ -7,7 +7,7 @@
 //
 
 extension SafeObject<E> on Object {
-  E safeElementAt(index) {
+  E? safeElementAt(index) {
     if (this.runtimeType == List) {
       if ((this as List).length > index) {
         return (this as List).elementAt(index);

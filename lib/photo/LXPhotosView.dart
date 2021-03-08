@@ -6,27 +6,32 @@ import 'LXScrollPhotosView.dart';
 class LXPhotosView extends StatefulWidget {
   //数据资源
   final List<LXPhotosData> list;
+
   //主轴间距
   final double mainAxisPaddingSize;
+
   //交叉轴间距
   final double crossAxisPaddingSize;
+
   // 圆角大小(默认没有圆角)
   final double radiusSize;
+
   //交叉轴个数 (默认值 根据九宫格个数决定)
   final int currentCrossAxisCount;
+
   //背景颜色
   final Color bgColor;
 
   ///构造方法
-  LXPhotosView(
-      {Key key,
-      @required this.list,
-      this.mainAxisPaddingSize = 5,
-      this.crossAxisPaddingSize = 5,
-      this.radiusSize = 0.0,
-      this.bgColor = Colors.white,
-      int currentCrossAxisCount})
-      : this.currentCrossAxisCount =
+  LXPhotosView({
+    Key? key,
+    required this.list,
+    this.mainAxisPaddingSize = 5,
+    this.crossAxisPaddingSize = 5,
+    this.radiusSize = 0.0,
+    this.bgColor = Colors.white,
+    int currentCrossAxisCount = 0,
+  })  : this.currentCrossAxisCount =
             currentCrossAxisCount ?? (list.length == 4 ? 2 : 3),
         super(key: key);
 

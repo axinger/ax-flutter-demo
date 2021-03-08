@@ -326,7 +326,7 @@ class _formTF extends StatelessWidget {
   TextEditingController phoneTextEditingController = TextEditingController();
   var loginFomKey = GlobalKey<FormState>();
 
-  String username, password;
+  String username='', password='';
 
   @override
   Widget build(BuildContext context) {
@@ -351,7 +351,7 @@ class _formTF extends StatelessWidget {
             onEditingComplete: () {},
 
             onSaved: (value) {
-              username = value;
+              username = value!;
             },
 
 //            maxLength: 11,
@@ -428,7 +428,7 @@ class _formTF extends StatelessWidget {
             onEditingComplete: () {},
 
             onSaved: (value) {
-              debugPrint("保存密码 " + value);
+              debugPrint("保存密码 " + value!);
               password = value;
             },
 
@@ -475,7 +475,6 @@ class _formTF extends StatelessWidget {
               onPressed: () {
                 print("是否空 ${phoneTextEditingController.value.text.isEmpty}");
 
-                this.loginFomKey.currentState.save();
                 debugPrint("账号: $username  密码: $password");
               },
             ),

@@ -13,19 +13,20 @@ class P25MoreListViewPage extends StatefulWidget {
 class _State extends State<P25MoreListViewPage> {
   GlobalKey rootWidgetKey = GlobalKey();
 
-  List<Uint8List> images = List();
+  List<Uint8List> images = <Uint8List>[];
 
   _capturePng() async {
     try {
-      RenderRepaintBoundary boundary =
-          rootWidgetKey.currentContext.findRenderObject();
+      var boundary = rootWidgetKey.currentContext?.findRenderObject();
 
       /// 设备分辨率
       double pixelRatio = window.devicePixelRatio;
-      var image = await boundary.toImage(pixelRatio: pixelRatio);
+      var image = await (boundary as RenderRepaintBoundary)
+          .toImage(pixelRatio: pixelRatio);
 
       /// png格式
-      ByteData byteData = await image.toByteData(format: ImageByteFormat.png);
+      ByteData byteData =
+          (await image.toByteData(format: ImageByteFormat.png))!;
       Uint8List pngBytes = byteData.buffer.asUint8List();
 
 //      bool result = await ImageGallerySaver.saveImage(pngBytes); //这个是核心的保存图片的插件
@@ -186,8 +187,11 @@ class _State extends State<P25MoreListViewPage> {
     return "1";
   }
 
-  Container _container(
-      {@required title, @required List<dynamic> data, int type}) {
+  Container _container({
+    required title,
+    required List<dynamic> data,
+    int type = 0,
+  }) {
     return Container(
       margin: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
       padding: EdgeInsets.only(left: 10, right: 10),
@@ -254,12 +258,12 @@ class _State extends State<P25MoreListViewPage> {
   illegalInfoCell(IllegalInfoDto element) {
     return Column(
       children: <Widget>[
-        cellRow(title: "违法编号", value: element?.violationCode),
-        cellRow(title: "违法时间", value: element?.lossTime),
-        cellRow(title: "违法类型", value: element?.peccancySort),
-        cellRow(title: "违法类型简称", value: element?.remark),
-        cellRow(title: "决定书编号", value: element?.decisionCode),
-        cellRow(title: "行政区域代码", value: element?.administrationArea),
+        cellRow(title: "违法编号", value: element?.violationCode ?? ''),
+        cellRow(title: "违法时间", value: element?.lossTime ?? ''),
+        cellRow(title: "违法类型", value: element?.peccancySort ?? ''),
+        cellRow(title: "违法类型简称", value: element?.remark ?? ''),
+        cellRow(title: "决定书编号", value: element?.decisionCode ?? ''),
+        cellRow(title: "行政区域代码", value: element?.administrationArea ?? ''),
       ],
     );
   }
@@ -267,26 +271,30 @@ class _State extends State<P25MoreListViewPage> {
   hisClaimDtoCell(HisClaimDto element) {
     return Column(
       children: <Widget>[
-        cellRow(title: "保险公司", value: element?.payCompany),
-        cellRow(title: "保单号", value: element?.policyNo),
-        cellRow(title: "保险起期", value: element?.startDate),
-        cellRow(title: "保险止期", value: element?.endDate),
-        cellRow(title: "出险时间", value: element?.lossTime),
-        cellRow(title: "结案时间", value: element?.endCaseTime),
+        cellRow(title: "保险公司", value: element?.payCompany ?? ''),
+        cellRow(title: "保单号", value: element?.policyNo ?? ''),
+        cellRow(title: "保险起期", value: element?.startDate ?? ''),
+        cellRow(title: "保险止期", value: element?.endDate ?? ''),
+        cellRow(title: "出险时间", value: element?.lossTime ?? ''),
+        cellRow(title: "结案时间", value: element?.endCaseTime ?? ''),
         cellRow(
             title: "赔付金额",
             value: (element?.lossFee != null && element.lossFee.isNotEmpty)
                 ? '¥${element?.lossFee}'
                 : '',
             color: Colors.orange),
-        cellRow(title: "是否死亡", value: element?.accidentDeathStr),
-        cellRow(title: "理赔类型", value: element?.claimTypeStr),
-        cellRow(title: "保单归属地", value: element?.insurerArea)
+        cellRow(title: "是否死亡", value: element?.accidentDeathStr ?? ''),
+        cellRow(title: "理赔类型", value: element?.claimTypeStr ?? ''),
+        cellRow(title: "保单归属地", value: element?.insurerArea ?? '')
       ],
     );
   }
 
-  cellRow({String title, String value, Color color}) {
+  cellRow({
+    String title = '',
+    String value = '',
+    Color color = Colors.transparent,
+  }) {
     return Container(
       padding: EdgeInsets.only(
         top: 10,
@@ -320,35 +328,36 @@ class _ItemModel {
   dynamic value;
   bool isPlaceholder;
 
-  _ItemModel({this.title, this.value, this.isPlaceholder = false});
+  _ItemModel({this.title = '', this.value, this.isPlaceholder = false});
 }
 
 class IllegalInfoDto {
-  String administrationArea;
-  String decisionCode;
-  String lossAction;
-  String lossTime;
-  String peccancySort;
-  String remark;
-  String violationCode;
+  String administrationArea = '';
+  String decisionCode = '';
+  String lossAction = '';
+  String lossTime = '';
+  String peccancySort = '';
+  String remark = '';
+  String violationCode = '';
 
-  IllegalInfoDto(
-      {this.administrationArea,
-      this.decisionCode,
-      this.lossAction,
-      this.lossTime,
-      this.peccancySort,
-      this.remark,
-      this.violationCode});
+  IllegalInfoDto({
+    this.administrationArea = '',
+    this.decisionCode = '',
+    this.lossAction = '',
+    this.lossTime = '',
+    this.peccancySort = '',
+    this.remark = '',
+    this.violationCode = '',
+  });
 
   IllegalInfoDto.fromJson(Map<String, dynamic> json) {
-    administrationArea = json['administrationArea'];
-    decisionCode = json['decisionCode'];
-    lossAction = json['lossAction'];
-    lossTime = json['lossTime'];
-    peccancySort = json['peccancySort'];
-    remark = json['remark'];
-    violationCode = json['violationCode'];
+    administrationArea = json['administrationArea'] ?? '';
+    decisionCode = json['decisionCode'] ?? '';
+    lossAction = json['lossAction'] ?? '';
+    lossTime = json['lossTime'] ?? '';
+    peccancySort = json['peccancySort'] ?? '';
+    remark = json['remark'] ?? '';
+    violationCode = json['violationCode'] ?? '';
   }
 
   Map<String, dynamic> toJson() {
@@ -366,20 +375,20 @@ class IllegalInfoDto {
 
 class HisClaimDto {
   ///是否发生交通死亡事故 1-是　0-否
-  String accidentDeath;
-  String areaCode;
-  String claimType;
-  String endCaseTime;
-  String endDate;
-  String insurerArea;
+  String accidentDeath = '';
+  String areaCode = '';
+  String claimType = '';
+  String endCaseTime = '';
+  String endDate = '';
+  String insurerArea = '';
 
   ///险别代码（0501商业险；0590交强险）
-  String kindCode;
-  String lossFee;
-  String lossTime;
-  String payCompany;
-  String policyNo;
-  String startDate;
+  String kindCode = '';
+  String lossFee = '';
+  String lossTime = '';
+  String payCompany = '';
+  String policyNo = '';
+  String startDate = '';
 
   String get accidentDeathStr {
     if (accidentDeath == '1') {
@@ -410,19 +419,20 @@ class HisClaimDto {
     }
   }
 
-  HisClaimDto(
-      {this.accidentDeath,
-      this.areaCode,
-      this.claimType,
-      this.endCaseTime,
-      this.endDate,
-      this.insurerArea,
-      this.kindCode,
-      this.lossFee,
-      this.lossTime,
-      this.payCompany,
-      this.policyNo,
-      this.startDate});
+  HisClaimDto({
+    this.accidentDeath = '',
+    this.areaCode = '',
+    this.claimType = '',
+    this.endCaseTime = '',
+    this.endDate = '',
+    this.insurerArea = '',
+    this.kindCode = '',
+    this.lossFee = '',
+    this.lossTime = '',
+    this.payCompany = '',
+    this.policyNo = '',
+    this.startDate = '',
+  });
 
   HisClaimDto.fromJson(Map<String, dynamic> json) {
     accidentDeath = json['accidentDeath'];

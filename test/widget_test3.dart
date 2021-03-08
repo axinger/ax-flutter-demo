@@ -1,7 +1,7 @@
-import 'package:rxdart/rxdart.dart';
+
 
 class Person {
-  final String name;
+  final String? name;
 
   Person({this.name}) {
     print('Person 构造函数');
@@ -37,7 +37,7 @@ mixin Code {
 }
 
 class Student extends Person with Dance, Sing {
-  final String name2;
+  final String? name2;
 
   // 需要重写构造函数,赋值给父类
   // 子类不会自动调用父类构造函数
@@ -58,9 +58,10 @@ class Student extends Person with Dance, Sing {
 class Teacher extends Person with Sing, Code {}
 
 void main() {
-  Student student = Student(name2: 'food');
-  student.dance('jim');
+  // Student student = Student(name2: 'food');
+  Student? student;
+  student?.dance('jim');
 
-  student.eat();
-  student.eat2();
+  // student.eat();
+  // student.eat2();
 }

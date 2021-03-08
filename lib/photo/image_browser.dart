@@ -13,7 +13,7 @@
 //
 //  final List<ImageBrowserItem> imageList;
 //  final int index;
-//  ImageBrowser({@required this.imageList,this.index=0});
+//  ImageBrowser({required this.imageList,this.index=0});
 //
 //  @override
 //  _ImageBrowserState createState() => _ImageBrowserState();

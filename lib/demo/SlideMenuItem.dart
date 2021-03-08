@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 
 class SlideMenuItem extends StatelessWidget {
   SlideMenuItem({
-    Key key,
-    @required this.child,
+    Key? key,
+    required this.child,
     this.alignment,
     this.padding,
-    Color color,
-    Decoration decoration,
+    Color? color,
+    Decoration? decoration,
     this.foregroundDecoration,
     this.height,
-    BoxConstraints constraints,
+    BoxConstraints? constraints,
     this.margin,
     this.transform,
-    @required this.onTap,
+    required this.onTap,
   })  : assert(child != null),
         assert(margin == null || margin.isNonNegative),
         assert(padding == null || padding.isNonNegative),
@@ -31,16 +31,16 @@ class SlideMenuItem extends StatelessWidget {
             : constraints,
         super(key: key);
 
-  final BoxConstraints constraints;
-  final Decoration decoration;
-  final AlignmentGeometry alignment;
-  final EdgeInsets padding;
-  final Decoration foregroundDecoration;
-  final EdgeInsets margin;
-  final Matrix4 transform;
-  final Widget child;
-  final double height;
-  final GestureTapCallback onTap;
+  final BoxConstraints? constraints;
+  final Decoration? decoration;
+  final AlignmentGeometry? alignment;
+  final EdgeInsets? padding;
+  final Decoration? foregroundDecoration;
+  final EdgeInsets? margin;
+  final Matrix4? transform;
+  final Widget? child;
+  final double? height;
+  final GestureTapCallback? onTap;
 
   @override
   Widget build(BuildContext context) {

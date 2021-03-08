@@ -9,6 +9,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import '../global_const.dart';
+
 class P01ContentPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -16,16 +17,16 @@ class P01ContentPage extends StatefulWidget {
   }
 }
 
-class _MyPage extends State<P01ContentPage> with SingleTickerProviderStateMixin , RouteAware {
-
-
+class _MyPage extends State<P01ContentPage>
+    with SingleTickerProviderStateMixin, RouteAware {
   /// Flutter里的viewWillAppear
   /// 2.重写didChangeDependencies方法加入监听
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    routeObserver.subscribe(this, ModalRoute.of(context));
+    // routeObserver.subscribe(this, ModalRoute.of(context));
   }
+
   /// 3.在页面dispose时销毁监听
   @override
   void dispose() {
@@ -33,27 +34,30 @@ class _MyPage extends State<P01ContentPage> with SingleTickerProviderStateMixin 
     super.dispose();
     _streamController?.close();
   }
+
   /// 当Push到该页面时：
   @override
   void didPush() {
     print('didPush');
   }
+
   ///当Pop到该页面时：
   @override
   void didPopNext() {
     print('didPopNext');
   }
+
   /// 当该页面Push到其他页面时：
   @override
   void didPushNext() {
     print('didPushNext');
   }
+
   /// 当该页面被Pop时：
   @override
   void didPop() {
     print('didPop');
   }
-
 
   /// 悬浮按钮
   final _floatingActionButton = FloatingActionButton(
@@ -71,7 +75,7 @@ class _MyPage extends State<P01ContentPage> with SingleTickerProviderStateMixin 
   bool isOffstage = false;
   bool isVisibility = false;
   bool isBack = true;
-  TabController tabController;
+  TabController? tabController;
 
   Visibility abv = Visibility(
     visible: true,
@@ -93,47 +97,47 @@ class _MyPage extends State<P01ContentPage> with SingleTickerProviderStateMixin 
 
     super.initState();
     tabController = TabController(length: 10, vsync: this);
-    tabController.addListener(() {
-      if (tabController.index == tabController.animation.value) {
-        print('tabController.index = ${tabController.index}');
+    tabController?.addListener(() {
+      if (tabController?.index == tabController?.animation?.value) {
+        print('tabController.index = ${tabController?.index}');
       }
     });
-    SchedulerBinding.instance.addPersistentFrameCallback((timeStamp) {});
-    WidgetsBinding.instance.addPersistentFrameCallback((timeStamp) {});
-    ServicesBinding.instance.addPersistentFrameCallback((timeStamp) {});
-    RendererBinding.instance.addPersistentFrameCallback((timeStamp) {});
+    SchedulerBinding.instance?.addPersistentFrameCallback((timeStamp) {});
+    WidgetsBinding.instance?.addPersistentFrameCallback((timeStamp) {});
+    ServicesBinding.instance?.addPersistentFrameCallback((timeStamp) {});
+    RendererBinding.instance?.addPersistentFrameCallback((timeStamp) {});
 //    GestureBinding.instance
   }
 
-  _popupMenuItem(String title, {String imagePath, IconData icon}) {
-    return PopupMenuItem(
-      child: Row(
-        children: <Widget>[
-          imagePath != null
-              ? Image.asset(
-                  imagePath,
-                  width: 30.0,
-                  height: 30.0,
-                )
-              : SizedBox(
-                  width: 30.0,
-                  height: 30.0,
-                  child: Icon(
-                    icon,
-                    color: Colors.white,
-                  ),
-                ),
-          Container(
-            padding: const EdgeInsets.only(left: 15.0),
-            child: Text(
-              title,
-              style: TextStyle(color: Colors.white),
-            ),
-          )
-        ],
-      ),
-    );
-  }
+  // _popupMenuItem(String title, {String imagePath='', IconData icon}) {
+  //   return PopupMenuItem(
+  //     child: Row(
+  //       children: <Widget>[
+  //         imagePath != null
+  //             ? Image.asset(
+  //                 imagePath,
+  //                 width: 30.0,
+  //                 height: 30.0,
+  //               )
+  //             : SizedBox(
+  //                 width: 30.0,
+  //                 height: 30.0,
+  //                 child: Icon(
+  //                   icon,
+  //                   color: Colors.white,
+  //                 ),
+  //               ),
+  //         Container(
+  //           padding: const EdgeInsets.only(left: 15.0),
+  //           child: Text(
+  //             title,
+  //             style: TextStyle(color: Colors.white),
+  //           ),
+  //         )
+  //       ],
+  //     ),
+  //   );
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -841,7 +845,7 @@ class _MyPage extends State<P01ContentPage> with SingleTickerProviderStateMixin 
               ),
               ValueListenableBuilder<bool>(
                 valueListenable: isAbsorbPointer,
-                builder: (BuildContext context, value, Widget child) {
+                builder: (BuildContext context, value, Widget? child) {
                   return AbsorbPointer(
                     absorbing: value,
                     child: FlatButton(
@@ -1128,7 +1132,7 @@ class _MyPage extends State<P01ContentPage> with SingleTickerProviderStateMixin 
   }
 
   _selectDateFunc() async {
-    DateTime dateTime = await showDatePicker(
+    DateTime? dateTime = await showDatePicker(
         context: context,
 //      firstDate: DateTime(1900),
         /// 小于当前时间不选择
@@ -1145,7 +1149,7 @@ class _MyPage extends State<P01ContentPage> with SingleTickerProviderStateMixin 
         builder: (context, child) {
           return Theme(
             data: ThemeData.dark(),
-            child: child,
+            child: child?? Container(),
           );
         }
 //      selectableDayPredicate: (date) {
@@ -1164,10 +1168,10 @@ class _MyPage extends State<P01ContentPage> with SingleTickerProviderStateMixin 
   }
 
   _selectTimeFunc() async {
-    TimeOfDay timeOfDay = await showTimePicker(
+    TimeOfDay? timeOfDay = await showTimePicker(
       context: context,
       initialTime: TimeOfDay.now(),
-      builder: (BuildContext context, Widget child) {
+      builder: (BuildContext context, Widget? child) {
         /// 使用24小时
 //        return MediaQuery(
 //          data: MediaQuery.of(context)
@@ -1179,7 +1183,7 @@ class _MyPage extends State<P01ContentPage> with SingleTickerProviderStateMixin 
           data: ThemeData.dark(),
           child: MediaQuery(
             data: MediaQuery.of(context).copyWith(alwaysUse24HourFormat: true),
-            child: child,
+            child: child?? Container(),
           ),
         );
       },

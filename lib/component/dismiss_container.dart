@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 class DismissContainer extends StatelessWidget {
   final Widget child;
 
-  DismissContainer({this.child});
+  DismissContainer({required this.child});
 
   @override
   Widget build(BuildContext context) {

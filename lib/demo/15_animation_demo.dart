@@ -10,13 +10,13 @@ class P15AnimationDemo extends StatefulWidget {
 
 class _MaterialPage1 extends State<P15AnimationDemo>
     with TickerProviderStateMixin {
-  AnimationController _animationController;
+  AnimationController? _animationController;
 
-  Animation _animation;
+  Animation? _animation;
 
-  Animation _animationColor;
+  Animation? _animationColor;
 
-  CurvedAnimation _curvedAnimation;
+  CurvedAnimation? _curvedAnimation;
 
   /// 曲线动画 忽大忽小的感觉那种
 
@@ -38,12 +38,12 @@ class _MaterialPage1 extends State<P15AnimationDemo>
       /// 是否消耗其他资源
       vsync: this,
     );
-    _animationController.addListener(() {
+    _animationController?.addListener(() {
 //      print("_animationController = ${_animationController.value}");
       setState(() {});
     });
 
-    _animationController.addStatusListener((AnimationStatus status) {
+    _animationController?.addStatusListener((AnimationStatus status) {
       print("_animationController.status = ${status}");
 //      setState(() {
 //
@@ -52,7 +52,7 @@ class _MaterialPage1 extends State<P15AnimationDemo>
 
     /// 曲线动画
     _curvedAnimation = CurvedAnimation(
-      parent: _animationController,
+      parent: _animationController!,
       curve: Curves.bounceOut,
     );
 
@@ -72,20 +72,20 @@ class _MaterialPage1 extends State<P15AnimationDemo>
     _animation = Tween<double>(
       begin: 20,
       end: 100,
-    ).animate(_curvedAnimation);
+    ).animate(_curvedAnimation!);
 
     _animationColor = ColorTween(
       begin: Colors.red[50],
 //      end: Colors.red[900],
       end: Colors.red[900],
-    ).animate(_curvedAnimation);
+    ).animate(_curvedAnimation!);
   }
 
   @override
   void dispose() {
     // TODO: implement dispose
     super.dispose();
-    _animationController.dispose();
+    _animationController?.dispose();
   }
 
   @override
@@ -98,10 +98,10 @@ class _MaterialPage1 extends State<P15AnimationDemo>
         children: [
           AnimationHeader(
             animatedList: [
-              _animation,
-              _animationColor,
+              _animation!,
+              _animationColor!,
             ],
-            animationController: _animationController,
+            animationController: _animationController!,
           ),
           Divider(
             color: Colors.red,
@@ -117,7 +117,7 @@ class AnimationHeader extends AnimatedWidget {
   final List<Animation> animatedList;
   final AnimationController animationController;
 
-  AnimationHeader({this.animatedList, this.animationController})
+  AnimationHeader({required this.animatedList,required this.animationController})
       : super(listenable: animationController);
 
   @override
@@ -156,8 +156,8 @@ class AnimationDemo extends StatefulWidget {
 
 class _AnimationDemo extends State<AnimationDemo>
     with SingleTickerProviderStateMixin {
-  AnimationController _animationController;
-  Animation _animation;
+  AnimationController? _animationController;
+  Animation<Color?>? _animation;
 
   @override
   void initState() {
@@ -165,12 +165,12 @@ class _AnimationDemo extends State<AnimationDemo>
         AnimationController(duration: Duration(seconds: 2), vsync: this);
 
     _animation = ColorTween(begin: Colors.red, end: Colors.blue)
-        .animate(_animationController);
+        .animate(_animationController!);
 
-    _animationController.addListener(() {
-      if (_animationController.isCompleted) {
+    _animationController?.addListener(() {
+      if (_animationController!.isCompleted) {
         print('动画完成');
-        _animationController.animateBack(0.0);
+        _animationController!.animateBack(0.0);
       }
     });
     super.initState();
@@ -183,7 +183,7 @@ class _AnimationDemo extends State<AnimationDemo>
         FlatButton(
             onPressed: () {
               //开始动画
-              _animationController.forward();
+              _animationController?.forward();
             },
             child: Text('点击变换颜色')),
         Container(
@@ -192,7 +192,7 @@ class _AnimationDemo extends State<AnimationDemo>
 
           /// 继承 AnimatedWidget
           child: AnimatedModalBarrier(
-            color: _animation,
+            color: _animation!,
           ),
         ),
       ],
@@ -201,7 +201,7 @@ class _AnimationDemo extends State<AnimationDemo>
 
   @override
   void dispose() {
-    _animationController.dispose();
+    _animationController?.dispose();
     super.dispose();
   }
 }

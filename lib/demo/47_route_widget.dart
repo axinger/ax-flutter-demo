@@ -9,8 +9,12 @@
 import 'package:flutter/material.dart';
 
 class P47RouteWidget extends StatefulWidget {
-  final Map map;
-  P47RouteWidget({this.map});
+  final Map? map;
+
+  P47RouteWidget({
+    this.map,
+  });
+
   @override
   _P47RouteWidgetState createState() => _P47RouteWidgetState();
 }

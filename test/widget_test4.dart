@@ -83,7 +83,7 @@ void main() {
   test1(order: OrderClassA());
   test1(order: OrderClassB());
 }
-void test1({Order order}){
+void test1({required Order order}){
   print('test1');
   order.order();
   print('runtimeType = ${order.runtimeType}');

@@ -21,8 +21,9 @@ class P50OnPopPage extends StatefulWidget {
 }
 
 class _P50OnPopPageState extends State<P50OnPopPage> {
-  Color _selectedColor;
+  Color _selectedColor = Colors.white;
   List<Color> _colors = [Colors.red, Colors.green, Colors.blue];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,6 +39,7 @@ class _P50OnPopPageState extends State<P50OnPopPage> {
               onTapped: (color) => setState(() => _selectedColor = color),
             ),
           ),
+          // ignore: unnecessary_null_comparison
           if (_selectedColor != null)
             MaterialPage(child: ColorScreen(color: _selectedColor)),
         ],
@@ -85,9 +87,13 @@ class _P50OnPopPageState extends State<P50OnPopPage> {
 }
 
 class ColorListScreen extends StatelessWidget {
-  final List<Color> colors;
-  final void Function(Color color) onTapped;
-  ColorListScreen({this.colors, this.onTapped});
+  final List<Color>? colors;
+  final void Function(Color color)? onTapped;
+
+  ColorListScreen({
+    this.colors,
+    this.onTapped,
+  });
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -95,11 +101,11 @@ class ColorListScreen extends StatelessWidget {
         body: Column(
           children: [
             // you can see and decide on every color in this list
-            for (final color in colors)
+            for (final color in colors!)
               Expanded(
                 child: GestureDetector(
                   child: Container(color: color),
-                  onTap: () => onTapped(color),
+                  onTap: () => onTapped!(color),
                 ),
               )
           ],
@@ -108,8 +114,9 @@ class ColorListScreen extends StatelessWidget {
 }
 
 class ColorScreen extends StatelessWidget {
-  final Color color;
-  const ColorScreen({this.color});
+  final Color? color;
+
+  const ColorScreen({this.color,});
 
   @override
   Widget build(BuildContext context) => Scaffold(

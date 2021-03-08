@@ -18,7 +18,7 @@ class _P14AllBuilderPageState extends State<P14AllBuilderPage> {
   StreamController<int> _streamController = StreamController<int>();
   int streamInt = 0;
 
-  BehaviorSubject<String> _behaviorSubject;
+  BehaviorSubject<String>? _behaviorSubject;
 
   Future demo1() async {
     await Future.delayed(Duration(seconds: 1));
@@ -96,7 +96,7 @@ class _P14AllBuilderPageState extends State<P14AllBuilderPage> {
               child: Column(
                 children: <Widget>[
                   ValueListenableBuilder<int>(
-                    builder: (BuildContext context, value, Widget child) {
+                    builder: (BuildContext context, value, Widget? child) {
                       // 只有在更新计数器时才会调用此生成器。
                       return Row(
                         ///  spaceEvenly 左右中分布
@@ -107,7 +107,9 @@ class _P14AllBuilderPageState extends State<P14AllBuilderPage> {
                             '$value',
                             style: TextStyle(backgroundColor: Colors.red),
                           ),
-                          child,
+                         if(child!=null) child,
+                          // child ?? Container(),
+
                         ],
                       );
                     },
@@ -138,7 +140,7 @@ class _P14AllBuilderPageState extends State<P14AllBuilderPage> {
                       builder:
                           (BuildContext context, AsyncSnapshot<int> snapshot) {
                         print('snapshot.data = ${snapshot?.data}');
-                        return Text(snapshot?.data.toString());
+                        return Text(snapshot?.data.toString() ??'');
                       }),
                   FlatButton(
                     child: Text('加1'),
@@ -184,7 +186,7 @@ class _P14AllBuilderPageState extends State<P14AllBuilderPage> {
                         print("被监听");
                       });
 
-                      _behaviorSubject.listen((data) {
+                      _behaviorSubject?.listen((data) {
                         debugPrint("BehaviorSubject = $data");
                       });
                     },
@@ -192,7 +194,7 @@ class _P14AllBuilderPageState extends State<P14AllBuilderPage> {
                   FlatButton(
                     child: Text('发送内容'),
                     onPressed: () {
-                      _behaviorSubject.add('jim');
+                      _behaviorSubject?.add('jim');
                     },
                   ),
                   FlatButton(
@@ -201,9 +203,9 @@ class _P14AllBuilderPageState extends State<P14AllBuilderPage> {
                       push(
                           context: context,
                           widget: _TestPage(
-                            behaviorSubject: _behaviorSubject,
+                            behaviorSubject: _behaviorSubject!,
                             callBack: (str) {
-                              _behaviorSubject.add('$str >> ');
+                              _behaviorSubject?.add('$str >> ');
                             },
                           ));
                     },
@@ -220,7 +222,7 @@ class _TestPage extends StatefulWidget {
   final BehaviorSubject<String> behaviorSubject;
   final Function(String str) callBack;
 
-  _TestPage({this.behaviorSubject, this.callBack});
+  _TestPage({required this.behaviorSubject,required this.callBack});
 
   @override
   __TestPageState createState() => __TestPageState();
@@ -252,7 +254,7 @@ class __TestPageState extends State<_TestPage> {
 //          initialData: streamInt,
               builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
                 print('snapshot.data = ${snapshot?.data}');
-                return Text(snapshot?.data.toString());
+                return Text(snapshot?.data.toString()??'');
               }),
           FlatButton(
             child: Text('callBack'),

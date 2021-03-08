@@ -11,11 +11,11 @@ class MaterialPageStream extends StatefulWidget {
 }
 
 class _MaterialPage1 extends State<MaterialPageStream> {
-  StreamSubscription _streamSubscription;
+  StreamSubscription? _streamSubscription;
 
-  StreamController<String> _streamController;
+  StreamController<String>? _streamController;
 
-  StreamSink _streamSink;
+  StreamSink? _streamSink;
 
   Future<String> futureData() async {
     await Future.delayed(Duration(seconds: 3));
@@ -27,13 +27,13 @@ class _MaterialPage1 extends State<MaterialPageStream> {
   _StreamController_futureData() async {
     await Future.delayed(Duration(seconds: 3));
 //    throw "stream 错误";
-    _streamController.add("_streamController 返回结果 ${Random().nextInt(100)}");
+    _streamController?.add("_streamController 返回结果 ${Random().nextInt(100)}");
   }
 
   String textData = "";
   String _streamControllerData = "_streamControllerData";
 
-  StreamController<String> _streamController2;
+  StreamController<String>? _streamController2;
 
   @override
   void initState() {
@@ -82,19 +82,19 @@ class _MaterialPage1 extends State<MaterialPageStream> {
                   FlatButton(
                     child: Text("取消监听,无重新监听"),
                     onPressed: () {
-                      _streamSubscription.cancel();
+                      _streamSubscription?.cancel();
                     },
                   ),
                   FlatButton(
                     child: Text("暂停监听"),
                     onPressed: () {
-                      _streamSubscription.pause();
+                      _streamSubscription?.pause();
                     },
                   ),
                   FlatButton(
                     child: Text("恢复监听"),
                     onPressed: () {
-                      _streamSubscription.resume();
+                      _streamSubscription?.resume();
                     },
                   ),
                 ],
@@ -114,7 +114,7 @@ class _MaterialPage1 extends State<MaterialPageStream> {
                     _streamController = StreamController<String>();
 
                     /// 只能订阅一次
-                    _streamController.stream.listen((data) {
+                    _streamController?.stream.listen((data) {
                       debugPrint("_streamControllerData = $data");
                       setState(() {
                         _streamControllerData = data;
@@ -131,14 +131,14 @@ class _MaterialPage1 extends State<MaterialPageStream> {
                   onPressed: () async {
                     await Future.delayed(Duration(seconds: 1));
 
-                    _streamController
-                        .add("_streamController 返回结果 ${Random().nextInt(100)}");
+                    _streamController?.add(
+                        "_streamController 返回结果 ${Random().nextInt(100)}");
                   },
                 ),
                 FlatButton(
                   child: Text("_streamController 关闭"),
                   onPressed: () {
-                    _streamController.close();
+                    _streamController?.close();
                   },
                 ),
                 Divider(
@@ -150,9 +150,9 @@ class _MaterialPage1 extends State<MaterialPageStream> {
                   child: Text("创建StreamController"),
                   onPressed: () {
                     _streamController = StreamController<String>();
-                    _streamSink = _streamController.sink;
+                    _streamSink = _streamController?.sink;
 
-                    _streamController.stream.listen((data) {
+                    _streamController?.stream.listen((data) {
                       debugPrint("_streamControllerData = $data");
                       setState(() {
                         _streamControllerData = data;
@@ -168,8 +168,8 @@ class _MaterialPage1 extends State<MaterialPageStream> {
                   child: Text("添加数据"),
                   onPressed: () async {
                     await Future.delayed(Duration(seconds: 1));
-                    _streamSink
-                        .add("_streamController 返回结果 ${Random().nextInt(100)}");
+                    _streamSink?.add(
+                        "_streamController 返回结果 ${Random().nextInt(100)}");
                   },
                 ),
                 Divider(
@@ -183,7 +183,7 @@ class _MaterialPage1 extends State<MaterialPageStream> {
                     /// 应该就是异步
                     _streamController = StreamController.broadcast();
 
-                    _streamController.stream.listen((data) {
+                    _streamController?.stream.listen((data) {
                       debugPrint("_streamControllerData订阅1 = $data");
                       setState(() {
                         _streamControllerData = data;
@@ -194,7 +194,7 @@ class _MaterialPage1 extends State<MaterialPageStream> {
                       debugPrint("StreamData = 完成了");
                     });
 
-                    _streamController.stream.listen((data) {
+                    _streamController?.stream.listen((data) {
                       debugPrint("_streamControllerData订阅2 = $data");
                       setState(() {
                         _streamControllerData = data;
@@ -211,10 +211,10 @@ class _MaterialPage1 extends State<MaterialPageStream> {
                   onPressed: () async {
                     await Future.delayed(Duration(seconds: 1));
 
-                    _streamController
-                        .add("_streamController 返回结果 ${Random().nextInt(100)}");
+                    _streamController?.add(
+                        "_streamController 返回结果 ${Random().nextInt(100)}");
 
-                    _streamController.stream.listen((data) {
+                    _streamController?.stream.listen((data) {
                       debugPrint("_streamControllerData订阅3 = $data");
                     }, onError: (error) {
                       debugPrint("StreamData = $error");
@@ -228,7 +228,7 @@ class _MaterialPage1 extends State<MaterialPageStream> {
                 ),
                 Text("StreamBuilder Text 根据值确定显示,就不用全局变量了"),
                 StreamBuilder(
-                  stream: _streamController2.stream,
+                  stream: _streamController2?.stream,
                   initialData: "初始值",
                   builder: (context, asyncSnapshot) {
                     return Text("${asyncSnapshot.data}");
@@ -239,8 +239,8 @@ class _MaterialPage1 extends State<MaterialPageStream> {
                   onPressed: () async {
                     await Future.delayed(Duration(seconds: 1));
 
-                    _streamController2
-                        .add("_streamController 返回结果 ${Random().nextInt(100)}");
+                    _streamController2?.add(
+                        "_streamController 返回结果 ${Random().nextInt(100)}");
                   },
                 ),
               ],

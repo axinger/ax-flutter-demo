@@ -1,6 +1,6 @@
 /// 单例
 class Manager {
-  String name;
+  String name = '';
 
   /// 工厂方法,一般不需要些,就强制调用 Manager.instance 表名是一个单例,代码规范
   factory Manager() => _getInstance;
@@ -8,7 +8,7 @@ class Manager {
   /// 单例方法
   static Manager get instance => _getInstance;
 
-  static Manager _instance;
+  static Manager _instance = Manager._init();
 
   Manager._init();
 
@@ -22,9 +22,9 @@ class Manager {
 
 /// 工厂方法,一般不需要些,就强制调用 .instance 表明是一个单例,代码规范
 class Person {
-  String name;
+  String name='';
 
-  static Person _instance;
+  static Person _instance = Person._init();
 
   Person._init();
 

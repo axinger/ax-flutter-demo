@@ -14,8 +14,8 @@ class P36TouchAuthDemoPage extends StatefulWidget {
 
 class _TouchAuthDemoState extends State<P36TouchAuthDemoPage> {
   final LocalAuthentication auth = LocalAuthentication();
-  bool _canCheckBiometrics;
-  List<BiometricType> _availableBiometrics;
+  bool _canCheckBiometrics = false;
+  List<BiometricType> _availableBiometrics = [];
   String _authorized = '无权限';
   bool _isAuthenticating = false;
 
@@ -58,7 +58,7 @@ class _TouchAuthDemoState extends State<P36TouchAuthDemoPage> {
   }
 
   Future<void> _checkBiometrics() async {
-    bool canCheckBiometrics;
+    bool canCheckBiometrics = false;
     try {
       canCheckBiometrics = await auth.canCheckBiometrics;
     } on PlatformException catch (e) {
@@ -79,7 +79,7 @@ class _TouchAuthDemoState extends State<P36TouchAuthDemoPage> {
   }
 
   Future<void> _getAvailableBiometrics() async {
-    List<BiometricType> availableBiometrics;
+    List<BiometricType> availableBiometrics = [];
     try {
       availableBiometrics = await auth.getAvailableBiometrics();
     } on PlatformException catch (e) {
@@ -110,9 +110,9 @@ class _TouchAuthDemoState extends State<P36TouchAuthDemoPage> {
         androidAuthStrings: AndroidAuthMessages(
             cancelButton: "取消",
             signInTitle: "安全验证",
-            fingerprintHint: "安全识别",
-            fingerprintNotRecognized: "未识别，请重试",
-            fingerprintSuccess: "识别成功"),
+            biometricHint: "安全识别",
+            biometricNotRecognized: "未识别，请重试",
+            biometricSuccess: "识别成功"),
         iOSAuthStrings:
             IOSAuthMessages(lockOut: "识别失败，请重试", cancelButton: "取消"),
       );

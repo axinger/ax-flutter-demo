@@ -18,7 +18,7 @@ class P47ImageBrowser extends StatefulWidget {
   final bool isShowSelect;
 
   /// 右上角 选择
-  final Function(int index, bool isSelected) selectCallback;
+  final Function(int index, bool isSelected)? selectCallback;
 
   /// 是否显示名称
   final bool isShowName;
@@ -27,10 +27,10 @@ class P47ImageBrowser extends StatefulWidget {
   final bool isShowRename;
 
   /// 重命名回调
-  final Function(int index, String name) renameCallback;
+  final Function(int index, String name)? renameCallback;
 
   P47ImageBrowser({
-    @required this.imageList,
+    required this.imageList,
     this.index = 0,
     this.isShowSelect = false,
     this.selectCallback,
@@ -56,7 +56,7 @@ class _SurveyTasksImageBrowserState extends State<P47ImageBrowser> {
   final _isEditNotifier = ValueNotifier<bool>(false);
   final _nameController = TextEditingController();
   final _nameFocusNode = FocusNode();
-  ImageFileInfo _currentInfo;
+  ImageFileInfo _currentInfo = ImageFileInfo();
 
   @override
   void initState() {
@@ -99,7 +99,7 @@ class _SurveyTasksImageBrowserState extends State<P47ImageBrowser> {
             appBar: AppBar(
               title: ValueListenableBuilder(
                 valueListenable: _titleNotifier,
-                builder: (BuildContext context, String value, Widget child) {
+                builder: (BuildContext context, String value, Widget? child) {
                   return Text(
                     value,
                     style: TextStyle(color: Colors.white),
@@ -171,13 +171,13 @@ class _SurveyTasksImageBrowserState extends State<P47ImageBrowser> {
             )
           : ValueListenableBuilder<bool>(
               valueListenable: _isSelectedNotifier,
-              builder: (BuildContext context, value, Widget child) {
+              builder: (BuildContext context, value, Widget? child) {
                 return IconButton(
                   onPressed: () {
                     _isSelectedNotifier.value = !_isSelectedNotifier.value;
                     _currentInfo.isSelected = !_currentInfo.isSelected;
                     if (widget.selectCallback != null) {
-                      widget.selectCallback(
+                      widget?.selectCallback!(
                           _currentIndex, _isSelectedNotifier.value);
                     }
                   },
@@ -200,7 +200,7 @@ class _SurveyTasksImageBrowserState extends State<P47ImageBrowser> {
         ? Container(width: 0, height: 0)
         : ValueListenableBuilder(
             valueListenable: _isEditNotifier,
-            builder: (BuildContext context, bool value, Widget child) {
+            builder: (BuildContext context, bool value, Widget? child) {
               return Container(
                 color: Color(0xff000000).withOpacity(0.4),
                 padding: EdgeInsets.all(10.0),
@@ -261,7 +261,7 @@ class _SurveyTasksImageBrowserState extends State<P47ImageBrowser> {
             padding: EdgeInsets.only(left: 20, right: 20, top: 20, bottom: 20),
             child: ValueListenableBuilder(
               valueListenable: _isEditNotifier,
-              builder: (BuildContext context, bool value, Widget child) {
+              builder: (BuildContext context, bool value, Widget? child) {
                 return Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: !value
@@ -302,7 +302,7 @@ class _SurveyTasksImageBrowserState extends State<P47ImageBrowser> {
                               _currentInfo.fileNameNoSuffix =
                                   _nameController.text;
                               if (widget.renameCallback != null) {
-                                widget.renameCallback(
+                                widget?.renameCallback!(
                                     _currentIndex, _currentInfo.fileName);
                               }
                             },
@@ -329,7 +329,7 @@ enum ImageFileUploadState {
   fail,
 }
 
-T asT<T>(dynamic value) {
+T? asT<T>(dynamic value) {
   if (value is T) {
     return value;
   }
@@ -340,9 +340,9 @@ T asT<T>(dynamic value) {
 class ImageFileInfo {
   ImageFileInfo({
     this.fileName = 'jim.png',
-    this.fileBase64,
-    this.httpUrl,
-    this.localPath,
+    this.fileBase64 = '',
+    this.httpUrl = '',
+    this.localPath = '',
     this.isSelected = false,
     this.type = ImageFileType.base64,
   });
@@ -376,18 +376,18 @@ class ImageFileInfo {
 
 class TagList {
   TagList({
-    this.tagCode,
-    this.tagPropertyCode,
-    this.tagPropertyVal,
+    this.tagCode = '',
+    this.tagPropertyCode = '',
+    this.tagPropertyVal = '',
   });
 
-  factory TagList.fromJson(Map<String, dynamic> jsonRes) => jsonRes == null
-      ? null
-      : TagList(
-          tagCode: asT<String>(jsonRes['tagCode']),
-          tagPropertyCode: asT<String>(jsonRes['tagPropertyCode']),
-          tagPropertyVal: asT<String>(jsonRes['tagPropertyVal']),
-        );
+  // factory TagList.fromJson(Map<String, dynamic> jsonRes) => jsonRes == null
+  //     ? null
+  //     : TagList(
+  //         tagCode: asT<String>(jsonRes?['tagCode']) ??'',
+  //         tagPropertyCode: asT<String>(jsonRes['tagPropertyCode']),
+  //         tagPropertyVal: asT<String>(jsonRes['tagPropertyVal']),
+  //       );
 
   String tagCode;
   String tagPropertyCode;
@@ -410,7 +410,7 @@ class TagList {
 class LoadNetworkImage extends StatelessWidget {
   final String url;
 
-  LoadNetworkImage({@required this.url});
+  LoadNetworkImage({required this.url});
 
   @override
   Widget build(BuildContext context) {
@@ -426,23 +426,25 @@ class LoadNetworkImage extends StatelessWidget {
 
 /// 不同图片类型,返回不同view
 class ImageFileTypeView extends StatelessWidget {
-  final ImageFileInfo info;
+  final ImageFileInfo? info;
 
-  ImageFileTypeView({this.info});
+  ImageFileTypeView({
+    this.info,
+  });
 
   @override
   Widget build(BuildContext context) {
     Widget child;
 
-    switch (info.type) {
+    switch (info?.type) {
       case ImageFileType.local:
-        child = Image.file(File(info.localPath), fit: BoxFit.fill);
+        child = Image.file(File(info!.localPath), fit: BoxFit.fill);
         break;
       case ImageFileType.http:
-        child = LoadNetworkImage(url: info.httpUrl);
+        child = LoadNetworkImage(url: info!.httpUrl);
         break;
       case ImageFileType.base64:
-        child = Image.memory(Base64Decoder().convert(info.fileBase64),
+        child = Image.memory(Base64Decoder().convert(info!.fileBase64),
             fit: BoxFit.fill);
         break;
       default:
@@ -465,7 +467,7 @@ class ImageFileTypeView extends StatelessWidget {
   }
 }
 
-ImageProvider ImageFileTypeImageProvider(ImageFileInfo model) {
+ImageProvider? ImageFileTypeImageProvider(ImageFileInfo model) {
   switch (model.type) {
     case ImageFileType.local:
       return FileImage(File(model.localPath));

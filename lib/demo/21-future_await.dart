@@ -9,11 +9,11 @@ class FutureAndAwaitTest extends StatefulWidget {
 }
 
 class _State extends State<FutureAndAwaitTest> {
-  Future test() {
-    Future.sync(() {
-      return Future.value("a");
-    });
-  }
+  // Future<void> test() {
+  //   Future.sync(() {
+  //     return Future.value("a");
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {

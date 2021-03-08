@@ -10,7 +10,7 @@ class P48PhotoAlbum extends StatefulWidget {
 }
 
 class _P48PhotoAlbumState extends State<P48PhotoAlbum> {
-  List<ImageFileInfo> photoDataList;
+  List<ImageFileInfo> photoDataList = [];
 
   @override
   void initState() {
@@ -70,15 +70,19 @@ class _P48PhotoAlbumState extends State<P48PhotoAlbum> {
 }
 
 class _PhotoAlbumCell extends StatefulWidget {
-  final ImageFileInfo imageItem;
+  final ImageFileInfo? imageItem;
 
   /// 选中
-  final Function(bool isSelected) selectCallBack;
+  final Function(bool isSelected)? selectCallBack;
 
   /// 点击其他空白
-  final Function() onTap;
+  final Function()? onTap;
 
-  _PhotoAlbumCell({this.imageItem, this.selectCallBack, this.onTap});
+  _PhotoAlbumCell({
+    this.imageItem,
+    this.selectCallBack,
+    this.onTap,
+  });
 
   @override
   _PhotoAlbumCellState createState() => _PhotoAlbumCellState();
@@ -93,7 +97,7 @@ class _PhotoAlbumCellState extends State<_PhotoAlbumCell> {
           alignment: Alignment.center,
           fit: StackFit.expand,
           children: <Widget>[
-            ImageFileTypeView(info: widget.imageItem),
+            ImageFileTypeView(info: widget.imageItem!),
           ],
         ));
   }
@@ -102,11 +106,11 @@ class _PhotoAlbumCellState extends State<_PhotoAlbumCell> {
 /// 各种 相册的默认, 布局,数量,间距
 class PhotoAlbumGridView extends StatefulWidget {
   final int itemCount;
-  final Function(BuildContext context, int index) itemBuilder;
+  final Widget Function(BuildContext context, int index) itemBuilder;
 
   PhotoAlbumGridView({
-    @required this.itemCount,
-    @required this.itemBuilder,
+    required this.itemCount,
+    required this.itemBuilder,
   });
 
   @override

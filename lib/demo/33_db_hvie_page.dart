@@ -8,13 +8,13 @@ import 'package:path_provider/path_provider.dart';
 @HiveType(typeId: 10)
 class Person extends HiveObject {
   @HiveField(0)
-  String name;
+  String name = '';
 
   @HiveField(1)
-  int age;
+  int age=0;
 
   @HiveField(2)
-  List<String> friends;
+  List<String> friends=[];
 
   @override
   String toString() {
@@ -41,7 +41,7 @@ class PersonAdapter extends TypeAdapter<Person> {
     return Person()
       ..name = fields[0] as String
       ..age = fields[1] as int
-      ..friends = (fields[2] as List)?.cast<String>();
+      ..friends = (fields[2] as List).cast<String>();
   }
 
   @override
@@ -73,7 +73,7 @@ class _P33DbHiveState extends State<P33DbHive> {
     _db();
   }
 
-  Box<Person> allPersonBox;
+  Box<Person>? allPersonBox;
 
   void _db() async {
 //    Directory tempDir = await getApplicationDocumentsDirectory();
@@ -135,10 +135,10 @@ class _P33DbHiveState extends State<P33DbHive> {
 //                person.save();
 //                print(allPersonBox.get('person')); // Dave - 2
 
-                Box<Person> box1 = await Hive.openBox<Person>('allPerson');
+                var box1 = await Hive.openBox<Person>('allPerson');
 
                 print(box1.get('person'));
-                Person person1 = box1.get('person');
+                Person person1 = box1.get('person')!;
 
                 person1.age = 41;
                 person1.save();

@@ -70,9 +70,9 @@ class _MaterialPage1 extends State<MaterialDataTablePage> {
                     selected: entity.selected,
 
                     /// 点击选择变化
-                    onSelectChanged: (bool select) {
+                    onSelectChanged: (bool? select) {
                       setState(() {
-                        entity.selected = select;
+                        entity.selected = select ?? false;
                       });
                     },
 

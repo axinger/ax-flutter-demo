@@ -38,7 +38,7 @@ class DrawerView extends StatelessWidget {
                   fit: BoxFit.cover,
                   /*磨砂效果*/
                   colorFilter: ColorFilter.mode(
-                    Colors.red[50].withOpacity(0.6),
+                    Colors.red.withOpacity(0.6),
                     BlendMode.hardLight,
                   )),
             ),

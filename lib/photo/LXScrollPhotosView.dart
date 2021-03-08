@@ -10,9 +10,9 @@ class LXScrollPhotosView extends StatefulWidget {
   final List<LXPhotosData> currentList;
 
   LXScrollPhotosView({
-    Key key,
-    @required this.currentIndex,
-    @required this.currentList,
+    Key? key,
+    required this.currentIndex,
+    required this.currentList,
   }) : super(key: key);
 
   @override
@@ -20,8 +20,8 @@ class LXScrollPhotosView extends StatefulWidget {
 }
 
 class _LXScrollPhotosViewState extends State<LXScrollPhotosView> {
-  int _indexPage;
-  PageController _pageController;
+  int _indexPage=0;
+  PageController? _pageController;
 
   @override
   void initState() {
@@ -33,7 +33,7 @@ class _LXScrollPhotosViewState extends State<LXScrollPhotosView> {
 
   @override
   void dispose() {
-    _pageController.dispose();
+    _pageController?.dispose();
     super.dispose();
   }
 
@@ -53,7 +53,7 @@ class _LXScrollPhotosViewState extends State<LXScrollPhotosView> {
         behavior: HitTestBehavior.opaque,
         onTap: () {
           Navigator.of(context).pop();
-          return false;
+          // return false;
         },
         child: Hero(
           tag: widget.currentList[_indexPage].imgUrl,

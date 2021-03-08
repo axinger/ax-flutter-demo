@@ -14,7 +14,7 @@ description: A new Flutter project.
 version: 1.0.2+100
 
 environment:
-  sdk: ">= 2.10.0 <3.0.0"
+  sdk: ">= 2.12.0 <3.0.0"
 
 analyzer:
   enable-experiment:
@@ -28,18 +28,19 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
-  css_colors: any
+  css_colors: ^1.1.0
   #  meta: 1.3.0-nullsafety.2
   #通用提示库
-  fluttertoast: ^7.0.2
+  fluttertoast: ^8.0.1-nullsafety.0
   # 加载网络图片 使用 https第一次加载页面,容易卡死,改为http,就可以了;等flutter升级
   # https://jhuo.ca/post/ocsp-stapling-letsencrypt/
-  cached_network_image: ^2.4.1
-  http: any
-  dio: ^3.0.10
+  cached_network_image: ^3.0.0-nullsafety
+#  http: ^0.13.0
+  dio: ^4.0.0-beta4
+#  http_parser: any
   #  json_annotation: any
   #该软件包提供国际化和本地化功能，包括消息翻译，复数形式和性别，日期/数字格式和解析以及双向文本.
-  intl: ^0.16.1
+  intl: ^0.17.0
   #intl_utils是一个Dart库，可从ARB文件生成Dart本地化代码. 生成的代码依赖于Intl库.
   #  intl_utils: 1.6.3
   #日期时间格式 另外一个库
@@ -48,9 +49,9 @@ dependencies:
   # 1.0.0
   #  cupertino_icon: ^1.0.0
   # RxDart基于ReactiveX，由Dart标准库中Stream扩展而成，是一个为Dart语言提供响应式编程的库。
-  rxdart: ^0.24.1
+  rxdart: ^0.26.0
   #日志输出
-  logger: ^0.9.2
+  logger: ^1.0.0-nullsafety.0
   #日志在应用端输出
   #logger_flutter: ^0.7.0
   #image保存相册
@@ -76,29 +77,29 @@ dependencies:
 
   #Hive是用纯Dart编写的轻量级且快速的键值数据库. 受Bitcask启发.
   hive: ^1.4.1+1
-  hive_flutter: ^0.3.0+2
+  hive_flutter: ^1.0.0-nullsafety.0
 
   #刷新组件
   flutter_easyrefresh: ^2.1.1
   #事件管理
-  event_bus: ^1.1.0
+  event_bus: ^2.0.0
   #  image_gallery_saver: ^1.5.0
   #谷歌字体
-  google_fonts: 1.1.0
+  google_fonts: ^2.0.0
   #  bloc: ^4.0.0
 
-  flutter_bloc: ^6.0.1
+  flutter_bloc: ^7.0.0-nullsafety.3
   # 继承类,判断类是否相同
-  equatable: ^1.1.1
+  equatable: ^2.0.0
 
   w_popup_menu: ^0.3.1
 
   #指纹
-  local_auth: 0.6.2+3
+  local_auth: ^1.1.0
 
-  binding_helper: 0.0.1
+  binding_helper: 0.0.2
 
-  photo_view: 0.9.2
+  photo_view: ^0.10.3
   #  redux主要由Store、Action、Reducer三部分组成
   #  Store用于存储和管理State
   #  Action用于用户触发的一种行为
@@ -110,7 +111,7 @@ dependencies:
   #  Reducer根据收到的Action更新State
   #  更新Store中的State绑定的Widget
 
-  flutter_redux: 0.6.0
+  flutter_redux: 0.7.0
 
   #可以轻松地将Flutter集成到您现有的本机应用程序中.
   #FlutterBoost的理念是使用Flutter就像使用WebView一样容易.
@@ -122,14 +123,14 @@ dependencies:
   #      ref: '1.12.13+2'
 
   #自定义相机
-  camera: 0.5.8+5
+  camera: 0.8.0
   #图片压缩
   flutter_image_compress: 0.7.0
 
   # cell 侧滑删除
   #  flutter_swipe_action_cell: ^1.2.2
   # 状态管理,和google推荐的Provider 类似
-  get: ^3.25.0
+  get: ^4.0.0-nullsafety.2
   # 侧滑
   flutter_slidable: ^0.5.7
 
@@ -138,18 +139,19 @@ dependencies:
 
   #在 Flutter 1.17 发布大会上，Flutter 团队还发布了新的 Animations 软件包，
   #该软件包提供了实现新的 Material motion 规范的预构建动画。该软件包并不是内置的，而是第三方插件的形式。
-  animations: ^1.1.1
+  animations: ^2.0.0
   #  跳转指定位置
-  scrollable_positioned_list: ^0.1.8
+  scrollable_positioned_list: ^0.1.10
   # google推荐的Provider  Provider 代替 Provide 成为官方推荐的状态管理方式之一。
-  provider: ^4.1.2
-  device_info: 0.4.2+4
+#  provider: ^5.0.0
+  provider: 5.0.0-nullsafety.5
+  device_info: ^2.0.0
 
-  image_picker: '>=0.6.0'
+  image_picker: ^0.7.2
 
-  package_info: '>=0.4.0 <2.0.0'
+  package_info: ^2.0.0
   # 用于查找文件系统上的常用位置. 支持iOS和Android.fluttertoastfluttertoast
-  path_provider: ^1.6.7
+  path_provider: ^2.0.1
 
   #传感器插件
   #  sensors: 0.4.2
@@ -160,13 +162,13 @@ dependencies:
   # 包装NSUserDefaults（在iOS上）和SharedPreferences（在Android上），
   #为简单数据提供持久存储. 数据异步保存到磁盘.
   #这两个平台都不能保证在返回后将写操作持久化到磁盘，并且该插件不得用于存储关键数据.
-  shared_preferences: ^0.5.8
+  shared_preferences: ^2.0.3
 
   # Flutter插件，用于在移动平台中启动URL. 支持iOS和Android.
-  url_launcher: ^5.5.0
+  url_launcher: ^6.0.2
 
   #官方插件：webview_flutter
-  webview_flutter: ^0.3.21
+  webview_flutter: ^2.0.1
   flutter_keychain: 1.0.0
   #适用于iOS，Android和Web的Flutter插件，用于在Widget表面上播放视频.
   #  video_player: 0.10.10
@@ -227,7 +229,7 @@ dev_dependencies:
 
   #这两个是dev的，不要放到上面去了哦
   build_runner: ^1.10.0
-  json_serializable: any
+  json_serializable: ^4.0.2
 
 #  hive_generator: ^0.7.0+2
 ##  dartx: ^0.2.0
