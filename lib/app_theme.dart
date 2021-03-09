@@ -61,7 +61,7 @@ class AppTheme {
           /// foregroundColor 文字颜色
 //                  foregroundColor: MaterialStateColor.resolveWith(getColor),
           /// 这里可以控制不同状态颜色
-          foregroundColor: MaterialStateColor.resolveWith(_foregroundColor!),
+          foregroundColor: MaterialStateColor.resolveWith(_foregroundColor),
 
           /// all 所有状态颜色
           // foregroundColor:MaterialStateProperty.all(Colors.red),

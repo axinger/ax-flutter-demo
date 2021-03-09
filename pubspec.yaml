@@ -200,6 +200,8 @@ dependencies:
   #    git:
   #      url: 'https://github.com/AXinger/ax_flutter_toast.git'
 
+  screenshot: ^1.0.0-nullsafety.1
+
   ax_flutter_util:
     path: ../ax_flutter_util
   ax_flutter_plugin:
