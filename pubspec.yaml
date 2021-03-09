@@ -1,7 +1,7 @@
 name: ax_flutter_demo
 description: A new Flutter project.
 
-# The following defines the version and build number for your application.
+# The following defines the version and bflutter_image_compressuild number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
 # followed by an optional build number separated by a +.
 # Both the version and the builder number may be overridden in flutter
@@ -35,17 +35,17 @@ dependencies:
   # 加载网络图片 使用 https第一次加载页面,容易卡死,改为http,就可以了;等flutter升级
   # https://jhuo.ca/post/ocsp-stapling-letsencrypt/
   cached_network_image: ^3.0.0-nullsafety
-#  http: ^0.13.0
+  http: ^0.13.0
   dio: ^4.0.0-beta4
 #  http_parser: any
   #  json_annotation: any
   #该软件包提供国际化和本地化功能，包括消息翻译，复数形式和性别，日期/数字格式和解析以及双向文本.
-  intl: ^0.17.0
+#  intl: ^0.17.0
   #intl_utils是一个Dart库，可从ARB文件生成Dart本地化代码. 生成的代码依赖于Intl库.
-  #  intl_utils: 1.6.3
+#  intl_utils: ^1.7.0
   #日期时间格式 另外一个库
-  date_format: any
-  scoped_model: any
+#  date_format: any
+  scoped_model: ^2.0.0-nullsafety.0
   # 1.0.0
   #  cupertino_icon: ^1.0.0
   # RxDart基于ReactiveX，由Dart标准库中Stream扩展而成，是一个为Dart语言提供响应式编程的库。
@@ -73,14 +73,14 @@ dependencies:
   # 准备停止维护,请使用谷歌的
   #  flutter_webview_plugin: ^0.3.11
   # listView 左右 侧滑
-  slide_item: ^1.0.6
+#  slide_item: ^1.0.6
 
   #Hive是用纯Dart编写的轻量级且快速的键值数据库. 受Bitcask启发.
   hive: ^1.4.1+1
   hive_flutter: ^1.0.0-nullsafety.0
 
   #刷新组件
-  flutter_easyrefresh: ^2.1.1
+#  flutter_easyrefresh: ^2.1.1
   #事件管理
   event_bus: ^2.0.0
   #  image_gallery_saver: ^1.5.0
@@ -92,14 +92,14 @@ dependencies:
   # 继承类,判断类是否相同
   equatable: ^2.0.0
 
-  w_popup_menu: ^0.3.1
+#  w_popup_menu: ^0.3.1
 
   #指纹
   local_auth: ^1.1.0
 
-  binding_helper: 0.0.2
+#  binding_helper: 0.0.2
 
-  photo_view: ^0.10.3
+  photo_view: ^0.11.0
   #  redux主要由Store、Action、Reducer三部分组成
   #  Store用于存储和管理State
   #  Action用于用户触发的一种行为
@@ -111,8 +111,8 @@ dependencies:
   #  Reducer根据收到的Action更新State
   #  更新Store中的State绑定的Widget
 
-  flutter_redux: 0.7.0
-
+#  flutter_redux: 0.7.0
+  redux: ^5.0.0
   #可以轻松地将Flutter集成到您现有的本机应用程序中.
   #FlutterBoost的理念是使用Flutter就像使用WebView一样容易.
   #在现有应用程序中，同时管理本机页面和Flutter页面并非易事.
@@ -125,14 +125,14 @@ dependencies:
   #自定义相机
   camera: 0.8.0
   #图片压缩
-  flutter_image_compress: 0.7.0
+  flutter_image_compress: ^1.0.0-nullsafety
 
   # cell 侧滑删除
   #  flutter_swipe_action_cell: ^1.2.2
   # 状态管理,和google推荐的Provider 类似
   get: ^4.0.0-nullsafety.2
   # 侧滑
-  flutter_slidable: ^0.5.7
+  flutter_slidable: ^0.6.0-nullsafety.0
 
   ##  ⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬ 谷歌组件 ⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
   ## 谷歌维护的库 https://github.com/flutter/plugins
@@ -141,7 +141,7 @@ dependencies:
   #该软件包提供了实现新的 Material motion 规范的预构建动画。该软件包并不是内置的，而是第三方插件的形式。
   animations: ^2.0.0
   #  跳转指定位置
-  scrollable_positioned_list: ^0.1.10
+  scrollable_positioned_list: ^0.2.0-nullsafety.0
   # google推荐的Provider  Provider 代替 Provide 成为官方推荐的状态管理方式之一。
 #  provider: ^5.0.0
   provider: 5.0.0-nullsafety.5
@@ -169,7 +169,7 @@ dependencies:
 
   #官方插件：webview_flutter
   webview_flutter: ^2.0.1
-  flutter_keychain: 1.0.0
+#  flutter_keychain: 1.0.0
   #适用于iOS，Android和Web的Flutter插件，用于在Widget表面上播放视频.
   #  video_player: 0.10.10
 

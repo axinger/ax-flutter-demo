@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_easyrefresh/easy_refresh.dart';
+// import 'package:flutter_easyrefresh/easy_refresh.dart';
 
 import '../demo/converse_list_header.dart';
 import '../model/converse_model.dart';
@@ -15,7 +15,7 @@ class ListViewPage extends StatefulWidget {
 class _MyPage extends State<ListViewPage> {
   List<ConverseModel> _converseModelList = [];
   ScrollController _scrollController = ScrollController();
-  EasyRefreshController _refreshController = EasyRefreshController();
+  // EasyRefreshController _refreshController = EasyRefreshController();
 
   List<int> dataList = <int>[];
 
@@ -107,90 +107,51 @@ class _MyPage extends State<ListViewPage> {
 
     setState(() {
       dataList.addAll(tempList);
-      _refreshController.finishLoad(
-          success: true, noMore: (tempList.length == 0));
+      // _refreshController.finishLoad(
+      //     success: true, noMore: (tempList.length == 0));
     });
   }
 
   Widget _listView() {
-    return Container(
-      color: Colors.white,
-//      height: 400,
-      child: EasyRefresh(
-        controller: _refreshController,
-//firstRefresh: true,
-//        enableControlFinishRefresh:true,
-//        enableControlFinishLoad:true,
-//        headerIndex:1,
-        ///项目国际化异常
-        header: ClassicalHeader(
-          refreshText: '拉动刷新',
-          refreshReadyText: '释放刷新',
-          refreshingText: '正在刷新...',
-          refreshedText: '刷新完成',
-          refreshFailedText: '刷新失败',
-          noMoreText: '没有更多数据',
-          infoText: '更新于 %T',
+    return  Column(
+      children: <Widget>[
+        ConverseListHeader(
+          onPressed: () {},
         ),
-        footer: ClassicalFooter(
-          loadText: '拉动加载',
-          noMoreText: '没有更多数据',
-          loadingText: '正在加载...',
-          loadReadyText: '释放加载',
-          loadedText: '加载完成',
-          infoText: '更新于 %T',
-        ),
-
-        /// 第三方刷新事件
-        onRefresh: () async {
-          dataList.clear();
-          pageIndex = 1;
-          _loadData();
-        },
-        onLoad: () async {
-          pageIndex++;
-          _loadData();
-        },
-
-        child: Column(
-          children: <Widget>[
-            ConverseListHeader(
-              onPressed: () {},
-            ),
-            Container(
+        Container(
 //              height: 200,
-              child: ListView.separated(
-                controller: _scrollController,
+          child: ListView.separated(
+            controller: _scrollController,
 
-                /// 内容适配,无限尺寸,NeverScrollableScrollPhysics禁止滚动时候,需要自适应,不然不显示
-                shrinkWrap: true,
+            /// 内容适配,无限尺寸,NeverScrollableScrollPhysics禁止滚动时候,需要自适应,不然不显示
+            shrinkWrap: true,
 //                  primary:true,
-                ///滑动类型设置 NeverScrollableScrollPhysics 禁止滑动
+            ///滑动类型设置 NeverScrollableScrollPhysics 禁止滑动
 //                physics: NeverScrollableScrollPhysics(),
 //              physics: FixedExtentScrollPhysics(),
-                //确定每一个item的高度 会让item加载更加高效
+            //确定每一个item的高度 会让item加载更加高效
 //            itemExtent: 200.0,
 
-                //cacheExtent  设置预加载的区域
+            //cacheExtent  设置预加载的区域
 //            cacheExtent: 30.0,
 
-                /// 分割线属性
-                padding: EdgeInsets.all(10),
-                separatorBuilder: (context, index) {
+            /// 分割线属性
+            padding: EdgeInsets.all(10),
+            separatorBuilder: (context, index) {
 //                  return Divider(
 //                    height: 5,
 //                    color: Colors.red,
 //                  );
-                  return Container(
-                    color: Colors.grey,
-                    height: 1,
-                  );
-                },
+              return Container(
+                color: Colors.grey,
+                height: 1,
+              );
+            },
 
-                /**listView 个数*/
-                itemCount: dataList.length,
-                /**listView item*/
-                itemBuilder: (BuildContext context, int index) {
+            /**listView 个数*/
+            itemCount: dataList.length,
+            /**listView item*/
+            itemBuilder: (BuildContext context, int index) {
 //                  return GestureDetector(
 //                    //单击事件响应
 //                    onTap: () {
@@ -205,44 +166,166 @@ class _MyPage extends State<ListViewPage> {
 //                    ),
 //                  );
 
-                  return ListTile(
-                    leading: Text(
-                      'leading - $index',
-                      textAlign: TextAlign.start,
-                    ),
-                    title: Text(
-                      'index - $index',
-                      textAlign: TextAlign.left,
-                    ),
-                    subtitle: Text(
-                      'subtitle - $index',
-                      textAlign: TextAlign.start,
-                    ),
-                    isThreeLine: index.isOdd,
-                    dense: index.isOdd,
-                    trailing: Icon(
-                      Icons.navigate_next,
-                      size: 22.0,
-                    ),
-                    selected: index.isOdd,
+              return ListTile(
+                leading: Text(
+                  'leading - $index',
+                  textAlign: TextAlign.start,
+                ),
+                title: Text(
+                  'index - $index',
+                  textAlign: TextAlign.left,
+                ),
+                subtitle: Text(
+                  'subtitle - $index',
+                  textAlign: TextAlign.start,
+                ),
+                isThreeLine: index.isOdd,
+                dense: index.isOdd,
+                trailing: Icon(
+                  Icons.navigate_next,
+                  size: 22.0,
+                ),
+                selected: index.isOdd,
 //                  leading: Icon(Icons.message,color: Colors.orange,size: 22.0,),
-                    onTap: () {
-                      print('index = $index');
-                    },
-                  );
+                onTap: () {
+                  print('index = $index');
                 },
-              ),
-            ),
-          ],
+              );
+            },
+          ),
         ),
-
-        emptyWidget: dataList.length > 0
-            ? null
-            : const Center(
-                child: Text('暂无数据'),
-              ),
-      ),
+      ],
     );
+//     return Container(
+//       color: Colors.white,
+// //      height: 400,
+//       child: EasyRefresh(
+//         controller: _refreshController,
+// //firstRefresh: true,
+// //        enableControlFinishRefresh:true,
+// //        enableControlFinishLoad:true,
+// //        headerIndex:1,
+//         ///项目国际化异常
+//         header: ClassicalHeader(
+//           refreshText: '拉动刷新',
+//           refreshReadyText: '释放刷新',
+//           refreshingText: '正在刷新...',
+//           refreshedText: '刷新完成',
+//           refreshFailedText: '刷新失败',
+//           noMoreText: '没有更多数据',
+//           infoText: '更新于 %T',
+//         ),
+//         footer: ClassicalFooter(
+//           loadText: '拉动加载',
+//           noMoreText: '没有更多数据',
+//           loadingText: '正在加载...',
+//           loadReadyText: '释放加载',
+//           loadedText: '加载完成',
+//           infoText: '更新于 %T',
+//         ),
+//
+//         /// 第三方刷新事件
+//         onRefresh: () async {
+//           dataList.clear();
+//           pageIndex = 1;
+//           _loadData();
+//         },
+//         onLoad: () async {
+//           pageIndex++;
+//           _loadData();
+//         },
+//
+//         child: Column(
+//           children: <Widget>[
+//             ConverseListHeader(
+//               onPressed: () {},
+//             ),
+//             Container(
+// //              height: 200,
+//               child: ListView.separated(
+//                 controller: _scrollController,
+//
+//                 /// 内容适配,无限尺寸,NeverScrollableScrollPhysics禁止滚动时候,需要自适应,不然不显示
+//                 shrinkWrap: true,
+// //                  primary:true,
+//                 ///滑动类型设置 NeverScrollableScrollPhysics 禁止滑动
+// //                physics: NeverScrollableScrollPhysics(),
+// //              physics: FixedExtentScrollPhysics(),
+//                 //确定每一个item的高度 会让item加载更加高效
+// //            itemExtent: 200.0,
+//
+//                 //cacheExtent  设置预加载的区域
+// //            cacheExtent: 30.0,
+//
+//                 /// 分割线属性
+//                 padding: EdgeInsets.all(10),
+//                 separatorBuilder: (context, index) {
+// //                  return Divider(
+// //                    height: 5,
+// //                    color: Colors.red,
+// //                  );
+//                   return Container(
+//                     color: Colors.grey,
+//                     height: 1,
+//                   );
+//                 },
+//
+//                 /**listView 个数*/
+//                 itemCount: dataList.length,
+//                 /**listView item*/
+//                 itemBuilder: (BuildContext context, int index) {
+// //                  return GestureDetector(
+// //                    //单击事件响应
+// //                    onTap: () {
+// //                      print('点击了 $index');
+// //                    },
+// //                    child: Container(
+// //                      color: Colors.red,
+// //                      alignment: Alignment.centerLeft,
+// //                      height: 88,
+// ////                    width: 120,
+// //                      child: Text('内容 - $index'),
+// //                    ),
+// //                  );
+//
+//                   return ListTile(
+//                     leading: Text(
+//                       'leading - $index',
+//                       textAlign: TextAlign.start,
+//                     ),
+//                     title: Text(
+//                       'index - $index',
+//                       textAlign: TextAlign.left,
+//                     ),
+//                     subtitle: Text(
+//                       'subtitle - $index',
+//                       textAlign: TextAlign.start,
+//                     ),
+//                     isThreeLine: index.isOdd,
+//                     dense: index.isOdd,
+//                     trailing: Icon(
+//                       Icons.navigate_next,
+//                       size: 22.0,
+//                     ),
+//                     selected: index.isOdd,
+// //                  leading: Icon(Icons.message,color: Colors.orange,size: 22.0,),
+//                     onTap: () {
+//                       print('index = $index');
+//                     },
+//                   );
+//                 },
+//               ),
+//             ),
+//           ],
+//         ),
+//
+//         emptyWidget: dataList.length > 0
+//             ? null
+//             : const Center(
+//                 child: Text('暂无数据'),
+//               ),
+//       ),
+//     );
   }
 }
 

@@ -238,7 +238,7 @@ class CameraDemoPageState extends State<CameraDemoPage> {
   }
 
 // 根据图片名字获取图片文件
-  Future<File> getCompressImage(File file, String targetPath) async {
+  Future<File?> getCompressImage(File file, String targetPath) async {
     var path = file.absolute.path;
     var result = await FlutterImageCompress.compressAndGetFile(
       path,

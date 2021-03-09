@@ -120,9 +120,9 @@ class _SurveyTasksImageBrowserState extends State<P47ImageBrowser> {
                       PhotoViewGallery.builder(
                         scrollDirection: Axis.horizontal,
                         scrollPhysics: const BouncingScrollPhysics(),
-                        loadFailedChild: Text('加载失败'),
+                        // loadFailedChild: Text('加载失败'),
                         loadingBuilder:
-                            (BuildContext context, ImageChunkEvent event) {
+                            (BuildContext context, ImageChunkEvent? event) {
                           return Text('加载中');
                         },
                         builder: (BuildContext context, int index) {

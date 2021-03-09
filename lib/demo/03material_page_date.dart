@@ -1,4 +1,4 @@
-import 'package:date_format/date_format.dart';
+// import 'package:date_format/date_format.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -276,12 +276,12 @@ class _MaterialPage1 extends State<MaterialPageDate> {
             textColor: Colors.white,
           ),
 
-          Text(
+          Text(''
 //              DateFormat.yMMMd().format(selectDateTime),
 
 //              DateFormat("yyyy-MM-dd").format(selectDateTime),
 
-            formatDate(selectDateTime, [yyyy, '-', mm, '-', dd]),
+            // formatDate(selectDateTime, [yyyy, '-', mm, '-', dd]),
 //           DateTime.fromMillisecondsSinceEpoch(selectDateTime.millisecondsSinceEpoch).toString(),
           ),
 

@@ -346,7 +346,7 @@ class _TestHomePageState extends State<TestHomePage> {
       CellItem(
           title: '24-ListView,第三方侧滑',
           onTap: () {
-            push(context: context, widget: ListViewActionPage());
+            // push(context: context, widget: ListViewActionPage());
           }),
       CellItem(
           title: '25-ListView,多个拼接,禁止滚动,截图',
@@ -416,7 +416,7 @@ class _TestHomePageState extends State<TestHomePage> {
       CellItem(
           title: '37-P37PopupRoutePage',
           onTap: () {
-            push(context: context, widget: P37PopupRoutePage());
+            // push(context: context, widget: P37PopupRoutePage());
           }),
       CellItem(
           title: '38-居中向上布局',
@@ -431,12 +431,12 @@ class _TestHomePageState extends State<TestHomePage> {
       CellItem(
           title: '40-获得尺寸',
           onTap: () {
-            push(context: context, widget: P40SizePage());
+            // push(context: context, widget: P40SizePage());
           }),
       CellItem(
           title: '41-flutter_redux',
           onTap: () {
-            push(context: context, widget: P41FlutterReduxApp());
+            // push(context: context, widget: P41FlutterReduxApp());
           }),
       CellItem(
           title: '41-图片',
