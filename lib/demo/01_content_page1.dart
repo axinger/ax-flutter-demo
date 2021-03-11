@@ -32,7 +32,7 @@ class _MyPage extends State<P01ContentPage>
   void dispose() {
     routeObserver.unsubscribe(this);
     super.dispose();
-    _streamController?.close();
+    _streamController.close();
   }
 
   /// 当Push到该页面时：
@@ -93,7 +93,7 @@ class _MyPage extends State<P01ContentPage>
   @override
   void initState() {
     ListView();
-    ScrollController scrollController;
+    // ScrollController scrollController;
 
     super.initState();
     tabController = TabController(length: 10, vsync: this);
@@ -195,7 +195,7 @@ class _MyPage extends State<P01ContentPage>
             /// 第一次监听值
             initialData: _isShow,
             builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
-              print('snapshot.data = ${snapshot?.data}');
+              print('snapshot.data = ${snapshot.data}');
 
               return BottomAppBar(
                 color: Colors.red,

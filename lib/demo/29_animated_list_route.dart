@@ -125,7 +125,7 @@ class ListModel<E> {
   final dynamic removedItemBuilder;
   final List<E> _items;
 
-  AnimatedListState? get _animatedList => listKey?.currentState;
+  AnimatedListState? get _animatedList => listKey.currentState;
 
   void insert(int index, E item) {
     _items.insert(index, item);

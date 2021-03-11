@@ -225,7 +225,7 @@ class _MyApp extends State<AxApp> with WidgetsBindingObserver {
             },
           );
         });
-    navigatorStateKey?.currentState?.overlay?.insert(entry);
+    navigatorStateKey.currentState?.overlay?.insert(entry);
   }
 
   void getDeviceInfo() async {

@@ -298,7 +298,7 @@ class _FormTFState extends State<LoginViewFormTF> {
                 onPressed:
 
                     /// 需要 不需要setState, 但可以根据校验条件
-                    !(loginFomKey?.currentState?.validate() ?? false)
+                    !(loginFomKey.currentState?.validate() ?? false)
 
                         /// 通过 TextEditingController 控制 方便,不需要setState, 但不能根据校验条件改变
 //                      ((phoneTextEditingController?.text?.isEmpty ?? false) ||
@@ -307,7 +307,7 @@ class _FormTFState extends State<LoginViewFormTF> {
                         ? null
                         : () {
                             debugPrint("账号: $username  密码: $password");
-                            loginFomKey!.currentState!.save();
+                            loginFomKey.currentState!.save();
                             debugPrint("账号: $username  密码: $password");
                             Navigator.pop(context);
                           },

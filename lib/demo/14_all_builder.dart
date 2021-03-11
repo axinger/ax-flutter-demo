@@ -59,7 +59,7 @@ class _P14AllBuilderPageState extends State<P14AllBuilderPage> {
   @override
   void dispose() {
     super.dispose();
-    _streamController?.close();
+    _streamController.close();
   }
 
   int streamValue = 0;
@@ -139,8 +139,8 @@ class _P14AllBuilderPageState extends State<P14AllBuilderPage> {
                       initialData: streamInt,
                       builder:
                           (BuildContext context, AsyncSnapshot<int> snapshot) {
-                        print('snapshot.data = ${snapshot?.data}');
-                        return Text(snapshot?.data.toString() ??'');
+                        print('snapshot.data = ${snapshot.data}');
+                        return Text('${snapshot.data ?? ''}');
                       }),
                   FlatButton(
                     child: Text('加1'),
@@ -161,7 +161,7 @@ class _P14AllBuilderPageState extends State<P14AllBuilderPage> {
                   if (snapshot.hasData) {
                     print('hasData = ${snapshot.data}');
                     return Center(
-                      child: Text("成功 ${snapshot?.data} "),
+                      child: Text("成功 ${snapshot.data} "),
                     );
                   } else if (snapshot.hasError) {
                     return Center(
@@ -253,8 +253,8 @@ class __TestPageState extends State<_TestPage> {
               /// 第一次监听值
 //          initialData: streamInt,
               builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
-                print('snapshot.data = ${snapshot?.data}');
-                return Text(snapshot?.data.toString()??'');
+                print('snapshot.data = ${snapshot.data}');
+                return Text(snapshot.data ??'');
               }),
           FlatButton(
             child: Text('callBack'),

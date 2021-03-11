@@ -102,7 +102,7 @@ class CellItem {
   String title;
   final Function()? onTap;
 
-  CellItem({this.index=0, this.title='', this.onTap});
+  CellItem({this.index = 0, this.title = '', this.onTap});
 }
 
 class TestHomePage extends StatefulWidget {
@@ -543,7 +543,13 @@ class _TestHomePageState extends State<TestHomePage> {
           title: 'P59Get传值,\n用Get.to跳转,才能恢复初始值',
           onTap: () {
             // push(context: context, widget: P59CounterGetPage());
-            Get.to(P59CounterGetPage());
+            Get.to(() => P59CounterGetPage())?.then((value) {
+              print('then = $value');
+              print('CounterController2 = ${Get.find<CounterController2>()}');
+            })?.whenComplete(() {
+              print(
+                  'whenComplete CounterController2 = ${Get.find<CounterController2>()}');
+            });
           }),
       CellItem(
           title: 'P59Get跨页面传值',

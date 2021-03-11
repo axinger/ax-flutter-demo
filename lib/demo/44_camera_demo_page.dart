@@ -79,7 +79,7 @@ class CameraDemoPageState extends State<CameraDemoPage> {
   }
 
   Widget _takePictureLayout() {
-    var url = (photoPathList?.isNotEmpty ?? false) ? photoPathList.last : '';
+    var url = (photoPathList.isNotEmpty) ? photoPathList.last : '';
     double wh = 60;
 
     return Row(
@@ -119,7 +119,7 @@ class CameraDemoPageState extends State<CameraDemoPage> {
                         radius: 7,
                         backgroundColor: Colors.red,
                         child: Text(
-                          photoPathList?.length?.toString() ?? '',
+                          '${photoPathList.length}',
                           style: TextStyle(fontSize: 12),
                         ),
                       ),

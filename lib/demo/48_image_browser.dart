@@ -177,7 +177,7 @@ class _SurveyTasksImageBrowserState extends State<P47ImageBrowser> {
                     _isSelectedNotifier.value = !_isSelectedNotifier.value;
                     _currentInfo.isSelected = !_currentInfo.isSelected;
                     if (widget.selectCallback != null) {
-                      widget?.selectCallback!(
+                      widget.selectCallback!(
                           _currentIndex, _isSelectedNotifier.value);
                     }
                   },
@@ -302,7 +302,7 @@ class _SurveyTasksImageBrowserState extends State<P47ImageBrowser> {
                               _currentInfo.fileNameNoSuffix =
                                   _nameController.text;
                               if (widget.renameCallback != null) {
-                                widget?.renameCallback!(
+                                widget.renameCallback!(
                                     _currentIndex, _currentInfo.fileName);
                               }
                             },

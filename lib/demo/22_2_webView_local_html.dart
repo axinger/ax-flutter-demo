@@ -88,7 +88,7 @@ class _TestPage extends State<LocalHtmlPage> {
             return WebView(
               javascriptMode: JavascriptMode.unrestricted,
               javascriptChannels: _javascriptChannels(context),
-              initialUrl: Uri.dataFromString(snapshot?.data ?? '',
+              initialUrl: Uri.dataFromString(snapshot.data ?? '',
                       mimeType: 'text/html',
                       encoding: Encoding.getByName('utf-8'))
                   .toString(),
