@@ -549,6 +549,20 @@ class _TestHomePageState extends State<TestHomePage> {
             });
           }),
       CellItem(
+          title: 'P59Get传值2',
+          onTap: () {
+            // push(context: context, widget: P59CounterGetPage());
+            print('----===');
+            Get.to(() => P59CounterGetPage2());
+          }),
+      CellItem(
+          title: 'P59Get传值3',
+          onTap: () {
+            // push(context: context, widget: P59CounterGetPage());
+            print('----===');
+            Get.to(() => P59CounterGetPage3());
+          }),
+      CellItem(
           title: 'P59Get跨页面传值',
           onTap: () {
             // push(context: context, widget: P60JumpOnePage());
