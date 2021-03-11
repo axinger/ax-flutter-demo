@@ -10,10 +10,10 @@ class Person extends HiveObject {
   String name = '';
 
   @HiveField(1)
-  int age=0;
+  int age = 0;
 
   @HiveField(2)
-  List<String> friends=[];
+  List<String> friends = [];
 
   @override
   String toString() {

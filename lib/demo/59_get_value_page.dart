@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class CounterController2  {
+class CounterController2 {
   /** obs; 就是 这样格式
    * var count = 0;
 
@@ -43,11 +43,11 @@ class CounterBinding extends Bindings {
 //     return Get.find<CounterController2>();
 //   }
 class P59CounterGetPage extends StatelessWidget {
-/// 这个方式
+  /// 这个方式
 //   final CounterController2 controller = Get.put<CounterController2>(CounterController2())!;
 
-   CounterController2 get controller => Get.put<CounterController2>(CounterController2())!;
-
+  CounterController2 get controller =>
+      Get.put<CounterController2>(CounterController2())!;
 
   // late final CounterController2 logic;
 
@@ -71,10 +71,9 @@ class P59CounterGetPage extends StatelessWidget {
           children: [
             Text('Obx 中有一个就对应的更新一个,有多个就更新多个'),
             TextButton(
-              onPressed: () => Get.back<String>(result:'返回值'),
+              onPressed: () => Get.back<String>(result: '返回值'),
               child: const Text('返回'),
             ),
-
             TextButton(
               onPressed: () => controller.increase(),
               child: const Text('count更新'),

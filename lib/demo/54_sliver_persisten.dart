@@ -48,11 +48,11 @@ class SliverCustomHeaderDelegate extends SliverPersistentHeaderDelegate {
   final String title;
 
   SliverCustomHeaderDelegate({
-    this.collapsedHeight=0,
-    this.expandedHeight=0,
-    this.paddingTop=0,
-    this.coverImgUrl='',
-    this.title='',
+    this.collapsedHeight = 0,
+    this.expandedHeight = 0,
+    this.paddingTop = 0,
+    this.coverImgUrl = '',
+    this.title = '',
   });
 
   Color makeStickyHeaderBgColor(shrinkOffset) {

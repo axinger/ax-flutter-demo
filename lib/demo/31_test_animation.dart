@@ -1,4 +1,3 @@
-//思路：
 import 'package:ax_flutter_demo/config.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -18,9 +17,10 @@ class P31TestAnimation extends StatefulWidget {
 class _TestAnimationState extends State<P31TestAnimation>
     with SingleTickerProviderStateMixin {
   //实例animation对象  和必要的控制和状态对象
-  Animation<double>? animation;
-  AnimationController? controller;
-  AnimationStatus? animationStatus;
+  late Animation<double> animation;
+  late AnimationController controller;
+
+  // late AnimationStatus? animationStatus;
 
   @override
   void initState() {
@@ -29,16 +29,16 @@ class _TestAnimationState extends State<P31TestAnimation>
     controller =
         AnimationController(duration: const Duration(seconds: 3), vsync: this);
     //初始化一个补间动画 实例化一个补间类动画的实例，明确需要变换的区间大小和作用的controller对象
-    animation = Tween<double>(begin: 0, end: 300).animate(controller!);
+    animation = Tween<double>(begin: 0, end: 300).animate(controller);
     //提供方法 为动画添加监听
-    controller?.forward();
+    controller.forward();
   }
 
   //重写生命周期的dispose函数  将controller资源回收
   @override
   void dispose() {
     //回收资源
-    controller?.dispose();
+    controller.dispose();
     super.dispose();
   }
 
@@ -46,7 +46,7 @@ class _TestAnimationState extends State<P31TestAnimation>
   @override
   Widget build(BuildContext context) {
     return AnimationLogo(
-      animation: animation!,
+      animation: animation,
     );
   }
 }

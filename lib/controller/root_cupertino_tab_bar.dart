@@ -9,11 +9,11 @@ import '../demo/00_test_home.dart';
 
 class MyBottomItem {
   MyBottomItem({
-    String title='',
+    String title = '',
     required Icon icon,
     Widget? activeIcon,
-   required Widget content,
-  })  : content = content,
+    required Widget content,
+  })   : content = content,
         barItem = BottomNavigationBarItem(
           icon: icon,
           title: Text(

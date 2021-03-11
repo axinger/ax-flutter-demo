@@ -116,7 +116,9 @@ class ColorListScreen extends StatelessWidget {
 class ColorScreen extends StatelessWidget {
   final Color? color;
 
-  const ColorScreen({this.color,});
+  const ColorScreen({
+    this.color,
+  });
 
   @override
   Widget build(BuildContext context) => Scaffold(

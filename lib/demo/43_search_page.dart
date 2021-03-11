@@ -173,7 +173,6 @@ class _SearchItemViewState extends State<SearchItemView> {
 }
 
 class SearchItem extends StatefulWidget {
-
   final String title;
 
   const SearchItem({Key? key, required this.title}) : super(key: key);

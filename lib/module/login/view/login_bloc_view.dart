@@ -326,7 +326,7 @@ class _formTF extends StatelessWidget {
   TextEditingController phoneTextEditingController = TextEditingController();
   var loginFomKey = GlobalKey<FormState>();
 
-  String username='', password='';
+  String username = '', password = '';
 
   @override
   Widget build(BuildContext context) {

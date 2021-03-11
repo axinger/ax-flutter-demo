@@ -10,8 +10,9 @@ class _AnimatedListSampleState extends State<AnimatedListSample> {
   final GlobalKey<AnimatedListState> _listKey =
       new GlobalKey<AnimatedListState>();
   ListModel<int>? _list;
-  int _selectedItem=-1;
-  int _nextItem=0; // The next item inserted when the user presses the '+' button.
+  int _selectedItem = -1;
+  int _nextItem =
+      0; // The next item inserted when the user presses the '+' button.
 
   @override
   void initState() {
@@ -33,7 +34,8 @@ class _AnimatedListSampleState extends State<AnimatedListSample> {
       selected: _selectedItem == _list![index],
       onTap: () {
         setState(() {
-          _selectedItem = (_selectedItem == _list![index] ? null : _list![index])!;
+          _selectedItem =
+              (_selectedItem == _list![index] ? null : _list![index])!;
         });
       },
     );
@@ -94,7 +96,7 @@ class _AnimatedListSampleState extends State<AnimatedListSample> {
           padding: const EdgeInsets.all(16.0),
           child: new AnimatedList(
             key: _listKey,
-            initialItemCount: _list?.length??0,
+            initialItemCount: _list?.length ?? 0,
             itemBuilder: _buildItem,
           ),
         ),

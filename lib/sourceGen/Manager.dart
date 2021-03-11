@@ -22,7 +22,7 @@ class Manager {
 
 /// 工厂方法,一般不需要些,就强制调用 .instance 表明是一个单例,代码规范
 class Person {
-  String name='';
+  String name = '';
 
   static Person _instance = Person._init();
 

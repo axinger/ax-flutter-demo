@@ -22,12 +22,10 @@ class JumpTwoLogic extends GetxController {
 }
 
 class P60JumpOnePage extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
-
     /// 使用Get.put()实例化你的类，使其对当下的所有子路由可用。
-     JumpOneLogic? logic = Get.put(JumpOneLogic());
+    JumpOneLogic? logic = Get.put(JumpOneLogic());
 
     return Scaffold(
       backgroundColor: Colors.white,

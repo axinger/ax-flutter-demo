@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 // import 'package:flutter_easyrefresh/easy_refresh.dart';
 
 import '../demo/converse_list_header.dart';
@@ -15,6 +16,7 @@ class ListViewPage extends StatefulWidget {
 class _MyPage extends State<ListViewPage> {
   List<ConverseModel> _converseModelList = [];
   ScrollController _scrollController = ScrollController();
+
   // EasyRefreshController _refreshController = EasyRefreshController();
 
   List<int> dataList = <int>[];
@@ -113,7 +115,7 @@ class _MyPage extends State<ListViewPage> {
   }
 
   Widget _listView() {
-    return  Column(
+    return Column(
       children: <Widget>[
         ConverseListHeader(
           onPressed: () {},

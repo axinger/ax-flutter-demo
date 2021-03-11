@@ -1,8 +1,5 @@
 import 'dart:async';
 
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-
 //import 'package:meta/meta.dart';
 
 /// 这里是网络请求
@@ -11,8 +8,8 @@ class UserRepository {
   final String password;
 
   UserRepository({
-    this.username='',
-    this.password='',
+    this.username = '',
+    this.password = '',
   });
 
   Future<String> authenticate({

@@ -10,7 +10,7 @@ class CustomFlatButton extends MaterialButton {
     required onPressed,
     this.borderSide,
     this.disabledBorderColor = Colors.white,
-    this.highlightedBorderColor= Colors.white,
+    this.highlightedBorderColor = Colors.white,
     onLongPress,
     onHighlightChanged,
     textTheme,

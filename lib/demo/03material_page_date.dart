@@ -142,7 +142,7 @@ class _MaterialPage1 extends State<MaterialPageDate> {
             focusColor: Colors.red,
             hoverColor: Colors.red,
             onChanged: (value) {
-              _checkbox_value = value ??false;
+              _checkbox_value = value ?? false;
               setState(() {});
             },
           ),
@@ -155,7 +155,7 @@ class _MaterialPage1 extends State<MaterialPageDate> {
             isThreeLine: false,
             onChanged: (value) {
               setState(() {
-                _checkboxListTile_value = value??false;
+                _checkboxListTile_value = value ?? false;
               });
             },
           ),
@@ -169,7 +169,7 @@ class _MaterialPage1 extends State<MaterialPageDate> {
                 activeColor: Colors.red,
                 onChanged: (int? value) {
                   setState(() {
-                    _Radio_value = value??0;
+                    _Radio_value = value ?? 0;
                   });
                 },
               ),
@@ -180,7 +180,7 @@ class _MaterialPage1 extends State<MaterialPageDate> {
                 activeColor: Colors.red,
                 onChanged: (int? value) {
                   setState(() {
-                    _Radio_value = value??0;
+                    _Radio_value = value ?? 0;
                   });
                 },
               ),
@@ -202,7 +202,7 @@ class _MaterialPage1 extends State<MaterialPageDate> {
                 activeColor: Colors.red,
                 onChanged: (int? value) {
                   setState(() {
-                    _RadioListTile_value = value ??0;
+                    _RadioListTile_value = value ?? 0;
                   });
                 },
               ),
@@ -217,7 +217,7 @@ class _MaterialPage1 extends State<MaterialPageDate> {
                 activeColor: Colors.red,
                 onChanged: (int? value) {
                   setState(() {
-                    _RadioListTile_value = value ??0;
+                    _RadioListTile_value = value ?? 0;
                   });
                 },
               ),
@@ -281,9 +281,9 @@ class _MaterialPage1 extends State<MaterialPageDate> {
 
 //              DateFormat("yyyy-MM-dd").format(selectDateTime),
 
-            // formatDate(selectDateTime, [yyyy, '-', mm, '-', dd]),
+              // formatDate(selectDateTime, [yyyy, '-', mm, '-', dd]),
 //           DateTime.fromMillisecondsSinceEpoch(selectDateTime.millisecondsSinceEpoch).toString(),
-          ),
+              ),
 
           FlatButton(
             child: Text("时间选择"),

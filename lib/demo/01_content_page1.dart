@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
+
 import '../global_const.dart';
 
 class P01ContentPage extends StatefulWidget {
@@ -1149,7 +1150,7 @@ class _MyPage extends State<P01ContentPage>
         builder: (context, child) {
           return Theme(
             data: ThemeData.dark(),
-            child: child?? Container(),
+            child: child ?? Container(),
           );
         }
 //      selectableDayPredicate: (date) {
@@ -1183,7 +1184,7 @@ class _MyPage extends State<P01ContentPage>
           data: ThemeData.dark(),
           child: MediaQuery(
             data: MediaQuery.of(context).copyWith(alwaysUse24HourFormat: true),
-            child: child?? Container(),
+            child: child ?? Container(),
           ),
         );
       },

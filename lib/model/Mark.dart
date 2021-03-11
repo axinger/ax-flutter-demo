@@ -1,5 +1,5 @@
 class Mark {
   final String name;
 
-  const Mark({this.name=''});
+  const Mark({this.name = ''});
 }

@@ -48,7 +48,7 @@ class _MaterialPage extends State<MaterialPagePlugin> {
                         print('读取数据onValue == ${onValue.toString()}');
                         Object? object;
 
-                        print(' >>>>>>>> ${object??''}');
+                        print(' >>>>>>>> ${object ?? ''}');
 
                         setState(() {
                           show_oc_text = onValue;

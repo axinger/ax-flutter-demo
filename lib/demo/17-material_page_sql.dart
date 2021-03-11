@@ -58,7 +58,7 @@ class _MaterialPage1 extends State<MaterialPageSql> {
                         print(
                             "onValue.getString(mUserName)=   ${onValue.getString("name")}");
                         setState(() {
-                          name=  onValue.getString('name')??'';
+                          name = onValue.getString('name') ?? '';
                         });
                       });
                     },
@@ -70,7 +70,7 @@ class _MaterialPage1 extends State<MaterialPageSql> {
                         onValue.remove("name");
 //                onValue.clear();///清除所有
                         setState(() {
-                          name = onValue.getString("name") ??'';
+                          name = onValue.getString("name") ?? '';
                         });
                       });
                     },
@@ -98,7 +98,7 @@ class _MaterialPage1 extends State<MaterialPageSql> {
                         List<String> list = <String>[];
 
                         onValue.getKeys().forEach((key) => {
-                              list.add(onValue.getString(key)??''),
+                              list.add(onValue.getString(key) ?? ''),
                             });
 
                         print("list = ${list}");

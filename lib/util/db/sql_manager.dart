@@ -18,9 +18,9 @@ class SqlManager {
     String? databasesPath = await getDatabasesPath();
     print("databasesPath == ${databasesPath}");
 
-    String path = databasesPath??'' + _NAME;
+    String path = databasesPath ?? '' + _NAME;
     if (Platform.isIOS) {
-      path = databasesPath??'' + "/" + _NAME;
+      path = databasesPath ?? '' + "/" + _NAME;
     }
     _database = await openDatabase(path,
         version: _VERSION, onCreate: (Database db, int version) async {});

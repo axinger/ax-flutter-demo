@@ -1,4 +1,3 @@
-import 'package:ax_flutter_demo/controller/mine_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -9,9 +8,9 @@ class TabbarItemController {
   TabbarItemController({
     required String title,
     required Widget icon,
-     Widget? activeIcon,
-    required  Widget controller,
-  })  : _icon = icon,
+    Widget? activeIcon,
+    required Widget controller,
+  })   : _icon = icon,
         _title = title,
         _activeIcon = activeIcon,
         this.controller = controller,

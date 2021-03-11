@@ -34,7 +34,8 @@ class AllContentBox extends StatefulWidget {
   final Color bgColors;
   final Widget child;
 
-  AllContentBox({this.title='', this.bgColors = Colors.green,required this.child});
+  AllContentBox(
+      {this.title = '', this.bgColors = Colors.green, required this.child});
 
   @override
   _AllContentBoxState createState() => _AllContentBoxState();

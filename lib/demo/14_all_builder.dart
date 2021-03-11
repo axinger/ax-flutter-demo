@@ -107,9 +107,8 @@ class _P14AllBuilderPageState extends State<P14AllBuilderPage> {
                             '$value',
                             style: TextStyle(backgroundColor: Colors.red),
                           ),
-                         if(child!=null) child,
+                          if (child != null) child,
                           // child ?? Container(),
-
                         ],
                       );
                     },
@@ -222,7 +221,7 @@ class _TestPage extends StatefulWidget {
   final BehaviorSubject<String> behaviorSubject;
   final Function(String str) callBack;
 
-  _TestPage({required this.behaviorSubject,required this.callBack});
+  _TestPage({required this.behaviorSubject, required this.callBack});
 
   @override
   __TestPageState createState() => __TestPageState();
@@ -254,7 +253,7 @@ class __TestPageState extends State<_TestPage> {
 //          initialData: streamInt,
               builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
                 print('snapshot.data = ${snapshot.data}');
-                return Text(snapshot.data ??'');
+                return Text(snapshot.data ?? '');
               }),
           FlatButton(
             child: Text('callBack'),

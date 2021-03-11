@@ -1,7 +1,5 @@
-
-
-import 'package:flutter/material.dart';
 import 'package:ax_flutter_util/ax_flutter_util.dart';
+import 'package:flutter/material.dart';
 
 class P56StatefulBuilder extends StatefulWidget {
   @override
@@ -34,7 +32,6 @@ class _P56StatefulBuilderState extends State<P56StatefulBuilder> {
         children: [
           Text(name1),
           StatefulBuilder(
-
             builder: (BuildContext context, StateSetter stateSetter) {
               print('局部刷新 = StatefulBuilder');
 

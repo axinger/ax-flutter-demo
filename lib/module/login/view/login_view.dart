@@ -55,6 +55,7 @@ class _LoginPage extends State<LoginView> {
           style: TextStyle(fontFamily: 'Droid Sans'),
         ),
         elevation: 0,
+
         /// 取消返回按钮
         automaticallyImplyLeading: false,
       ),
@@ -64,9 +65,6 @@ class _LoginPage extends State<LoginView> {
 //          body: ContainerTF(),
     );
   }
-
-
-
 
 //   @override
 //   Widget build(BuildContext context) {
@@ -111,6 +109,7 @@ class _ContainerTF extends State<ContainerTF> {
   String username = "", password = "";
 
   FocusNode _contentFocusNode = FocusNode();
+
   @override
   void initState() {
     super.initState();

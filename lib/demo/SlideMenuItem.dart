@@ -14,7 +14,7 @@ class SlideMenuItem extends StatelessWidget {
     this.margin,
     this.transform,
     required this.onTap,
-  })  : assert(child != null),
+  })   : assert(child != null),
         assert(margin == null || margin.isNonNegative),
         assert(padding == null || padding.isNonNegative),
         assert(decoration == null || decoration.debugAssertIsValid()),

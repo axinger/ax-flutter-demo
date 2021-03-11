@@ -34,7 +34,6 @@ import '21-future_await.dart';
 import '22_1_web_view_http.dart';
 import '22_2_webView_local_html.dart';
 import '23-list_view_page.dart';
-import '24-list_view_action_page.dart';
 import '25_more_list_view_page.dart';
 import '26_test_event_page.dart';
 import '27_test_async_page.dart';
@@ -47,11 +46,8 @@ import '33_db_hvie_page.dart';
 import '34_MultiProvider.dart';
 import '35_TestTodoList.dart';
 import '36_touch_auth_demo_page.dart';
-import '37_popup_route_page.dart';
 import '38_center_up_page.dart';
 import '39_circle_page.dart';
-import '40_size_page.dart';
-import '41_flutter_redux_app.dart';
 import '42_net_test_page.dart';
 import '43_search_page.dart';
 import '44_camera_demo_page.dart';
@@ -543,10 +539,11 @@ class _TestHomePageState extends State<TestHomePage> {
           title: 'P59Get传值,\n用Get.to跳转,才能恢复初始值',
           onTap: () {
             // push(context: context, widget: P59CounterGetPage());
+            print('----===');
             Get.to(() => P59CounterGetPage())?.then((value) {
               print('then = $value');
               print('CounterController2 = ${Get.find<CounterController2>()}');
-            })?.whenComplete(() {
+            }).whenComplete(() {
               print(
                   'whenComplete CounterController2 = ${Get.find<CounterController2>()}');
             });

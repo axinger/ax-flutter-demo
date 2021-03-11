@@ -16,7 +16,6 @@ import 'package:provider/provider.dart';
 
 import 'app_theme.dart';
 import 'controller/root_page.dart';
-import 'demo/00_test_home.dart';
 import 'demo/01_content_page1.dart';
 import 'demo/28_test_route_page.dart';
 import 'event/login_success_event.dart';
@@ -24,6 +23,7 @@ import 'event/update_user_info_event.dart';
 import 'generated/l10n.dart';
 import 'global_const.dart';
 import 'module/login/view/login_view.dart';
+
 class AxApp extends StatefulWidget {
 //  var adapter = Hive.registerAdapter(StudentAdapter(),0);
 //  void log(String? name){
@@ -37,7 +37,6 @@ class AxApp extends StatefulWidget {
 
 ///WidgetsBindingObserver 进入后台
 class _MyApp extends State<AxApp> with WidgetsBindingObserver {
-
   @override
   void initState() {
     super.initState();
@@ -311,11 +310,13 @@ class _MyApp extends State<AxApp> with WidgetsBindingObserver {
       ),
     );
   }
-/// get库
+
+  /// get库
   Widget get _getMaterialApp {
     return GetMaterialApp(
       title: '阿星 Flutter Demo',
       navigatorKey: navigatorStateKey,
+
       ///Flutter里的viewWillAppear
       navigatorObservers: [routeObserver],
       debugShowCheckedModeBanner: false,
@@ -394,6 +395,7 @@ class _MyApp extends State<AxApp> with WidgetsBindingObserver {
     return MaterialApp(
       title: '阿星 Flutter Demo',
       navigatorKey: navigatorStateKey,
+
       ///Flutter里的viewWillAppear
       navigatorObservers: [routeObserver],
       debugShowCheckedModeBanner: false,

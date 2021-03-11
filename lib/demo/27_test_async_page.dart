@@ -35,7 +35,7 @@ class _MaterialPage extends State<P27AsyncPage> {
   ///上面的代码大概的意思就是每隔 interval = 2 秒发射一次数据, 数据从 0 开始累加,
   ///直到数据等于 maxCount=5 时停止发射. 需要注意的是只有调用了 listen 异步函数体才会被执行, 该函数返回的是一个 Subscription
   ///可以通过 pause 函数来暂停一个 Subscription 发射数据:
-  Stream<int> timedCounter(Duration interval, [int maxCount=0]) async* {
+  Stream<int> timedCounter(Duration interval, [int maxCount = 0]) async* {
     int i = 0;
     while (true) {
       await Future.delayed(interval);

@@ -142,7 +142,7 @@ class P28RoutePageSub2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     /// 上下文获得参数
-    String tmp = ModalRoute?.of(context)?.settings.arguments.toString() ??'';
+    String tmp = ModalRoute?.of(context)?.settings.arguments.toString() ?? '';
     String tmp2 = this.sub2Map.toString();
 
     print('tmp== $tmp');
@@ -169,7 +169,10 @@ class P28RoutePageSub2 extends StatelessWidget {
 class P28RoutePageSub3 extends StatelessWidget {
   final Map? sub2Map;
 
-  P28RoutePageSub3({Key? key, this.sub2Map,}) : super(key: key) {
+  P28RoutePageSub3({
+    Key? key,
+    this.sub2Map,
+  }) : super(key: key) {
     print(this.sub2Map);
   }
 

@@ -117,7 +117,8 @@ class AnimationHeader extends AnimatedWidget {
   final List<Animation> animatedList;
   final AnimationController animationController;
 
-  AnimationHeader({required this.animatedList,required this.animationController})
+  AnimationHeader(
+      {required this.animatedList, required this.animationController})
       : super(listenable: animationController);
 
   @override

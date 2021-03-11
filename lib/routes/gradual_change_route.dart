@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 /**
@@ -10,34 +9,28 @@ import 'package:flutter/material.dart';
  *
  */
 
-class  GradualChangeRoute extends PageRouteBuilder{
+class GradualChangeRoute extends PageRouteBuilder {
   final Widget widget;
-   GradualChangeRoute(this.widget):super(
-    transitionDuration:Duration(seconds: 2),
-    pageBuilder:(
-       BuildContext context,
-        Animation<double>animation1,
-        Animation<double>animation2,
-    ){
-      return widget;
-    },
-       transitionsBuilder:(
-     BuildContext context,
-      Animation<double>animation1,
-      Animation<double>animation2,
-       Widget child
-    ){
-      //渐隐渐变效果
-    return FadeTransition(
-        opacity: Tween(begin: 0.0,end: 1.0).animate(
-          CurvedAnimation(
-            parent: animation1,
-            curve: Curves.fastOutSlowIn
-          )
-        ),
-        child: child,
-      );
-    }
-  );
 
+  GradualChangeRoute(this.widget)
+      : super(
+            transitionDuration: Duration(seconds: 2),
+            pageBuilder: (
+              BuildContext context,
+              Animation<double> animation1,
+              Animation<double> animation2,
+            ) {
+              return widget;
+            },
+            transitionsBuilder: (BuildContext context,
+                Animation<double> animation1,
+                Animation<double> animation2,
+                Widget child) {
+              //渐隐渐变效果
+              return FadeTransition(
+                opacity: Tween(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+                    parent: animation1, curve: Curves.fastOutSlowIn)),
+                child: child,
+              );
+            });
 }

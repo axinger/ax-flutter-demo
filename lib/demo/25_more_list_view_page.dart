@@ -3,7 +3,6 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:get/get.dart';
 import 'package:screenshot/screenshot.dart';
 
 class P25MoreListViewPage extends StatefulWidget {
@@ -56,15 +55,11 @@ class _State extends State<P25MoreListViewPage> {
           TextButton(
             child: Text("截图"),
             onPressed: () {
-
               screenshotController
                   .capture(delay: Duration(milliseconds: 10))
                   .then((Uint8List? image) async {
                 // _imageFile = image;
                 if (image != null) {
-
-
-
                   // Get.showSnackbar(GetBar(
                   //   title: '截屏',
                   //   message: 'aa',
@@ -72,12 +67,10 @@ class _State extends State<P25MoreListViewPage> {
                   //   // icon: Image.memory(image),
                   // ));
 
-
                 }
               }).catchError((onError) {
                 print(onError);
               });
-
             },
           ),
         ],

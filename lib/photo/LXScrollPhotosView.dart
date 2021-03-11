@@ -20,7 +20,7 @@ class LXScrollPhotosView extends StatefulWidget {
 }
 
 class _LXScrollPhotosViewState extends State<LXScrollPhotosView> {
-  int _indexPage=0;
+  int _indexPage = 0;
   PageController? _pageController;
 
   @override

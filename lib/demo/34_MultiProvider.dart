@@ -9,7 +9,7 @@ class AddModel extends ChangeNotifier {
 
   AddModel({
     int age1 = 0,
-    int age2=0,
+    int age2 = 0,
   })  : _age1 = age1,
         _age2 = age2;
 
@@ -30,9 +30,9 @@ class AddModel extends ChangeNotifier {
 }
 
 class PlusModel extends ChangeNotifier {
-  int _age=0;
+  int _age = 0;
 
-  PlusModel({int age=0}) : _age = age;
+  PlusModel({int age = 0}) : _age = age;
 
   get age => _age;
 
