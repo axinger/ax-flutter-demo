@@ -1,5 +1,6 @@
 import 'dart:async';
 
+
 import 'package:ax_flutter_demo/generated/l10n.dart';
 import 'package:ax_flutter_demo/module/login/view/login_view.dart';
 import 'package:ax_flutter_util/ax_flutter_util.dart';
@@ -66,6 +67,7 @@ import '57_custom_route.dart';
 import '58_navigation_rail_page.dart';
 import '59_get_value_page.dart';
 import '60_get_more_page.dart';
+import '61_flare_test.dart';
 
 class Cell extends StatelessWidget {
   final CellItem item;
@@ -563,11 +565,19 @@ class _TestHomePageState extends State<TestHomePage> {
             Get.to(() => P59CounterGetPage3());
           }),
       CellItem(
-          title: 'P59Get跨页面传值',
+          title: 'P60Get跨页面传值',
           onTap: () {
             // push(context: context, widget: P60JumpOnePage());
             Get.to(P60JumpOnePage());
           }),
+      CellItem(
+          title: 'P61动画插件',
+          onTap: () {
+            // push(context: context, widget: P60JumpOnePage());
+            Get.to(PFlareTestPage());
+          }),
+
+
     ];
   }
 }

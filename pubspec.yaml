@@ -201,6 +201,8 @@ dependencies:
   #      url: 'https://github.com/AXinger/ax_flutter_toast.git'
 
   screenshot: ^1.0.0-nullsafety.1
+  # 动画,不支持空安全
+#  flare_flutter: ^2.0.6
 
   ax_flutter_util:
     path: ../ax_flutter_util
@@ -264,6 +266,7 @@ flutter:
     - assets/fonts/iconfont.ttf
     - assets/image/
     - assets/image/album/
+    - assets/image/flare
 
   #           style: italic
   #   - family: Trajan Pro
