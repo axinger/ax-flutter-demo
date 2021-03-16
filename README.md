@@ -230,3 +230,14 @@ print('添加数据 $e');
   }
   
 ```
+
+## operator 重载运算符
+```dart
+//operator 是 Dart 的一个关键字，它和运算符（如=）一起使用，
+// 表示一个 运算符重载函数，在理解时可将operator和运算符（如operator=）视为一个函数名。
+```
+
+## json
+```dart
+/// json.decode 只能是把子串与 list map 直接转换,不能转 object
+```

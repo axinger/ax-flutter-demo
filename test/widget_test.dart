@@ -11,6 +11,6 @@ void main() {
 
  print('左边补齐位置 = ${3.toString().padLeft(2,'0')}');
 
-
-
+ String name = '';
+  print(' = ${name.isEmpty}');
 }
