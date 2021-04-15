@@ -1,116 +1,81 @@
 import 'dart:async';
 
-
 import 'package:ax_flutter_demo/generated/l10n.dart';
 import 'package:ax_flutter_demo/module/login/view/login_view.dart';
 import 'package:ax_flutter_util/ax_flutter_util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
 
-import '01_content_page1.dart';
-import '01_content_page2.dart';
-import '02-slivergrid_page.dart';
-import '02material_page2.dart';
-import '03material_page_date.dart';
-import '04material_page_dialog.dart';
-import '05-material_page_chip.dart';
-import '06-material_page_data_table.dart';
-import '07-material_page_data_table2.dart';
-import '08-material_page_card.dart';
-import '09-material_page_stepper.dart';
-import '10-material_page_inherit.dart';
-import '11-material_page_stream.dart';
-import '12-material_page_rx_dart.dart';
-import '13-material_page_bloc.dart';
-import '14_all_builder.dart';
-import '15_animation_demo.dart';
-import '16-material_page_i18n.dart';
-import '17-material_page_sql.dart';
-import '18-material_page_more_text.dart';
-import '19-material_page_plugin.dart';
-import '20-material_page_image_picker.dart';
-import '21-future_await.dart';
-import '22_1_web_view_http.dart';
-import '22_2_webView_local_html.dart';
-import '23-list_view_page.dart';
-import '25_more_list_view_page.dart';
-import '26_test_event_page.dart';
-import '27_test_async_page.dart';
-import '28_test_route_page.dart';
-import '29_animated_list_route.dart';
-import '30_basic_app_bar_sample.dart';
-import '31_test_animation.dart';
-import '32_test_animation.dart';
-import '33_db_hvie_page.dart';
-import '34_MultiProvider.dart';
-import '35_TestTodoList.dart';
-import '36_touch_auth_demo_page.dart';
-import '38_center_up_page.dart';
-import '39_circle_page.dart';
-import '42_net_test_page.dart';
-import '43_search_page.dart';
-import '44_camera_demo_page.dart';
-import '45_hero_demo.dart';
-import '46_material_motion.dart';
-import '48_PhotoAlbumGridView.dart';
-import '49_dismissible.dart';
-import '50_on_pop_page.dart';
-import '51_nested_scroll_view.dart';
-import '52scrollable_positioned_list.dart';
-import '53draggable_scrollable_sheet.dart';
-import '54_sliver_persisten.dart';
-import '55_bottom_tab_bar_widget.dart';
-import '56_stateful_builder.dart';
-import '57_custom_route.dart';
-import '58_navigation_rail_page.dart';
-import '59_get_value_page.dart';
-import '60_get_more_page.dart';
-import '61_flare_test.dart';
+import '../demo/01_content_page1.dart';
+import '../demo/01_content_page2.dart';
+import '../demo/02-slivergrid_page.dart';
+import '../demo/02material_page2.dart';
+import '../demo/03material_page_date.dart';
+import '../demo/04material_page_dialog.dart';
+import '../demo/05-material_page_chip.dart';
+import '../demo/06-material_page_data_table.dart';
+import '../demo/07-material_page_data_table2.dart';
+import '../demo/08-material_page_card.dart';
+import '../demo/09-material_page_stepper.dart';
+import '../demo/10-material_page_inherit.dart';
+import '../demo/11-material_page_stream.dart';
+import '../demo/12-material_page_rx_dart.dart';
+import '../demo/13-material_page_bloc.dart';
+import '../demo/14_all_builder.dart';
+import '../demo/15_animation_demo.dart';
+import '../demo/16-material_page_i18n.dart';
+import '../demo/17-material_page_sql.dart';
+import '../demo/18-material_page_more_text.dart';
+import '../demo/19-material_page_plugin.dart';
+import '../demo/20-material_page_image_picker.dart';
+import '../demo/21-future_await.dart';
+import '../demo/22_1_web_view_http.dart';
+import '../demo/22_2_webView_local_html.dart';
+import '../demo/23-list_view_page.dart';
+import '../demo/25_more_list_view_page.dart';
+import '../demo/26_test_event_page.dart';
+import '../demo/27_test_async_page.dart';
+import '../demo/28_test_route_page.dart';
+import '../demo/29_animated_list_route.dart';
+import '../demo/30_basic_app_bar_sample.dart';
+import '../demo/31_test_animation.dart';
+import '../demo/32_test_animation.dart';
+import '../demo/33_db_hvie_page.dart';
+import '../demo/34_MultiProvider.dart';
+import '../demo/35_TestTodoList.dart';
+import '../demo/36_touch_auth_demo_page.dart';
+import '../demo/38_center_up_page.dart';
+import '../demo/39_circle_page.dart';
+import '../demo/42_net_test_page.dart';
+import '../demo/43_search_page.dart';
+import '../demo/44_camera_demo_page.dart';
+import '../demo/45_hero_demo.dart';
+import '../demo/46_material_motion.dart';
+import '../demo/48_PhotoAlbumGridView.dart';
+import '../demo/49_dismissible.dart';
+import '../demo/50_on_pop_page.dart';
+import '../demo/51_nested_scroll_view.dart';
+import '../demo/52scrollable_positioned_list.dart';
+import '../demo/53draggable_scrollable_sheet.dart';
+import '../demo/54_sliver_persisten.dart';
+import '../demo/55_bottom_tab_bar_widget.dart';
+import '../demo/56_stateful_builder.dart';
+import '../demo/57_custom_route.dart';
+import '../demo/58_navigation_rail_page.dart';
+import '../demo/59_get_value_page.dart';
+import '../demo/60_get_more_page.dart';
+import '../demo/61_get_future_page.dart';
+import 'root_cell.dart';
 
-class Cell extends StatelessWidget {
-  final CellItem item;
-
-  Cell(this.item);
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      child: Container(
-        margin: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
-        decoration: BoxDecoration(
-            border: Border.all(color: Colors.orange, width: 1.0),
-            borderRadius: BorderRadius.all(Radius.circular(5))),
-        child: Container(
-          margin: EdgeInsets.all(8),
-          child: Text(
-            item.title,
-            maxLines: 3,
-          ),
-        ),
-      ),
-      onTap: item.onTap,
-    );
-  }
-}
-
-class CellItem {
-  int index;
-  String title;
-  final Function()? onTap;
-
-  CellItem({this.index = 0, this.title = '', this.onTap});
-}
-
-class TestHomePage extends StatefulWidget {
+class RootHomePage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _TestHomePageState();
+    return _RootHomePageState();
   }
 }
 
-class _TestHomePageState extends State<TestHomePage> {
+class _RootHomePageState extends State<RootHomePage> {
   ///Flutter&Dart Callback转同步 https://www.jianshu.com/p/e5cba8ca96bc
   Future<void> initFinish() async {
     Completer<void> completer = Completer();
@@ -178,27 +143,8 @@ class _TestHomePageState extends State<TestHomePage> {
   List<CellItem> get dataList {
     return [
       CellItem(
-          title: 'DateTime',
-          onTap: () {
-            var format = DateFormat.E('zh');
-
-            print('time = ${format.format(DateTime.now())}');
-            print(
-                'DateTime.now().format() = ${DateTime.now().format(locale: 'zh')}');
-
-            var f = NumberFormat('###.00#', 'en_US');
-            print(f.format(1234567.345678));
-
-            print(NumberFormat('###.00#', 'zh_CN').format(1234567.345678));
-
-            var aDateTime = DateTime.now();
-            DateFormat.yMMMMEEEEd().format(aDateTime);
-
-            print(DateFormat('yyyy-MM-ddEEEEE', 'en_US').format(aDateTime));
-            print(DateFormat('yyyy-MM-ddEEEEE', 'zh_CN').format(aDateTime));
-          }),
-      CellItem(
           title: 'LoginView',
+          subTitle: '从下往上弹出',
           onTap: () {
             // push(context: context, widget: LoginView());
 
@@ -212,19 +158,22 @@ class _TestHomePageState extends State<TestHomePage> {
             ));
           }),
       CellItem(
-          title: '01_00-按钮组件1',
+          title: '01-按钮组件1',
+          subTitle: 'P01ContentPage',
           onTap: () {
             push(context: context, widget: P01ContentPage());
           }),
       CellItem(
-          title: '01_01-组件',
+          title: '01_组件',
+          subTitle: 'P01ContentPage2',
           onTap: () {
             push(context: context, widget: P01ContentPage2());
           }),
       CellItem(
-          title: '02-组件',
+          title: '01-组件',
+          subTitle: 'P01ContentPage3',
           onTap: () {
-            push(context: context, widget: MaterialPage2());
+            push(context: context, widget: P01ContentPage3());
           }),
       CellItem(
           title: '02-SliverList 和 SliverGrid',
@@ -282,7 +231,8 @@ class _TestHomePageState extends State<TestHomePage> {
             push(context: context, widget: MaterialPageRxDart());
           }),
       CellItem(
-          title: '13-Bloc业务 依赖 Streams 独家使用输入（Sink）和输出（stream）',
+          title: '13-Bloc业务',
+          subTitle: ' 依赖 Streams 独家使用输入（Sink）和输出（stream）',
           onTap: () {
             push(context: context, widget: MaterialPageBloc());
           }),
@@ -541,28 +491,13 @@ class _TestHomePageState extends State<TestHomePage> {
           title: 'P59Get传值,\n用Get.to跳转,才能恢复初始值',
           onTap: () {
             // push(context: context, widget: P59CounterGetPage());
-            print('----===');
             Get.to(() => P59CounterGetPage())?.then((value) {
               print('then = $value');
               print('CounterController2 = ${Get.find<CounterController2>()}');
-            }).whenComplete(() {
+            })?.whenComplete(() {
               print(
                   'whenComplete CounterController2 = ${Get.find<CounterController2>()}');
             });
-          }),
-      CellItem(
-          title: 'P59Get传值2',
-          onTap: () {
-            // push(context: context, widget: P59CounterGetPage());
-            print('----===');
-            Get.to(() => P59CounterGetPage2());
-          }),
-      CellItem(
-          title: 'P59Get传值3',
-          onTap: () {
-            // push(context: context, widget: P59CounterGetPage());
-            print('----===');
-            Get.to(() => P59CounterGetPage3());
           }),
       CellItem(
           title: 'P60Get跨页面传值',
@@ -571,13 +506,10 @@ class _TestHomePageState extends State<TestHomePage> {
             Get.to(P60JumpOnePage());
           }),
       CellItem(
-          title: 'P61动画插件',
+          title: 'P61长按拖动',
           onTap: () {
-            // push(context: context, widget: P60JumpOnePage());
-            Get.to(PFlareTestPage());
+            Get.to(P61CounterGetPage());
           }),
-
-
     ];
   }
 }

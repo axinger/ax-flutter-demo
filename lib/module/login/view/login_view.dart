@@ -51,13 +51,14 @@ class _LoginPage extends State<LoginView> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          '登录',
-          style: TextStyle(fontFamily: 'Droid Sans'),
+          '登录\n临时取消返回按钮',
+          textAlign: TextAlign.center,
         ),
         elevation: 0,
+        centerTitle: true,
 
         /// 取消返回按钮
-        automaticallyImplyLeading: false,
+        // automaticallyImplyLeading: false,
       ),
       backgroundColor: Colors.white,
       body: LoginViewFormTF(),

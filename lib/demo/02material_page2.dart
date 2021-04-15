@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class MaterialPage2 extends StatefulWidget {
+class P01ContentPage3 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
 //    return _MaterialPage22();
@@ -10,7 +10,7 @@ class MaterialPage2 extends StatefulWidget {
   }
 }
 
-class _MaterialPage23 extends State<MaterialPage2> {
+class _MaterialPage23 extends State<P01ContentPage3> {
   var passwordTextEditingController = TextEditingController();
 
   var passwordFocusNode = FocusNode();

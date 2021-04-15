@@ -1,8 +1,9 @@
+import 'package:ax_flutter_demo/root/02root_function_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 import '../controller/history_page.dart';
-import '../demo/00_test_home.dart';
+import '../root/01root_test_page.dart';
 
 class TabbarItemController {
   TabbarItemController({
@@ -43,7 +44,7 @@ class _RootController
 //  PageController _pageController;
 
   //PageController 没有记录index,所以自定义
-  int _tabItemCurrentIndex = 1;
+  int _tabItemCurrentIndex = 0;
 
   List<TabbarItemController>? _tabbarItemControllerList;
 
@@ -62,6 +63,17 @@ class _RootController
       //   ),
       //   controller: HomePage(),
       // ),
+
+      TabbarItemController(
+        title: "测试页面",
+        icon: Icon(Icons.desktop_mac),
+        controller: RootHomePage(),
+      ),
+      TabbarItemController(
+        title: "测试方法",
+        icon: Icon(Icons.desktop_mac),
+        controller: RootFunctionPage(),
+      ),
       TabbarItemController(
         title: "记录",
         icon: Icon(Icons.history),
@@ -74,11 +86,6 @@ class _RootController
       //   activeIcon: Icon(Icons.person),
       //   controller: MinePage(),
       // ),
-      TabbarItemController(
-        title: "测试",
-        icon: Icon(Icons.desktop_mac),
-        controller: TestHomePage(),
-      ),
     ];
   }
 

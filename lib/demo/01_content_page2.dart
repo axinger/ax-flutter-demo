@@ -136,13 +136,6 @@ class _MyPage extends State<P01ContentPage2>
           child: Column(
             children: [
               Divider(color: Colors.red),
-              Text(
-                '''多行行的字符串
-第二行要代码左对齐.....''',
-                textAlign: TextAlign.left,
-                style: TextStyle(backgroundColor: Colors.red),
-              ),
-              Divider(color: Colors.red),
               Text('Table 表格'),
               Padding(
                 padding: EdgeInsets.only(left: 40, right: 40),
