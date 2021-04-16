@@ -7,7 +7,6 @@ import 'package:intl/intl.dart';
 
 import 'root_cell.dart';
 
-
 class RootFunctionPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -88,6 +87,19 @@ class _RootFunctionPageState extends State<RootFunctionPage> {
 
             print(DateFormat('yyyy-MM-ddEEEEE', 'en_US').format(aDateTime));
             print(DateFormat('yyyy-MM-ddEEEEE', 'zh_CN').format(aDateTime));
+          }),
+      CellItem(
+
+          ///https://blog.csdn.net/huang173507029/article/details/106606424/
+          title: '数组 firstWhere 含有orElse',
+          onTap: () {
+            var list = [1, 2, 3];
+            /// 如果未查找到所制定条件的元素，进入orElse参数
+            var firstWhere = list.firstWhere((v) => v > 100, orElse: () {
+              print('orElse=====');
+              return -1;
+            });
+            print('firstWhere = $firstWhere');
           }),
     ];
   }

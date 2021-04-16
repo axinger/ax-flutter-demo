@@ -11,11 +11,11 @@ import '../theme_data_notifier.dart';
 class P01ContentPage2 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _MyPage();
+    return _State();
   }
 }
 
-class _MyPage extends State<P01ContentPage2>
+class _State extends State<P01ContentPage2>
     with SingleTickerProviderStateMixin, RouteAware {
   AnimationController? _animationController;
   Animation? _animation;

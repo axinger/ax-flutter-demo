@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:ax_flutter_demo/demo/01_content_page4.dart';
 import 'package:ax_flutter_demo/generated/l10n.dart';
 import 'package:ax_flutter_demo/module/login/view/login_view.dart';
 import 'package:ax_flutter_util/ax_flutter_util.dart';
@@ -10,7 +11,7 @@ import 'package:get/get.dart';
 import '../demo/01_content_page1.dart';
 import '../demo/01_content_page2.dart';
 import '../demo/02-slivergrid_page.dart';
-import '../demo/02material_page2.dart';
+import '../demo/01_content_page3.dart';
 import '../demo/03material_page_date.dart';
 import '../demo/04material_page_dialog.dart';
 import '../demo/05-material_page_chip.dart';
@@ -159,22 +160,29 @@ class _RootHomePageState extends State<RootHomePage> {
           }),
       CellItem(
           title: '01-按钮组件1',
-          subTitle: 'P01ContentPage',
+          subTitle: '01_content_page1.dart',
           onTap: () {
             push(context: context, widget: P01ContentPage());
           }),
       CellItem(
           title: '01_组件',
-          subTitle: 'P01ContentPage2',
+          subTitle: '01_content_page3.dart',
           onTap: () {
             push(context: context, widget: P01ContentPage2());
           }),
       CellItem(
           title: '01-组件',
-          subTitle: 'P01ContentPage3',
+          subTitle: '01_content_page4.dart',
           onTap: () {
             push(context: context, widget: P01ContentPage3());
           }),
+      CellItem(
+          title: '01-圆角组件',
+          subTitle: '01_content_page4.dart',
+          onTap: () {
+            push(context: context, widget: P01ContentPage4());
+          }),
+
       CellItem(
           title: '02-SliverList 和 SliverGrid',
           onTap: () {

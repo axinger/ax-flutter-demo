@@ -14,11 +14,11 @@ import '../global_const.dart';
 class P01ContentPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _MyPage();
+    return _State();
   }
 }
 
-class _MyPage extends State<P01ContentPage>
+class _State extends State<P01ContentPage>
     with SingleTickerProviderStateMixin, RouteAware {
   /// Flutter里的viewWillAppear
   /// 2.重写didChangeDependencies方法加入监听
