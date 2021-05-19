@@ -94,6 +94,7 @@ class _RootFunctionPageState extends State<RootFunctionPage> {
           title: '数组 firstWhere 含有orElse',
           onTap: () {
             var list = [1, 2, 3];
+
             /// 如果未查找到所制定条件的元素，进入orElse参数
             var firstWhere = list.firstWhere((v) => v > 100, orElse: () {
               print('orElse=====');

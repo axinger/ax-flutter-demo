@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:ax_flutter_util/ax_flutter_util.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -89,7 +90,7 @@ class _State extends State<P01ContentPage2>
 
         /// 状态栏的文字颜色
         brightness: Brightness.light,
-        title: Text('01_01形状'),
+        title: Text('01_02形状'),
         actions: <Widget>[
           FlatButton(
             color: Colors.orange,
@@ -135,6 +136,46 @@ class _State extends State<P01ContentPage2>
         child: SingleChildScrollView(
           child: Column(
             children: [
+              Divider(color: Colors.red),
+              Text('富文本'),
+              RichText(
+                text: TextSpan(
+                  text: "        首先",
+
+                  /// GestureRecognizer 与 GestureDetector 区别
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () {
+                      print('TextSpan 点击 首先');
+                    },
+                  style: TextStyle(
+                    fontSize: 30,
+                    color: Colors.red,
+//        fontWeight: FontWeight.w100,
+                    /// 斜体
+                    fontStyle: FontStyle.italic,
+                  ),
+                  children: [
+                    TextSpan(
+                      text: '，使用Image.network命名构造函数创建Image对象时，',
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                      ),
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                          print('TextSpan 点击 内容');
+                        },
+                    ),
+                  ],
+
+                  /*   /// 多行文字,最多行数
+        maxLines: 4,
+
+        /// 多余文字显示样式 省略...
+        overflow: TextOverflow.ellipsis,*/
+                ),
+              ),
+
               Divider(color: Colors.red),
               Text('Table 表格'),
               Padding(

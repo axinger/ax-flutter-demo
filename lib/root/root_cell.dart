@@ -35,10 +35,11 @@ class Cell extends StatelessWidget {
                 item.title,
                 maxLines: 3,
               ),
-              if (item.subTitle.length>0)  Text(
-                item.subTitle,
-                maxLines: 3,
-              ),
+              if (item.subTitle.length > 0)
+                Text(
+                  item.subTitle,
+                  maxLines: 3,
+                ),
             ],
           ),
         ),
