@@ -164,9 +164,16 @@ class _State extends State<P01ContentPage>
       child: Scaffold(
         appBar: AppBar(
           title: Text(
-            '测试',
+            '测试,状态栏颜色',
             style: TextStyle(color: Colors.red),
           ),
+          ///状态栏颜色 brightness 亮度
+          ///在 AppBar 中配置属性： brightness ，其取值：
+          ///     Brightness.dark AppBar 配置为暗色，显示图标为 白色图标
+          ///    Brightness.light AppBar 配置为亮色，显示图标为 暗色 图标
+
+          brightness: Brightness.dark,
+          // backgroundColor: Colors.white,
           centerTitle: true,
           bottom: TabBar(
             controller: tabController,
