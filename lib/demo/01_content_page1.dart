@@ -93,21 +93,42 @@ class _State extends State<P01ContentPage>
 
   @override
   void initState() {
-    ListView();
     // ScrollController scrollController;
 
     super.initState();
+
+    /// https://blog.csdn.net/zl18603543572/article/details/107553183
+    ///单次 Frame 绘制回调，通过 addPostFrameCallback 实现。
+    ///它会在当前 Frame 绘制完成后进行回调，并只会回调一次，如果要再次监听则需要再设置一次。
+    WidgetsBinding.instance?.addPostFrameCallback((Duration timeStamp) {
+      debugPrint('WidgetsBinding-addPostFrameCallback');
+      // 只回调一次
+      ///在第一次绘制完成时再添加实时回调的监听
+
+      /// 都只能在这里,在外面报错
+      WidgetsBinding.instance?.addPersistentFrameCallback((timeStamp) {
+        debugPrint('WidgetsBinding-addPersistentFrameCallback'); // 只回调一次
+      });
+
+      SchedulerBinding.instance?.addPersistentFrameCallback((timeStamp) {
+        debugPrint('SchedulerBinding-addPersistentFrameCallback');
+      });
+      ServicesBinding.instance?.addPersistentFrameCallback((timeStamp) {
+        debugPrint('ServicesBinding-addPersistentFrameCallback');
+      });
+      RendererBinding.instance?.addPersistentFrameCallback((timeStamp) {
+        debugPrint('RendererBinding-addPersistentFrameCallback');
+      });
+    });
+
     tabController = TabController(length: 10, vsync: this);
     tabController?.addListener(() {
       if (tabController?.index == tabController?.animation?.value) {
         print('tabController.index = ${tabController?.index}');
       }
     });
-    SchedulerBinding.instance?.addPersistentFrameCallback((timeStamp) {});
-    WidgetsBinding.instance?.addPersistentFrameCallback((timeStamp) {});
-    ServicesBinding.instance?.addPersistentFrameCallback((timeStamp) {});
-    RendererBinding.instance?.addPersistentFrameCallback((timeStamp) {});
-//    GestureBinding.instance
+
+    ListView();
   }
 
   // _popupMenuItem(String title, {String imagePath='', IconData icon}) {
@@ -167,6 +188,7 @@ class _State extends State<P01ContentPage>
             '测试,状态栏颜色',
             style: TextStyle(color: Colors.red),
           ),
+
           ///状态栏颜色 brightness 亮度
           ///在 AppBar 中配置属性： brightness ，其取值：
           ///     Brightness.dark AppBar 配置为暗色，显示图标为 白色图标
@@ -351,6 +373,22 @@ class _State extends State<P01ContentPage>
               Image.asset(
                 assetsOfImagePath('/A171.jpg'),
                 fit: BoxFit.fill,
+              ),
+              Text(
+                '黑白图片',
+                style: TextStyle(
+                  color: Colors.red,
+                  fontSize: 20,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              Image.asset(
+                assetsOfImagePath('/A171.jpg'),
+                fit: BoxFit.fill,
+
+                ///要有
+                color: Colors.black,
+                colorBlendMode: BlendMode.color,
               ),
 //            Row(
 //              children: <Widget>[

@@ -19,7 +19,6 @@ import 'messages_en.dart' as messages_en;
 import 'messages_zh_CN.dart' as messages_zh_cn;
 
 typedef Future<dynamic> LibraryLoader();
-
 Map<String, LibraryLoader> _deferredLibraries = {
   'en': () => new Future.value(null),
   'zh_CN': () => new Future.value(null),
@@ -63,5 +62,5 @@ MessageLookupByLibrary? _findGeneratedMessagesFor(String locale) {
   var actualLocale =
       Intl.verifiedLocale(locale, _messagesExistFor, onFailure: (_) => null);
   if (actualLocale == null) return null;
-  return _findExact(actualLocale)!;
+  return _findExact(actualLocale);
 }

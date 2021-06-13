@@ -1,0 +1,15 @@
+// This is a generated file; do not edit or check into version control.
+FLUTTER_ROOT=/Users/xing/Develop/SDK/flutter
+FLUTTER_APPLICATION_PATH=/Users/xing/Develop/GitHub/ax_flutter_demo
+COCOAPODS_PARALLEL_CODE_SIGN=true
+FLUTTER_TARGET=/Users/xing/Develop/GitHub/ax_flutter_demo/lib/main.dart
+FLUTTER_BUILD_DIR=build
+SYMROOT=${SOURCE_ROOT}/../build/ios
+FLUTTER_BUILD_NAME=1.0.2
+FLUTTER_BUILD_NUMBER=100
+EXCLUDED_ARCHS[sdk=iphonesimulator*]=arm64 i386
+DART_DEFINES=Zmx1dHRlci5pbnNwZWN0b3Iuc3RydWN0dXJlZEVycm9ycz10cnVl,RkxVVFRFUl9XRUJfQVVUT19ERVRFQ1Q9dHJ1ZQ==
+DART_OBFUSCATION=false
+TRACK_WIDGET_CREATION=true
+TREE_SHAKE_ICONS=false
+PACKAGE_CONFIG=/Users/xing/Develop/GitHub/ax_flutter_demo/.dart_tool/package_config.json
