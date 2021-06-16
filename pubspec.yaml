@@ -135,6 +135,8 @@ dependencies:
   # 侧滑
   flutter_slidable: ^0.6.0
   sqflite: ^2.0.0+3
+  # 设备权限
+  permission_handler: ^8.1.0
   ##  ⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬ 谷歌组件 ⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
   ## 谷歌维护的库 https://github.com/flutter/plugins
 
