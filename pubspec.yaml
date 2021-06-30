@@ -137,6 +137,9 @@ dependencies:
   sqflite: ^2.0.0+3
   # 设备权限
   permission_handler: ^8.1.0
+  # 动画
+  lottie: ^1.0.1
+
   ##  ⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬ 谷歌组件 ⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
   ## 谷歌维护的库 https://github.com/flutter/plugins
 
@@ -267,6 +270,8 @@ flutter:
     - assets/fonts/iconfont.ttf
     - assets/image/
     - assets/image/album/
+    - assets/lottie/
+
 
   #           style: italic
   #   - family: Trajan Pro

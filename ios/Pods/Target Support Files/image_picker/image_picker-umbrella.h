@@ -14,6 +14,7 @@
 #import "FLTImagePickerMetaDataUtil.h"
 #import "FLTImagePickerPhotoAssetUtil.h"
 #import "FLTImagePickerPlugin.h"
+#import "FLTPHPickerSaveImageToPathOperation.h"
 
 FOUNDATION_EXPORT double image_pickerVersionNumber;
 FOUNDATION_EXPORT const unsigned char image_pickerVersionString[];

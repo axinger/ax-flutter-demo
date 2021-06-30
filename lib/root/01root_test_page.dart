@@ -1,8 +1,7 @@
 import 'dart:async';
 
-import 'package:ax_flutter_demo/demo/01_content_page4.dart';
-import 'package:ax_flutter_demo/generated/l10n.dart';
-import 'package:ax_flutter_demo/module/login/view/login_view.dart';
+import '../generated/l10n.dart';
+import '../module/login/view/login_view.dart';
 import 'package:ax_flutter_util/ax_flutter_util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +10,7 @@ import 'package:get/get.dart';
 import '../demo/01_content_page1.dart';
 import '../demo/01_content_page2.dart';
 import '../demo/01_content_page3.dart';
+import '../demo/01_content_page4.dart';
 import '../demo/02-slivergrid_page.dart';
 import '../demo/03material_page_date.dart';
 import '../demo/04material_page_dialog.dart';
@@ -67,6 +67,7 @@ import '../demo/58_navigation_rail_page.dart';
 import '../demo/59_get_value_page.dart';
 import '../demo/60_get_more_page.dart';
 import '../demo/61_get_future_page.dart';
+import '../demo/62_lottie_page.dart';
 import 'root_cell.dart';
 
 class RootHomePage extends StatefulWidget {
@@ -501,7 +502,7 @@ class _RootHomePageState extends State<RootHomePage> {
             Get.to(() => P59CounterGetPage())?.then((value) {
               print('then = $value');
               print('CounterController2 = ${Get.find<CounterController2>()}');
-            })?.whenComplete(() {
+            }).whenComplete(() {
               print(
                   'whenComplete CounterController2 = ${Get.find<CounterController2>()}');
             });
@@ -516,6 +517,11 @@ class _RootHomePageState extends State<RootHomePage> {
           title: 'P61长按拖动',
           onTap: () {
             Get.to(P61CounterGetPage());
+          }),
+      CellItem(
+          title: 'P62Lottie动画',
+          onTap: () {
+            Get.to(P62LottiePage());
           }),
     ];
   }
