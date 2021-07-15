@@ -1,9 +1,9 @@
-import 'package:ax_flutter_demo/root/02root_function_page.dart';
+import '../_01root/02root_function_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 import '../controller/history_page.dart';
-import '../root/01root_test_page.dart';
+import '../_01root/01root_test_page.dart';
 
 class TabbarItemController {
   TabbarItemController({
@@ -31,10 +31,10 @@ class TabbarItemController {
 
 class RootPage extends StatefulWidget {
   @override
-  _RootController createState() => _RootController();
+  _01rootController createState() => _01rootController();
 }
 
-class _RootController
+class _01rootController
     extends State<RootPage> //    with SingleTickerProviderStateMixin
 {
   //TabController + tabview组合动画不好控制,

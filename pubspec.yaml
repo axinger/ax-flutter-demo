@@ -28,6 +28,8 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
+  # 渐变颜色,微光动画效果
+  shimmer: ^2.0.0
   css_colors: ^1.1.1
   #  meta: 1.3.0-nullsafety.2
   #通用提示库

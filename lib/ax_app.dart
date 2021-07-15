@@ -16,9 +16,8 @@ import 'package:provider/provider.dart';
 
 import 'app_theme.dart';
 import 'controller/root_page.dart';
-import 'root/01root_test_page.dart';
-import 'demo/01_content_page1.dart';
-import 'demo/28_test_route_page.dart';
+import '_02demo_page/01_content_page1.dart';
+import '_02demo_page/28_test_route_page.dart';
 import 'event/login_success_event.dart';
 import 'event/update_user_info_event.dart';
 import 'generated/l10n.dart';

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 // import 'package:flutter_easyrefresh/easy_refresh.dart';
 
-import '../demo/converse_list_header.dart';
+import '../_02demo_page/converse_list_header.dart';
 import '../model/converse_model.dart';
 
 class ListViewPage extends StatefulWidget {

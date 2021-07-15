@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../global_const.dart';
 import '../module/login/view/login_view.dart';
-import '../root/01root_test_page.dart';
+import '../_01root/01root_test_page.dart';
 
 class MinePage extends StatefulWidget {
   @override
