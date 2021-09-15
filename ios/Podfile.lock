@@ -9,6 +9,7 @@ PODS:
   - flutter_image_compress (0.0.1):
     - Flutter
     - Mantle
+    - SDWebImage
     - SDWebImageWebPCoder
   - fluttertoast (0.0.2):
     - Flutter
@@ -29,8 +30,6 @@ PODS:
   - libwebp/webp (1.2.0)
   - local_auth (0.0.1):
     - Flutter
-  - logger_flutter (0.0.1):
-    - Flutter
   - Mantle (2.1.6):
     - Mantle/extobjc (= 2.1.6)
   - Mantle/extobjc (2.1.6)
@@ -40,6 +39,8 @@ PODS:
     - Flutter
   - "permission_handler (5.1.0+2)":
     - Flutter
+  - SDWebImage (5.11.1):
+    - SDWebImage/Core (= 5.11.1)
   - SDWebImage/Core (5.11.1)
   - SDWebImageWebPCoder (0.8.4):
     - libwebp (~> 1.0)
@@ -64,7 +65,6 @@ DEPENDENCIES:
   - fluttertoast (from `.symlinks/plugins/fluttertoast/ios`)
   - image_picker (from `.symlinks/plugins/image_picker/ios`)
   - local_auth (from `.symlinks/plugins/local_auth/ios`)
-  - logger_flutter (from `.symlinks/plugins/logger_flutter/ios`)
   - package_info (from `.symlinks/plugins/package_info/ios`)
   - path_provider (from `.symlinks/plugins/path_provider/ios`)
   - permission_handler (from `.symlinks/plugins/permission_handler/ios`)
@@ -99,8 +99,6 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/image_picker/ios"
   local_auth:
     :path: ".symlinks/plugins/local_auth/ios"
-  logger_flutter:
-    :path: ".symlinks/plugins/logger_flutter/ios"
   package_info:
     :path: ".symlinks/plugins/package_info/ios"
   path_provider:
@@ -118,16 +116,15 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   ax_flutter_plugin: 3f2eb87a7f0265efa4b7c9287a9af99c8fe403ce
-  camera: 3164201dc344383e62282964016528c4f5a9ad50
+  camera: b9eb73c055259c6f808a9da4a0d43780f6645281
   device_info: d7d233b645a32c40dfdc212de5cf646ca482f175
-  Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
-  flutter_image_compress: 082f8daaf6c1b0c9fe798251c750ef0ecd98d7ae
+  Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
+  flutter_image_compress: fd2b476345226e1a10ea352fa306af95704642c1
   fluttertoast: 6122fa75143e992b1d3470f61000f591a798cc58
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   image_picker: e06f7a68f000bd36f552c1847e33cda96ed31f1f
   libwebp: 6bac0a99ba5a6bb7449a951ff22c484201985f68
   local_auth: 25938960984c3a7f6e3253e3f8d962fdd16852bd
-  logger_flutter: ea718d308d45aa39becb885515676645bc582f71
   Mantle: 4c0ed6ce47c96eccc4dc3bb071deb3def0e2c3be
   package_info: 873975fc26034f0b863a300ad47e7f1ac6c7ec62
   path_provider: abfe2b5c733d04e238b0d8691db0cfd63a27a93c
@@ -138,8 +135,8 @@ SPEC CHECKSUMS:
   sqflite: 6d358c025f5b867b29ed92fc697fd34924e11904
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   url_launcher: 6fef411d543ceb26efce54b05a0a40bfd74cbbef
-  webview_flutter: 9f491a9b5a66f2573946a389b2677987b0ff8c0b
+  webview_flutter: 3603125dfd3bcbc9d8d418c3f80aeecf331c068b
 
-PODFILE CHECKSUM: 7d06e81d4353a8026408e810b98e81a67ac205ef
+PODFILE CHECKSUM: 8e679eca47255a8ca8067c4c67aab20e64cb974d
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.10.2

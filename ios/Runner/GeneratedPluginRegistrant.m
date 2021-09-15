@@ -2,6 +2,8 @@
 //  Generated file. Do not edit.
 //
 
+// clang-format off
+
 #import "GeneratedPluginRegistrant.h"
 
 #if __has_include(<ax_flutter_plugin/AxFlutterPlugin.h>)
@@ -44,12 +46,6 @@
 #import <local_auth/FLTLocalAuthPlugin.h>
 #else
 @import local_auth;
-#endif
-
-#if __has_include(<logger_flutter/LoggerFlutterPlugin.h>)
-#import <logger_flutter/LoggerFlutterPlugin.h>
-#else
-@import logger_flutter;
 #endif
 
 #if __has_include(<package_info/FLTPackageInfoPlugin.h>)
@@ -104,7 +100,6 @@
   [FluttertoastPlugin registerWithRegistrar:[registry registrarForPlugin:@"FluttertoastPlugin"]];
   [FLTImagePickerPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTImagePickerPlugin"]];
   [FLTLocalAuthPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTLocalAuthPlugin"]];
-  [LoggerFlutterPlugin registerWithRegistrar:[registry registrarForPlugin:@"LoggerFlutterPlugin"]];
   [FLTPackageInfoPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTPackageInfoPlugin"]];
   [FLTPathProviderPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTPathProviderPlugin"]];
   [PermissionHandlerPlugin registerWithRegistrar:[registry registrarForPlugin:@"PermissionHandlerPlugin"]];

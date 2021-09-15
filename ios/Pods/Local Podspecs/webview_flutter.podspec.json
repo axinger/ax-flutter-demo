@@ -28,17 +28,5 @@
   "pod_target_xcconfig": {
     "DEFINES_MODULE": "YES",
     "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "i386"
-  },
-  "testspecs": [
-    {
-      "name": "Tests",
-      "test_type": "unit",
-      "source_files": "Tests/**/*",
-      "dependencies": {
-        "OCMock": [
-          "3.5"
-        ]
-      }
-    }
-  ]
+  }
 }
