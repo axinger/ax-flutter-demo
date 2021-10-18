@@ -1,4 +1,4 @@
-module shared_preferences {
+framework module shared_preferences {
   umbrella header "shared_preferences-umbrella.h"
 
   export *

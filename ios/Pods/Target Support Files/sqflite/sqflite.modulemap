@@ -1,4 +1,4 @@
-module sqflite {
+framework module sqflite {
   umbrella header "sqflite-umbrella.h"
 
   export *

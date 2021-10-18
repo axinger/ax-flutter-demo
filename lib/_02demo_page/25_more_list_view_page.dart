@@ -1,8 +1,11 @@
+import 'dart:async';
 import 'dart:typed_data';
 import 'dart:ui';
 
+import 'package:ax_flutter_util/ax_flutter_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:screenshot/screenshot.dart';
 
 class P25MoreListViewPage extends StatefulWidget {
@@ -53,23 +56,17 @@ class _State extends State<P25MoreListViewPage> {
         ),
         actions: <Widget>[
           TextButton(
-            child: Text("截图"),
+            child: Text("截图,长截图"),
             onPressed: () {
-              screenshotController
-                  .capture(delay: Duration(milliseconds: 10))
-                  .then((Uint8List? image) async {
-                // _imageFile = image;
+              screenshotController.capture().then((Uint8List? image) async {
                 if (image != null) {
-                  // Get.showSnackbar(GetBar(
-                  //   title: '截屏',
-                  //   message: 'aa',
-                  //   backgroundColor: Colors.red,
-                  //   // icon: Image.memory(image),
-                  // ));
-
+                  var result = await ImageGallerySaver.saveImage(image); //这个是核心的保存图片的插件
+                  print('保存图片到相册$result');
+                    showCupertinoCertainAlert( context: context, title: result['isSuccess'] ? '保存成功' : '保存失败');
                 }
               }).catchError((onError) {
-                print(onError);
+                showCupertinoCertainAlert(
+                    context: context, title: '截图失败');
               });
             },
           ),

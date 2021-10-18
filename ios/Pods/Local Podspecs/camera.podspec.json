@@ -15,8 +15,9 @@
     "http": "https://github.com/flutter/plugins/tree/master/packages/camera"
   },
   "documentation_url": "https://pub.dev/packages/camera",
-  "source_files": "Classes/**/*",
+  "source_files": "Classes/**/*.{h,m}",
   "public_header_files": "Classes/**/*.h",
+  "module_map": "Classes/CameraPlugin.modulemap",
   "dependencies": {
     "Flutter": [
 

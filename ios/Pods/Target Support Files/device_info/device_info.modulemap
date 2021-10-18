@@ -1,4 +1,4 @@
-module device_info {
+framework module device_info {
   umbrella header "device_info-umbrella.h"
 
   export *

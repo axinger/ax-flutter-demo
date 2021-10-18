@@ -1,4 +1,4 @@
-module local_auth {
+framework module local_auth {
   umbrella header "local_auth-umbrella.h"
 
   export *

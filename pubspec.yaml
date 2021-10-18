@@ -39,14 +39,14 @@ dependencies:
   cached_network_image: ^3.0.0
   http: ^0.13.3
   dio: ^4.0.0
-#  http_parser: any
+  #  http_parser: any
   #  json_annotation: any
   #该软件包提供国际化和本地化功能，包括消息翻译，复数形式和性别，日期/数字格式和解析以及双向文本.
-#  intl: ^0.17.0
+  #  intl: ^0.17.0
   #intl_utils是一个Dart库，可从ARB文件生成Dart本地化代码. 生成的代码依赖于Intl库.
-#  intl_utils: ^1.7.0
+  #  intl_utils: ^1.7.0
   #日期时间格式 另外一个库
-#  date_format: any
+  #  date_format: any
   scoped_model: ^2.0.0-nullsafety.0
   # 1.0.0
   #  cupertino_icon: ^1.0.0
@@ -55,9 +55,9 @@ dependencies:
   #日志输出
   logger: ^1.0.0
   #日志在应用端输出
-#  logger_flutter: ^0.7.1
+  #  logger_flutter: ^0.7.1
   #image保存相册
-  #  image_gallery_saver: ^1.2.2
+  image_gallery_saver: ^1.7.1
   #图片压缩
   #  flutter_luban: ^0.1.7
   #  #包信息
@@ -75,17 +75,16 @@ dependencies:
   # 准备停止维护,请使用谷歌的
   #  flutter_webview_plugin: ^0.3.11
   # listView 左右 侧滑
-#  slide_item: ^1.0.6
+  #  slide_item: ^1.0.6
 
   #Hive是用纯Dart编写的轻量级且快速的键值数据库. 受Bitcask启发.
   hive: ^2.0.4
   hive_flutter: ^1.0.0
 
   #刷新组件
-#  flutter_easyrefresh: ^2.1.1
+  #  flutter_easyrefresh: ^2.1.1
   #事件管理
   event_bus: ^2.0.0
-  #  image_gallery_saver: ^1.5.0
   #谷歌字体
   google_fonts: ^2.1.0
   #  bloc: ^4.0.0
@@ -94,7 +93,7 @@ dependencies:
   # 继承类,判断类是否相同
   equatable: ^2.0.2
 
-#  w_popup_menu: ^0.3.1
+  #  w_popup_menu: ^0.3.1
 
   #指纹
   local_auth: ^1.1.6
@@ -113,7 +112,7 @@ dependencies:
   #  Reducer根据收到的Action更新State
   #  更新Store中的State绑定的Widget
 
-#  flutter_redux: 0.7.0
+  #  flutter_redux: 0.7.0
   redux: ^5.0.0
   #可以轻松地将Flutter集成到您现有的本机应用程序中.
   #FlutterBoost的理念是使用Flutter就像使用WebView一样容易.
@@ -151,7 +150,7 @@ dependencies:
   #  跳转指定位置
   scrollable_positioned_list: ^0.2.0-nullsafety.0
   # google推荐的Provider  Provider 代替 Provide 成为官方推荐的状态管理方式之一。
-#  provider: ^5.0.0
+  #  provider: ^5.0.0
   provider: ^6.0.0
   device_info: ^2.0.2
 
@@ -173,11 +172,11 @@ dependencies:
   shared_preferences: ^2.0.3
 
   # Flutter插件，用于在移动平台中启动URL. 支持iOS和Android.
-  url_launcher: ^6.0.2
+  url_launcher: ^6.0.12
 
   #官方插件：webview_flutter
-  webview_flutter: ^2.0.1
-#  flutter_keychain: 1.0.0
+  webview_flutter: ^2.1.1
+  #  flutter_keychain: 1.0.0
   #适用于iOS，Android和Web的Flutter插件，用于在Widget表面上播放视频.
   #  video_player: 0.10.10
 
@@ -208,7 +207,8 @@ dependencies:
   #    git:
   #      url: 'https://github.com/AXinger/ax_flutter_toast.git'
 
-  screenshot: ^1.0.0-nullsafety.1
+  #截图
+  screenshot: ^1.2.3
 
   ax_flutter_util:
     path: ../ax_flutter_util

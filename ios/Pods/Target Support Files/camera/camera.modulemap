@@ -1,6 +1,10 @@
-module camera {
+framework module camera {
   umbrella header "camera-umbrella.h"
 
   export *
   module * { export * }
+
+  explicit module Test {
+    header "CameraPlugin_Test.h"
+  }
 }
