@@ -7,14 +7,14 @@ import 'package:intl/intl.dart';
 
 import 'root_cell.dart';
 
-class RootFunctionPage extends StatefulWidget {
+class DemoGetXPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _RootFunctionPageState();
+    return _DemoGetXPageState();
   }
 }
 
-class _RootFunctionPageState extends State<RootFunctionPage> {
+class _DemoGetXPageState extends State<DemoGetXPage> {
   ///Flutter&Dart Callback转同步 https://www.jianshu.com/p/e5cba8ca96bc
   Future<void> initFinish() async {
     Completer<void> completer = Completer();
@@ -53,7 +53,7 @@ class _RootFunctionPageState extends State<RootFunctionPage> {
 
         /// 导航栏 加高,添加背景图片
         appBar: AppBar(
-          title: Text('测试函数'),
+          title: Text('getX 示例'),
         ),
         body: SafeArea(
           child: SingleChildScrollView(

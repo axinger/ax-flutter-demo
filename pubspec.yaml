@@ -32,13 +32,13 @@ dependencies:
   shimmer: ^2.0.0
   css_colors: ^1.1.1
   #  meta: 1.3.0-nullsafety.2
-  #通用提示库
+  #通用提示库flutter_image_compress
   fluttertoast: ^8.0.7
   # 加载网络图片 使用 https第一次加载页面,容易卡死,改为http,就可以了;等flutter升级
   # https://jhuo.ca/post/ocsp-stapling-letsencrypt/
   cached_network_image: ^3.0.0
   http: ^0.13.3
-  dio: ^4.0.0
+  dio: ^4.0.1
   #  http_parser: any
   #  json_annotation: any
   #该软件包提供国际化和本地化功能，包括消息翻译，复数形式和性别，日期/数字格式和解析以及双向文本.
@@ -124,39 +124,39 @@ dependencies:
   #      ref: '1.12.13+2'
 
   #自定义相机
-  camera: ^0.9.3
+  camera: ^0.9.4+3
   #图片压缩
-  flutter_image_compress: ^1.0.0
+  flutter_image_compress: ^1.1.0
 
   # cell 侧滑删除
   #  flutter_swipe_action_cell: ^1.2.2
   # 状态管理,和google推荐的Provider 类似
-  get: ^4.1.4
+  get: ^4.3.8
   web_socket_channel: ^2.1.0
   # 侧滑
-  flutter_slidable: ^0.6.0
-  sqflite: ^2.0.0+3
+  flutter_slidable: ^1.0.0
+  sqflite: ^2.0.0+4
   # 设备权限
-  permission_handler: ^8.1.0
-  # 动画
-  lottie: ^1.0.1
+  permission_handler: ^8.2.6
+  # 动画flutter_slidable
+  lottie: ^1.2.1
 
   ##  ⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬ 谷歌组件 ⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
   ## 谷歌维护的库 https://github.com/flutter/plugins
 
   #在 Flutter 1.17 发布大会上，Flutter 团队还发布了新的 Animations 软件包，
   #该软件包提供了实现新的 Material motion 规范的预构建动画。该软件包并不是内置的，而是第三方插件的形式。
-  animations: ^2.0.0
+  animations: ^2.0.2
   #  跳转指定位置
-  scrollable_positioned_list: ^0.2.0-nullsafety.0
+  scrollable_positioned_list: ^0.2.2
   # google推荐的Provider  Provider 代替 Provide 成为官方推荐的状态管理方式之一。
   #  provider: ^5.0.0
   provider: ^6.0.0
   device_info: ^2.0.2
 
-  image_picker: ^0.8.0+3
+  image_picker: ^0.8.4+4
 
-  package_info: ^2.0.0
+  package_info: ^2.0.2
   # 用于查找文件系统上的常用位置. 支持iOS和Android.fluttertoast
   path_provider: ^2.0.1
 
@@ -175,7 +175,7 @@ dependencies:
   url_launcher: ^6.0.12
 
   #官方插件：webview_flutter
-  webview_flutter: ^2.1.1
+  webview_flutter: ^2.3.1
   #  flutter_keychain: 1.0.0
   #适用于iOS，Android和Web的Flutter插件，用于在Widget表面上播放视频.
   #  video_player: 0.10.10

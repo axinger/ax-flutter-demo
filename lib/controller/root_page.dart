@@ -1,4 +1,4 @@
-import '../_01root/02root_function_page.dart';
+import '../_01root/02demo_getx_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -70,9 +70,9 @@ class _01rootController
         controller: RootHomePage(),
       ),
       TabbarItemController(
-        title: "测试方法",
+        title: 'getX 示例',
         icon: Icon(Icons.desktop_mac),
-        controller: RootFunctionPage(),
+        controller: DemoGetXPage(),
       ),
       TabbarItemController(
         title: "记录",
