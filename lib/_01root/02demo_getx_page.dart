@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:ax_flutter_util/ax_flutter_util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
 import 'root_cell.dart';
@@ -33,6 +34,7 @@ class _DemoGetXPageState extends State<DemoGetXPage> {
     // TODO: implement initState
     super.initState();
 
+
     // WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
     //   print('回调=============1');
     // });
@@ -51,7 +53,7 @@ class _DemoGetXPageState extends State<DemoGetXPage> {
 
     return Scaffold(
 
-        /// 导航栏 加高,添加背景图片
+      /// 导航栏 加高,添加背景图片
         appBar: AppBar(
           title: Text('getX 示例'),
         ),
@@ -59,49 +61,26 @@ class _DemoGetXPageState extends State<DemoGetXPage> {
           child: SingleChildScrollView(
             child: Wrap(
                 children: dataList.map((e) {
-              e.index = dataList.indexOf(e);
-              return Cell(e);
-            }).toList()),
+                  e.index = dataList.indexOf(e);
+                  return Cell(e);
+                }).toList()),
           ),
         ));
   }
 
   List<CellItem> get dataList {
     return [
-      CellItem(
-          title: 'DateTime',
-          onTap: () {
-            var format = DateFormat.E('zh');
-
-            print('time = ${format.format(DateTime.now())}');
-            print(
-                'DateTime.now().format() = ${DateTime.now().format(locale: 'zh')}');
-
-            var f = NumberFormat('###.00#', 'en_US');
-            print(f.format(1234567.345678));
-
-            print(NumberFormat('###.00#', 'zh_CN').format(1234567.345678));
-
-            var aDateTime = DateTime.now();
-            DateFormat.yMMMMEEEEd().format(aDateTime);
-
-            print(DateFormat('yyyy-MM-ddEEEEE', 'en_US').format(aDateTime));
-            print(DateFormat('yyyy-MM-ddEEEEE', 'zh_CN').format(aDateTime));
-          }),
-      CellItem(
-
-          ///https://blog.csdn.net/huang173507029/article/details/106606424/
-          title: '数组 firstWhere 含有orElse',
-          onTap: () {
-            var list = [1, 2, 3];
-
-            /// 如果未查找到所制定条件的元素，进入orElse参数
-            var firstWhere = list.firstWhere((v) => v > 100, orElse: () {
-              print('orElse=====');
-              return -1;
-            });
-            print('firstWhere = $firstWhere');
-          }),
-    ];
-  }
-}
+    CellItem(
+        title: ' Get.defaultDialog',
+        onTap: () {
+          // Get.defaultDialog(custom: Text('222'),title: 'SSS',middleText:'');
+          Get.dialog(Center(child: Container(child: Text('222'),color: Colors.red,)),barrierColor:Colors.red,);
+          // Get.showOverlay(asyncFunction: () {
+          //
+          //   return Future.value('aaa');
+          // },loadingWidget: Container(color: Colors.red,child: Text('AAA'),));
+          //
+          // print('''object''');
+        })
+  ];
+}}

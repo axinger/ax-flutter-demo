@@ -593,7 +593,7 @@ ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
-## path_provider
+## path_provider_ios
 
 Copyright 2013 The Flutter Authors. All rights reserved.
 

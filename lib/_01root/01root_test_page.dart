@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:ax_flutter_demo/_02demo_page/63_bottom_up.dart';
 import 'package:ax_flutter_util/ax_flutter_util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -529,6 +530,12 @@ class _RootHomePageState extends State<RootHomePage> {
           title: 'P62ShimmerPage鱼骨图',
           onTap: () {
             Get.to(P62ShimmerPage());
+          }),
+
+      CellItem(
+          title: 'P63BottomUpPage 底部跟随弹起',
+          onTap: () {
+            Get.to(P63BottomUpPage());
           }),
 
 
