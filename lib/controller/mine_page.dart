@@ -1,9 +1,9 @@
 import 'package:ax_flutter_util/ax_flutter_util.dart';
 import 'package:flutter/material.dart';
 
+import '../_01widget_demo/01root_test_page.dart';
 import '../global_const.dart';
 import '../module/login/view/login_view.dart';
-import '../_01root/01root_test_page.dart';
 
 class MinePage extends StatefulWidget {
   @override

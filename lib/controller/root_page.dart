@@ -1,9 +1,9 @@
-import '../_01root/02demo_getx_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
+import '../_01widget_demo/01root_test_page.dart';
+import '../_02get_demo/02demo_getx_page.dart';
 import '../controller/history_page.dart';
-import '../_01root/01root_test_page.dart';
 
 class TabbarItemController {
   TabbarItemController({

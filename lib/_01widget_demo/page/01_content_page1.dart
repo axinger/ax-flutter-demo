@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:ax_flutter_demo/config.dart';
+import 'package:ax_flutter_demo/global_const.dart';
 import 'package:ax_flutter_util/ax_flutter_util.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
@@ -9,7 +10,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 
-import '../global_const.dart';
+
 
 class P01ContentPage extends StatefulWidget {
   @override

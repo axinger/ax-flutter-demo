@@ -1,6 +1,9 @@
 import 'dart:io';
 import 'dart:ui';
 
+import 'package:ax_flutter_demo/_01widget_demo/page/01_content_page1.dart';
+import 'package:ax_flutter_demo/_01widget_demo/page/28_test_route_page.dart';
+import 'package:ax_flutter_demo/_02get_demo/demo_translations.dart';
 import 'package:ax_flutter_demo/theme_data_notifier.dart';
 import 'package:ax_flutter_util/ax_flutter_util.dart';
 import 'package:device_info/device_info.dart';
@@ -16,8 +19,6 @@ import 'package:provider/provider.dart';
 
 import 'app_theme.dart';
 import 'controller/root_page.dart';
-import '_02demo_page/01_content_page1.dart';
-import '_02demo_page/28_test_route_page.dart';
 import 'event/login_success_event.dart';
 import 'event/update_user_info_event.dart';
 import 'generated/l10n.dart';
@@ -317,6 +318,11 @@ class _MyApp extends State<AxApp> with WidgetsBindingObserver {
       title: '阿星 Flutter Demo',
       navigatorKey: navigatorStateKey,
 
+      /// 自定义文字 国际化
+      translations: DemoTranslations(),
+      locale: Locale('zh', 'CN'), //设置默认语言
+      fallbackLocale: Locale("zh", "CN"),
+
       ///Flutter里的viewWillAppear
       navigatorObservers: [routeObserver],
       debugShowCheckedModeBanner: false,
@@ -327,7 +333,7 @@ class _MyApp extends State<AxApp> with WidgetsBindingObserver {
 
       // theme: Get.isDarkMode ? ThemeData.light() : ThemeData.dark(),
 
-      /// 本地化
+      /// 系统的控件 本地化
       localizationsDelegates: [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,

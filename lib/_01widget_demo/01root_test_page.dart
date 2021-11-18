@@ -1,76 +1,77 @@
 import 'dart:async';
 
-import 'package:ax_flutter_demo/_02demo_page/63_bottom_up.dart';
+import 'package:ax_flutter_demo/_01widget_demo/page/06_table_page.dart';
+import 'package:ax_flutter_demo/_01widget_demo/page/63_bottom_up.dart';
 import 'package:ax_flutter_util/ax_flutter_util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../_02demo_page/01_content_page1.dart';
-import '../_02demo_page/01_content_page2.dart';
-import '../_02demo_page/01_content_page3.dart';
-import '../_02demo_page/01_content_page4.dart';
-import '../_02demo_page/02-slivergrid_page.dart';
-import '../_02demo_page/03material_page_date.dart';
-import '../_02demo_page/04material_page_dialog.dart';
-import '../_02demo_page/05-material_page_chip.dart';
-import '../_02demo_page/06-material_page_data_table.dart';
-import '../_02demo_page/07-material_page_data_table2.dart';
-import '../_02demo_page/08-material_page_card.dart';
-import '../_02demo_page/09-material_page_stepper.dart';
-import '../_02demo_page/10-material_page_inherit.dart';
-import '../_02demo_page/11-material_page_stream.dart';
-import '../_02demo_page/12-material_page_rx_dart.dart';
-import '../_02demo_page/13-material_page_bloc.dart';
-import '../_02demo_page/14_all_builder.dart';
-import '../_02demo_page/15_animation_demo.dart';
-import '../_02demo_page/16-material_page_i18n.dart';
-import '../_02demo_page/17-material_page_sql.dart';
-import '../_02demo_page/18-material_page_more_text.dart';
-import '../_02demo_page/19-material_page_plugin.dart';
-import '../_02demo_page/20-material_page_image_picker.dart';
-import '../_02demo_page/21-future_await.dart';
-import '../_02demo_page/22_1_web_view_http.dart';
-import '../_02demo_page/22_2_webView_local_html.dart';
-import '../_02demo_page/23-list_view_page.dart';
-import '../_02demo_page/25_more_list_view_page.dart';
-import '../_02demo_page/26_test_event_page.dart';
-import '../_02demo_page/27_test_async_page.dart';
-import '../_02demo_page/28_test_route_page.dart';
-import '../_02demo_page/29_animated_list_route.dart';
-import '../_02demo_page/30_basic_app_bar_sample.dart';
-import '../_02demo_page/31_test_animation.dart';
-import '../_02demo_page/32_test_animation.dart';
-import '../_02demo_page/33_db_hvie_page.dart';
-import '../_02demo_page/34_MultiProvider.dart';
-import '../_02demo_page/35_TestTodoList.dart';
-import '../_02demo_page/36_touch_auth_demo_page.dart';
-import '../_02demo_page/38_center_up_page.dart';
-import '../_02demo_page/39_circle_page.dart';
-import '../_02demo_page/42_net_test_page.dart';
-import '../_02demo_page/43_search_page.dart';
-import '../_02demo_page/44_camera_demo_page.dart';
-import '../_02demo_page/45_hero_demo.dart';
-import '../_02demo_page/46_material_motion.dart';
-import '../_02demo_page/48_PhotoAlbumGridView.dart';
-import '../_02demo_page/49_dismissible.dart';
-import '../_02demo_page/50_on_pop_page.dart';
-import '../_02demo_page/51_nested_scroll_view.dart';
-import '../_02demo_page/52scrollable_positioned_list.dart';
-import '../_02demo_page/53draggable_scrollable_sheet.dart';
-import '../_02demo_page/54_sliver_persisten.dart';
-import '../_02demo_page/55_bottom_tab_bar_widget.dart';
-import '../_02demo_page/56_stateful_builder.dart';
-import '../_02demo_page/57_custom_route.dart';
-import '../_02demo_page/58_navigation_rail_page.dart';
-import '../_02demo_page/59_get_value_page.dart';
-import '../_02demo_page/60_get_more_page.dart';
-import '../_02demo_page/61_get_future_page.dart';
-import '../_02demo_page/62_lottie_page.dart';
-import '../_02demo_page/62_shimmer_page.dart';
+import '../_01root/root_cell.dart';
+import '../_01widget_demo/page/01_content_page1.dart';
+import '../_01widget_demo/page/01_content_page2.dart';
+import '../_01widget_demo/page/01_content_page3.dart';
+import '../_01widget_demo/page/01_content_page4.dart';
+import '../_01widget_demo/page/02-slivergrid_page.dart';
+import '../_01widget_demo/page/03material_page_date.dart';
+import '../_01widget_demo/page/04material_page_dialog.dart';
+import '../_01widget_demo/page/05-material_page_chip.dart';
+import '../_01widget_demo/page/06-material_page_data_table.dart';
+import '../_01widget_demo/page/07-material_page_data_table2.dart';
+import '../_01widget_demo/page/08-material_page_card.dart';
+import '../_01widget_demo/page/09-material_page_stepper.dart';
+import '../_01widget_demo/page/10-material_page_inherit.dart';
+import '../_01widget_demo/page/11-material_page_stream.dart';
+import '../_01widget_demo/page/12-material_page_rx_dart.dart';
+import '../_01widget_demo/page/13-material_page_bloc.dart';
+import '../_01widget_demo/page/14_all_builder.dart';
+import '../_01widget_demo/page/15_animation_demo.dart';
+import '../_01widget_demo/page/16-material_page_i18n.dart';
+import '../_01widget_demo/page/17-material_page_sql.dart';
+import '../_01widget_demo/page/18-material_page_more_text.dart';
+import '../_01widget_demo/page/19-material_page_plugin.dart';
+import '../_01widget_demo/page/20-material_page_image_picker.dart';
+import '../_01widget_demo/page/21-future_await.dart';
+import '../_01widget_demo/page/22_1_web_view_http.dart';
+import '../_01widget_demo/page/22_2_webView_local_html.dart';
+import '../_01widget_demo/page/23-list_view_page.dart';
+import '../_01widget_demo/page/25_more_list_view_page.dart';
+import '../_01widget_demo/page/26_test_event_page.dart';
+import '../_01widget_demo/page/27_test_async_page.dart';
+import '../_01widget_demo/page/28_test_route_page.dart';
+import '../_01widget_demo/page/29_animated_list_route.dart';
+import '../_01widget_demo/page/30_basic_app_bar_sample.dart';
+import '../_01widget_demo/page/31_test_animation.dart';
+import '../_01widget_demo/page/32_test_animation.dart';
+import '../_01widget_demo/page/33_db_hvie_page.dart';
+import '../_01widget_demo/page/34_MultiProvider.dart';
+import '../_01widget_demo/page/35_TestTodoList.dart';
+import '../_01widget_demo/page/36_touch_auth_demo_page.dart';
+import '../_01widget_demo/page/38_center_up_page.dart';
+import '../_01widget_demo/page/39_circle_page.dart';
+import '../_01widget_demo/page/42_net_test_page.dart';
+import '../_01widget_demo/page/43_search_page.dart';
+import '../_01widget_demo/page/44_camera_demo_page.dart';
+import '../_01widget_demo/page/45_hero_demo.dart';
+import '../_01widget_demo/page/46_material_motion.dart';
+import '../_01widget_demo/page/48_PhotoAlbumGridView.dart';
+import '../_01widget_demo/page/49_dismissible.dart';
+import '../_01widget_demo/page/50_on_pop_page.dart';
+import '../_01widget_demo/page/51_nested_scroll_view.dart';
+import '../_01widget_demo/page/52scrollable_positioned_list.dart';
+import '../_01widget_demo/page/53draggable_scrollable_sheet.dart';
+import '../_01widget_demo/page/54_sliver_persisten.dart';
+import '../_01widget_demo/page/55_bottom_tab_bar_widget.dart';
+import '../_01widget_demo/page/56_stateful_builder.dart';
+import '../_01widget_demo/page/57_custom_route.dart';
+import '../_01widget_demo/page/58_navigation_rail_page.dart';
+import '../_01widget_demo/page/59_get_value_page.dart';
+import '../_01widget_demo/page/60_get_more_page.dart';
+import '../_01widget_demo/page/61_get_future_page.dart';
+import '../_01widget_demo/page/62_lottie_page.dart';
+import '../_01widget_demo/page/62_shimmer_page.dart';
 import '../generated/l10n.dart';
 import '../module/login/view/login_view.dart';
-import 'root_cell.dart';
 
 class RootHomePage extends StatefulWidget {
   @override
@@ -112,7 +113,6 @@ class _RootHomePageState extends State<RootHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    print('ShowTestPage = ${widget.runtimeType}');
 
     return Scaffold(
 
@@ -205,6 +205,12 @@ class _RootHomePageState extends State<RootHomePage> {
           onTap: () {
             push(context: context, widget: MaterialPageChip());
           }),
+      CellItem(
+          title: '06-Table',
+          onTap: () {
+            push(context: context, widget:  DemoTablePage());
+          }),
+
       CellItem(
           title: '06-DataTable',
           onTap: () {

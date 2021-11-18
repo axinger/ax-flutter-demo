@@ -1,9 +1,9 @@
+import 'package:ax_flutter_demo/routes/gradual_change_route.dart';
+import 'package:ax_flutter_demo/routes/rotateandzoom_route.dart';
+import 'package:ax_flutter_demo/routes/sliding_around_route.dart';
+import 'package:ax_flutter_demo/routes/zoom_route.dart';
 import 'package:flutter/material.dart';
 
-import '../routes/gradual_change_route.dart';
-import '../routes/rotateandzoom_route.dart';
-import '../routes/sliding_around_route.dart';
-import '../routes/zoom_route.dart';
 import '57_custom_route_second_page.dart';
 
 class P57CustomRoute extends StatelessWidget {

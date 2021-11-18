@@ -30,7 +30,7 @@ extension ColorExtension on Color {
 class _P63BottomUpPageState extends State<P63BottomUpPage> {
   @override
   Widget build(BuildContext context) {
-    ColorExtension.fromHex(hexString)
+
     return Scaffold(
       appBar: AppBar(title: Text('底部跟随键盘弹起')),
       // resizeToAvoidBottomInset: true,

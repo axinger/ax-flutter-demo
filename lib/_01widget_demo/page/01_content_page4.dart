@@ -1,12 +1,9 @@
 import 'dart:ui';
 
-import 'package:ax_flutter_util/ax_flutter_util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
-import '../global_const.dart';
-import '../theme_data_notifier.dart';
+
 
 class P01ContentPage4 extends StatelessWidget {
   @override
