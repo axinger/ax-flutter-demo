@@ -553,6 +553,61 @@ class _State extends State<P01ContentPage>
                 margin: EdgeInsets.only(left: 20, right: 20),
                 child:
 
+                /// 邮箱
+                TextField(
+                  /// 输入的文字
+                  onChanged: (value) {
+                  },
+                  onEditingComplete: () {},
+
+                  /// 右下角 键盘类型
+                  textInputAction: TextInputAction.send,
+                  onSubmitted: (value) {
+                    print('提交手机号' + value);
+                  },
+
+                  inputFormatters: <TextInputFormatter>[
+
+//                  PhoneTextInputFormatter.digitsOnly,
+                  ],
+
+                  ///输入文本的样式
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    color: Colors.black,
+                  ),
+
+                  decoration: InputDecoration(
+                    /// 头部的图标
+                    icon: Icon(
+                      Icons.phone,
+                    ),
+                    hintText: '请输入邮箱',
+                    labelText: '邮箱',
+                    hintStyle: TextStyle(
+                      fontSize: 16.0,
+                      color: Colors.red,
+                    ),
+
+                    ///输入内容距离上下左右的距离 ，可通过这个属性来控制 TextField的高度
+                    contentPadding: EdgeInsets.all(10.0),
+                    /// right 小组件
+                    suffixIcon: MaterialButton(
+                      child: Text(
+                        '发送邮件',
+                        style: TextStyle(fontSize: 14.0),
+                      ),
+                      textColor: Colors.black,
+                      disabledTextColor: Colors.grey,
+                      onPressed: () {},
+                    ),
+                  ),
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(left: 20, right: 20),
+                child:
+
                     /// 手机号
                     TextField(
 //                    controller: phoneTextEditingController,
