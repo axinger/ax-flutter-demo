@@ -140,6 +140,8 @@ dependencies:
   permission_handler: ^8.2.6
   # 动画flutter_slidable
   lottie: ^1.2.1
+  #截图
+  screenshot: ^1.2.3
 
   ##  ⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬ 谷歌组件 ⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
   ## 谷歌维护的库 https://github.com/flutter/plugins
@@ -176,46 +178,45 @@ dependencies:
 
   #官方插件：webview_flutter
   webview_flutter: ^2.3.1
-  #  flutter_keychain: 1.0.0
-  #适用于iOS，Android和Web的Flutter插件，用于在Widget表面上播放视频.
-  #  video_player: 0.10.10
 
-  # lutter插件，用于访问有关运行应用程序的设备电池的各种信息.
-  #  battery: 1.0.0
 
-  #该插件允许Flutter应用发现网络连接并进行相应配置. 它可以区分蜂窝连接和WiFi连接. 该插件适用于iOS和Android.
-  #  connectivity: 0.4.8+5
+    #  flutter_keychain: 1.0.0
+    #适用于iOS，Android和Web的Flutter插件，用于在Widget表面上播放视频.
+    #  video_player: 0.10.10
 
-  #应用内购买的Flutter插件. 公开用于通过App Store（在iOS上）和Google Play（在Android上）进行应用内购买的API.
-  #  in_app_purchase: 0.3.3+1
+    # lutter插件，用于访问有关运行应用程序的设备电池的各种信息.
+    #  battery: 1.0.0
 
-  #这个Flutter插件使您可以管理应用程序的主屏幕快速动作并与之交互.
-  #
-  #快速操作是指iOS上的同义概念以及Android上的App Shortcuts API（在Android 7.1 / API 25级中引入）.
-  #在Android的早期版本中运行此插件是安全的，因为它将产生Noop.
-  #quick_actions: 0.4.0+4
+    #该插件允许Flutter应用发现网络连接并进行相应配置. 它可以区分蜂窝连接和WiFi连接. 该插件适用于iOS和Android.
+    #  connectivity: 0.4.8+5
+
+    #应用内购买的Flutter插件. 公开用于通过App Store（在iOS上）和Google Play（在Android上）进行应用内购买的API.
+    #  in_app_purchase: 0.3.3+1
+
+    #这个Flutter插件使您可以管理应用程序的主屏幕快速动作并与之交互.
+    #
+    #快速操作是指iOS上的同义概念以及Android上的App Shortcuts API（在Android 7.1 / API 25级中引入）.
+    #在Android的早期版本中运行此插件是安全的，因为它将产生Noop.
+    #quick_actions: 0.4.0+4
 
   ## ⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬阿星组件 ⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
+  ax_flutter_util:
+    git:
+      url: 'https://github.com/axinger/ax_flutter_util.git'
+  ax_flutter_plugin:
+    git:
+      url: 'https://github.com/axinger/ax_flutter_plugin.git'
+  ax_flutter_toast:
+    git:
+      url: 'https://github.com/axinger/ax_flutter_toast.git'
+
 
   #  ax_flutter_util:
-  #    git:
-  #      url: 'https://github.com/AXinger/ax_flutter_util.git'
+  #    path: ../ax_flutter_util
   #  ax_flutter_plugin:
-  #    git:
-  #      url: 'https://github.com/AXinger/ax_flutter_plugin.git'
+  #    path: ../ax_flutter_plugin
   #  ax_flutter_toast:
-  #    git:
-  #      url: 'https://github.com/AXinger/ax_flutter_toast.git'
-
-  #截图
-  screenshot: ^1.2.3
-
-  ax_flutter_util:
-    path: ../ax_flutter_util
-  ax_flutter_plugin:
-    path: ../ax_flutter_plugin
-  ax_flutter_toast:
-    path: ../ax_flutter_toast
+  #    path: ../ax_flutter_toast
 
   ##=============================================================================##
 

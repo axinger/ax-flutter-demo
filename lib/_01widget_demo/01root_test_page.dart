@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:ax_flutter_demo/_01widget_demo/page/01_demo_text_field.dart';
 import 'package:ax_flutter_demo/_01widget_demo/page/06_table_page.dart';
 import 'package:ax_flutter_demo/_01widget_demo/page/63_bottom_up.dart';
 import 'package:ax_flutter_util/ax_flutter_util.dart';
@@ -113,7 +114,6 @@ class _RootHomePageState extends State<RootHomePage> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
 
         /// 导航栏 加高,添加背景图片
@@ -180,6 +180,12 @@ class _RootHomePageState extends State<RootHomePage> {
             push(context: context, widget: P01ContentPage3());
           }),
       CellItem(
+          title: '01-TextField',
+          subTitle: '01_demo_text_field.dart',
+          onTap: () {
+            push(context: context, widget: DemoTextField());
+          }),
+      CellItem(
           title: '01-圆角组件',
           subTitle: '01_content_page4.dart',
           onTap: () {
@@ -208,9 +214,8 @@ class _RootHomePageState extends State<RootHomePage> {
       CellItem(
           title: '06-Table',
           onTap: () {
-            push(context: context, widget:  DemoTablePage());
+            push(context: context, widget: DemoTablePage());
           }),
-
       CellItem(
           title: '06-DataTable',
           onTap: () {
@@ -531,20 +536,16 @@ class _RootHomePageState extends State<RootHomePage> {
           onTap: () {
             Get.to(P62LottiePage());
           }),
-
       CellItem(
           title: 'P62ShimmerPage鱼骨图',
           onTap: () {
             Get.to(P62ShimmerPage());
           }),
-
       CellItem(
           title: 'P63BottomUpPage 底部跟随弹起',
           onTap: () {
             Get.to(P63BottomUpPage());
           }),
-
-
     ];
   }
 }
