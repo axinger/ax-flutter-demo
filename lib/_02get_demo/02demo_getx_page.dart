@@ -2,7 +2,10 @@ import 'dart:async';
 
 import 'package:ax_flutter_demo/_02get_demo/page/01father_page.dart';
 import 'package:ax_flutter_demo/_02get_demo/page/02demo_local_page.dart';
-import 'package:ax_flutter_demo/_02get_demo/page/father_son_binding.dart';
+import 'package:ax_flutter_demo/_02get_demo/page/02route_view.dart';
+import 'package:ax_flutter_demo/_02get_demo/page/01father_son_binding.dart';
+import 'package:ax_flutter_demo/_02get_demo/route/route_pages.dart';
+import 'package:ax_flutter_demo/model/user_info.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -17,41 +20,12 @@ class DemoGetXPage extends StatefulWidget {
 }
 
 class _DemoGetXPageState extends State<DemoGetXPage> {
-  ///Flutter&Dart Callback转同步 https://www.jianshu.com/p/e5cba8ca96bc
-  Future<void> initFinish() async {
-    Completer<void> completer = Completer();
 
-    WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
-      print('回调=============1');
-      completer.complete();
-    });
-
-    print('回调=============2');
-    return completer.future;
-  }
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-
-    // WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-    //   print('回调=============1');
-    // });
-    //
-    // print('回调=============2');
-
-    // initFinish().then((value){
-    //   print('回调=============3');
-    // });
-    // print('回调=============4');
-  }
+  var _string = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-        /// 导航栏 加高,添加背景图片
         appBar: AppBar(
           title: Text('getX 示例'),
         ),
@@ -74,6 +48,95 @@ class _DemoGetXPageState extends State<DemoGetXPage> {
           print('String runtimeType  = ${'jim'.runtimeType}');
         },
       ),
+
+      CellItem(
+        title: 'Get.snackbar 通知栏样式',
+        onTap: () {
+          Get.snackbar('Hi', 'i am a modern snackbar');
+        },
+      ),
+      CellItem(
+        title: 'Get.context',
+        onTap: () {
+          Get.log('context = ${Get.context}', isError: true);
+          Get.log('currentRoute = ${Get.currentRoute}');
+          Get.log('overlayContext = ${Get.overlayContext}');
+        },
+      ),
+
+      CellItem(
+        title: 'Get.rawSnackbar 安卓样式的底部通知栏',
+        onTap: () {
+          // Get.rawSnackbar(title: 'title', message: 'message', icon: Icon(Icons.check_box));
+          Get.rawSnackbar(titleText: Text('安卓样式的底部通知栏', style: TextStyle(color: Colors.red)), messageText: Container());
+        },
+      ),
+
+      CellItem(
+        title: 'Get.defaultDialog',
+        onTap: () {
+          Get.defaultDialog(
+              title: 'title',
+              middleText: 'middleText',
+              content: Text('AAA'),
+              textConfirm: '知道了',
+              backgroundColor: Colors.green,
+              onConfirm: () {
+                Get.back();
+              },
+              buttonColor: Colors.green,
+              confirmTextColor: Colors.black);
+        },
+      ),
+      CellItem(
+        title: '打开自定义的Dialog：',
+        onTap: () {
+          Get.dialog(Center(
+            child: Container(
+              width: 400,
+              height: 400,
+
+              /// 内容自适应,很重要
+              alignment: Alignment.center,
+              color: Colors.red,
+              child: ElevatedButton(
+                onPressed: () {
+                  Get.back();
+                },
+                child: Text('知道了'),
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.orange),
+                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  // maximumSize: MaterialStateProperty.all(Size(100, 50)),
+                  padding: MaterialStateProperty.all(EdgeInsets.symmetric(vertical: 10, horizontal: 40)),
+                ),
+              ),
+            ),
+          ));
+        },
+      ),
+
+      CellItem(
+        title: 'Get.bottomSheet类似于showModalBottomSheet',
+        onTap: () {
+          Get.bottomSheet(Container(
+            color: Colors.green,
+
+            /// Wrap 类似最小的column
+            child: Wrap(
+              children: <Widget>[
+                ListTile(leading: Icon(Icons.music_note), title: Text('Music'), onTap: () => {}),
+                ListTile(
+                  leading: Icon(Icons.videocam),
+                  title: Text('Video'),
+                  onTap: () => {},
+                ),
+              ],
+            ),
+          ));
+        },
+      ),
+
       CellItem(
         title: ' Get.defaultDialog',
         onTap: () {
@@ -150,6 +213,89 @@ class _DemoGetXPageState extends State<DemoGetXPage> {
         title: '国际化',
         onTap: () {
           Get.to(DemoLocalPage());
+        },
+      ),
+
+      /// https://www.jianshu.com/p/920db9e968f0
+      CellItem(
+        title: '路由-方式1,最好用 arguments 方式传参',
+        onTap: () {
+          Get.to(() => RouteDemo(), arguments: {'name': 'jim'});
+        },
+      ),
+      CellItem(
+        title: '路由-方式2 parameters 只能是Map<String, String>? ',
+        onTap: () {
+          Get.toNamed(AppRoutes.route_pages, arguments: {'name': 'jack'}, parameters: {'age': 'tom'});
+        },
+      ),
+      CellItem(
+        title: '路由-路径,可以解析出非string类型数据',
+        onTap: () {
+          Get.toNamed("/route_pages?device=phone&id=354&name=Enzo");
+        },
+      ),
+
+      CellItem(
+        title: '登录',
+        onTap: () {
+          UserInfo.instance.isLogin = true;
+          Get.defaultDialog(title: '登录成功', middleText: '');
+        },
+      ),
+
+      CellItem(
+        title: '登出',
+        onTap: () {
+          UserInfo.instance.isLogin = false;
+          Get.rawSnackbar(title: '登出成功', message: '2');
+        },
+      ),
+
+      CellItem(
+        title: '导航-中间件-认证Auth',
+        onTap: () {
+          Get.toNamed(AppRoutes.My);
+        },
+      ),
+      CellItem(
+        title: '模拟订单和订单详情',
+        onTap: () {
+          Get.toNamed(AppRoutes.order);
+        },
+      ),
+
+      // CellItem(
+      //   title: '多线程',
+      //   onTap: () {
+      //
+      //     print('开始：$_string');
+      //     Future future = Future(() {
+      //       for (int i = 0; i < 1000; i++) {
+      //         _string = '$i';
+      //       }
+      //     });
+      //     future.then((value) {
+      //       print('then方法: $_string, value: $value');
+      //     });
+      //     print('结束：$_string');
+      //   },
+      // ),
+      CellItem(
+        title: '多线程-2',
+        onTap: () async {
+
+          _string=1000;
+
+          print('开始：$_string');
+
+          for (int i = 1; i <= 1000; i++) {
+             Future(() {
+              _string--;
+              print('_string = $_string');
+            });
+          }
+          print('结束：$_string');
         },
       ),
     ];

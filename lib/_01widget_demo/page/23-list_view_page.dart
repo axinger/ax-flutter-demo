@@ -39,8 +39,7 @@ class _MyPage extends State<ListViewPage> {
 //      print("滑动距离$offset");
 
       // 如果滑动到底部
-      if (_scrollController.position.pixels ==
-          _scrollController.position.maxScrollExtent) {
+      if (_scrollController.position.pixels == _scrollController.position.maxScrollExtent) {
         // do something
       }
     });

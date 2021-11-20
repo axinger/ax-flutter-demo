@@ -22,17 +22,12 @@ class RotateAndZoomRoute extends PageRouteBuilder {
             ) {
               return widget;
             },
-            transitionsBuilder: (BuildContext context,
-                Animation<double> animation1,
-                Animation<double> animation2,
-                Widget child) {
+            transitionsBuilder: (BuildContext context, Animation<double> animation1, Animation<double> animation2, Widget child) {
               //旋转加缩放
               return RotationTransition(
-                turns: Tween(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-                    parent: animation1, curve: Curves.fastOutSlowIn)),
+                turns: Tween(begin: 0.0, end: 1.0).animate(CurvedAnimation(parent: animation1, curve: Curves.fastOutSlowIn)),
                 child: ScaleTransition(
-                  scale: Tween(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-                      parent: animation1, curve: Curves.fastOutSlowIn)),
+                  scale: Tween(begin: 0.0, end: 1.0).animate(CurvedAnimation(parent: animation1, curve: Curves.fastOutSlowIn)),
                   child: child,
                 ),
               );

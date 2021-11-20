@@ -33,26 +33,23 @@ class _TouchAuthDemoState extends State<P36TouchAuthDemoPage> {
       ),
       body: Container(
         width: MediaQuery.of(context).size.width,
-        child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Text('是否可以使用指纹？: $_canCheckBiometrics\n'),
-              RaisedButton(
-                child: const Text('检查权限'),
-                onPressed: _checkBiometrics,
-              ),
-              Text('可用的识别类型？: $_availableBiometrics\n'),
-              RaisedButton(
-                child: const Text('获取生物识别类型'),
-                onPressed: _getAvailableBiometrics,
-              ),
-              Text('认证结果: $_authorized\n'),
-              RaisedButton(
-                child: Text('授权'),
-                onPressed: _authenticate,
-              ),
-            ]),
+        child: Column(mainAxisAlignment: MainAxisAlignment.spaceAround, crossAxisAlignment: CrossAxisAlignment.center, children: <Widget>[
+          Text('是否可以使用指纹？: $_canCheckBiometrics\n'),
+          RaisedButton(
+            child: const Text('检查权限'),
+            onPressed: _checkBiometrics,
+          ),
+          Text('可用的识别类型？: $_availableBiometrics\n'),
+          RaisedButton(
+            child: const Text('获取生物识别类型'),
+            onPressed: _getAvailableBiometrics,
+          ),
+          Text('认证结果: $_authorized\n'),
+          RaisedButton(
+            child: Text('授权'),
+            onPressed: _authenticate,
+          ),
+        ]),
       ),
     );
   }
@@ -107,14 +104,9 @@ class _TouchAuthDemoState extends State<P36TouchAuthDemoPage> {
         localizedReason: '需要您的识别认证',
         useErrorDialogs: false,
         stickyAuth: true,
-        androidAuthStrings: AndroidAuthMessages(
-            cancelButton: "取消",
-            signInTitle: "安全验证",
-            biometricHint: "安全识别",
-            biometricNotRecognized: "未识别，请重试",
-            biometricSuccess: "识别成功"),
-        iOSAuthStrings:
-            IOSAuthMessages(lockOut: "识别失败，请重试", cancelButton: "取消"),
+        androidAuthStrings:
+            AndroidAuthMessages(cancelButton: "取消", signInTitle: "安全验证", biometricHint: "安全识别", biometricNotRecognized: "未识别，请重试", biometricSuccess: "识别成功"),
+        iOSAuthStrings: IOSAuthMessages(lockOut: "识别失败，请重试", cancelButton: "取消"),
       );
 
       final String message = _isAuthenticating ? '有权限' : '无权限';

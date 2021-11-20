@@ -11,8 +11,7 @@ class P62LottiePage extends StatefulWidget {
   State<StatefulWidget> createState() => _P62LottiePage();
 }
 
-class _P62LottiePage extends State<P62LottiePage>
-    with SingleTickerProviderStateMixin {
+class _P62LottiePage extends State<P62LottiePage> with SingleTickerProviderStateMixin {
   _Controller get controller => Get.put<_Controller>(_Controller());
 
   late final AnimationController _controller;

@@ -29,9 +29,7 @@ class _HomePage extends State<HomePage> {
         child: Scaffold(
           backgroundColor: Colors.grey[100],
           appBar: AppBar(
-            title: Text(localString.honeTitle,
-                style: GoogleFonts?.oswald(
-                    textStyle: TextStyle(fontSize: 20, color: Colors.red))),
+            title: Text(localString.honeTitle, style: GoogleFonts?.oswald(textStyle: TextStyle(fontSize: 20, color: Colors.red))),
             centerTitle: true,
             actions: <Widget>[
               IconButton(
@@ -51,8 +49,7 @@ class _HomePage extends State<HomePage> {
               IconButton(
                 icon: Icon(Icons.ac_unit),
                 onPressed: () {
-                  Navigator.of(context)
-                      .push(MaterialPageRoute<bool>(builder: (context) {
+                  Navigator.of(context).push(MaterialPageRoute<bool>(builder: (context) {
                     return LoginView();
                   }));
                 },

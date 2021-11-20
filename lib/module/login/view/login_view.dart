@@ -316,9 +316,7 @@ class _ContainerTF extends State<ContainerTF> {
                         ///收起键盘
                         FocusScope.of(context).requestFocus(FocusNode());
                         EVENT_BUS.fire(AuthenticationLoggedInEvent(
-                            user: UserRepository(
-                                username: phoneTextEditingController.text,
-                                password: pswTextEditingController.text)));
+                            user: UserRepository(username: phoneTextEditingController.text, password: pswTextEditingController.text)));
                       },
               ),
             ),

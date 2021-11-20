@@ -13,7 +13,7 @@ class MyBottomItem {
     required Icon icon,
     Widget? activeIcon,
     required Widget content,
-  })   : content = content,
+  })  : content = content,
         barItem = BottomNavigationBarItem(
           icon: icon,
           title: Text(
@@ -63,8 +63,7 @@ class RootTabBar extends StatelessWidget {
     ),
   ];
 
-  CupertinoTabController tabController =
-      CupertinoTabController(initialIndex: 3);
+  CupertinoTabController tabController = CupertinoTabController(initialIndex: 3);
 
   @override
   Widget build(BuildContext context) {

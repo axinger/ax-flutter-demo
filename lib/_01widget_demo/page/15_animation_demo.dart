@@ -8,8 +8,7 @@ class P15AnimationDemo extends StatefulWidget {
   }
 }
 
-class _MaterialPage1 extends State<P15AnimationDemo>
-    with TickerProviderStateMixin {
+class _MaterialPage1 extends State<P15AnimationDemo> with TickerProviderStateMixin {
   AnimationController? _animationController;
 
   Animation? _animation;
@@ -117,9 +116,7 @@ class AnimationHeader extends AnimatedWidget {
   final List<Animation> animatedList;
   final AnimationController animationController;
 
-  AnimationHeader(
-      {required this.animatedList, required this.animationController})
-      : super(listenable: animationController);
+  AnimationHeader({required this.animatedList, required this.animationController}) : super(listenable: animationController);
 
   @override
   Widget build(BuildContext context) {
@@ -155,18 +152,15 @@ class AnimationDemo extends StatefulWidget {
   State<StatefulWidget> createState() => _AnimationDemo();
 }
 
-class _AnimationDemo extends State<AnimationDemo>
-    with SingleTickerProviderStateMixin {
+class _AnimationDemo extends State<AnimationDemo> with SingleTickerProviderStateMixin {
   AnimationController? _animationController;
   Animation<Color?>? _animation;
 
   @override
   void initState() {
-    _animationController =
-        AnimationController(duration: Duration(seconds: 2), vsync: this);
+    _animationController = AnimationController(duration: Duration(seconds: 2), vsync: this);
 
-    _animation = ColorTween(begin: Colors.red, end: Colors.blue)
-        .animate(_animationController!);
+    _animation = ColorTween(begin: Colors.red, end: Colors.blue).animate(_animationController!);
 
     _animationController?.addListener(() {
       if (_animationController!.isCompleted) {

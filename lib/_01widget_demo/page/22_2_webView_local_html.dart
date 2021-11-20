@@ -49,9 +49,7 @@ class _TestPage extends State<LocalHtmlPage> {
     if (_webViewController == null) {
       return Future.value('');
     }
-    return _webViewController
-            ?.evaluateJavascript('${channel}.postMessage(${jsCode});') ??
-        Future.value('');
+    return _webViewController?.evaluateJavascript('${channel}.postMessage(${jsCode});') ?? Future.value('');
   }
 
   @override
@@ -88,10 +86,7 @@ class _TestPage extends State<LocalHtmlPage> {
             return WebView(
               javascriptMode: JavascriptMode.unrestricted,
               javascriptChannels: _javascriptChannels(context),
-              initialUrl: Uri.dataFromString(snapshot.data ?? '',
-                      mimeType: 'text/html',
-                      encoding: Encoding.getByName('utf-8'))
-                  .toString(),
+              initialUrl: Uri.dataFromString(snapshot.data ?? '', mimeType: 'text/html', encoding: Encoding.getByName('utf-8')).toString(),
               // 加载的url
 
               navigationDelegate: (NavigationRequest request) {

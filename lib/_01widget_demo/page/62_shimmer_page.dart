@@ -6,34 +6,26 @@ class MovieModel {
   final String title;
   final String detail;
 
-  const MovieModel(
-      {required this.urlImg, required this.title, required this.detail});
+  const MovieModel({required this.urlImg, required this.title, required this.detail});
 }
 
 List<MovieModel> allMovies = [
   MovieModel(
-      urlImg:
-          'https://gitee.com/axinger/picture/raw/master/img/logo_watermelon.png',
+      urlImg: 'https://gitee.com/axinger/picture/raw/master/img/logo_watermelon.png',
       title: 'Avengers: Endgame',
       detail: 'It s a 2019 American superhero film based '),
   MovieModel(
-      urlImg:
-          'https://gitee.com/axinger/picture/raw/master/img/logo_watermelon.png',
+      urlImg: 'https://gitee.com/axinger/picture/raw/master/img/logo_watermelon.png',
       title: 'The Expendables 3',
       detail: 'The Expendables 3 is a 2014 American action '),
   MovieModel(
-      urlImg:
-          'https://gitee.com/axinger/picture/raw/master/img/logo_watermelon.png',
-      title: 'War',
-      detail: 'War is a 2019 Indian Hindi-language action '),
+      urlImg: 'https://gitee.com/axinger/picture/raw/master/img/logo_watermelon.png', title: 'War', detail: 'War is a 2019 Indian Hindi-language action '),
   MovieModel(
-      urlImg:
-          'https://gitee.com/axinger/picture/raw/master/img/logo_watermelon.png',
+      urlImg: 'https://gitee.com/axinger/picture/raw/master/img/logo_watermelon.png',
       title: 'Jumanji: The Next Level',
       detail: 'Jumanji: The Next Level is a 2019 American '),
   MovieModel(
-      urlImg:
-          'https://gitee.com/axinger/picture/raw/master/img/logo_watermelon.png',
+      urlImg: 'https://gitee.com/axinger/picture/raw/master/img/logo_watermelon.png',
       title: 'Fast & Furious 9',
       detail: 'Dom Toretto`s peaceful life off the grid.')
 ];
@@ -43,14 +35,9 @@ class CustomWidget extends StatelessWidget {
   final double height;
   final ShapeBorder shapeBorder;
 
-  const CustomWidget.rectangular(
-      {this.width = double.infinity, required this.height})
-      : this.shapeBorder = const RoundedRectangleBorder();
+  const CustomWidget.rectangular({this.width = double.infinity, required this.height}) : this.shapeBorder = const RoundedRectangleBorder();
 
-  const CustomWidget.circular(
-      {this.width = double.infinity,
-      required this.height,
-      this.shapeBorder = const CircleBorder()});
+  const CustomWidget.circular({this.width = double.infinity, required this.height, this.shapeBorder = const CircleBorder()});
 
   @override
   Widget build(BuildContext context) => Shimmer.fromColors(

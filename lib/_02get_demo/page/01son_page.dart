@@ -1,4 +1,5 @@
-import 'package:ax_flutter_demo/_02get_demo/page/father_son_controller.dart';
+import 'package:ax_flutter_demo/_02get_demo/page/01father_page.dart';
+import 'package:ax_flutter_demo/_02get_demo/page/01father_son_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
@@ -18,20 +19,24 @@ class SonPage extends GetView<FatherSonController> {
         child: Column(
           children: [
             Obx(
-              () => Text('父controller ${controller.count.value} ',
-                  style: TextStyle(fontSize: 30.0)),
+              () => Text('父controller ${controller.count.value} ', style: TextStyle(fontSize: 30.0)),
             ),
             Obx(
-              () => Text('子controller2 ${controller2.count.value} ',
-                  style: TextStyle(fontSize: 30.0)),
+              () => Text('子controller2 ${controller2.count.value} ', style: TextStyle(fontSize: 30.0)),
             ),
+            TextButton(onPressed: controller.increase, child: Text('父controller ++ ')),
             TextButton(
-                onPressed: controller.increase, child: Text('父controller ++ ')),
-            TextButton(
-                onPressed: () {
-                  controller2.increase();
-                },
-                child: Text('子controller ++ '))
+              onPressed: () {
+                controller2.increase();
+              },
+              child: Text('子controller ++ '),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Get.to(() => FatherPage(), arguments: '123');
+              },
+              child: Text('子 新进入父'),
+            ),
           ],
         ),
       ),
@@ -55,24 +60,19 @@ class SonBuilderPage extends StatelessWidget {
               child: Column(
                 children: [
                   Obx(
-                    () => Text('父controller ${controller.count.value} ',
-                        style: TextStyle(fontSize: 30.0)),
+                    () => Text('父controller ${controller.count.value} ', style: TextStyle(fontSize: 30.0)),
                   ),
                   Obx(
-                    () => Text('子controller2 ${controller2.count.value} ',
-                        style: TextStyle(fontSize: 30.0)),
+                    () => Text('子controller2 ${controller2.count.value} ', style: TextStyle(fontSize: 30.0)),
                   ),
-                  TextButton(
-                      onPressed: controller.increase,
-                      child: Text('父controller ++ ')),
+                  TextButton(onPressed: controller.increase, child: Text('父controller ++ ')),
                   TextButton(
                       onPressed: () {
                         controller2.increase();
                       },
                       child: Text('子controller ++ ')),
                   Obx(
-                    () => Text('user ${controller.user().age} ',
-                        style: TextStyle(fontSize: 30.0)),
+                    () => Text('user ${controller.user().age} ', style: TextStyle(fontSize: 30.0)),
                   ),
                   TextButton(
                       onPressed: () {

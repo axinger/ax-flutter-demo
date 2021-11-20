@@ -22,8 +22,7 @@ class DrawerView extends StatelessWidget {
             accountEmail: Text("liui@qq.com"),
             currentAccountPicture: CircleAvatar(
 //                    backgroundImage: Image.network("https://randomuser.me/api/portraits/women/17.jpg"),
-              backgroundImage: NetworkImage(
-                  "https://randomuser.me/api/portraits/women/17.jpg"),
+              backgroundImage: NetworkImage("https://randomuser.me/api/portraits/women/17.jpg"),
             ),
             accountName: Text("阿星"),
 //                  onDetailsPressed: (){

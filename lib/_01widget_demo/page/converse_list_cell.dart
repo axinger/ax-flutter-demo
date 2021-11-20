@@ -45,7 +45,7 @@ class ConverseListCell extends StatelessWidget {
     /**未读红点view*/
     Container unReadMsgContainer = Container();
 
-    if (model!.unreadCount > 0) {
+    if ((model.unreadCount ?? 0) > 0) {
       unReadMsgContainer = Container(
         width: 20,
         height: 20,
@@ -131,11 +131,11 @@ class ConverseListCell extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    model.title,
+                    model.title ??'',
                     style: TextStyle(fontSize: 24, color: Colors.black),
                   ),
                   Text(
-                    model.msg,
+                    model?.msg ?? '',
                     style: TextStyle(
                       fontSize: 17,
                       color: Colors.grey,
@@ -160,7 +160,7 @@ class ConverseListCell extends StatelessWidget {
                   model.time == null
                       ? Container()
                       : Text(
-                          model.time,
+                          model.time ??'',
                           style: TextStyle(
                             fontSize: 12,
                             color: Colors.red,
@@ -170,7 +170,7 @@ class ConverseListCell extends StatelessWidget {
                   /**能影藏的view*/
                   Offstage(
                     /*是否隐藏*/
-                    offstage: !model.isDisturb,
+                    offstage: !(model.isDisturb ?? false),
                     child: Container(
                       margin: EdgeInsets.only(
                         top: model.time != null ? 10 : 0,

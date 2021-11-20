@@ -23,8 +23,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
   @override
   Stream<LoginState> mapEventToState(LoginEvent event) async* {
-    print(
-        "LoginButtonPressed=============authenticationBloc ${authenticationBloc}");
+    print("LoginButtonPressed=============authenticationBloc ${authenticationBloc}");
 
     if (event is LoginButtonPressedEvent) {
       print("LoginButtonPressed=============");
@@ -42,9 +41,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         await Future.delayed(Duration(seconds: 3));
 
         /// 这个是告诉 main 跳转 root
-        authenticationBloc.add(AuthenticationLoggedInEvent(
-            user: UserRepository(
-                username: event.username, password: event.password)));
+        authenticationBloc.add(AuthenticationLoggedInEvent(user: UserRepository(username: event.username, password: event.password)));
         yield LoginSuccess();
       } catch (error) {
         yield LoginFailure(error: error.toString());

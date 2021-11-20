@@ -53,10 +53,7 @@ class _MaterialPage1 extends State<MaterialPageRxDart> {
               FlatButton(
                 child: Text("Stream按钮"),
                 onPressed: () async {
-                  List<String> list = [
-                    "Stream 返回结果 ${Random().nextInt(100)}",
-                    "Stream 返回结果 ${Random().nextInt(100)}"
-                  ];
+                  List<String> list = ["Stream 返回结果 ${Random().nextInt(100)}", "Stream 返回结果 ${Random().nextInt(100)}"];
 
                   /// 应该就是异步
                   /* Stream<List> _stream = Stream.fromFuture(
@@ -207,8 +204,7 @@ class _MaterialPage1 extends State<MaterialPageRxDart> {
                 color: Colors.red,
               ),
               FlatButton(
-                child:
-                    Text("5--BehaviorSubjec,add后listen 也可以监听,2个add,不同位置不同效果"),
+                child: Text("5--BehaviorSubjec,add后listen 也可以监听,2个add,不同位置不同效果"),
                 onPressed: () {
                   BehaviorSubject _subject = BehaviorSubject(onListen: () {
                     print("被监听");

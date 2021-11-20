@@ -22,17 +22,13 @@ class SlidingAroundRoute extends PageRouteBuilder {
             ) {
               return widget;
             },
-            transitionsBuilder: (BuildContext context,
-                Animation<double> animation1,
-                Animation<double> animation2,
-                Widget child) {
+            transitionsBuilder: (BuildContext context, Animation<double> animation1, Animation<double> animation2, Widget child) {
               //左右滑动路由动画
               return SlideTransition(
                 position: Tween<Offset>(
                   begin: Offset(-1.0, 0.0),
                   end: Offset(0.0, 0.0),
-                ).animate(CurvedAnimation(
-                    parent: animation1, curve: Curves.fastOutSlowIn)),
+                ).animate(CurvedAnimation(parent: animation1, curve: Curves.fastOutSlowIn)),
                 child: child,
               );
             });

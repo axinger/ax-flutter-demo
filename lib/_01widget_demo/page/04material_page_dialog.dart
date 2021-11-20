@@ -12,8 +12,7 @@ class P04MaterialPageDialog extends StatefulWidget {
   }
 }
 
-class _MaterialPage1 extends State<P04MaterialPageDialog>
-    with SingleTickerProviderStateMixin {
+class _MaterialPage1 extends State<P04MaterialPageDialog> with SingleTickerProviderStateMixin {
   _flatButton(String text, VoidCallback callback) {
     return FlatButton(
       child: Text(text),
@@ -270,8 +269,7 @@ class _MaterialPage1 extends State<P04MaterialPageDialog>
             ExpansionPanelList(
               expansionCallback: (int panelIndex, bool isExpanded) {
                 setState(() {
-                  debugPrint(
-                      " panelIndex = $panelIndex  isExpanded = $isExpanded");
+                  debugPrint(" panelIndex = $panelIndex  isExpanded = $isExpanded");
                   _isExpandedList[panelIndex] = !isExpanded;
                 });
               },
@@ -407,16 +405,14 @@ class AlertDialogWidget extends StatelessWidget {
           ),
           Divider(height: 1, color: Colors.grey),
           Container(
-            child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: <Widget>[
-                  FlatButton(
-                    child: Text('我知道了'),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                  ), // button 2
-                ]),
+            child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: <Widget>[
+              FlatButton(
+                child: Text('我知道了'),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ), // button 2
+            ]),
           ),
         ],
       ),

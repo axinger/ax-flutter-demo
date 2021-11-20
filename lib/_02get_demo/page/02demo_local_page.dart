@@ -15,8 +15,7 @@ class DemoLocalPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text('hello'.tr,
-                style: TextStyle(color: Colors.pink, fontSize: 30)),
+            Text('hello'.tr, style: TextStyle(color: Colors.pink, fontSize: 30)),
             Text('ElevatedButton ,TextButton 区别 '),
             ElevatedButton(
                 onPressed: () {

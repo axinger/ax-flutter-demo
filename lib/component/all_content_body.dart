@@ -5,8 +5,7 @@ class AllContentBody extends StatefulWidget {
   final List<AllContentBox> children;
 
   ///初始化并执行方法
-  AllContentBody({List<AllContentBox> children = const <AllContentBox>[]})
-      : this.children = children {
+  AllContentBody({List<AllContentBox> children = const <AllContentBox>[]}) : this.children = children {
 //    debugPrint(children.toString());
   }
 
@@ -34,8 +33,7 @@ class AllContentBox extends StatefulWidget {
   final Color bgColors;
   final Widget child;
 
-  AllContentBox(
-      {this.title = '', this.bgColors = Colors.green, required this.child});
+  AllContentBox({this.title = '', this.bgColors = Colors.green, required this.child});
 
   @override
   _AllContentBoxState createState() => _AllContentBoxState();

@@ -11,7 +11,7 @@ class TabbarItemController {
     required Widget icon,
     Widget? activeIcon,
     required Widget controller,
-  })   : _icon = icon,
+  })  : _icon = icon,
         _title = title,
         _activeIcon = activeIcon,
         this.controller = controller,
@@ -34,8 +34,7 @@ class RootPage extends StatefulWidget {
   _01rootController createState() => _01rootController();
 }
 
-class _01rootController
-    extends State<RootPage> //    with SingleTickerProviderStateMixin
+class _01rootController extends State<RootPage> //    with SingleTickerProviderStateMixin
 {
   //TabController + tabview组合动画不好控制,
 //  TabController _tabController;

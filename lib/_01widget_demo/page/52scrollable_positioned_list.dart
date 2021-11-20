@@ -3,15 +3,12 @@ import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 class P52ScrollablePositionedList extends StatefulWidget {
   @override
-  _ScrollablePositionedListState createState() =>
-      _ScrollablePositionedListState();
+  _ScrollablePositionedListState createState() => _ScrollablePositionedListState();
 }
 
-class _ScrollablePositionedListState
-    extends State<P52ScrollablePositionedList> {
+class _ScrollablePositionedListState extends State<P52ScrollablePositionedList> {
   final ItemScrollController itemScrollController = ItemScrollController();
-  final ItemPositionsListener itemPositionsListener =
-      ItemPositionsListener.create();
+  final ItemPositionsListener itemPositionsListener = ItemPositionsListener.create();
 
   @override
   Widget build(BuildContext context) {
@@ -27,10 +24,7 @@ class _ScrollablePositionedListState
           FlatButton(
             child: Text('跳转至\n有动画'),
             onPressed: () {
-              itemScrollController.scrollTo(
-                  index: 150,
-                  duration: Duration(seconds: 2),
-                  curve: Curves.easeInOutCubic);
+              itemScrollController.scrollTo(index: 150, duration: Duration(seconds: 2), curve: Curves.easeInOutCubic);
             },
             // onPressed:null,
           ),

@@ -40,8 +40,7 @@ class P57CustomRoute extends StatelessWidget {
               ],
             ),
             onPressed: () {
-              Navigator.of(context)
-                  .push(GradualChangeRoute(P57CustomRouteSecondPage()));
+              Navigator.of(context).push(GradualChangeRoute(P57CustomRouteSecondPage()));
             },
           ),
           MaterialButton(
@@ -79,8 +78,7 @@ class P57CustomRoute extends StatelessWidget {
               ],
             ),
             onPressed: () {
-              Navigator.of(context)
-                  .push(RotateAndZoomRoute(P57CustomRouteSecondPage()));
+              Navigator.of(context).push(RotateAndZoomRoute(P57CustomRouteSecondPage()));
             },
           ),
           MaterialButton(
@@ -99,8 +97,7 @@ class P57CustomRoute extends StatelessWidget {
               ],
             ),
             onPressed: () {
-              Navigator.of(context)
-                  .push(SlidingAroundRoute(P57CustomRouteSecondPage()));
+              Navigator.of(context).push(SlidingAroundRoute(P57CustomRouteSecondPage()));
             },
           ),
         ],

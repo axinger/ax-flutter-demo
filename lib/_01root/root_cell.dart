@@ -24,9 +24,7 @@ class Cell extends StatelessWidget {
     return GestureDetector(
       child: Container(
         margin: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
-        decoration: BoxDecoration(
-            border: Border.all(color: Colors.orange, width: 1.0),
-            borderRadius: BorderRadius.all(Radius.circular(5))),
+        decoration: BoxDecoration(border: Border.all(color: Colors.orange, width: 1.0), borderRadius: BorderRadius.all(Radius.circular(5))),
         child: Container(
           margin: EdgeInsets.all(8),
           child: Column(

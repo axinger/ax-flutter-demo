@@ -30,8 +30,7 @@ class _LoginPage extends State<LoginBlocView> {
     ///收起键盘
     FocusScope.of(context).requestFocus(FocusNode());
 
-    print(
-        'BlocProvider.of<LoginBloc>(context) = ${BlocProvider.of<LoginBloc>(context)}');
+    print('BlocProvider.of<LoginBloc>(context) = ${BlocProvider.of<LoginBloc>(context)}');
 
     BlocProvider.of<LoginBloc>(context).add(
       LoginButtonPressedEvent(
@@ -58,8 +57,7 @@ class _LoginPage extends State<LoginBlocView> {
 
   @override
   Widget build(BuildContext context) {
-    print(
-        'BlocProvider.of<AuthenticationBloc>(context) = ${BlocProvider.of<AuthenticationBloc>(context)}');
+    print('BlocProvider.of<AuthenticationBloc>(context) = ${BlocProvider.of<AuthenticationBloc>(context)}');
 
     return MaterialApp(
       title: 'Droid Sans',
@@ -83,8 +81,7 @@ class _LoginPage extends State<LoginBlocView> {
           body: BlocProvider(
             create: (context) {
               return LoginBloc(
-                authenticationBloc:
-                    BlocProvider.of<AuthenticationBloc>(context),
+                authenticationBloc: BlocProvider.of<AuthenticationBloc>(context),
               );
             },
             child: BlocListener<LoginBloc, LoginState>(
@@ -98,8 +95,7 @@ class _LoginPage extends State<LoginBlocView> {
                   );
                 }
               },
-              child:
-                  BlocBuilder<LoginBloc, LoginState>(builder: (context, state) {
+              child: BlocBuilder<LoginBloc, LoginState>(builder: (context, state) {
                 print('state ==2 $state');
                 return Container(
                   padding: EdgeInsets.only(top: 40, left: 20, right: 20),
@@ -279,24 +275,16 @@ class _LoginPage extends State<LoginBlocView> {
                             disabledTextColor: Colors.grey,
                             color: Colors.red,
                             disabledColor: Colors.green,
-                            onPressed: (username.isEmpty ||
-                                    password.isEmpty ||
-                                    (state is LoginInProgress))
+                            onPressed: (username.isEmpty || password.isEmpty || (state is LoginInProgress))
                                 ? null
                                 : () {
                                     ///收起键盘
-                                    FocusScope.of(context)
-                                        .requestFocus(FocusNode());
+                                    FocusScope.of(context).requestFocus(FocusNode());
 
                                     EVENT_BUS.fire(AuthenticationLoggedInEvent(
-                                        user: UserRepository(
-                                            username:
-                                                phoneTextEditingController.text,
-                                            password: pswTextEditingController
-                                                .text)));
+                                        user: UserRepository(username: phoneTextEditingController.text, password: pswTextEditingController.text)));
 
-                                    print(
-                                        'BlocProvider.of<LoginBloc>(context) = ${BlocProvider.of<LoginBloc>(context)}');
+                                    print('BlocProvider.of<LoginBloc>(context) = ${BlocProvider.of<LoginBloc>(context)}');
 
 //                                    BlocProvider.of<LoginBloc>(context).add(
 //                                      LoginButtonPressedEvent(
@@ -405,9 +393,7 @@ class _formTF extends StatelessWidget {
                 ),
                 textColor: Colors.red,
                 disabledTextColor: Colors.grey,
-                onPressed: (phoneTextEditingController.value.text.isEmpty)
-                    ? null
-                    : () {},
+                onPressed: (phoneTextEditingController.value.text.isEmpty) ? null : () {},
               ),
             ),
           ),

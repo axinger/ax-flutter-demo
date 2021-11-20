@@ -11,8 +11,7 @@ class ContentPage extends StatefulWidget {
   }
 }
 
-class _ContentPage extends State<ContentPage>
-    with AutomaticKeepAliveClientMixin {
+class _ContentPage extends State<ContentPage> with AutomaticKeepAliveClientMixin {
   @override
   bool get wantKeepAlive => true;
 
@@ -76,8 +75,7 @@ class _ContentPage extends State<ContentPage>
                       print("bbbb");
 
                       /// CupertinoPageRoute 和 MaterialPageRoute
-                      Navigator.of(context)
-                          .push(CupertinoPageRoute<bool>(builder: (context) {
+                      Navigator.of(context).push(CupertinoPageRoute<bool>(builder: (context) {
                         return DetailPage(
                           postEntity: entity,
                         );

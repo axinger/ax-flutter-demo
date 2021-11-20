@@ -41,6 +41,7 @@ dependencies:
   dio: ^4.0.1
   #  http_parser: any
   #  json_annotation: any
+  json_annotation: ^4.3.0
   #该软件包提供国际化和本地化功能，包括消息翻译，复数形式和性别，日期/数字格式和解析以及双向文本.
   #  intl: ^0.17.0
   #intl_utils是一个Dart库，可从ARB文件生成Dart本地化代码. 生成的代码依赖于Intl库.
@@ -239,8 +240,8 @@ dev_dependencies:
     sdk: flutter
 
   #这两个是dev的，不要放到上面去了哦
-  build_runner: ^2.0.4
-  json_serializable: ^5.0.0
+  build_runner: ^2.1.5
+  json_serializable: ^6.0.1
   lints: ^1.0.1
 
 #  hive_generator: ^0.7.0+2

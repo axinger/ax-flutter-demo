@@ -2,12 +2,10 @@ import 'package:flutter/material.dart';
 
 class P53DraggableScrollableSheet extends StatefulWidget {
   @override
-  _P53DraggableScrollableSheetState createState() =>
-      _P53DraggableScrollableSheetState();
+  _P53DraggableScrollableSheetState createState() => _P53DraggableScrollableSheetState();
 }
 
-class _P53DraggableScrollableSheetState
-    extends State<P53DraggableScrollableSheet> {
+class _P53DraggableScrollableSheetState extends State<P53DraggableScrollableSheet> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,8 +33,7 @@ class _P53DraggableScrollableSheetState
                 initialChildSize: 0.4,
                 minChildSize: 0.4,
                 maxChildSize: 1,
-                builder:
-                    (BuildContext context, ScrollController scrollController) {
+                builder: (BuildContext context, ScrollController scrollController) {
                   return Container(
                     color: Colors.blue[100],
                     child: ListView.builder(

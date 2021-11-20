@@ -27,8 +27,7 @@ class _LXScrollPhotosViewState extends State<LXScrollPhotosView> {
   void initState() {
     super.initState();
     _indexPage = widget.currentIndex;
-    _pageController =
-        PageController(initialPage: _indexPage, viewportFraction: 1.06);
+    _pageController = PageController(initialPage: _indexPage, viewportFraction: 1.06);
   }
 
   @override

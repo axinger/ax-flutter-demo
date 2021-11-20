@@ -28,8 +28,7 @@ class _P58NavigationRailPageState extends State<P58NavigationRailPage> {
                 _selectedIndex = index;
               });
             },
-            selectedLabelTextStyle:
-                TextStyle(color: Colors.red, backgroundColor: Colors.orange),
+            selectedLabelTextStyle: TextStyle(color: Colors.red, backgroundColor: Colors.orange),
             labelType: NavigationRailLabelType.selected,
             destinations: [
               NavigationRailDestination(

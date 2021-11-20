@@ -90,8 +90,7 @@ class MaterialPageInheritedWidget extends StatefulWidget {
   }
 }
 
-class _InheritedWidgetTestContainerState
-    extends State<MaterialPageInheritedWidget> {
+class _InheritedWidgetTestContainerState extends State<MaterialPageInheritedWidget> {
   MyInheritedTestModel inheritedTestModel = MyInheritedTestModel(0);
 
   _initData() {
@@ -149,8 +148,7 @@ class _InheritedWidgetTestContainerState
 
               Padding(
                 padding: EdgeInsets.only(left: 10.0, top: 10.0, right: 10.0),
-                child: Text(
-                    "MyInheritedWidget 内部有TestWidgetA 等子控件,所以子控件通过context可以获得父类MyInheritedWidget"),
+                child: Text("MyInheritedWidget 内部有TestWidgetA 等子控件,所以子控件通过context可以获得父类MyInheritedWidget"),
               ),
 
               /// 这个 直接调用子控件,不需要传参 ,
@@ -231,16 +229,12 @@ class TestWidgetA extends StatelessWidget {
     /// 根据 context 获得 TestWidgetA 包在外层的 MyInheritedWidget extends InheritedWidget
     final MyInheritedWidget? myInheritedWidget = MyInheritedWidget.of(context);
 
-    final MyInheritedTestModel? myInheritedTestModel =
-        myInheritedWidget?.inheritedTestModel;
+    final MyInheritedTestModel? myInheritedTestModel = myInheritedWidget?.inheritedTestModel;
 
     print('TestWidgetA 中count的值:  ${myInheritedTestModel?.count}');
     return Padding(
       padding: const EdgeInsets.only(left: 10.0, top: 10.0, right: 10.0),
-      child: RaisedButton(
-          textColor: Colors.black,
-          child: Text('+ 改变model值,中间控件获取model最新值'),
-          onPressed: myInheritedWidget?.increment),
+      child: RaisedButton(textColor: Colors.black, child: Text('+ 改变model值,中间控件获取model最新值'), onPressed: myInheritedWidget?.increment),
     );
   }
 }
@@ -277,8 +271,7 @@ class TestWidgetC extends StatelessWidget {
   Widget build(BuildContext context) {
     final MyInheritedWidget? myInheritedWidget = MyInheritedWidget?.of(context);
 
-    final MyInheritedTestModel? inheritedTestModel =
-        myInheritedWidget?.inheritedTestModel;
+    final MyInheritedTestModel? inheritedTestModel = myInheritedWidget?.inheritedTestModel;
 
     print('TestWidgetC 中count的值:  ${inheritedTestModel?.count}');
 

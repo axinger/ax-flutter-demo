@@ -130,11 +130,7 @@ class CameraDemoPageState extends State<CameraDemoPage> {
           alignment: Alignment.center,
           child: IconButton(
             iconSize: 50.0,
-            onPressed: controller != null &&
-                    controller!.value.isInitialized &&
-                    !controller!.value.isRecordingVideo
-                ? onTakePictureButtonPressed
-                : null,
+            onPressed: controller != null && controller!.value.isInitialized && !controller!.value.isRecordingVideo ? onTakePictureButtonPressed : null,
             icon: Icon(
               Icons.camera_alt,
               color: Colors.white,

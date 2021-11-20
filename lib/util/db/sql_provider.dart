@@ -64,8 +64,7 @@ class SqlProvider<T extends AbstractJsonObject> {
   Future<int> count({required String contion}) async {
 //    LogUtil.get().i('查询本地表数据,表明${dbTable.tableName}条件:${contion}');
     Database db = await getDataBase();
-    int size = Sqflite.firstIntValue(await db
-        .rawQuery('SELECT COUNT(*) FROM ${dbTable.tableName}  ${contion}'))!;
+    int size = Sqflite.firstIntValue(await db.rawQuery('SELECT COUNT(*) FROM ${dbTable.tableName}  ${contion}'))!;
     return size;
   }
 
@@ -116,8 +115,7 @@ class SqlProvider<T extends AbstractJsonObject> {
     //   // print("SELECT == ${onValue}");
     // });
 
-    List<Map<String, dynamic>> resultList3 =
-        await db.rawQuery("SELECT * FROM t_base_config WHERE code='USER_INFO'");
+    List<Map<String, dynamic>> resultList3 = await db.rawQuery("SELECT * FROM t_base_config WHERE code='USER_INFO'");
     print("SELECT ==2 ${resultList3}");
 
     return resultList;

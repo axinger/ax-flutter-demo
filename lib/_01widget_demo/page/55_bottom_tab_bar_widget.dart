@@ -32,15 +32,10 @@ class _BottomTabBarWidgetState extends State<P55BottomTabBarWidget> {
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            buildTabBarItem(selectedIndex, 0,
-                selectedIcon: Icon(Icons.home, color: Colors.blue),
-                icon: Icon(Icons.home, color: Colors.grey),
-                title: "首页"),
+            buildTabBarItem(selectedIndex, 0, selectedIcon: Icon(Icons.home, color: Colors.blue), icon: Icon(Icons.home, color: Colors.grey), title: "首页"),
             //
             buildTabBarItem(selectedIndex, 1,
-                selectedIcon: Icon(Icons.library_music, color: Colors.blue),
-                icon: Icon(Icons.library_music, color: Colors.grey),
-                title: "发现"),
+                selectedIcon: Icon(Icons.library_music, color: Colors.blue), icon: Icon(Icons.library_music, color: Colors.grey), title: "发现"),
             //
             // buildTabBarItem(selectedIndex, 2, selectedIcon: Icon(Icons.email, color: Colors.blue), icon: Icon(Icons.email, color: Colors.grey), title: "消息"),
             //

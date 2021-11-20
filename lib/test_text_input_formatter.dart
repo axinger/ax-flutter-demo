@@ -2,8 +2,7 @@ import 'package:flutter/services.dart';
 
 class TestTextInputFormatter extends TextInputFormatter {
   @override
-  TextEditingValue formatEditUpdate(
-      TextEditingValue oldValue, TextEditingValue newValue) {
+  TextEditingValue formatEditUpdate(TextEditingValue oldValue, TextEditingValue newValue) {
     String nValue = newValue.text;
     String oValue = oldValue.text;
     //当前所选择的文字区域
@@ -52,7 +51,6 @@ class TestTextInputFormatter extends TextInputFormatter {
 //            affinity: TextAffinity.downstream, offset: phone.length));
 //      }
 //    }
-    return TextEditingValue(
-        text: nValue, selection: nSelection, composing: TextRange.empty);
+    return TextEditingValue(text: nValue, selection: nSelection, composing: TextRange.empty);
   }
 }

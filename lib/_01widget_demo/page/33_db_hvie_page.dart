@@ -110,8 +110,7 @@ class _P33DbHiveState extends State<P33DbHive> {
               ),
               FutureBuilder<Box<bool>>(
                 future: Hive.openBox('do221'),
-                builder:
-                    (BuildContext context, AsyncSnapshot<Box<bool>> snapshot) {
+                builder: (BuildContext context, AsyncSnapshot<Box<bool>> snapshot) {
                   print('snapshot.hasData = ${snapshot.hasData}');
                   if (!snapshot.hasData) {
                     return SizedBox(

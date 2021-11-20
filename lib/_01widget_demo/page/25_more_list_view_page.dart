@@ -26,12 +26,10 @@ class _State extends State<P25MoreListViewPage> {
 
       /// 设备分辨率
       double pixelRatio = window.devicePixelRatio;
-      var image = await (boundary as RenderRepaintBoundary)
-          .toImage(pixelRatio: pixelRatio);
+      var image = await (boundary as RenderRepaintBoundary).toImage(pixelRatio: pixelRatio);
 
       /// png格式
-      ByteData byteData =
-          (await image.toByteData(format: ImageByteFormat.png))!;
+      ByteData byteData = (await image.toByteData(format: ImageByteFormat.png))!;
       Uint8List pngBytes = byteData.buffer.asUint8List();
 
       // bool result = await ImageGallerySaver.saveImage(pngBytes); //这个是核心的保存图片的插件
@@ -62,11 +60,10 @@ class _State extends State<P25MoreListViewPage> {
                 if (image != null) {
                   var result = await ImageGallerySaver.saveImage(image); //这个是核心的保存图片的插件
                   print('保存图片到相册$result');
-                    showCupertinoCertainAlert( context: context, title: result['isSuccess'] ? '保存成功' : '保存失败');
+                  showCupertinoCertainAlert(context: context, title: result['isSuccess'] ? '保存成功' : '保存失败');
                 }
               }).catchError((onError) {
-                showCupertinoCertainAlert(
-                    context: context, title: '截图失败');
+                showCupertinoCertainAlert(context: context, title: '截图失败');
               });
             },
           ),

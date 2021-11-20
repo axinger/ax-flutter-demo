@@ -7,8 +7,7 @@ class P54SliverPersisten extends StatefulWidget {
   }
 }
 
-class CustomScrollView1State extends State<P54SliverPersisten>
-    with SingleTickerProviderStateMixin {
+class CustomScrollView1State extends State<P54SliverPersisten> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,9 +55,7 @@ class SliverCustomHeaderDelegate extends SliverPersistentHeaderDelegate {
   });
 
   Color makeStickyHeaderBgColor(shrinkOffset) {
-    final int alpha = (shrinkOffset / (this.maxExtent - this.minExtent) * 255)
-        .clamp(0, 255)
-        .toInt();
+    final int alpha = (shrinkOffset / (this.maxExtent - this.minExtent) * 255).clamp(0, 255).toInt();
     return Color.fromARGB(alpha, 255, 255, 255);
   }
 
@@ -66,16 +63,13 @@ class SliverCustomHeaderDelegate extends SliverPersistentHeaderDelegate {
     if (shrinkOffset <= 50) {
       return isIcon ? Colors.white : Colors.transparent;
     } else {
-      final int alpha = (shrinkOffset / (this.maxExtent - this.minExtent) * 255)
-          .clamp(0, 255)
-          .toInt();
+      final int alpha = (shrinkOffset / (this.maxExtent - this.minExtent) * 255).clamp(0, 255).toInt();
       return Color.fromARGB(alpha, 0, 0, 0);
     }
   }
 
   @override
-  Widget build(
-      BuildContext context, double shrinkOffset, bool overlapsContent) {
+  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
     return Container(
       height: this.maxExtent,
       width: MediaQuery.of(context).size.width,
@@ -101,8 +95,7 @@ class SliverCustomHeaderDelegate extends SliverPersistentHeaderDelegate {
                       IconButton(
                         icon: Icon(
                           Icons.arrow_back_ios,
-                          color: this.makeStickyHeaderTextColor(
-                              shrinkOffset, true), // 返回图标颜色
+                          color: this.makeStickyHeaderTextColor(shrinkOffset, true), // 返回图标颜色
                         ),
                         onPressed: () => Navigator.pop(context),
                       ),
@@ -111,15 +104,13 @@ class SliverCustomHeaderDelegate extends SliverPersistentHeaderDelegate {
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.w500,
-                          color: this.makeStickyHeaderTextColor(
-                              shrinkOffset, false), // 标题颜色
+                          color: this.makeStickyHeaderTextColor(shrinkOffset, false), // 标题颜色
                         ),
                       ),
                       IconButton(
                         icon: Icon(
                           Icons.share,
-                          color: this.makeStickyHeaderTextColor(
-                              shrinkOffset, true), // 分享图标颜色
+                          color: this.makeStickyHeaderTextColor(shrinkOffset, true), // 分享图标颜色
                         ),
                         onPressed: () {},
                       ),

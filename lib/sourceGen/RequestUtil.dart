@@ -11,15 +11,13 @@ class RequestUtil {
     return sInstance;
   }
 
-  @ApiMethod("https://swapi.co/api/starships", HttpRequestType.GET,
-      head: {"token": "123"})
+  @ApiMethod("https://swapi.co/api/starships", HttpRequestType.GET, head: {"token": "123"})
   Future ships() async {
 //    return _$get_ships();
     return await Future.value("2");
   }
 
-  @ApiMethod("https://swapi.co/api/starships", HttpRequestType.POST,
-      head: {"token": "123"})
+  @ApiMethod("https://swapi.co/api/starships", HttpRequestType.POST, head: {"token": "123"})
   Future upships() {
 //    return _$post_upships();
     return Future.value("3");

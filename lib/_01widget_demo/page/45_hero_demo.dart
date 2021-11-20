@@ -10,8 +10,7 @@ class _HeroDemo extends State<P45HeroDemo> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: GridView(
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 3, crossAxisSpacing: 5, mainAxisSpacing: 3),
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3, crossAxisSpacing: 5, mainAxisSpacing: 3),
         children: List.generate(10, (index) {
           if (index == 6) {
             return InkWell(
@@ -25,8 +24,7 @@ class _HeroDemo extends State<P45HeroDemo> {
 
 //                Navigator.push(context, LeftToRightPageRoute(_Hero1Demo()));
 
-                Navigator.push(
-                    context, CustomPageRoute(this.widget, _Hero1Demo()));
+                Navigator.push(context, CustomPageRoute(this.widget, _Hero1Demo()));
               },
 
               ///2个页面都有Hero控件，且tag参数一致。
@@ -87,8 +85,7 @@ class LeftToRightPageRoute extends PageRouteBuilder {
             Widget child,
           ) =>
               SlideTransition(
-            position: Tween(begin: Offset(-1, 0), end: Offset(0, 0))
-                .animate(animation),
+            position: Tween(begin: Offset(-1, 0), end: Offset(0, 0)).animate(animation),
             child: child,
           ),
         );

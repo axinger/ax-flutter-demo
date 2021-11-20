@@ -40,8 +40,7 @@ class P47ImageBrowser extends StatefulWidget {
   });
 
   @override
-  _SurveyTasksImageBrowserState createState() =>
-      _SurveyTasksImageBrowserState();
+  _SurveyTasksImageBrowserState createState() => _SurveyTasksImageBrowserState();
 }
 
 class _SurveyTasksImageBrowserState extends State<P47ImageBrowser> {
@@ -121,8 +120,7 @@ class _SurveyTasksImageBrowserState extends State<P47ImageBrowser> {
                         scrollDirection: Axis.horizontal,
                         scrollPhysics: const BouncingScrollPhysics(),
                         // loadFailedChild: Text('加载失败'),
-                        loadingBuilder:
-                            (BuildContext context, ImageChunkEvent? event) {
+                        loadingBuilder: (BuildContext context, ImageChunkEvent? event) {
                           return Text('加载中');
                         },
                         builder: (BuildContext context, int index) {
@@ -177,14 +175,11 @@ class _SurveyTasksImageBrowserState extends State<P47ImageBrowser> {
                     _isSelectedNotifier.value = !_isSelectedNotifier.value;
                     _currentInfo.isSelected = !_currentInfo.isSelected;
                     if (widget.selectCallback != null) {
-                      widget.selectCallback!(
-                          _currentIndex, _isSelectedNotifier.value);
+                      widget.selectCallback!(_currentIndex, _isSelectedNotifier.value);
                     }
                   },
                   icon: Image.asset(
-                    value
-                        ? 'assets/image/album/selected.png'
-                        : 'assets/image/album/un_selected.png',
+                    value ? 'assets/image/album/selected.png' : 'assets/image/album/un_selected.png',
                     width: 25,
                     height: 25,
                   ),
@@ -216,11 +211,9 @@ class _SurveyTasksImageBrowserState extends State<P47ImageBrowser> {
                         fontSize: 16,
                       ),
                       decoration: InputDecoration(
-                        contentPadding: EdgeInsets.only(
-                            top: 0, bottom: 0, left: 10, right: 10),
+                        contentPadding: EdgeInsets.only(top: 0, bottom: 0, left: 10, right: 10),
 
-                        fillColor:
-                            !value ? Colors.transparent : Color(0xff464647),
+                        fillColor: !value ? Colors.transparent : Color(0xff464647),
                         filled: true,
 
                         ///选中时外边框颜色
@@ -269,41 +262,31 @@ class _SurveyTasksImageBrowserState extends State<P47ImageBrowser> {
                           GestureDetector(
                             child: Text(
                               '重命名',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 16),
+                              style: TextStyle(color: Colors.white, fontSize: 16),
                             ),
                             onTap: () {
-                              FocusScope.of(context)
-                                  .requestFocus(_nameFocusNode);
+                              FocusScope.of(context).requestFocus(_nameFocusNode);
                               _isEditNotifier.value = true;
                             },
                           )
                         ]
                       : [
                           GestureDetector(
-                            child: Text('取消',
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 16)),
+                            child: Text('取消', style: TextStyle(color: Colors.white, fontSize: 16)),
                             onTap: () {
                               _isEditNotifier.value = false;
                               _nameFocusNode.unfocus();
-                              _nameController.text =
-                                  _imageDataList[_currentIndex]
-                                      .fileNameNoSuffix;
+                              _nameController.text = _imageDataList[_currentIndex].fileNameNoSuffix;
                             },
                           ),
                           GestureDetector(
-                            child: Text('完成',
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 16)),
+                            child: Text('完成', style: TextStyle(color: Colors.white, fontSize: 16)),
                             onTap: () {
                               _isEditNotifier.value = false;
                               _nameFocusNode.unfocus();
-                              _currentInfo.fileNameNoSuffix =
-                                  _nameController.text;
+                              _currentInfo.fileNameNoSuffix = _nameController.text;
                               if (widget.renameCallback != null) {
-                                widget.renameCallback!(
-                                    _currentIndex, _currentInfo.fileName);
+                                widget.renameCallback!(_currentIndex, _currentInfo.fileName);
                               }
                             },
                           ),
@@ -444,8 +427,7 @@ class ImageFileTypeView extends StatelessWidget {
         child = LoadNetworkImage(url: info!.httpUrl);
         break;
       case ImageFileType.base64:
-        child = Image.memory(Base64Decoder().convert(info!.fileBase64),
-            fit: BoxFit.fill);
+        child = Image.memory(Base64Decoder().convert(info!.fileBase64), fit: BoxFit.fill);
         break;
       default:
         child = Container();

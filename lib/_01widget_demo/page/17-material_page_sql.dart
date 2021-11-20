@@ -37,8 +37,7 @@ class _MaterialPage1 extends State<MaterialPageSql> {
                   FlatButton(
                     child: Text("存储数据"),
                     onPressed: () {
-                      Future<SharedPreferences> prefs =
-                          SharedPreferences.getInstance();
+                      Future<SharedPreferences> prefs = SharedPreferences.getInstance();
                       prefs.then((onValue) {
                         onValue.setString("name", "小明");
                       }).whenComplete(() {
@@ -55,8 +54,7 @@ class _MaterialPage1 extends State<MaterialPageSql> {
                     child: Text("读取数据"),
                     onPressed: () {
                       SharedPreferences.getInstance().then((onValue) {
-                        print(
-                            "onValue.getString(mUserName)=   ${onValue.getString("name")}");
+                        print("onValue.getString(mUserName)=   ${onValue.getString("name")}");
                         setState(() {
                           name = onValue.getString('name') ?? '';
                         });
@@ -83,8 +81,7 @@ class _MaterialPage1 extends State<MaterialPageSql> {
                   FlatButton(
                     child: Text("存储另一个数据"),
                     onPressed: () {
-                      Future<SharedPreferences> prefs =
-                          SharedPreferences.getInstance();
+                      Future<SharedPreferences> prefs = SharedPreferences.getInstance();
                       prefs.then((onValue) {
                         onValue.setString("age", "12");
                       });

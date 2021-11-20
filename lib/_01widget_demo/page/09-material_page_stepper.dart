@@ -44,21 +44,9 @@ class _MaterialPage1 extends State<MaterialPageStepper> {
               });
             },
             steps: [
-              Step(
-                  title: Text('提交中'),
-                  subtitle: Text('提交中'),
-                  content: Text('您的订单正在提交'),
-                  isActive: _currentStep == 0),
-              Step(
-                  title: Text('待付款'),
-                  subtitle: Text('待付款'),
-                  content: Text('您的订单尚未支付'),
-                  isActive: _currentStep == 1),
-              Step(
-                  title: Text('待收货'),
-                  subtitle: Text('待收获'),
-                  content: Text('您的包裹正在运输中'),
-                  isActive: _currentStep == 2),
+              Step(title: Text('提交中'), subtitle: Text('提交中'), content: Text('您的订单正在提交'), isActive: _currentStep == 0),
+              Step(title: Text('待付款'), subtitle: Text('待付款'), content: Text('您的订单尚未支付'), isActive: _currentStep == 1),
+              Step(title: Text('待收货'), subtitle: Text('待收获'), content: Text('您的包裹正在运输中'), isActive: _currentStep == 2),
             ]),
       ),
     );

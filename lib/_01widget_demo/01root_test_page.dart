@@ -1,6 +1,7 @@
 import 'dart:async';
 
-import 'package:ax_flutter_demo/_01widget_demo/page/01_demo_text_field.dart';
+import 'package:ax_flutter_demo/_01widget_demo/page/01_button_view.dart';
+import 'package:ax_flutter_demo/_01widget_demo/page/01_text_field_view.dart';
 import 'package:ax_flutter_demo/_01widget_demo/page/06_table_page.dart';
 import 'package:ax_flutter_demo/_01widget_demo/page/63_bottom_up.dart';
 import 'package:ax_flutter_util/ax_flutter_util.dart';
@@ -162,6 +163,12 @@ class _RootHomePageState extends State<RootHomePage> {
             ));
           }),
       CellItem(
+          title: 'DemoButton',
+          subTitle: '01_button_view.dart',
+          onTap: () {
+            push(context: context, widget: DemoButton());
+          }),
+      CellItem(
           title: '01-按钮组件1',
           subTitle: '01_content_page1.dart',
           onTap: () {
@@ -181,7 +188,7 @@ class _RootHomePageState extends State<RootHomePage> {
           }),
       CellItem(
           title: '01-TextField',
-          subTitle: '01_demo_text_field.dart',
+          subTitle: '01_text_field_view.dart',
           onTap: () {
             push(context: context, widget: DemoTextField());
           }),
@@ -505,8 +512,7 @@ class _RootHomePageState extends State<RootHomePage> {
       CellItem(
           title: 'P59Get框架 改变主题',
           onTap: () {
-            Get.changeTheme(
-                Get.isDarkMode ? ThemeData.light() : ThemeData.dark());
+            Get.changeTheme(Get.isDarkMode ? ThemeData.light() : ThemeData.dark());
           }),
       CellItem(
           title: 'P59Get传值,\n用Get.to跳转,才能恢复初始值',
@@ -516,8 +522,7 @@ class _RootHomePageState extends State<RootHomePage> {
               print('then = $value');
               print('CounterController2 = ${Get.find<CounterController2>()}');
             }).whenComplete(() {
-              print(
-                  'whenComplete CounterController2 = ${Get.find<CounterController2>()}');
+              print('whenComplete CounterController2 = ${Get.find<CounterController2>()}');
             });
           }),
       CellItem(

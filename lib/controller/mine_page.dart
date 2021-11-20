@@ -38,9 +38,7 @@ class _MinePage extends State<MinePage> {
         actions: <Widget>[
           FlatButton(
             color: Colors.purple,
-            child: Text("登录",
-                style: TextStyle(
-                    color: Colors.red, backgroundColor: Colors.green)),
+            child: Text("登录", style: TextStyle(color: Colors.red, backgroundColor: Colors.green)),
             onPressed: () {
               print("========");
 //                    FlutterBoost.singleton.open("route_MaterialPage1");
@@ -57,15 +55,11 @@ class _MinePage extends State<MinePage> {
 //            },
 //          ),
           Center(
-            child: Text("退出",
-                style: TextStyle(
-                    color: Colors.red, backgroundColor: Colors.green)),
+            child: Text("退出", style: TextStyle(color: Colors.red, backgroundColor: Colors.green)),
           ),
           FlatButton(
             color: Colors.purple,
-            child: Text("测试页面",
-                style: TextStyle(
-                    color: Colors.red, backgroundColor: Colors.green)),
+            child: Text("测试页面", style: TextStyle(color: Colors.red, backgroundColor: Colors.green)),
             onPressed: () {
               print("========");
               Navigator.push<String>(

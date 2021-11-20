@@ -12,8 +12,7 @@ class MyIcons {
       matchTextDirection: true);
 
   /// ！
-  static const IconData notice =
-      const IconData(0xe605, fontFamily: fontFamily, matchTextDirection: false);
+  static const IconData notice = const IconData(0xe605, fontFamily: fontFamily, matchTextDirection: false);
 
   /// 日历
   static const IconData calendar = const IconData(0xe613,

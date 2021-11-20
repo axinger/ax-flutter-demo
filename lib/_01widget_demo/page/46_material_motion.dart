@@ -40,8 +40,7 @@ class _P46MaterialMotionState extends State<P46MaterialMotion> {
       ),
       body: GridView.builder(
         padding: EdgeInsets.all(8),
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2, crossAxisSpacing: 2, mainAxisSpacing: 4),
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, crossAxisSpacing: 2, mainAxisSpacing: 4),
         itemBuilder: (context, index) {
           return GridTile(
             header: GridTileBar(

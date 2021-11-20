@@ -67,8 +67,7 @@ class SearchBarDelegate extends SearchDelegate<String> {
   Widget buildLeading(BuildContext context) {
     //左侧显示内容 这里放了返回按钮
     return IconButton(
-      icon: AnimatedIcon(
-          icon: AnimatedIcons.menu_arrow, progress: transitionAnimation),
+      icon: AnimatedIcon(icon: AnimatedIcons.menu_arrow, progress: transitionAnimation),
       onPressed: () {
         if (query.isEmpty) {
           close(context, '');
@@ -146,17 +145,7 @@ class SearchItemView extends StatefulWidget {
 }
 
 class _SearchItemViewState extends State<SearchItemView> {
-  List<String> items = [
-    '面试',
-    'Studio3',
-    '动画dfsfds',
-    '自定义View',
-    '性能优化',
-    'gradle',
-    'Camera',
-    '代码混淆 安全',
-    '逆向加固'
-  ];
+  List<String> items = ['面试', 'Studio3', '动画dfsfds', '自定义View', '性能优化', 'gradle', 'Camera', '代码混淆 安全', '逆向加固'];
 
   @override
   Widget build(BuildContext context) {
@@ -188,8 +177,7 @@ class _SearchItemState extends State<SearchItem> {
       child: InkWell(
         child: Chip(
           label: Text(widget.title),
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
           deleteIconColor: Colors.red,
           onDeleted: () {},
         ),

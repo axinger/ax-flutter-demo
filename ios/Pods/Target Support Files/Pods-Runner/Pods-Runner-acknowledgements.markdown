@@ -647,7 +647,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 
-## shared_preferences
+## shared_preferences_ios
 
 Copyright 2013 The Flutter Authors. All rights reserved.
 

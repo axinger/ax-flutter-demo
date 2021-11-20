@@ -8,19 +8,19 @@ class ConverseModel extends Object {
   String headIcon;
 
   @JsonKey(name: 'title')
-  String title;
+  String? title;
 
   @JsonKey(name: 'msg')
-  String msg;
+  String? msg;
 
   @JsonKey(name: 'time')
-  String time;
+  String? time;
 
   @JsonKey(name: 'unreadCount')
-  int unreadCount;
+  int? unreadCount;
 
   @JsonKey(name: 'isDisturb')
-  bool isDisturb;
+  bool? isDisturb;
 
   ConverseModel(
     this.headIcon,
@@ -31,8 +31,29 @@ class ConverseModel extends Object {
     this.isDisturb,
   );
 
-  factory ConverseModel.fromJson(Map<String, dynamic> srcJson) =>
-      _$ConverseModelFromJson(srcJson);
+  factory ConverseModel.fromJson(Map<String, dynamic> srcJson) => _$ConverseModelFromJson(srcJson);
 
   Map<String, dynamic> toJson() => _$ConverseModelToJson(this);
+}
+
+
+main(){
+
+  test(){
+
+    var map = {
+      'headIcon':'headIcon',
+    };
+
+   var model =  ConverseModel.fromJson(map);
+    print('model = ${model.toJson()}');
+
+    print('model = ${model.unreadCount ?? 0  > 0 }');
+
+    if ((model.unreadCount ?? 0) > 0) {
+
+    }
+  }
+
+  test();
 }

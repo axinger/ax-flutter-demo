@@ -14,7 +14,7 @@ class SlideMenuItem extends StatelessWidget {
     this.margin,
     this.transform,
     required this.onTap,
-  })   : assert(child != null),
+  })  : assert(child != null),
         assert(margin == null || margin.isNonNegative),
         assert(padding == null || padding.isNonNegative),
         assert(decoration == null || decoration.debugAssertIsValid()),
@@ -23,12 +23,8 @@ class SlideMenuItem extends StatelessWidget {
             color == null || decoration == null,
             'Cannot provide both a color and a decoration\n'
             'The color argument is just a shorthand for "decoration: new BoxDecoration(color: color)".'),
-        decoration =
-            decoration ?? (color != null ? BoxDecoration(color: color) : null),
-        constraints = (height != null)
-            ? constraints?.tighten(height: height) ??
-                BoxConstraints.tightFor(height: height)
-            : constraints,
+        decoration = decoration ?? (color != null ? BoxDecoration(color: color) : null),
+        constraints = (height != null) ? constraints?.tighten(height: height) ?? BoxConstraints.tightFor(height: height) : constraints,
         super(key: key);
 
   final BoxConstraints? constraints;

@@ -22,14 +22,10 @@ class GradualChangeRoute extends PageRouteBuilder {
             ) {
               return widget;
             },
-            transitionsBuilder: (BuildContext context,
-                Animation<double> animation1,
-                Animation<double> animation2,
-                Widget child) {
+            transitionsBuilder: (BuildContext context, Animation<double> animation1, Animation<double> animation2, Widget child) {
               //渐隐渐变效果
               return FadeTransition(
-                opacity: Tween(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-                    parent: animation1, curve: Curves.fastOutSlowIn)),
+                opacity: Tween(begin: 0.0, end: 1.0).animate(CurvedAnimation(parent: animation1, curve: Curves.fastOutSlowIn)),
                 child: child,
               );
             });

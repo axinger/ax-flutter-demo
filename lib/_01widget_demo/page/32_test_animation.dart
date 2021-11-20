@@ -5,17 +5,14 @@ class P32TestAnimation extends StatefulWidget {
   _P32TestAnimationState createState() => _P32TestAnimationState();
 }
 
-class _P32TestAnimationState extends State<P32TestAnimation>
-    with TickerProviderStateMixin {
+class _P32TestAnimationState extends State<P32TestAnimation> with TickerProviderStateMixin {
   Animation<double>? animation;
   AnimationController? controller;
 
   initState() {
     super.initState();
-    controller = AnimationController(
-        duration: const Duration(milliseconds: 2000), vsync: this);
-    final CurvedAnimation curve =
-        CurvedAnimation(parent: controller!, curve: Curves.easeIn);
+    controller = AnimationController(duration: const Duration(milliseconds: 2000), vsync: this);
+    final CurvedAnimation curve = CurvedAnimation(parent: controller!, curve: Curves.easeIn);
     animation = Tween(begin: 0.0, end: 300.0).animate(curve);
     controller?.forward();
   }
@@ -44,8 +41,7 @@ class GrowTransition extends StatelessWidget {
       child: AnimatedBuilder(
           animation: animation,
           builder: (BuildContext context, Widget? child) {
-            return Container(
-                height: animation.value, width: animation.value, child: child);
+            return Container(height: animation.value, width: animation.value, child: child);
           },
           child: child),
     );

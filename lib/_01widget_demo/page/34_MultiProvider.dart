@@ -88,8 +88,7 @@ class _P34ProviderState extends State<P34Provider> {
             Consumer1(),
 
             ///  Selector<AddModel,int> 第一个泛型 selector ,第二个泛型 builder 的值
-            Selector<AddModel, int>(
-                builder: (BuildContext context, int data, Widget? child) {
+            Selector<AddModel, int>(builder: (BuildContext context, int data, Widget? child) {
               print('Selector1=============');
               return Text(
                   //获取数据
@@ -103,8 +102,7 @@ class _P34ProviderState extends State<P34Provider> {
             ),
 
             Consumer2(),
-            Selector<AddModel, int>(
-                builder: (BuildContext context, int data, Widget? child) {
+            Selector<AddModel, int>(builder: (BuildContext context, int data, Widget? child) {
               print('Selector2=========');
               return Text(
                   //获取数据
@@ -318,8 +316,7 @@ class _P34MultiProviderState extends State<P34MultiProvider> {
                           'userModel: ${userModel.age1.toString()}',
                           style: TextStyle(backgroundColor: Colors.red),
                         ),
-                        Text(
-                            'MultiProvider 和 context.read<Counter>\n不要再同一个 widget中,会报错'),
+                        Text('MultiProvider 和 context.read<Counter>\n不要再同一个 widget中,会报错'),
                         Text(
                           '显示值-context.watch: ${context.watch<PlusModel>().age}',
                           style: TextStyle(backgroundColor: Colors.red),

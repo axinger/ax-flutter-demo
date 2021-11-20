@@ -28,8 +28,7 @@ class P60JumpOnePage extends StatelessWidget {
       ),
       body: Center(
         child: Obx(
-          () => Text('跨页面-Two点击了 ${logic.count.value} 次',
-              style: TextStyle(fontSize: 30.0)),
+          () => Text('跨页面-Two点击了 ${logic.count.value} 次', style: TextStyle(fontSize: 30.0)),
         ),
       ),
     );
@@ -58,12 +57,10 @@ class JumpTwoPage extends StatelessWidget {
               },
               child: Text('子 ++')),
           Obx(
-            () => Text('跨页面-Two点击了 ${oneLogic.count.value} 次',
-                style: TextStyle(fontSize: 30.0)),
+            () => Text('跨页面-Two点击了 ${oneLogic.count.value} 次', style: TextStyle(fontSize: 30.0)),
           ),
           Obx(
-            () => Text('跨页面-Two点击了 ${twoLogic.count.value} 次',
-                style: TextStyle(fontSize: 30.0)),
+            () => Text('跨页面-Two点击了 ${twoLogic.count.value} 次', style: TextStyle(fontSize: 30.0)),
           )
         ],
       ),

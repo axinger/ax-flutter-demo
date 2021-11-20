@@ -25,7 +25,6 @@ class _DemoTextFieldState extends State<DemoTextField> {
       body: SingleChildScrollView(
         physics: NeverScrollableScrollPhysics(),
         child: Column(
-
           mainAxisSize: MainAxisSize.min,
           children: [
             Text('iOS文本框'),
@@ -245,7 +244,7 @@ class _DemoTextFieldState extends State<DemoTextField> {
                 border: OutlineInputBorder(
 //                    borderRadius: BorderRadius.circular(15),
 //                    borderSide: BorderSide.none,
-                ),
+                    ),
               ),
             ),
             Text('TextField'),
@@ -273,8 +272,7 @@ class _DemoTextFieldState extends State<DemoTextField> {
               inputFormatters: <TextInputFormatter>[
 //                      WhitelistingTextInputFormatter.digitsOnly, //只输入数字
 //                      TestTextInputFormatter(),
-                FilteringTextInputFormatter(RegExp("[a-zA-Z]"),
-                    allow: true),
+                FilteringTextInputFormatter(RegExp("[a-zA-Z]"), allow: true),
                 //只允许输入字母
 
 //                      WhitelistingTextInputFormatter(RegExp(r'(\d+)(.\d{0,2})?$/')),

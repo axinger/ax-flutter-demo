@@ -3,8 +3,6 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-
-
 class P01ContentPage4 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -24,11 +22,7 @@ class P01ContentPage4 extends StatelessWidget {
                 borderRadius: BorderRadius.circular(40), //圆角度数
                 /// semanticLabel
                 ///https://weilu.blog.csdn.net/article/details/103823259
-                child: Image.asset('assets/image/headIcon.png',
-                    width: 80,
-                    height: 80,
-                    semanticLabel: 'semanticLabel',
-                    excludeFromSemantics: true),
+                child: Image.asset('assets/image/headIcon.png', width: 80, height: 80, semanticLabel: 'semanticLabel', excludeFromSemantics: true),
               ),
               Divider(color: Colors.red),
 

@@ -11,11 +11,7 @@ class P01ContentPage3 extends StatefulWidget {
 }
 
 class _MaterialPage23 extends State<P01ContentPage3> {
-  Map<String, Text> segmentedControlData = {
-    '0': Text('Apple'),
-    '1': Text('Orange'),
-    '2': Text('Banana')
-  };
+  Map<String, Text> segmentedControlData = {'0': Text('Apple'), '1': Text('Orange'), '2': Text('Banana')};
   String segmentedControlValue = '';
 
   @override

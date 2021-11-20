@@ -28,8 +28,7 @@ class AppTheme {
 //        return Colors.blue;
 //      }
 //      return Colors.red;
-    if (states.contains(MaterialState.focused) &&
-        !states.contains(MaterialState.pressed)) {
+    if (states.contains(MaterialState.focused) && !states.contains(MaterialState.pressed)) {
       ///获取焦点时的颜色
       return Colors.blue;
     } else if (states.contains(MaterialState.pressed)) {
@@ -66,8 +65,7 @@ class AppTheme {
           /// all 所有状态颜色
           // foregroundColor:MaterialStateProperty.all(Colors.red),
           /// 这里设置文字颜色无效
-          textStyle: MaterialStateProperty.all(
-              TextStyle(color: Colors.white, fontSize: 16)),
+          textStyle: MaterialStateProperty.all(TextStyle(color: Colors.white, fontSize: 16)),
           // minimumSize: MaterialStateProperty.all(Size(100, 30)),
           /// 如何去掉边距(padding)
           // minimumSize: MaterialStateProperty.all(Size(0, 0)),

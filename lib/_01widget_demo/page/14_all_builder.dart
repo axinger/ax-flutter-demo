@@ -114,8 +114,7 @@ class _P14AllBuilderPageState extends State<P14AllBuilderPage> {
                     },
                     valueListenable: _counterValueNotifier,
                     // 如果child 的构建成本很高，并且不依赖于通知程序的值，则child参数非常有用。
-                    child: Text('并且不依赖于通知程序的值，则child参数非常有用。',
-                        style: TextStyle(backgroundColor: Colors.orange)),
+                    child: Text('并且不依赖于通知程序的值，则child参数非常有用。', style: TextStyle(backgroundColor: Colors.orange)),
                   ),
                   FlatButton(
                     color: Colors.grey,
@@ -136,8 +135,7 @@ class _P14AllBuilderPageState extends State<P14AllBuilderPage> {
 
                       /// 第一次监听值
                       initialData: streamInt,
-                      builder:
-                          (BuildContext context, AsyncSnapshot<int> snapshot) {
+                      builder: (BuildContext context, AsyncSnapshot<int> snapshot) {
                         print('snapshot.data = ${snapshot.data}');
                         return Text('${snapshot.data ?? ''}');
                       }),

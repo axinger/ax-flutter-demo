@@ -1,5 +1,5 @@
+import 'package:ax_flutter_demo/_02get_demo/page/01father_son_controller.dart';
 import 'package:ax_flutter_demo/_02get_demo/page/01son_page.dart';
-import 'package:ax_flutter_demo/_02get_demo/page/father_son_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
@@ -21,8 +21,7 @@ class FatherPage extends GetView<FatherSonController> {
         child: Column(
           children: [
             Obx(
-              () => Text('跨页面-Two点击了 ${controller.count.value} 次',
-                  style: TextStyle(fontSize: 30.0)),
+              () => Text('跨页面-Two点击了 ${controller.count.value} 次', style: TextStyle(fontSize: 30.0)),
             ),
             TextButton(onPressed: controller.toJumpTwo, child: Text('进入子页面')),
             Divider(color: Colors.red),
@@ -42,8 +41,11 @@ class FatherPage extends GetView<FatherSonController> {
 class FatherBuilderPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var id = Get.arguments;
+    print('id = $id');
     return GetBuilder<FatherSonController>(
         init: FatherSonController(),
+        id: id,
         builder: (controller) {
           return Scaffold(
             backgroundColor: Colors.white,
@@ -52,16 +54,13 @@ class FatherBuilderPage extends StatelessWidget {
               child: Column(
                 children: [
                   Obx(
-                    () => Text('跨页面-Two点击了 ${controller.count.value} 次',
-                        style: TextStyle(fontSize: 30.0)),
+                    () => Text('跨页面-Two点击了 ${controller.count.value} 次', style: TextStyle(fontSize: 30.0)),
                   ),
                   Obx(
                     () => Column(
                       children: [
-                        Text('user age ${controller.user().age} ',
-                            style: TextStyle(fontSize: 30.0)),
-                        Text('user name ${controller.user().name} ',
-                            style: TextStyle(fontSize: 30.0))
+                        Text('user age ${controller.user().age} ', style: TextStyle(fontSize: 30.0)),
+                        Text('user name ${controller.user().name} ', style: TextStyle(fontSize: 30.0))
                       ],
                     ),
                   ),
@@ -91,8 +90,7 @@ class FatherBuilderPage2 extends GetView<FatherSonController> {
               child: Column(
                 children: [
                   Obx(
-                    () => Text('跨页面-Two点击了 ${controller.count.value} 次',
-                        style: TextStyle(fontSize: 30.0)),
+                    () => Text('跨页面-Two点击了 ${controller.count.value} 次', style: TextStyle(fontSize: 30.0)),
                   ),
                   TextButton(
                       onPressed: () {

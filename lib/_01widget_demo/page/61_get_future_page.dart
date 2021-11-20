@@ -15,8 +15,7 @@ class _CounterController extends GetxController {
 }
 
 class P61CounterGetPage extends StatelessWidget {
-  _CounterController get controller =>
-      Get.put<_CounterController>(_CounterController());
+  _CounterController get controller => Get.put<_CounterController>(_CounterController());
 
   @override
   Widget build(BuildContext context) {

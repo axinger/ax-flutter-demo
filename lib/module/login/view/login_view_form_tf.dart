@@ -32,8 +32,7 @@ class _FormTFState extends State<LoginViewFormTF> {
 
     /// 失去焦点事件
     phoneFocusNode.addListener(() {
-      print(
-          'phoneFocusNode.hasPrimaryFocus = ${phoneFocusNode.hasPrimaryFocus}');
+      print('phoneFocusNode.hasPrimaryFocus = ${phoneFocusNode.hasPrimaryFocus}');
       if (!phoneFocusNode.hasFocus) {
         // 失去焦点
         print('phone失去焦点 = ${phoneTextEditingController.text}');

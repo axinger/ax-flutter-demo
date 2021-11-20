@@ -64,8 +64,7 @@ class _MaterialPage1 extends State<MaterialPageDate> {
 
   static String formatTimeOfDayalUse24Hour(TimeOfDay timeOfDay, context) {
     MaterialLocalizations localizations = MaterialLocalizations.of(context);
-    String formattedTime =
-        localizations.formatTimeOfDay(timeOfDay, alwaysUse24HourFormat: true);
+    String formattedTime = localizations.formatTimeOfDay(timeOfDay, alwaysUse24HourFormat: true);
     return formattedTime;
   }
 

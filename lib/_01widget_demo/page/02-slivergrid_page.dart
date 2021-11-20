@@ -44,8 +44,7 @@ class _P02SlivergridPageState extends State<P02SlivergridPage> {
             ),
           ),
           SliverList(
-              delegate:
-                  SliverChildBuilderDelegate((BuildContext context, int index) {
+              delegate: SliverChildBuilderDelegate((BuildContext context, int index) {
             return Container(
               height: 44,
               color: Colors.primaries[(index % 18)],
@@ -86,8 +85,7 @@ class _P02SlivergridPageState extends State<P02SlivergridPage> {
                         //   );
                         // },
                         /// 和 placeholder 只能选一个
-                        progressIndicatorBuilder:
-                            (BuildContext context, String url, progress) {
+                        progressIndicatorBuilder: (BuildContext context, String url, progress) {
                           return CircularProgressIndicator(
                             // value: progress?.progress??0,
                             value: 0.1,

@@ -21,16 +21,19 @@ class PostEntity extends Object {
   @JsonKey(name: 'imageUrl')
   String imageUrl;
 
+  @JsonKey(name: 'name')
+  String? name;
+
   bool selected = false;
 
   PostEntity(
     this.title,
     this.author,
     this.imageUrl,
+      this.name,
   );
 
-  factory PostEntity.fromJson(Map<String, dynamic> srcJson) =>
-      _$PostEntityFromJson(srcJson);
+  factory PostEntity.fromJson(Map<String, dynamic> srcJson) => _$PostEntityFromJson(srcJson);
 
   Map<String, dynamic> toJson() => _$PostEntityToJson(this);
 
@@ -45,6 +48,7 @@ class PostEntity extends Object {
         'title': '内容-$index',
         'imageUrl': 'http://via.placeholder.com/160x90?text=icon${index}',
         'author': 'author-$index',
+        'name': '1',
       };
     });
     return getPostEntityList(list);

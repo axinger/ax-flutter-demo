@@ -131,8 +131,7 @@ class _MaterialPage1 extends State<MaterialPageStream> {
                   onPressed: () async {
                     await Future.delayed(Duration(seconds: 1));
 
-                    _streamController?.add(
-                        "_streamController 返回结果 ${Random().nextInt(100)}");
+                    _streamController?.add("_streamController 返回结果 ${Random().nextInt(100)}");
                   },
                 ),
                 FlatButton(
@@ -168,8 +167,7 @@ class _MaterialPage1 extends State<MaterialPageStream> {
                   child: Text("添加数据"),
                   onPressed: () async {
                     await Future.delayed(Duration(seconds: 1));
-                    _streamSink?.add(
-                        "_streamController 返回结果 ${Random().nextInt(100)}");
+                    _streamSink?.add("_streamController 返回结果 ${Random().nextInt(100)}");
                   },
                 ),
                 Divider(
@@ -211,8 +209,7 @@ class _MaterialPage1 extends State<MaterialPageStream> {
                   onPressed: () async {
                     await Future.delayed(Duration(seconds: 1));
 
-                    _streamController?.add(
-                        "_streamController 返回结果 ${Random().nextInt(100)}");
+                    _streamController?.add("_streamController 返回结果 ${Random().nextInt(100)}");
 
                     _streamController?.stream.listen((data) {
                       debugPrint("_streamControllerData订阅3 = $data");
@@ -239,8 +236,7 @@ class _MaterialPage1 extends State<MaterialPageStream> {
                   onPressed: () async {
                     await Future.delayed(Duration(seconds: 1));
 
-                    _streamController2?.add(
-                        "_streamController 返回结果 ${Random().nextInt(100)}");
+                    _streamController2?.add("_streamController 返回结果 ${Random().nextInt(100)}");
                   },
                 ),
               ],

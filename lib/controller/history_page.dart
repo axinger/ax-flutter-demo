@@ -132,8 +132,7 @@ class _SliverListDemo extends StatelessWidget {
                                 child: CircularProgressIndicator(),
                               ),
                             ),
-                            errorWidget: (context, url, error) =>
-                                Icon(Icons.error),
+                            errorWidget: (context, url, error) => Icon(Icons.error),
                           ),
 
                           //   child:Image.asset('assets/image/A171.jpg') ,

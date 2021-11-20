@@ -40,8 +40,7 @@ class _P50OnPopPageState extends State<P50OnPopPage> {
             ),
           ),
           // ignore: unnecessary_null_comparison
-          if (_selectedColor != null)
-            MaterialPage(child: ColorScreen(color: _selectedColor)),
+          if (_selectedColor != null) MaterialPage(child: ColorScreen(color: _selectedColor)),
         ],
         onPopPage: (route, result) {
           print('result = $result');

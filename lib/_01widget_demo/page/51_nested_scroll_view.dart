@@ -49,8 +49,7 @@ class _P51NestedScrollViewState extends State<P51NestedScrollView> {
             return CustomScrollView(
               slivers: [
                 SliverOverlapInjector(
-                  handle:
-                      NestedScrollView.sliverOverlapAbsorberHandleFor(context),
+                  handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
                 ),
                 SliverList(
                   delegate: SliverChildBuilderDelegate(

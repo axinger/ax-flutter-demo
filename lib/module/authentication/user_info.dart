@@ -48,8 +48,7 @@ class UserInfo {
 //   ());
 
   ///当你需要构造函数不是每次都创建一个新的对象时，使用factory关键字。
-  factory UserInfo(
-      {String userName = '', String passWord = '', String token = ''}) {
+  factory UserInfo({String userName = '', String passWord = '', String token = ''}) {
     if (_instance == null) {
       _instance = UserInfo._(
         userName: userName,

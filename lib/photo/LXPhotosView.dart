@@ -31,8 +31,7 @@ class LXPhotosView extends StatefulWidget {
     this.radiusSize = 0.0,
     this.bgColor = Colors.white,
     int currentCrossAxisCount = 0,
-  })  : this.currentCrossAxisCount =
-            currentCrossAxisCount ?? (list.length == 4 ? 2 : 3),
+  })  : this.currentCrossAxisCount = currentCrossAxisCount ?? (list.length == 4 ? 2 : 3),
         super(key: key);
 
   @override
@@ -67,8 +66,7 @@ class _PhotosViewState extends State<LXPhotosView> {
                 ),
               ),
               onTap: () {
-                Navigator.of(context).push(PageRouteBuilder(
-                    pageBuilder: (context, animation, secondaryAnimation) {
+                Navigator.of(context).push(PageRouteBuilder(pageBuilder: (context, animation, secondaryAnimation) {
                   return FadeTransition(
                       opacity: animation,
                       child: LXScrollPhotosView(

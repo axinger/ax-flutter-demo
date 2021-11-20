@@ -58,19 +58,13 @@ class _TableDemoPageState extends State<DemoTablePage> {
 //                    ),
                 children: [
                   TableCell(
-                    child: Padding(
-                        padding: EdgeInsets.all(10),
-                        child: Text('姓名', textAlign: TextAlign.center)),
+                    child: Padding(padding: EdgeInsets.all(10), child: Text('姓名', textAlign: TextAlign.center)),
                   ),
                   TableCell(
-                    child: Padding(
-                        padding: EdgeInsets.all(10),
-                        child: Text('性别', textAlign: TextAlign.center)),
+                    child: Padding(padding: EdgeInsets.all(10), child: Text('性别', textAlign: TextAlign.center)),
                   ),
                   TableCell(
-                    child: Padding(
-                        padding: EdgeInsets.all(10),
-                        child: Text('性别', textAlign: TextAlign.center)),
+                    child: Padding(padding: EdgeInsets.all(10), child: Text('性别', textAlign: TextAlign.center)),
                   ),
                 ],
               ),
@@ -101,19 +95,13 @@ class _TableDemoPageState extends State<DemoTablePage> {
 //                    ),
                 children: [
                   TableCell(
-                    child: Padding(
-                        padding: EdgeInsets.all(10),
-                        child: Text('姓名', textAlign: TextAlign.center)),
+                    child: Padding(padding: EdgeInsets.all(10), child: Text('姓名', textAlign: TextAlign.center)),
                   ),
                   TableCell(
-                    child: Padding(
-                        padding: EdgeInsets.all(10),
-                        child: Text('性别', textAlign: TextAlign.center)),
+                    child: Padding(padding: EdgeInsets.all(10), child: Text('性别', textAlign: TextAlign.center)),
                   ),
                   TableCell(
-                    child: Padding(
-                        padding: EdgeInsets.all(10),
-                        child: Text('性别', textAlign: TextAlign.center)),
+                    child: Padding(padding: EdgeInsets.all(10), child: Text('性别', textAlign: TextAlign.center)),
                   ),
                 ],
               ),
@@ -121,22 +109,13 @@ class _TableDemoPageState extends State<DemoTablePage> {
                 return TableRow(
                   children: [
                     TableCell(
-                      child: Padding(
-                          padding: EdgeInsets.all(10),
-                          child:
-                              Text('姓名 - $index', textAlign: TextAlign.center)),
+                      child: Padding(padding: EdgeInsets.all(10), child: Text('姓名 - $index', textAlign: TextAlign.center)),
                     ),
                     TableCell(
-                      child: Padding(
-                          padding: EdgeInsets.all(10),
-                          child:
-                              Text('性别 - $index', textAlign: TextAlign.center)),
+                      child: Padding(padding: EdgeInsets.all(10), child: Text('性别 - $index', textAlign: TextAlign.center)),
                     ),
                     TableCell(
-                      child: Padding(
-                          padding: EdgeInsets.all(10),
-                          child:
-                              Text('性别 - $index', textAlign: TextAlign.center)),
+                      child: Padding(padding: EdgeInsets.all(10), child: Text('性别 - $index', textAlign: TextAlign.center)),
                     ),
                   ],
                 );
