@@ -13,8 +13,7 @@ PostEntity _$PostEntityFromJson(Map<String, dynamic> json) => PostEntity(
       json['name'] as String?,
     )..selected = json['selected'] ?? false;
 
-Map<String, dynamic> _$PostEntityToJson(PostEntity instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$PostEntityToJson(PostEntity instance) => <String, dynamic>{
       'title': instance.title,
       'author': instance.author,
       'imageUrl': instance.imageUrl,

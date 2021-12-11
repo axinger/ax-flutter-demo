@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:ax_flutter_demo/_02get_demo/page/01father_page.dart';
 import 'package:ax_flutter_demo/_02get_demo/page/02demo_local_page.dart';
 import 'package:ax_flutter_demo/_02get_demo/page/02route_view.dart';
-import 'package:ax_flutter_demo/_02get_demo/page/01father_son_binding.dart';
 import 'package:ax_flutter_demo/_02get_demo/route/route_pages.dart';
 import 'package:ax_flutter_demo/model/user_info.dart';
 import 'package:flutter/cupertino.dart';
@@ -20,7 +19,6 @@ class DemoGetXPage extends StatefulWidget {
 }
 
 class _DemoGetXPageState extends State<DemoGetXPage> {
-
   var _string = 0;
 
   @override
@@ -284,13 +282,12 @@ class _DemoGetXPageState extends State<DemoGetXPage> {
       CellItem(
         title: '多线程-2',
         onTap: () async {
-
-          _string=1000;
+          _string = 1000;
 
           print('开始：$_string');
 
           for (int i = 1; i <= 1000; i++) {
-             Future(() {
+            Future(() {
               _string--;
               print('_string = $_string');
             });

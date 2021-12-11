@@ -6,8 +6,7 @@ part of 'converse_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-ConverseModel _$ConverseModelFromJson(Map<String, dynamic> json) =>
-    ConverseModel(
+ConverseModel _$ConverseModelFromJson(Map<String, dynamic> json) => ConverseModel(
       json['headIcon'] as String,
       json['title'] as String?,
       json['msg'] as String?,
@@ -16,8 +15,7 @@ ConverseModel _$ConverseModelFromJson(Map<String, dynamic> json) =>
       json['isDisturb'] as bool?,
     );
 
-Map<String, dynamic> _$ConverseModelToJson(ConverseModel instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$ConverseModelToJson(ConverseModel instance) => <String, dynamic>{
       'headIcon': instance.headIcon,
       'title': instance.title,
       'msg': instance.msg,

@@ -20,24 +20,27 @@ class OrderDetailView extends GetView<OrderDetailController> {
               () => Text('价格 ${controller.model().price} ', style: TextStyle(fontSize: 20.0)),
             ),
             Obx(
-                  () => Text('age: ${controller.model().age} ', style: TextStyle(fontSize: 20.0)),
+              () => Text('age: ${controller.model().age} ', style: TextStyle(fontSize: 20.0)),
             ),
             Obx(
-                  () => Text('controller = 价格 ${controller.price} ', style: TextStyle(fontSize: 20.0)),
+              () => Text('controller = 价格 ${controller.price} ', style: TextStyle(fontSize: 20.0)),
             ),
-
-            Divider(color: Colors.red,),
+            Divider(
+              color: Colors.red,
+            ),
             GetBuilder<OrderDetailController>(builder: (_) {
               print('名称 GetBuilder 更新========');
               return Center(child: Text('GetBuilder名称: ${controller.model().name}'));
             }),
-
-            GetBuilder<OrderDetailController>(id:'price',builder: (_) {
-              print('价格 GetBuilder 更新========');
-              return Center(child: Text('GetBuilder价格: ${controller.model().price}'));
-            }),
-
-            Divider(color: Colors.red,),
+            GetBuilder<OrderDetailController>(
+                id: 'price',
+                builder: (_) {
+                  print('价格 GetBuilder 更新========');
+                  return Center(child: Text('GetBuilder价格: ${controller.model().price}'));
+                }),
+            Divider(
+              color: Colors.red,
+            ),
             ElevatedButton(onPressed: controller.addPrice, child: Text('addPrice')),
             ElevatedButton(
               onPressed: () {
@@ -45,7 +48,6 @@ class OrderDetailView extends GetView<OrderDetailController> {
               },
               child: Text('addPrice2'),
             ),
-
             ElevatedButton(onPressed: controller.addAge, child: Text('addAge')),
           ],
         ),

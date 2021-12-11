@@ -36,23 +36,18 @@ class ConverseModel extends Object {
   Map<String, dynamic> toJson() => _$ConverseModelToJson(this);
 }
 
-
-main(){
-
-  test(){
-
+main() {
+  test() {
     var map = {
-      'headIcon':'headIcon',
+      'headIcon': 'headIcon',
     };
 
-   var model =  ConverseModel.fromJson(map);
+    var model = ConverseModel.fromJson(map);
     print('model = ${model.toJson()}');
 
-    print('model = ${model.unreadCount ?? 0  > 0 }');
+    print('model = ${model.unreadCount ?? 0 > 0}');
 
-    if ((model.unreadCount ?? 0) > 0) {
-
-    }
+    if ((model.unreadCount ?? 0) > 0) {}
   }
 
   test();

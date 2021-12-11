@@ -30,7 +30,7 @@ class PostEntity extends Object {
     this.title,
     this.author,
     this.imageUrl,
-      this.name,
+    this.name,
   );
 
   factory PostEntity.fromJson(Map<String, dynamic> srcJson) => _$PostEntityFromJson(srcJson);

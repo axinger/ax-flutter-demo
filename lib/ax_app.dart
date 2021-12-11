@@ -9,7 +9,6 @@ import 'package:ax_flutter_demo/theme_data_notifier.dart';
 import 'package:ax_flutter_util/ax_flutter_util.dart';
 import 'package:device_info/device_info.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -18,8 +17,8 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:package_info/package_info.dart';
 import 'package:provider/provider.dart';
 
-import 'app_theme.dart';
 import '_01root/root_page.dart';
+import 'app_theme.dart';
 import 'event/login_success_event.dart';
 import 'event/update_user_info_event.dart';
 import 'generated/l10n.dart';

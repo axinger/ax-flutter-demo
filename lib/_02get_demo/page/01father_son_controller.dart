@@ -17,10 +17,11 @@ class FatherSonController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+
     /// 每次更改都会回调
     ever(count, (_) => print("$_ has been changed 1"));
-
   }
+
   ///跳转到跨页面
   void toJumpTwo() {
     // Get.toNamed(RouteConfig.jumpTwo);

@@ -4,7 +4,6 @@ import 'package:ax_flutter_demo/global_const.dart';
 import 'package:ax_flutter_demo/theme_data_notifier.dart';
 import 'package:ax_flutter_util/ax_flutter_util.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

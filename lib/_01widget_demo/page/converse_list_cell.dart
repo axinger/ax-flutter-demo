@@ -131,7 +131,7 @@ class ConverseListCell extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    model.title ??'',
+                    model.title ?? '',
                     style: TextStyle(fontSize: 24, color: Colors.black),
                   ),
                   Text(
@@ -160,7 +160,7 @@ class ConverseListCell extends StatelessWidget {
                   model.time == null
                       ? Container()
                       : Text(
-                          model.time ??'',
+                          model.time ?? '',
                           style: TextStyle(
                             fontSize: 12,
                             color: Colors.red,

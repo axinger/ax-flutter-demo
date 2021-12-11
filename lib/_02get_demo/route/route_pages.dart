@@ -10,8 +10,6 @@ import 'package:ax_flutter_demo/_02get_demo/page/route_auth_middleware.dart';
 import 'package:ax_flutter_demo/module/login/view/login_view.dart';
 import 'package:get/get.dart';
 
-import '../02demo_getx_page.dart';
-
 abstract class AppRoutes {
   static const route_pages = '/route_pages';
   static const not_found = '/notfound';

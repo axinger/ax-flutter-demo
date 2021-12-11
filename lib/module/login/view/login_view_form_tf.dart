@@ -78,6 +78,7 @@ class _FormTFState extends State<LoginViewFormTF> {
                 inputFormatters: <TextInputFormatter>[
                   // WhitelistingTextInputFormatter.digitsOnly, //只输入数字
                   FilteringTextInputFormatter(RegExp(r"^[0-9]*$"), allow: true),
+
                   /// 最大长度,然后就不给输入了, 所以这里没有最小长度, validator 验证最小长度
                   LengthLimitingTextInputFormatter(11),
                 ],
