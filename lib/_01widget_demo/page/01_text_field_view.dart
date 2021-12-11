@@ -220,7 +220,7 @@ class _DemoTextFieldState extends State<DemoTextField> {
               },
 
               /// 自动验证
-              autovalidate: true,
+              autovalidateMode: AutovalidateMode.always,
 
               decoration: InputDecoration(
                 /// 头部的图标

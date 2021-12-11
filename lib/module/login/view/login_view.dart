@@ -161,8 +161,9 @@ class _ContainerTF extends State<ContainerTF> {
               },
 
               inputFormatters: <TextInputFormatter>[
-                WhitelistingTextInputFormatter.digitsOnly, //只输入数字
+                // WhitelistingTextInputFormatter.digitsOnly, //只输入数字
 //                  PhoneTextInputFormatter.digitsOnly,
+                FilteringTextInputFormatter(RegExp(r"^[0-9]*$"), allow: true),
               ],
 
               ///输入文本的样式
