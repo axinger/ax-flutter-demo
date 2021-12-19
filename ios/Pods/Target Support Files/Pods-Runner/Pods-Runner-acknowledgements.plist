@@ -849,7 +849,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 			<key>License</key>
 			<string>BSD</string>
 			<key>Title</key>
-			<string>url_launcher</string>
+			<string>url_launcher_ios</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 		</dict>

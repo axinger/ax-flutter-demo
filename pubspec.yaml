@@ -36,9 +36,9 @@ dependencies:
   fluttertoast: ^8.0.7
   # 加载网络图片 使用 https第一次加载页面,容易卡死,改为http,就可以了;等flutter升级
   # https://jhuo.ca/post/ocsp-stapling-letsencrypt/
-  cached_network_image: ^3.0.0
+  cached_network_image: ^3.2.0
   http: ^0.13.3
-  dio: ^4.0.1
+  dio: ^4.0.4
   #  http_parser: any
   #  json_annotation: any
   json_annotation: ^4.3.0
@@ -52,7 +52,7 @@ dependencies:
   # 1.0.0
   #  cupertino_icon: ^1.0.0
   # RxDart基于ReactiveX，由Dart标准库中Stream扩展而成，是一个为Dart语言提供响应式编程的库。
-  rxdart: ^0.27.1
+  rxdart: ^0.27.3
   #日志输出
   logger: ^1.0.0
   #日志在应用端输出
@@ -79,7 +79,7 @@ dependencies:
   #  slide_item: ^1.0.6
 
   #Hive是用纯Dart编写的轻量级且快速的键值数据库. 受Bitcask启发.
-  hive: ^2.0.4
+  hive: ^2.0.5
   hive_flutter: ^1.0.0
 
   #刷新组件
@@ -90,18 +90,18 @@ dependencies:
   google_fonts: ^2.1.0
   #  bloc: ^4.0.0
 
-  flutter_bloc: ^7.2.0
+  flutter_bloc: ^8.0.0
   # 继承类,判断类是否相同
   equatable: ^2.0.2
 
   #  w_popup_menu: ^0.3.1
 
   #指纹
-  local_auth: ^1.1.6
+  local_auth: ^1.1.9
 
   #  binding_helper: 0.0.2
 
-  photo_view: ^0.12.0
+  photo_view: ^0.13.0
   #  redux主要由Store、Action、Reducer三部分组成
   #  Store用于存储和管理State
   #  Action用于用户触发的一种行为
@@ -132,17 +132,19 @@ dependencies:
   # cell 侧滑删除
   #  flutter_swipe_action_cell: ^1.2.2
   # 状态管理,和google推荐的Provider 类似
-  get: ^4.3.8
+  get: ^4.6.1
   web_socket_channel: ^2.1.0
   # 侧滑
   flutter_slidable: ^1.0.0
-  sqflite: ^2.0.0+4
+  sqflite: ^2.0.1
   # 设备权限
   permission_handler: ^8.2.6
   # 动画flutter_slidable
   lottie: ^1.2.1
   #截图
   screenshot: ^1.2.3
+  # 启动图
+  flutter_launcher_icons: ^0.9.2
 
   ##  ⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬ 谷歌组件 ⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
   ## 谷歌维护的库 https://github.com/flutter/plugins
@@ -161,7 +163,7 @@ dependencies:
 
   package_info: ^2.0.2
   # 用于查找文件系统上的常用位置. 支持iOS和Android.fluttertoast
-  path_provider: ^2.0.1
+  path_provider: ^2.0.8
 
   #传感器插件
   #  sensors: 0.4.2
@@ -172,13 +174,13 @@ dependencies:
   # 包装NSUserDefaults（在iOS上）和SharedPreferences（在Android上），
   #为简单数据提供持久存储. 数据异步保存到磁盘.
   #这两个平台都不能保证在返回后将写操作持久化到磁盘，并且该插件不得用于存储关键数据.
-  shared_preferences: ^2.0.3
+  shared_preferences: ^2.0.11
 
   # Flutter插件，用于在移动平台中启动URL. 支持iOS和Android.
-  url_launcher: ^6.0.12
+  url_launcher: ^6.0.17
 
   #官方插件：webview_flutter
-  webview_flutter: ^2.3.1
+  webview_flutter: ^3.0.0
 
 
     #  flutter_keychain: 1.0.0
@@ -234,6 +236,9 @@ dependencies:
 #      ref: ' 1.12.13'
 
 #    flutter_boost: any
+# 执行命令 flutter pub run flutter_launcher_icons:main
+flutter_icons:
+  image_path: "assets/image/app_icon.png"
 
 dev_dependencies:
   flutter_test:
