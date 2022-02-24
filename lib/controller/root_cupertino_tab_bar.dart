@@ -16,10 +16,7 @@ class MyBottomItem {
   })  : content = content,
         barItem = BottomNavigationBarItem(
           icon: icon,
-          title: Text(
-            title,
-//            style: TextStyle(fontSize: 14),
-          ),
+          label: title,
 //          title: Padding(child: Text(title,style: TextStyle(fontSize: 16),),padding: EdgeInsets.only(top: 20),),
 //          backgroundColor: Colors.white,
         );

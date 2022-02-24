@@ -31,19 +31,19 @@ class _BottomNavigationBar extends State<MyBottomNavigationBar> {
       onTap: _onTabHandler,
       items: [
         BottomNavigationBarItem(
-          title: Text("Home"),
+          label: 'Home',
           icon: Icon(Icons.home),
         ),
         BottomNavigationBarItem(
-          title: Text("List"),
+          label:'List',
           icon: Icon(Icons.list),
         ),
         BottomNavigationBarItem(
-          title: Text("Message"),
+          label: 'Message',
           icon: Icon(Icons.message),
         ),
         BottomNavigationBarItem(
-          title: Text("Message"),
+          label: 'Message',
           icon: Icon(Icons.message),
         ),
       ],
