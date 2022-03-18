@@ -138,7 +138,7 @@ dependencies:
   flutter_slidable: ^1.0.0
   sqflite: ^2.0.1
   # 设备权限
-  permission_handler: ^8.2.6
+  permission_handler: ^9.2.0
   # 动画flutter_slidable
   lottie: ^1.2.1
   #截图
