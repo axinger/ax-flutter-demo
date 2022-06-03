@@ -1,6 +1,0 @@
-framework module ax_flutter_plugin {
-  umbrella header "ax_flutter_plugin-umbrella.h"
-
-  export *
-  module * { export * }
-}

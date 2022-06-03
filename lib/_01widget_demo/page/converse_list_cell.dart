@@ -99,7 +99,7 @@ class ConverseListCell extends StatelessWidget {
               color: Colors.orange,
               child: Stack(
                 /**超出不部分,显示*/
-                overflow: Overflow.visible,
+                clipBehavior: Clip.none,
                 children: <Widget>[
                   /**头像*/
                   headIconImage,

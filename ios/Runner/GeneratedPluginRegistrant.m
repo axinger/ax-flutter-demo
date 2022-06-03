@@ -42,16 +42,16 @@
 @import image_gallery_saver;
 #endif
 
-#if __has_include(<image_picker/FLTImagePickerPlugin.h>)
-#import <image_picker/FLTImagePickerPlugin.h>
+#if __has_include(<image_picker_ios/FLTImagePickerPlugin.h>)
+#import <image_picker_ios/FLTImagePickerPlugin.h>
 #else
-@import image_picker;
+@import image_picker_ios;
 #endif
 
-#if __has_include(<local_auth/FLTLocalAuthPlugin.h>)
-#import <local_auth/FLTLocalAuthPlugin.h>
+#if __has_include(<local_auth_ios/FLTLocalAuthPlugin.h>)
+#import <local_auth_ios/FLTLocalAuthPlugin.h>
 #else
-@import local_auth;
+@import local_auth_ios;
 #endif
 
 #if __has_include(<package_info/FLTPackageInfoPlugin.h>)

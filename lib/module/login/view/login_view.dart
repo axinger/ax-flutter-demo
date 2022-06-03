@@ -221,13 +221,13 @@ class _ContainerTF extends State<ContainerTF> {
 //                  disabledTextColor: Colors.grey,
 //                  onPressed: (username.isEmpty) ? null : () {},
 //                ),
-                suffixIcon: OutlineButton(
+                suffixIcon: OutlinedButton(
                   child: Text(
                     "获取验证码1",
                     style: TextStyle(fontSize: 14.0),
                   ),
-                  textColor: Colors.black,
-                  disabledTextColor: Colors.grey,
+                  // textColor: Colors.black,
+                  // disabledTextColor: Colors.grey,
 //                  onPressed: (username.isEmpty) ? null : () {},
                   onPressed: () {},
                 ),
@@ -317,7 +317,9 @@ class _ContainerTF extends State<ContainerTF> {
                         ///收起键盘
                         FocusScope.of(context).requestFocus(FocusNode());
                         EVENT_BUS.fire(AuthenticationLoggedInEvent(
-                            user: UserRepository(username: phoneTextEditingController.text, password: pswTextEditingController.text)));
+                            user: UserRepository(
+                                username: phoneTextEditingController.text,
+                                password: pswTextEditingController.text)));
                       },
               ),
             ),

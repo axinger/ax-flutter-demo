@@ -17,7 +17,8 @@ class P01ContentPage extends StatefulWidget {
   }
 }
 
-class _State extends State<P01ContentPage> with SingleTickerProviderStateMixin, RouteAware {
+class _State extends State<P01ContentPage>
+    with SingleTickerProviderStateMixin, RouteAware {
   /// Flutter里的viewWillAppear
   /// 2.重写didChangeDependencies方法加入监听
   @override
@@ -167,7 +168,11 @@ class _State extends State<P01ContentPage> with SingleTickerProviderStateMixin, 
           return true;
         }
 
-        Navigator.of(context).pushNamed('/sub2', arguments: {'title': '透传title', 'name': 'postbird', 'passw': '123456'});
+        Navigator.of(context).pushNamed('/sub2', arguments: {
+          'title': '透传title',
+          'name': 'postbird',
+          'passw': '123456'
+        });
 
         return false;
 //        return await showAlert(
@@ -712,7 +717,10 @@ class _State extends State<P01ContentPage> with SingleTickerProviderStateMixin, 
                     width: 2,
                     style: BorderStyle.solid,
                   )),
-                  child: IconButton(icon: Icon(Icons.play_arrow), iconSize: 100, onPressed: () {})),
+                  child: IconButton(
+                      icon: Icon(Icons.play_arrow),
+                      iconSize: 100,
+                      onPressed: () {})),
 
               DropdownButton(
                 hint: Text('下拉选择你想要的数据'),
@@ -882,30 +890,30 @@ class _State extends State<P01ContentPage> with SingleTickerProviderStateMixin, 
               ),
 
               /// 描边
-              OutlineButton.icon(
+              OutlinedButton.icon(
                 icon: Icon(Icons.add),
                 label: Text('OutlineButton.icon'),
                 onPressed: () {},
 
                 /// 点击高亮颜色
 //              splashColor: Colors.orange,
-                color: Colors.red,
-                borderSide: BorderSide(
-                  color: Colors.red,
-                ),
+//                 color: Colors.red,
+//                 borderSide: BorderSide(
+//                   color: Colors.red,
+//                 ),
               ),
 
               /// 描边
-              OutlineButton(
+              OutlinedButton(
                 child: Text('OutlineButton'),
                 onPressed: () {},
 
                 /// 点击高亮颜色
 //              splashColor: Colors.orange,
-                color: Colors.red,
-                borderSide: BorderSide(
-                  color: Colors.red,
-                ),
+//                 color: Colors.red,
+//                 borderSide: BorderSide(
+//                   color: Colors.red,
+//                 ),
               ),
 
               Row(
@@ -1150,7 +1158,9 @@ class TagItem extends StatelessWidget {
     return Container(
       height: 40,
       margin: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
-      decoration: BoxDecoration(border: Border.all(color: Colors.orange, width: 1.0), borderRadius: BorderRadius.all(Radius.circular(5))),
+      decoration: BoxDecoration(
+          border: Border.all(color: Colors.orange, width: 1.0),
+          borderRadius: BorderRadius.all(Radius.circular(5))),
       child: Container(
         margin: EdgeInsets.all(8),
         child: Text(text),
@@ -1159,7 +1169,20 @@ class TagItem extends StatelessWidget {
   }
 }
 
-const List<String> tags = ['肯德基', '小哥哥你的东西掉了', '小姐姐好漂亮啊', '这个东西是啥', '哈哈哈', '好困啊', '今天好运', '明天好运来', '今年快结束了', '我累啊', '你写的什么代码', '多多多'];
+const List<String> tags = [
+  '肯德基',
+  '小哥哥你的东西掉了',
+  '小姐姐好漂亮啊',
+  '这个东西是啥',
+  '哈哈哈',
+  '好困啊',
+  '今天好运',
+  '明天好运来',
+  '今年快结束了',
+  '我累啊',
+  '你写的什么代码',
+  '多多多'
+];
 
 ///
 /// desc:
@@ -1171,7 +1194,8 @@ class InteractiveViewerDemo extends StatefulWidget {
 }
 
 class _InteractiveViewerDemoState extends State<InteractiveViewerDemo> {
-  final TransformationController _transformationController = TransformationController();
+  final TransformationController _transformationController =
+      TransformationController();
 
   @override
   Widget build(BuildContext context) {

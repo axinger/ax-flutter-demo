@@ -32,7 +32,8 @@ class _FormTFState extends State<LoginViewFormTF> {
 
     /// 失去焦点事件
     phoneFocusNode.addListener(() {
-      print('phoneFocusNode.hasPrimaryFocus = ${phoneFocusNode.hasPrimaryFocus}');
+      print(
+          'phoneFocusNode.hasPrimaryFocus = ${phoneFocusNode.hasPrimaryFocus}');
       if (!phoneFocusNode.hasFocus) {
         // 失去焦点
         print('phone失去焦点 = ${phoneTextEditingController.text}');
@@ -168,14 +169,14 @@ class _FormTFState extends State<LoginViewFormTF> {
 //                                  });
 //                                },
 //                    ),
-                  suffixIcon: OutlineButton(
+                  suffixIcon: OutlinedButton(
 //                      key: sendMsgKey,
                     child: Text(
                       "获取验证码4",
                       style: TextStyle(fontSize: 14.0),
                     ),
-                    textColor: Colors.red,
-                    disabledTextColor: Colors.grey,
+                    // textColor: Colors.red,
+                    // disabledTextColor: Colors.grey,
                     onPressed: () {},
                   ),
                 ),
