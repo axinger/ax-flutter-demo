@@ -33,7 +33,7 @@ class _MaterialPage extends State<MaterialPagePlugin> {
               Column(
                 children: <Widget>[
                   Text(show_oc_text.toString()),
-                  FlatButton(
+                  TextButton(
                     child: Text('存储数据_oc'),
                     onPressed: () {
                       KeyChain.set(key: 'name', value: 'tom').then((onValue) {
@@ -41,7 +41,7 @@ class _MaterialPage extends State<MaterialPagePlugin> {
                       });
                     },
                   ),
-                  FlatButton(
+                  TextButton(
                     child: Text('读取数据_oc'),
                     onPressed: () {
                       KeyChain.get(key: 'name').then((onValue) {
@@ -56,7 +56,7 @@ class _MaterialPage extends State<MaterialPagePlugin> {
                       });
                     },
                   ),
-                  FlatButton(
+                  TextButton(
                     child: Text('清除数据_oc'),
                     onPressed: () {
                       KeyChain.remove(key: 'name').then((onValue) {

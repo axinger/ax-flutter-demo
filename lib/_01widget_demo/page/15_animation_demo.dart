@@ -175,7 +175,7 @@ class _AnimationDemo extends State<AnimationDemo> with SingleTickerProviderState
   Widget build(BuildContext context) {
     return Column(
       children: [
-        FlatButton(
+        TextButton(
             onPressed: () {
               //开始动画
               _animationController?.forward();

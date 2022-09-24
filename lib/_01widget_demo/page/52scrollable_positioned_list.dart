@@ -21,7 +21,7 @@ class _ScrollablePositionedListState extends State<P52ScrollablePositionedList> 
         title: Text('跳转指定位置'),
         centerTitle: true,
         actions: [
-          FlatButton(
+          TextButton(
             child: Text('跳转至\n有动画'),
             onPressed: () {
               itemScrollController.scrollTo(index: 150, duration: Duration(seconds: 2), curve: Curves.easeInOutCubic);

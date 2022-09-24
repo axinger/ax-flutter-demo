@@ -14,8 +14,8 @@ class TabbarItemController {
   })  : _icon = icon,
         _title = title,
         _activeIcon = activeIcon,
-        this.controller = controller,
-        this.item = BottomNavigationBarItem(
+        controller = controller,
+        item = BottomNavigationBarItem(
           label: title,
           icon: icon,
 //          activeIcon: activeIcon,
@@ -65,18 +65,18 @@ class _01rootController extends State<RootPage> //    with SingleTickerProviderS
 
       TabbarItemController(
         title: "测试页面",
-        icon: Icon(Icons.desktop_mac),
+        icon: const Icon(Icons.desktop_mac),
         controller: RootHomePage(),
       ),
       TabbarItemController(
         title: 'getX 示例',
-        icon: Icon(Icons.desktop_mac),
+        icon: const Icon(Icons.desktop_mac),
         controller: DemoGetXPage(),
       ),
       TabbarItemController(
         title: "记录",
-        icon: Icon(Icons.history),
-        activeIcon: Icon(Icons.history),
+        icon: const Icon(Icons.history),
+        activeIcon: const Icon(Icons.history),
         controller: HistoryPage(),
       ),
       // TabbarItemController(

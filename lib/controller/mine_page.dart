@@ -36,8 +36,8 @@ class _MinePage extends State<MinePage> {
         centerTitle: true,
 //              backgroundColor: Colors.transparent,
         actions: <Widget>[
-          FlatButton(
-            color: Colors.purple,
+          TextButton(
+            // color: Colors.purple,
             child: Text("登录", style: TextStyle(color: Colors.red, backgroundColor: Colors.green)),
             onPressed: () {
               print("========");
@@ -46,7 +46,7 @@ class _MinePage extends State<MinePage> {
               push(context: context, widget: LoginView());
             },
           ),
-//          FlatButton(
+//          TextButton(
 //            color: Colors.indigo,
 //            child: Text("退出", style: TextStyle(color: Colors.red,backgroundColor: Colors.green)),
 //            onPressed: () {
@@ -57,8 +57,8 @@ class _MinePage extends State<MinePage> {
           Center(
             child: Text("退出", style: TextStyle(color: Colors.red, backgroundColor: Colors.green)),
           ),
-          FlatButton(
-            color: Colors.purple,
+          TextButton(
+            // color: Colors.purple,
             child: Text("测试页面", style: TextStyle(color: Colors.red, backgroundColor: Colors.green)),
             onPressed: () {
               print("========");
@@ -111,8 +111,8 @@ class _MinePage extends State<MinePage> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
-            FlatButton(
-              color: Colors.orange,
+            TextButton(
+              // color: Colors.orange,
               child: Text('按钮1'),
               onPressed: () {},
             ),

@@ -87,8 +87,8 @@ class _State extends State<P01ContentPage2> with SingleTickerProviderStateMixin,
         brightness: Brightness.light,
         title: Text('01_02形状'),
         actions: <Widget>[
-          FlatButton(
-            color: Colors.orange,
+          TextButton(
+            // color: Colors.orange,
             child: Text('改变主题色'),
             onPressed: () {
               showCupertinoSheet(
@@ -228,7 +228,7 @@ class _State extends State<P01ContentPage2> with SingleTickerProviderStateMixin,
 //                 },
 //                 child: Builder(
 //                   builder: (context) {
-//                     return RaisedButton(
+//                     return ElevatedButton(
 //                       child: Text('发送'),
 //                       onPressed: () {
 //                         CustomNotification('自定义事件').dispatch(context);
@@ -244,7 +244,7 @@ class _State extends State<P01ContentPage2> with SingleTickerProviderStateMixin,
 //                 child: Text("Hello world"),
 //               ),
 //               Divider(color: Colors.red),
-//               Text('新按钮 TextButton,代替 FlatButton'),
+//               Text('新按钮 TextButton,代替 TextButton'),
 //               TextButton(
 //                 onPressed: () {},
 //                 // onPressed:null,
@@ -262,17 +262,17 @@ class _State extends State<P01ContentPage2> with SingleTickerProviderStateMixin,
 //                   // backgroundColor: MaterialStateProperty.all(Colors.orange),
 //                 ),
 //               ),
-//               FlatButton(
+//               TextButton(
 //                 onPressed: () {},
-//                 child: Text('FlatButton'),
+//                 child: Text('TextButton'),
 //
-//                 /// flatButton它们要实现边距为0就比较难了.最终通过各种探索,
+//                 /// TextButton它们要实现边距为0就比较难了.最终通过各种探索,
 //                 /// 找到一个实现方法,MaterialTapTargetSize.shrinkWrap,让内容紧裹,并且边距为0,
 //                 materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
 //                 padding: EdgeInsets.zero,
 //               ),
 //
-//               Text('ElevatedButton,代替 RaisedButton'),
+//               Text('ElevatedButton,代替 ElevatedButton'),
 //
 //               Text('OutlinedButton,代替 OutlineButton ,多个d'),
 //               Divider(color: Colors.red),
@@ -406,7 +406,7 @@ class _State extends State<P01ContentPage2> with SingleTickerProviderStateMixin,
 //                   ),
 //                 ),
 //               ),
-//               RaisedButton(
+//               ElevatedButton(
 //                 shape: BeveledRectangleBorder(
 //                     side: BorderSide(width: 1, color: Colors.red),
 //                     borderRadius: BorderRadius.circular(10)),
@@ -414,7 +414,7 @@ class _State extends State<P01ContentPage2> with SingleTickerProviderStateMixin,
 //                 onPressed: () {},
 //               ),
 //
-//               RaisedButton(
+//               ElevatedButton(
 //                 shape: BeveledRectangleBorder(
 //                     side: BorderSide(width: 1, color: Colors.red),
 //                     borderRadius: BorderRadius.circular(100)),
@@ -422,7 +422,7 @@ class _State extends State<P01ContentPage2> with SingleTickerProviderStateMixin,
 //                 onPressed: () {},
 //               ),
 //
-//               RaisedButton(
+//               ElevatedButton(
 //                 shape: BeveledRectangleBorder(
 //                     side: BorderSide(width: 1, color: Colors.red),
 //                     borderRadius: BorderRadius.circular(0)),
@@ -430,13 +430,13 @@ class _State extends State<P01ContentPage2> with SingleTickerProviderStateMixin,
 //                 onPressed: () {},
 //               ),
 //
-//               RaisedButton(
+//               ElevatedButton(
 //                 shape: Border(top: BorderSide(color: Colors.red, width: 2)),
 //                 child: Text('Border'),
 //                 onPressed: () {},
 //               ),
 //
-//               RaisedButton(
+//               ElevatedButton(
 //                 shape: Border(
 //                   top: BorderSide(color: Colors.red, width: 10),
 //                   right: BorderSide(color: Colors.blue, width: 10),
@@ -447,7 +447,7 @@ class _State extends State<P01ContentPage2> with SingleTickerProviderStateMixin,
 //                 onPressed: () {},
 //               ),
 //
-//               RaisedButton(
+//               ElevatedButton(
 //                 shape: BorderDirectional(
 //                   start: BorderSide(color: Colors.red, width: 2),
 //                   end: BorderSide(color: Colors.blue, width: 2),
@@ -486,13 +486,13 @@ class _State extends State<P01ContentPage2> with SingleTickerProviderStateMixin,
 //                 width: 100,
 //                 height: 100,
 //                 color: Colors.red,
-//                 child: RaisedButton(
+//                 child: ElevatedButton(
 //                   shape: CircleBorder(side: BorderSide(color: Colors.red)),
 //                   child: Text('圆边'),
 //                   onPressed: () {},
 //                 ),
 //               ),
-//               RaisedButton(
+//               ElevatedButton(
 //                 shape: ContinuousRectangleBorder(
 //                     side: BorderSide(color: Colors.red),
 //                     borderRadius: BorderRadius.circular(20)),
@@ -502,7 +502,7 @@ class _State extends State<P01ContentPage2> with SingleTickerProviderStateMixin,
 //               Container(
 //                 width: 200,
 //                 height: 100,
-//                 child: RaisedButton(
+//                 child: ElevatedButton(
 //                   shape: RoundedRectangleBorder(
 //                       side: BorderSide(color: Colors.red),
 //                       borderRadius: BorderRadius.circular(20)),
@@ -513,7 +513,7 @@ class _State extends State<P01ContentPage2> with SingleTickerProviderStateMixin,
 //               Container(
 //                 width: 200,
 //                 height: 100,
-//                 child: RaisedButton(
+//                 child: ElevatedButton(
 //                   shape: StadiumBorder(
 //                     side: BorderSide(color: Colors.red),
 //                   ),
@@ -528,7 +528,7 @@ class _State extends State<P01ContentPage2> with SingleTickerProviderStateMixin,
 //                 ),
 //               ),
 //
-//               RaisedButton(
+//               ElevatedButton(
 //                 shape: OutlineInputBorder(
 //                   borderSide: BorderSide(color: Colors.red),
 //                   borderRadius: BorderRadius.circular(10),
@@ -537,7 +537,7 @@ class _State extends State<P01ContentPage2> with SingleTickerProviderStateMixin,
 //                 onPressed: () {},
 //               ),
 //
-//               RaisedButton(
+//               ElevatedButton(
 //                 shape: UnderlineInputBorder(
 //                   borderSide: BorderSide(color: Colors.red),
 //                 ),

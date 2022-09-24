@@ -122,7 +122,7 @@ class _MaterialPage23 extends State<P01ContentPage3> {
                     color: Colors.indigoAccent,
                     child: ListView(
                       children: <Widget>[
-                        FlatButton(
+                        TextButton(
                           child: Text('aa'),
                           onPressed: () {
                             Net.post('1').success((value) {
@@ -240,18 +240,18 @@ class _MaterialPage22 extends State<MaterialPage2> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          FlatButton(
+          TextButton(
             color: Colors.orange,
-            child: Text('FlatButton'),
+            child: Text('TextButton'),
             onPressed: () {},
           ),
           SizedBox(
             height: 10,
           ),
-          FlatButton(
+          TextButton(
             color: Colors.red,
             child: Container(
-              child: Text('FlatButton'),
+              child: Text('TextButton'),
             ),
             onPressed: () {},
           ),
@@ -302,7 +302,7 @@ class _MaterialPage1 extends State<MaterialPage2>
       appBar: AppBar(
         title: Text('从下向上排布'),
         actions: <Widget>[
-          FlatButton(
+          TextButton(
             child: Text('点1'),
             onPressed: () {
 //              showAlert(context: context, title: '标题', message: '内容');
@@ -312,7 +312,7 @@ class _MaterialPage1 extends State<MaterialPage2>
               showCupertinoAlert(context: context);
             },
           ),
-          FlatButton(
+          TextButton(
             child: Text('点2'),
             onPressed: () {
               showCupertinoAlert(context: context, title: '标题', message: '内容');

@@ -26,7 +26,7 @@ class _MaterialPage1 extends State<MaterialPageI18n> {
         child: Column(
           children: <Widget>[
             Text(_locale.toString()),
-            FlatButton(
+            TextButton(
               child: Icon(
                 Icons.add,
                 color: Colors.red,

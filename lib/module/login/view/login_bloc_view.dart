@@ -87,7 +87,7 @@ class _LoginPage extends State<LoginBlocView> {
             child: BlocListener<LoginBloc, LoginState>(
               listener: (context, state) {
                 if (state is LoginFailure) {
-                  Scaffold.of(context).showSnackBar(
+                  ScaffoldMessengerState().showSnackBar(
                     SnackBar(
                       content: Text('错误'),
                       backgroundColor: Colors.red,
@@ -265,7 +265,7 @@ class _LoginPage extends State<LoginBlocView> {
                         Container(
                           width: double.infinity,
                           height: 50,
-                          child: RaisedButton(
+                          child: ElevatedButton(
                             child: Text(
                               "登录",
                               style: TextStyle(
@@ -273,10 +273,10 @@ class _LoginPage extends State<LoginBlocView> {
                                 fontSize: 20,
                               ),
                             ),
-                            textColor: Colors.white,
-                            disabledTextColor: Colors.grey,
-                            color: Colors.red,
-                            disabledColor: Colors.green,
+                            // textColor: Colors.white,
+                            // disabledTextColor: Colors.grey,
+                            // color: Colors.red,
+                            // disabledColor: Colors.green,
                             onPressed: (username.isEmpty || password.isEmpty || (state is LoginInProgress))
                                 ? null
                                 : () {
@@ -458,7 +458,7 @@ class _formTF extends StatelessWidget {
           Container(
             width: double.infinity,
             height: 50,
-            child: RaisedButton(
+            child: ElevatedButton(
               child: Text("登录"),
               onPressed: () {
                 print("是否空 ${phoneTextEditingController.value.text.isEmpty}");

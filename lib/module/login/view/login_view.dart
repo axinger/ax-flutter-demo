@@ -299,7 +299,7 @@ class _ContainerTF extends State<ContainerTF> {
             Container(
               width: double.infinity,
               height: 50,
-              child: FlatButton(
+              child: TextButton(
                 child: Text(
                   "登录",
                   style: TextStyle(
@@ -307,10 +307,10 @@ class _ContainerTF extends State<ContainerTF> {
                     fontSize: 20,
                   ),
                 ),
-                textColor: Colors.white,
-                disabledTextColor: Colors.grey,
-                color: Colors.red,
-                disabledColor: Colors.green,
+                // textColor: Colors.white,
+                // disabledTextColor: Colors.grey,
+                // color: Colors.red,
+                // disabledColor: Colors.green,
                 onPressed: (username.isEmpty || password.isEmpty)
                     ? null
                     : () {

@@ -12,10 +12,10 @@
 @import ax_flutter_plugin;
 #endif
 
-#if __has_include(<camera/CameraPlugin.h>)
-#import <camera/CameraPlugin.h>
+#if __has_include(<camera_avfoundation/CameraPlugin.h>)
+#import <camera_avfoundation/CameraPlugin.h>
 #else
-@import camera;
+@import camera_avfoundation;
 #endif
 
 #if __has_include(<device_info/FLTDeviceInfoPlugin.h>)
@@ -24,8 +24,8 @@
 @import device_info;
 #endif
 
-#if __has_include(<flutter_image_compress/FlutterImageCompressPlugin.h>)
-#import <flutter_image_compress/FlutterImageCompressPlugin.h>
+#if __has_include(<flutter_image_compress/ImageCompressPlugin.h>)
+#import <flutter_image_compress/ImageCompressPlugin.h>
 #else
 @import flutter_image_compress;
 #endif
@@ -102,7 +102,7 @@
   [AxFlutterPlugin registerWithRegistrar:[registry registrarForPlugin:@"AxFlutterPlugin"]];
   [CameraPlugin registerWithRegistrar:[registry registrarForPlugin:@"CameraPlugin"]];
   [FLTDeviceInfoPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTDeviceInfoPlugin"]];
-  [FlutterImageCompressPlugin registerWithRegistrar:[registry registrarForPlugin:@"FlutterImageCompressPlugin"]];
+  [ImageCompressPlugin registerWithRegistrar:[registry registrarForPlugin:@"ImageCompressPlugin"]];
   [FluttertoastPlugin registerWithRegistrar:[registry registrarForPlugin:@"FluttertoastPlugin"]];
   [ImageGallerySaverPlugin registerWithRegistrar:[registry registrarForPlugin:@"ImageGallerySaverPlugin"]];
   [FLTImagePickerPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTImagePickerPlugin"]];

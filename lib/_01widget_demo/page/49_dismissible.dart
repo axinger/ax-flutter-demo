@@ -22,7 +22,7 @@ class P49DismissibleWidget extends StatelessWidget {
             onDismissed: (direction) {
               items.removeAt(index);
 
-              Scaffold.of(context).showSnackBar(SnackBar(content: Text("$item dismissed")));
+              ScaffoldMessengerState().showSnackBar(SnackBar(content: Text("$item dismissed")));
             },
             // Show a red background as the item is swiped away
             background: Container(color: Colors.red),

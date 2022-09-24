@@ -76,6 +76,8 @@ import '../generated/l10n.dart';
 import '../module/login/view/login_view.dart';
 
 class RootHomePage extends StatefulWidget {
+  const RootHomePage({super.key});
+
   @override
   State<StatefulWidget> createState() {
     return _RootHomePageState();
@@ -87,7 +89,7 @@ class _RootHomePageState extends State<RootHomePage> {
   Future<void> initFinish() async {
     Completer<void> completer = Completer();
 
-    WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       print('回调=============1');
       completer.complete();
     });
@@ -119,7 +121,7 @@ class _RootHomePageState extends State<RootHomePage> {
 
         /// 导航栏 加高,添加背景图片
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(200),
+          preferredSize: const Size.fromHeight(200),
           child: AppBar(
             title: Text(
               S.of(context).test_title,

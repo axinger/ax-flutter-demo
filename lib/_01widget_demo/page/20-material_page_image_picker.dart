@@ -24,14 +24,14 @@ class _ImagePickerState extends State<ImagePickerWidget> {
               SizedBox.fromSize(
                 size: Size.fromHeight(50),
               ),
-              RaisedButton(
+              ElevatedButton(
                 onPressed: _takePhoto,
                 child: Text("拍照"),
               ),
               SizedBox.fromSize(
                 size: Size.fromHeight(50),
               ),
-              RaisedButton(
+              ElevatedButton(
                 onPressed: _openGallery,
                 child: Text("选择照片"),
               ),

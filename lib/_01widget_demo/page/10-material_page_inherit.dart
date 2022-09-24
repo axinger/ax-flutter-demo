@@ -234,7 +234,7 @@ class TestWidgetA extends StatelessWidget {
     print('TestWidgetA 中count的值:  ${myInheritedTestModel?.count}');
     return Padding(
       padding: const EdgeInsets.only(left: 10.0, top: 10.0, right: 10.0),
-      child: RaisedButton(textColor: Colors.black, child: Text('+ 改变model值,中间控件获取model最新值'), onPressed: myInheritedWidget?.increment),
+      child: ElevatedButton( child: Text('+ 改变model值,中间控件获取model最新值'), onPressed: myInheritedWidget?.increment),
     );
   }
 }
@@ -277,8 +277,8 @@ class TestWidgetC extends StatelessWidget {
 
     return Padding(
       padding: const EdgeInsets.only(left: 10.0, top: 10.0, right: 10.0),
-      child: RaisedButton(
-        textColor: Colors.black,
+      child: ElevatedButton(
+        // textColor: Colors.black,
         child: Text('- 改变model值,中间控件获取model最新值'),
 //        onPressed: myInheritedWidget.reduce,
         onPressed: () {

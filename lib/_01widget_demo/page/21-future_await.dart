@@ -23,7 +23,7 @@ class _State extends State<FutureAndAwaitTest> {
       ),
       body: Column(
         children: <Widget>[
-          FlatButton(
+          TextButton(
             child: Text("future-异步,后面的执行"),
 //      child : Icon(Icons.add),
             onPressed: () {
@@ -36,7 +36,7 @@ class _State extends State<FutureAndAwaitTest> {
               print("外部====3");
             },
           ),
-          FlatButton(
+          TextButton(
             child: Text("await-阻塞,后面的不执行"),
             onPressed: () async {
               await Future.delayed(Duration(seconds: 1), () {
@@ -48,7 +48,7 @@ class _State extends State<FutureAndAwaitTest> {
               print("await内部====3");
             },
           ),
-          FlatButton(
+          TextButton(
             child: Text("开启-异步"),
             onPressed: () async {
               Future.sync(() async {
@@ -65,7 +65,7 @@ class _State extends State<FutureAndAwaitTest> {
               });
             },
           ),
-          FlatButton(
+          TextButton(
             child: Text("开启-多个执行后,再执行别的"),
             onPressed: () async {
               /// Iterable<Future<T>> 集合中Future

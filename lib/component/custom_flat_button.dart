@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class CustomFlatButton extends MaterialButton {
+class CustomTextButton extends MaterialButton {
   final BorderSide? borderSide;
   final Color disabledBorderColor;
   final Color highlightedBorderColor;
 
-  const CustomFlatButton({
+  const CustomTextButton({
     Key? key,
     required onPressed,
     this.borderSide,

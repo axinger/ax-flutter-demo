@@ -56,7 +56,7 @@ class _MaterialPage1 extends State<MaterialPageStream> {
                 children: <Widget>[
                   Text("Stream 每次创建新对象,完成一次监听,StreamSubscription 可取消,暂停"),
                   Text(textData),
-                  FlatButton(
+                  TextButton(
                     child: Text("Stream按钮"),
                     onPressed: () async {
                       /// 应该就是异步
@@ -79,19 +79,19 @@ class _MaterialPage1 extends State<MaterialPageStream> {
                       });
                     },
                   ),
-                  FlatButton(
+                  TextButton(
                     child: Text("取消监听,无重新监听"),
                     onPressed: () {
                       _streamSubscription?.cancel();
                     },
                   ),
-                  FlatButton(
+                  TextButton(
                     child: Text("暂停监听"),
                     onPressed: () {
                       _streamSubscription?.pause();
                     },
                   ),
-                  FlatButton(
+                  TextButton(
                     child: Text("恢复监听"),
                     onPressed: () {
                       _streamSubscription?.resume();
@@ -107,7 +107,7 @@ class _MaterialPage1 extends State<MaterialPageStream> {
               children: <Widget>[
                 Text("创建StreamController 一个实例,多次add,只能一次订阅"),
                 Text(_streamControllerData),
-                FlatButton(
+                TextButton(
                   child: Text("创建StreamController"),
                   onPressed: () {
                     /// 应该就是异步
@@ -126,7 +126,7 @@ class _MaterialPage1 extends State<MaterialPageStream> {
                     });
                   },
                 ),
-                FlatButton(
+                TextButton(
                   child: Text("添加数据"),
                   onPressed: () async {
                     await Future.delayed(Duration(seconds: 1));
@@ -134,7 +134,7 @@ class _MaterialPage1 extends State<MaterialPageStream> {
                     _streamController?.add("_streamController 返回结果 ${Random().nextInt(100)}");
                   },
                 ),
-                FlatButton(
+                TextButton(
                   child: Text("_streamController 关闭"),
                   onPressed: () {
                     _streamController?.close();
@@ -145,7 +145,7 @@ class _MaterialPage1 extends State<MaterialPageStream> {
                 ),
                 Text("StreamSink 一个实例,多次add 监听数据"),
                 Text(_streamControllerData),
-                FlatButton(
+                TextButton(
                   child: Text("创建StreamController"),
                   onPressed: () {
                     _streamController = StreamController<String>();
@@ -163,7 +163,7 @@ class _MaterialPage1 extends State<MaterialPageStream> {
                     });
                   },
                 ),
-                FlatButton(
+                TextButton(
                   child: Text("添加数据"),
                   onPressed: () async {
                     await Future.delayed(Duration(seconds: 1));
@@ -175,7 +175,7 @@ class _MaterialPage1 extends State<MaterialPageStream> {
                 ),
                 Text("多次订阅 StreamController.broadcast()"),
                 Text(_streamControllerData),
-                FlatButton(
+                TextButton(
                   child: Text("多次订阅"),
                   onPressed: () {
                     /// 应该就是异步
@@ -204,7 +204,7 @@ class _MaterialPage1 extends State<MaterialPageStream> {
                     });
                   },
                 ),
-                FlatButton(
+                TextButton(
                   child: Text("添加数据"),
                   onPressed: () async {
                     await Future.delayed(Duration(seconds: 1));
@@ -231,7 +231,7 @@ class _MaterialPage1 extends State<MaterialPageStream> {
                     return Text("${asyncSnapshot.data}");
                   },
                 ),
-                FlatButton(
+                TextButton(
                   child: Text("添加数据"),
                   onPressed: () async {
                     await Future.delayed(Duration(seconds: 1));

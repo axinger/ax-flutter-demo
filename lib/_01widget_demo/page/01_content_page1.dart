@@ -99,7 +99,7 @@ class _State extends State<P01ContentPage>
     /// https://blog.csdn.net/zl18603543572/article/details/107553183
     ///单次 Frame 绘制回调，通过 addPostFrameCallback 实现。
     ///它会在当前 Frame 绘制完成后进行回调，并只会回调一次，如果要再次监听则需要再设置一次。
-    WidgetsBinding.instance?.addPostFrameCallback((Duration timeStamp) {
+    WidgetsBinding.instance.addPostFrameCallback((Duration timeStamp) {
       debugPrint('WidgetsBinding-addPostFrameCallback');
       // 只回调一次
       ///在第一次绘制完成时再添加实时回调的监听
@@ -248,7 +248,7 @@ class _State extends State<P01ContentPage>
                                 /// 充满 容器
                                 alignment: Alignment.center,
                                 color: Colors.orange,
-                                child: FlatButton(
+                                child: TextButton(
                                   child: Text('请求'),
                                   onPressed: () async {
                                     var options = BaseOptions(
@@ -301,7 +301,7 @@ class _State extends State<P01ContentPage>
                                 /// 充满 容器
                                 alignment: Alignment.center,
                                 color: Colors.orange,
-                                child: FlatButton(
+                                child: TextButton(
                                   onPressed: () {},
                                   child: Text('按钮1'),
                                 ),
@@ -335,7 +335,7 @@ class _State extends State<P01ContentPage>
           child: ListView(
 //          padding: EdgeInsets.all(20),
             children: [
-              FlatButton(
+              TextButton(
                 child: Text('showModalBottomSheet 圆角'),
                 onPressed: () {
                   showModalBottomSheet(
@@ -363,7 +363,7 @@ class _State extends State<P01ContentPage>
                 },
               ),
 
-              FlatButton(
+              TextButton(
                 child: Text('InteractiveViewer如: 平移，缩放和拖动“N”下降甚至大小调整'),
                 onPressed: () {
                   push(context: context, widget: InteractiveViewerDemo());
@@ -463,11 +463,11 @@ class _State extends State<P01ContentPage>
                 ],
               ),
 
-              FlatButton(
+              TextButton(
                 child: Text('控制是否可以直接返回'),
-                splashColor: Colors.red,
-                color: Colors.green,
-                textColor: Colors.white,
+                // splashColor: Colors.red,
+                // color: Colors.green,
+                // textColor: Colors.white,
                 onPressed: () {
                   isBack = !isBack;
                 },
@@ -475,22 +475,22 @@ class _State extends State<P01ContentPage>
               SizedBox(
                 height: 20,
               ),
-              FlatButton(
+              TextButton(
                 child: Text('显示隐藏-Visibility'),
-                splashColor: Colors.red,
-                color: Colors.green,
-                textColor: Colors.white,
+                // splashColor: Colors.red,
+                // color: Colors.green,
+                // textColor: Colors.white,
                 onPressed: () {
                   setState(() {
                     isVisibility = !isVisibility;
                   });
                 },
               ),
-              FlatButton(
+              TextButton(
                 child: Text('显示隐藏-Offstage'),
-                splashColor: Colors.red,
-                color: Colors.green,
-                textColor: Colors.white,
+                // splashColor: Colors.red,
+                // color: Colors.green,
+                // textColor: Colors.white,
                 onPressed: () {
                   setState(() {
                     isOffstage = !isOffstage;
@@ -515,11 +515,11 @@ class _State extends State<P01ContentPage>
                 color: Colors.red,
                 height: 50,
               ),
-              FlatButton(
+              TextButton(
                 child: Text('控制下面这个'),
-                splashColor: Colors.red,
-                color: Colors.green,
-                textColor: Colors.white,
+                // splashColor: Colors.red,
+                // color: Colors.green,
+                // textColor: Colors.white,
                 onPressed: () async {
                   _isShow = !_isShow;
                   _streamController.sink.add(!_isShow);
@@ -553,16 +553,16 @@ class _State extends State<P01ContentPage>
 //                ),
 //              ),
 
-              FlatButton(
+              TextButton(
                 child: Text('flutter日期选择'),
                 onPressed: () {
                   _selectDateFunc();
                 },
-                splashColor: Colors.red,
-                color: Colors.green,
-                textColor: Colors.white,
+                // splashColor: Colors.red,
+                // color: Colors.green,
+                // textColor: Colors.white,
               ),
-              RaisedButton(
+              ElevatedButton(
                 child: Text('范围日期'),
                 onPressed: () {
                   showDateRangePicker(
@@ -585,14 +585,14 @@ class _State extends State<P01ContentPage>
               SizedBox(
                 height: 20,
               ),
-              FlatButton(
+              TextButton(
                 child: Text('flutter 时间选择'),
                 onPressed: () {
                   _selectTimeFunc();
                 },
-                splashColor: Colors.red,
-                color: Colors.green,
-                textColor: Colors.white,
+                // splashColor: Colors.red,
+                // color: Colors.green,
+                // textColor: Colors.white,
               ),
               SizedBox(
                 height: 20,
@@ -619,13 +619,13 @@ class _State extends State<P01ContentPage>
               ),
 
               /// 圆角
-              FlatButton(
-                color: Colors.pink,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(30),
-                  ),
-                ),
+              TextButton(
+                // color: Colors.pink,
+                // shape: RoundedRectangleBorder(
+                //   borderRadius: BorderRadius.all(
+                //     Radius.circular(30),
+                //   ),
+                // ),
                 child: Text('颜色按钮'),
                 onPressed: () {},
               ),
@@ -638,7 +638,7 @@ class _State extends State<P01ContentPage>
                   style: BorderStyle.solid,
                 )),
                 child: Container(
-                  child: FlatButton(
+                  child: TextButton(
                     onPressed: () {},
                     child: Text(
                       '22222222222',
@@ -654,7 +654,7 @@ class _State extends State<P01ContentPage>
 
               CircleAvatar(
                 child: Container(
-                  child: FlatButton(
+                  child: TextButton(
                     onPressed: () {},
                     child: Text(
                       '22222222222',
@@ -670,12 +670,12 @@ class _State extends State<P01ContentPage>
                   onPressed: () {}),
               Container(
                 height: 80,
-                child: RaisedButton(
-                  color: Colors.orange,
+                child: ElevatedButton(
+                  // color: Colors.orange,
                   child: Text('圆形按钮'),
-                  shape: CircleBorder(
-                    side: BorderSide(color: Colors.pink),
-                  ),
+                  // shape: CircleBorder(
+                  //   side: BorderSide(color: Colors.pink),
+                  // ),
                   onPressed: () {},
                 ),
               ),
@@ -791,7 +791,7 @@ class _State extends State<P01ContentPage>
                 height: 20,
               ),
 
-              FlatButton(
+              TextButton(
                 child: Text('控制AbsorbPointer'),
                 onPressed: () {
                   isAbsorbPointer.value = !isAbsorbPointer.value;
@@ -802,9 +802,9 @@ class _State extends State<P01ContentPage>
                 builder: (BuildContext context, value, Widget? child) {
                   return AbsorbPointer(
                     absorbing: value,
-                    child: FlatButton(
-                      color: Colors.greenAccent,
-                      disabledColor: Colors.orange,
+                    child: TextButton(
+                      // color: Colors.greenAccent,
+                      // disabledColor: Colors.orange,
                       child: Text('AbsorbPointer'),
                       onPressed: value ? null : () {},
                     ),
@@ -812,8 +812,8 @@ class _State extends State<P01ContentPage>
                 },
               ),
 
-              FlatButton(
-                color: Colors.orange,
+              TextButton(
+                // color: Colors.orange,
 
                 onPressed: () {
                   print('登陆');
@@ -823,11 +823,11 @@ class _State extends State<P01ContentPage>
                   child: Text('Padding测试Buton的宽度'),
                 ),
 //                  ///圆角
-                shape: RoundedRectangleBorder(
-                  side: BorderSide.none,
-//                      borderRadius: BorderRadius.all(Radius.circular(double.minPositive)),
-                  borderRadius: BorderRadius.circular(400),
-                ),
+//                 shape: RoundedRectangleBorder(
+//                   side: BorderSide.none,
+// //                      borderRadius: BorderRadius.all(Radius.circular(double.minPositive)),
+//                   borderRadius: BorderRadius.circular(400),
+//                 ),
 //                  shape: CircleBorder(
 //                    side: BorderSide(),
 //                  ),
@@ -838,55 +838,55 @@ class _State extends State<P01ContentPage>
 //                  width: double.infinity,
                 alignment: Alignment.center,
 //            height: 20,
-                child: FlatButton(
-                  child: Text('FlatButton 加宽'),
+                child: TextButton(
+                  child: Text('TextButton 加宽'),
                   onPressed: () {},
-                  splashColor: Colors.red,
-                  color: Colors.green,
-                  textColor: Colors.white,
+                  // splashColor: Colors.red,
+                  // color: Colors.green,
+                  // textColor: Colors.white,
                 ),
               ),
 
-              FlatButton(
-                child: Text('FlatButton'),
+              TextButton(
+                child: Text('TextButton'),
                 onPressed: () {},
-                splashColor: Colors.red,
-                color: Colors.green,
-                textColor: Colors.white,
+                // splashColor: Colors.red,
+                // color: Colors.green,
+                // textColor: Colors.white,
               ),
 
-              FlatButton.icon(
+              TextButton.icon(
                 icon: Icon(Icons.add),
-                label: Text('FlatButton.icon'),
+                label: Text('TextButton.icon'),
                 onPressed: () {},
 
                 /// 点击高亮颜色
-                splashColor: Colors.orange,
-                color: Colors.red,
+                // splashColor: Colors.orange,
+                // color: Colors.red,
               ),
 
-              FlatButton.icon(
+              TextButton.icon(
                 ///
                 icon: Image.asset('assets/image/红包.png', width: 40, height: 40),
                 //ImageIcon(AssetImage('assets/image/红包.png')),
 //                  icon: ImageIcon(AssetImage('assets/image/红包.png'),color: Colors.red,),
 
-                label: Text('FlatButton'),
+                label: Text('TextButton'),
                 onPressed: () {},
-                splashColor: Colors.orange,
-                color: Colors.green,
+                // splashColor: Colors.orange,
+                // color: Colors.green,
               ),
 
               /// 点击有波纹效果 阴影效果
-              RaisedButton.icon(
+              ElevatedButton.icon(
                 icon: Icon(Icons.add),
-                label: Text('RaisedButton.icon'),
+                label: Text('ElevatedButton.icon'),
                 onPressed: () {},
 
                 /// 点击高亮颜色
-                splashColor: Colors.orange,
-                color: Colors.red,
-                elevation: 20,
+                // splashColor: Colors.orange,
+                // color: Colors.red,
+                // elevation: 20,
               ),
 
               /// 描边
@@ -919,12 +919,12 @@ class _State extends State<P01ContentPage>
               Row(
                 children: <Widget>[
                   Expanded(
-                    child: FlatButton(
-                      child: Text('FlatButton'),
+                    child: TextButton(
+                      child: Text('TextButton'),
                       onPressed: () {},
-                      splashColor: Colors.red,
-                      color: Colors.green,
-                      textColor: Colors.white,
+                      // splashColor: Colors.red,
+                      // color: Colors.green,
+                      // textColor: Colors.white,
                     ),
                   ),
                 ],
@@ -934,12 +934,12 @@ class _State extends State<P01ContentPage>
                 children: <Widget>[
                   /// Expanded 可用空间
                   Expanded(
-                    child: FlatButton(
-                      child: Text('FlatButton'),
+                    child: TextButton(
+                      child: Text('TextButton'),
                       onPressed: () {},
-                      splashColor: Colors.red,
-                      color: Colors.green,
-                      textColor: Colors.white,
+                      // splashColor: Colors.red,
+                      // color: Colors.green,
+                      // textColor: Colors.white,
                     ),
                   ),
 
@@ -949,12 +949,12 @@ class _State extends State<P01ContentPage>
 
                   Expanded(
                     flex: 2,
-                    child: FlatButton(
-                      child: Text('FlatButton'),
+                    child: TextButton(
+                      child: Text('TextButton'),
                       onPressed: () {},
-                      splashColor: Colors.red,
-                      color: Colors.green,
-                      textColor: Colors.white,
+                      // splashColor: Colors.red,
+                      // color: Colors.green,
+                      // textColor: Colors.white,
                     ),
                   ),
                 ],
@@ -964,26 +964,26 @@ class _State extends State<P01ContentPage>
               ButtonBar(
                 alignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  FlatButton(
-                    child: Text('FlatButton'),
+                  TextButton(
+                    child: Text('TextButton'),
                     onPressed: () {},
-                    splashColor: Colors.red,
-                    color: Colors.green,
-                    textColor: Colors.white,
+                    // splashColor: Colors.red,
+                    // color: Colors.green,
+                    // textColor: Colors.white,
                   ),
-                  FlatButton(
-                    child: Text('ButtonBar-FlatButton'),
+                  TextButton(
+                    child: Text('ButtonBar-TextButton'),
                     onPressed: () {},
-                    splashColor: Colors.red,
-                    color: Colors.green,
-                    textColor: Colors.white,
+                    // splashColor: Colors.red,
+                    // color: Colors.green,
+                    // textColor: Colors.white,
                   ),
-                  FlatButton(
-                    child: Text('FlatButton'),
+                  TextButton(
+                    child: Text('TextButton'),
                     onPressed: () {},
-                    splashColor: Colors.red,
-                    color: Colors.green,
-                    textColor: Colors.white,
+                    // splashColor: Colors.red,
+                    // color: Colors.green,
+                    // textColor: Colors.white,
                   ),
                 ],
               ),
@@ -1224,13 +1224,13 @@ class _InteractiveViewerDemoState extends State<InteractiveViewerDemo> {
           ),
           Row(
             children: [
-              RaisedButton(
+              ElevatedButton(
                 child: Text('重置'),
                 onPressed: () {
                   _transformationController.value = Matrix4.identity();
                 },
               ),
-              RaisedButton(
+              ElevatedButton(
                 child: Text('左移'),
                 onPressed: () {
                   var matrix = _transformationController.value.clone();
@@ -1238,7 +1238,7 @@ class _InteractiveViewerDemoState extends State<InteractiveViewerDemo> {
                   _transformationController.value = matrix;
                 },
               ),
-              RaisedButton(
+              ElevatedButton(
                 child: Text('放大'),
                 onPressed: () {
                   var matrix = _transformationController.value.clone();

@@ -170,7 +170,7 @@ class _P33DbHiveState extends State<P33DbHive> {
                 },
               ),
               Text(keychain),
-              FlatButton(
+              TextButton(
                 child: Text('keychain取数据'),
                 onPressed: () async {
                   // var value = await FlutterKeychain.get(key: 'myName');
@@ -181,13 +181,13 @@ class _P33DbHiveState extends State<P33DbHive> {
                   // });
                 },
               ),
-              FlatButton(
+              TextButton(
                 child: Text('keychain存数据'),
                 onPressed: () async {
                   // await FlutterKeychain.put(key: 'myName', value: 'abc123');
                 },
               ),
-              FlatButton(
+              TextButton(
                 child: Text('keychain清除'),
                 onPressed: () async {
                   // await FlutterKeychain.put(key: 'myName', value: 'value');

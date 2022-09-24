@@ -151,7 +151,7 @@ class _FormTFState extends State<LoginViewFormTF> {
 //                  ),
 
                   /// right 小组件
-//                    suffixIcon: FlatButton(
+//                    suffixIcon: TextButton(
 ////                      key: sendMsgKey,
 //                      child: Text(
 //                        "获取验证码4",
@@ -285,7 +285,7 @@ class _FormTFState extends State<LoginViewFormTF> {
               width: double.infinity,
 //                alignment: Alignment.center,
               height: 50,
-              child: FlatButton(
+              child: TextButton(
                 child: Text(
                   "登录",
                   style: TextStyle(
@@ -293,10 +293,10 @@ class _FormTFState extends State<LoginViewFormTF> {
                     fontSize: 20,
                   ),
                 ),
-                color: Colors.green,
-                textColor: Colors.white,
-                disabledColor: Colors.grey,
-                disabledTextColor: Colors.white30,
+                // color: Colors.green,
+                // textColor: Colors.white,
+                // disabledColor: Colors.grey,
+                // disabledTextColor: Colors.white30,
                 onPressed:
 
                     /// 需要 不需要setState, 但可以根据校验条件

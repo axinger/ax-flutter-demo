@@ -25,7 +25,7 @@ class _P47RouteWidgetState extends State<P47RouteWidget> {
     return Scaffold(
       appBar: AppBar(),
       body: Container(
-        child: FlatButton(
+        child: TextButton(
           child: Text('下一页'),
           onPressed: () {
 //            FlutterBoost.singleton.open('P47RouteWidget2',
@@ -53,7 +53,7 @@ class _P47RouteWidget2State extends State<P47RouteWidget2> {
     return Scaffold(
       appBar: AppBar(),
       body: Container(
-        child: FlatButton(
+        child: TextButton(
           child: Text('返回上上一个'),
           onPressed: () {
 //            FlutterBoost.singleton.close('P00ShowTestPage');

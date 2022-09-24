@@ -517,7 +517,7 @@ class DismissKeyboardDemo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: Center(
-        child: FlatButton(
+        child: TextButton(
           child: Text('0000'),
           onPressed: () {
             push(context: context, widget: DismissKeyboardDemo2());

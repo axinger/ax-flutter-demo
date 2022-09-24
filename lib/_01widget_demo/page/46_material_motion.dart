@@ -23,7 +23,7 @@ class _P46MaterialMotionState extends State<P46MaterialMotion> {
     return Scaffold(
       appBar: AppBar(
         actions: [
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               showModal<void>(
                 context: context,
@@ -32,8 +32,8 @@ class _P46MaterialMotionState extends State<P46MaterialMotion> {
                 },
               );
             },
-            color: Theme.of(context).colorScheme.primary,
-            textColor: Theme.of(context).colorScheme.onPrimary,
+            // color: Theme.of(context).colorScheme.primary,
+            // textColor: Theme.of(context).colorScheme.onPrimary,
             child: const Text('弹出对话框'),
           ),
         ],

@@ -27,7 +27,7 @@ class _P43SearchPageState extends State<P43SearchPage> {
           },
         ),
         actions: [
-          FlatButton(
+          TextButton(
             child: Text('退出'),
             onPressed: () {
               if (Platform.isAndroid) {

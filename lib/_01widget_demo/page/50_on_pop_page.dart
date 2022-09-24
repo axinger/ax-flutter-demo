@@ -124,7 +124,7 @@ class ColorScreen extends StatelessWidget {
         appBar: AppBar(title: Text('Color')),
         body: Container(
             color: color,
-            child: FlatButton(
+            child: TextButton(
               child: Text('返回'),
               onPressed: () {
                 Navigator.pop(context, Colors.purple);

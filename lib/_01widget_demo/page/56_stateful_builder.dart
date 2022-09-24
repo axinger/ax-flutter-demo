@@ -18,7 +18,7 @@ class _P56StatefulBuilderState extends State<P56StatefulBuilder> {
       appBar: AppBar(
         title: Text('局部刷新'),
         actions: [
-          FlatButton(
+          TextButton(
               onPressed: () {
                 _stateSetter!(() {
                   name1 = '${100.random}';

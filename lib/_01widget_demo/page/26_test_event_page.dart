@@ -35,7 +35,7 @@ class _MaterialPage extends State<P26TestEventPage> {
             children: <Widget>[
               Column(
                 children: <Widget>[
-                  FlatButton(
+                  TextButton(
                     child: Text("发送事件1"),
                     onPressed: () {
                       print(EVENT_BUS);
@@ -43,13 +43,13 @@ class _MaterialPage extends State<P26TestEventPage> {
                       EVENT_BUS.fire(UpdateUserInfoEvent(name: "jim"));
                     },
                   ),
-                  FlatButton(
+                  TextButton(
                     child: Text("发送事件2"),
                     onPressed: () {
                       EVENT_BUS.fire(LoginSuccessEvent(name: "tom"));
                     },
                   ),
-                  FlatButton(
+                  TextButton(
                     child: Text("监听事件2"),
                     onPressed: () {
                       EVENT_BUS.on<LoginSuccessEvent>().listen((event) {

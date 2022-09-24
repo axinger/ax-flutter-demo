@@ -28,25 +28,25 @@ class _MaterialPage extends State<P28RoutePage> {
       ),
       body: ListView(
         children: <Widget>[
-          FlatButton(
+          TextButton(
             child: Text('pushNamed - P28RoutePageSub1'),
             onPressed: () {
               Navigator.of(context).pushNamed('/P28RoutePageSub1', arguments: {'title': '透传title', 'name': 'postbird', 'passw': '123456'});
             },
           ),
-          FlatButton(
+          TextButton(
             child: Text('push - P28RoutePageSub1,\n方式该页面的子页面无法Navigator.popUntil'),
             onPressed: () {
               push(context: context, widget: P28RoutePageSub1());
             },
           ),
-          FlatButton(
+          TextButton(
             child: Text('push-P28RoutePageSub1'),
             onPressed: () {
               push(context: context, widget: P28RoutePageSub1());
             },
           ),
-          FlatButton(
+          TextButton(
             child: Text('FlutterBoost 路由'),
             onPressed: () {
 //              FlutterBoost.singleton.open('/P28RoutePageSub1',
@@ -57,13 +57,13 @@ class _MaterialPage extends State<P28RoutePage> {
 //              });
             },
           ),
-          FlatButton(
+          TextButton(
             child: Text('pushReplacement'),
             onPressed: () {
               pushReplacement(context: context, widget: P28RoutePageSub1());
             },
           ),
-          FlatButton(
+          TextButton(
             child: Text('pushAndRemoveUntil'),
             onPressed: () {
               pushAndRemoveUntil(context: context, widget: P28RoutePageSub1());
@@ -103,7 +103,7 @@ class P28RoutePageSub1 extends StatelessWidget {
       ),
       body: ListView(
         children: <Widget>[
-          FlatButton(
+          TextButton(
             child: Text('pushName-sub1,普通'),
             onPressed: () {
               Navigator.of(context).pushNamed('/P28RoutePageSub2', arguments: {'title': '透传title', 'name': 'postbird', 'passw': '123456'});
@@ -111,7 +111,7 @@ class P28RoutePageSub1 extends StatelessWidget {
           ),
 
           /// 这样的方式 Navigator.popUntil 无法被返回
-          FlatButton(
+          TextButton(
             child: Text('push-P28RoutePageSub2'),
             onPressed: () {
               push(context: context, widget: P28RoutePageSub2());
@@ -145,7 +145,7 @@ class P28RoutePageSub2 extends StatelessWidget {
       ),
       body: ListView(
         children: <Widget>[
-          FlatButton(
+          TextButton(
             child: Text('to P28RoutePageSub3'),
             onPressed: () {
               Navigator.of(context).pushNamed('/P28RoutePageSub3');
@@ -175,13 +175,13 @@ class P28RoutePageSub3 extends StatelessWidget {
       ),
       body: ListView(
         children: <Widget>[
-          FlatButton(
+          TextButton(
             child: Text('返回P28RoutePageSub1'),
             onPressed: () {
               Navigator.popUntil(context, ModalRoute.withName('/P28RoutePageSub1'));
             },
           ),
-          FlatButton(
+          TextButton(
             child: Text('返回/P28RoutePageSub1,这个会卡死,\n因为P28RoutePageSub1 不是通过String路由显示的'),
             onPressed: () {
 //              Navigator.popUntil(context, ModalRoute.withName('/P28RoutePageSub1'));

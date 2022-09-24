@@ -161,7 +161,7 @@ class _MaterialPage extends State<P27AsyncPage> {
                   return Column(
                     children: <Widget>[
                       Text('snapshot = ${snapshot.data}'),
-                      FlatButton(
+                      TextButton(
                         child: Text("async* 主动调用一次,完成返回值"),
                         onPressed: () {},
                       ),
@@ -177,19 +177,19 @@ class _MaterialPage extends State<P27AsyncPage> {
             color: Colors.greenAccent,
             child: Column(
               children: <Widget>[
-                FlatButton(
+                TextButton(
                   child: Text("async* 主动调用一次,完成返回值"),
                   onPressed: () {
                     syncIterator1 = syncTest1().iterator;
                   },
                 ),
-                FlatButton(
+                TextButton(
                   child: Text("调用 async* moveNext,然后才有值"),
                   onPressed: () {
                     syncIterator1?.moveNext();
                   },
                 ),
-                FlatButton(
+                TextButton(
                   child: Text("调用 async* current,无moveNext,值不变"),
                   onPressed: () {
                     print(syncIterator1?.current);
@@ -202,7 +202,7 @@ class _MaterialPage extends State<P27AsyncPage> {
             color: Colors.grey,
             child: Column(
               children: <Widget>[
-                FlatButton(
+                TextButton(
                   child: Text("2 Streamasync* 主动调用一次,完成返回值"),
                   onPressed: () {
                     print('main function start');
@@ -210,7 +210,7 @@ class _MaterialPage extends State<P27AsyncPage> {
                     print('main function end');
                   },
                 ),
-                FlatButton(
+                TextButton(
                   child: Text("2 Stream调用 async* listen,然后才有值"),
                   onPressed: () {
                     syncIterator2?.listen((event) {
@@ -225,25 +225,25 @@ class _MaterialPage extends State<P27AsyncPage> {
             color: Colors.orange,
             child: Column(
               children: <Widget>[
-                FlatButton(
+                TextButton(
                   child: Text("Future- 值,定义方法不不用async,调用方法不用async"),
                   onPressed: () {
                     test1().then((value) => print(value));
                   },
                 ),
-                FlatButton(
+                TextButton(
                   child: Text("Future- 值,定义方法不不用async,调用方法用async"),
                   onPressed: () async {
                     print(await test2());
                   },
                 ),
-                FlatButton(
+                TextButton(
                   child: Text("Future- 值,定义方法用async,调用方法用async"),
                   onPressed: () async {
                     print(await test2());
                   },
                 ),
-                FlatButton(
+                TextButton(
                   child: Text("Future- 值,定义方法用async,调用方法不用async"),
                   onPressed: () {
                     test2().then((value) => print(value));
@@ -258,7 +258,7 @@ class _MaterialPage extends State<P27AsyncPage> {
               children: <Widget>[
                 ///https://blog.csdn.net/qizewei123/article/details/89190415
                 Text('Dart 中事件的执行顺序：Main > MicroTask > EventQueue。'),
-                FlatButton(
+                TextButton(
                   child: Text("async* 主动调用一次,完成返回值"),
                   onPressed: () {
                     /* I/flutter (32415): s_3

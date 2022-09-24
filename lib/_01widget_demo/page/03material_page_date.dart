@@ -265,14 +265,14 @@ class _MaterialPage1 extends State<MaterialPageDate> {
             },
           ),
 
-          FlatButton(
+          TextButton(
             child: Text("日期选择"),
             onPressed: () {
               _selectDateFunc();
             },
-            splashColor: Colors.red,
-            color: Colors.green,
-            textColor: Colors.white,
+            // splashColor: Colors.red,
+            // color: Colors.green,
+            // textColor: Colors.white,
           ),
 
           Text(''
@@ -284,14 +284,14 @@ class _MaterialPage1 extends State<MaterialPageDate> {
 //           DateTime.fromMillisecondsSinceEpoch(selectDateTime.millisecondsSinceEpoch).toString(),
               ),
 
-          FlatButton(
+          TextButton(
             child: Text("时间选择"),
             onPressed: () {
               _selectTimeFunc();
             },
-            splashColor: Colors.red,
-            color: Colors.green,
-            textColor: Colors.white,
+            // splashColor: Colors.red,
+            // color: Colors.green,
+            // textColor: Colors.white,
           ),
 
           Text(

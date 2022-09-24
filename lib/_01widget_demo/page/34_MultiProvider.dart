@@ -68,7 +68,7 @@ class _P34ProviderState extends State<P34Provider> {
         value: userModel,
         child: Column(
           children: <Widget>[
-            FlatButton(
+            TextButton(
               child: Text('下一页'),
               onPressed: () {
 //                push(context: context, widget: NextPage());
@@ -79,7 +79,7 @@ class _P34ProviderState extends State<P34Provider> {
             Text('无论是点击那个Button都会引起Consumer1和Consumer2的重绘，'
                 '这明显与我们使用Provider的初衷是违背的。'
                 '而在实际的使用场景中，这种情况会带来比预想更差的UI表现'),
-            FlatButton(
+            TextButton(
               child: Text('add1'),
               onPressed: () {
                 userModel.add1Age1();
@@ -147,7 +147,7 @@ class _NextPageState extends State<NextPage> {
 //            builder: (BuildContext context, AddModel value, Widget child) {
 //              return child;
 //            },
-//            child: FlatButton(
+//            child: TextButton(
 //              child: Text('add2'),
 //              onPressed: () {
 //                context.read<AddModel>().add1Age1();
@@ -155,7 +155,7 @@ class _NextPageState extends State<NextPage> {
 //            ),
 //          ),
 
-          FlatButton(
+          TextButton(
             child: Text('add2'),
             onPressed: () {
               print('read =  ${context.read<AddModel>()}');
@@ -226,7 +226,7 @@ class Consumer2 extends StatelessWidget {
           print('Consumer2 收到消息');
           return Column(
             children: [
-              FlatButton(
+              TextButton(
                 child: Text('add2,在子页面中'),
                 onPressed: () {
                   value.addAge2();
@@ -254,7 +254,7 @@ class Consumer3 extends StatelessWidget {
             print('Consumer2 收到消息');
             return Column(
               children: [
-                FlatButton(
+                TextButton(
                   child: Text('add2,在子页面中'),
                   onPressed: () {
                     value.addAge2();
@@ -292,7 +292,7 @@ class _P34MultiProviderState extends State<P34MultiProvider> {
         appBar: AppBar(
           title: Text('Provider'),
           actions: <Widget>[
-            FlatButton(
+            TextButton(
               child: Text("单个"),
               onPressed: () {
                 push(context: context, widget: P34Provider());
@@ -332,7 +332,7 @@ class _P34MultiProviderState extends State<P34MultiProvider> {
                     );
                   },
                 ),
-                FlatButton(
+                TextButton(
                   child: Text("直接改变值"),
                   onPressed: () {
                     _counter.add();

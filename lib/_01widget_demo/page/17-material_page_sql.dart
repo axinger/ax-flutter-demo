@@ -34,14 +34,14 @@ class _MaterialPage1 extends State<MaterialPageSql> {
               Column(
                 children: <Widget>[
                   Text(name.toString()),
-                  FlatButton(
+                  TextButton(
                     child: Text("存储数据"),
                     onPressed: () {
                       Future<SharedPreferences> prefs = SharedPreferences.getInstance();
                       prefs.then((onValue) {
                         onValue.setString("name", "小明");
                       }).whenComplete(() {
-                        _scaffoldkey.currentState?.showSnackBar(SnackBar(
+                        ScaffoldMessengerState().showSnackBar(SnackBar(
                           content: Text('set succssed'),
                           duration: Duration(milliseconds: 100),
                         ));
@@ -50,7 +50,7 @@ class _MaterialPage1 extends State<MaterialPageSql> {
                       });
                     },
                   ),
-                  FlatButton(
+                  TextButton(
                     child: Text("读取数据"),
                     onPressed: () {
                       SharedPreferences.getInstance().then((onValue) {
@@ -61,7 +61,7 @@ class _MaterialPage1 extends State<MaterialPageSql> {
                       });
                     },
                   ),
-                  FlatButton(
+                  TextButton(
                     child: Text("清除数据"),
                     onPressed: () {
                       SharedPreferences.getInstance().then((onValue) {
@@ -78,7 +78,7 @@ class _MaterialPage1 extends State<MaterialPageSql> {
               Column(
                 children: <Widget>[
                   Text(allValue.toString()),
-                  FlatButton(
+                  TextButton(
                     child: Text("存储另一个数据"),
                     onPressed: () {
                       Future<SharedPreferences> prefs = SharedPreferences.getInstance();
@@ -87,7 +87,7 @@ class _MaterialPage1 extends State<MaterialPageSql> {
                       });
                     },
                   ),
-                  FlatButton(
+                  TextButton(
                     child: Text("读取所有数据"),
                     onPressed: () {
                       SharedPreferences.getInstance().then((onValue) {
@@ -106,7 +106,7 @@ class _MaterialPage1 extends State<MaterialPageSql> {
                       });
                     },
                   ),
-                  FlatButton(
+                  TextButton(
                     child: Text("清除所有数据"),
                     onPressed: () {
                       SharedPreferences.getInstance().then((onValue) {
@@ -128,7 +128,7 @@ class _MaterialPage1 extends State<MaterialPageSql> {
               Column(
                 children: <Widget>[
                   Text(show_oc_text.toString()),
-                  FlatButton(
+                  TextButton(
                     child: Text("存储数据_oc"),
                     onPressed: () {
                       KeyChain.set(key: 'name', value: 'jim').then((onValue) {
@@ -136,7 +136,7 @@ class _MaterialPage1 extends State<MaterialPageSql> {
                       });
                     },
                   ),
-                  FlatButton(
+                  TextButton(
                     child: Text("读取数据_oc"),
                     onPressed: () {
                       KeyChain.get(key: 'name').then((onValue) {
@@ -151,7 +151,7 @@ class _MaterialPage1 extends State<MaterialPageSql> {
                       });
                     },
                   ),
-                  FlatButton(
+                  TextButton(
                     child: Text("清除数据_oc"),
                     onPressed: () {
                       KeyChain.remove(key: 'name').then((onValue) {

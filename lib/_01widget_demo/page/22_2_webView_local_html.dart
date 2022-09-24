@@ -61,16 +61,16 @@ class _TestPage extends State<LocalHtmlPage> {
         centerTitle: true,
       ),
       persistentFooterButtons: <Widget>[
-        FlatButton(
-          color: Colors.blueGrey,
+        TextButton(
+          // color: Colors.blueGrey,
           child: Text('调用js方法'),
           onPressed: () {
             /// 调用js方法,给js方法传参
             _webViewController?.evaluateJavascript("nativeCallJsMethod('jim')");
           },
         ),
-        FlatButton(
-          color: Colors.blueGrey,
+        TextButton(
+          // color: Colors.blueGrey,
           child: Text('调用自己注册的js方法'),
           onPressed: () {
             /// 调用js方法,给js方法传参

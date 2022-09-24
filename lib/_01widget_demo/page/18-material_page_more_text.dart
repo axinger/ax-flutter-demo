@@ -86,54 +86,54 @@ class _MaterialPage1 extends State<MaterialPageMoreText> {
             ],
           ),
           Row(children: <Widget>[
-            new RaisedButton(
+            new ElevatedButton(
               onPressed: () {
                 print('点击红色按钮事件');
               },
-              color: const Color(0xffcc0000),
+              // color: const Color(0xffcc0000),
               child: new Text('红色按钮'),
             ),
             new Expanded(
               flex: 1,
-              child: new RaisedButton(
+              child: new ElevatedButton(
                 onPressed: () {
                   print('点击黄色按钮事件');
                 },
-                color: const Color(0xfff1c232),
+                // color: const Color(0xfff1c232),
                 child: new Text('黄色按钮'),
               ),
             ),
-            new RaisedButton(
+            new ElevatedButton(
               onPressed: () {
                 print('点击粉色按钮事件');
               },
-              color: const Color(0xffea9999),
+              // color: const Color(0xffea9999),
               child: new Text('粉色按钮'),
             ),
           ]),
           Row(children: <Widget>[
-            new RaisedButton(
+            new ElevatedButton(
               onPressed: () {
                 print('点击红色按钮事件');
               },
-              color: const Color(0xffcc0000),
+              // color: const Color(0xffcc0000),
               child: new Text('红色按钮'),
             ),
             new Flexible(
               flex: 1,
-              child: new RaisedButton(
+              child: new ElevatedButton(
                 onPressed: () {
                   print('点击黄色按钮事件');
                 },
-                color: const Color(0xfff1c232),
+                // color: const Color(0xfff1c232),
                 child: new Text('黄色按钮'),
               ),
             ),
-            new RaisedButton(
+            new ElevatedButton(
               onPressed: () {
                 print('点击粉色按钮事件');
               },
-              color: const Color(0xffea9999),
+              // color: const Color(0xffea9999),
               child: new Text('粉色按钮'),
             ),
           ]),

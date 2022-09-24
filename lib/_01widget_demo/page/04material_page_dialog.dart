@@ -13,12 +13,12 @@ class P04MaterialPageDialog extends StatefulWidget {
 }
 
 class _MaterialPage1 extends State<P04MaterialPageDialog> with SingleTickerProviderStateMixin {
-  _flatButton(String text, VoidCallback callback) {
-    return FlatButton(
+  _TextButton(String text, VoidCallback callback) {
+    return TextButton(
       child: Text(text),
-      splashColor: Colors.red,
-      color: Colors.green,
-      textColor: Colors.white,
+      // splashColor: Colors.red,
+      // color: Colors.green,
+      // textColor: Colors.white,
       onPressed: callback,
     );
   }
@@ -63,7 +63,7 @@ class _MaterialPage1 extends State<P04MaterialPageDialog> with SingleTickerProvi
 //          /// 水平对齐
 //          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            _flatButton('Android 弹窗', () {
+            _TextButton('Android 弹窗', () {
 //              SimpleDialogOption(
               showDialog(
                 context: context,
@@ -83,7 +83,7 @@ class _MaterialPage1 extends State<P04MaterialPageDialog> with SingleTickerProvi
               );
             }),
 
-            _flatButton('全屏', () {
+            _TextButton('全屏', () {
 //            pop(context)
               showDialog(
                   context: context,
@@ -123,7 +123,7 @@ class _MaterialPage1 extends State<P04MaterialPageDialog> with SingleTickerProvi
                   });
             }),
 
-            _flatButton('Android alert', () {
+            _TextButton('Android alert', () {
               showDialog(
                   context: context,
                   builder: (context) {
@@ -131,10 +131,10 @@ class _MaterialPage1 extends State<P04MaterialPageDialog> with SingleTickerProvi
                       title: Text("标题"),
                       content: Text("是否"),
                       actions: <Widget>[
-                        _flatButton("确定", () {
+                        _TextButton("确定", () {
                           Navigator.pop(context);
                         }),
-                        _flatButton("取消", () {
+                        _TextButton("取消", () {
                           Navigator.pop(context);
                         }),
                       ],
@@ -142,10 +142,10 @@ class _MaterialPage1 extends State<P04MaterialPageDialog> with SingleTickerProvi
                   });
             }),
 
-            _flatButton("ios alert", () {
+            _TextButton("ios alert", () {
               showCupertinoAlert(context: context, title: "标题", message: "内容");
             }),
-            _flatButton('ios sheet', () {
+            _TextButton('ios sheet', () {
               showCupertinoSheet(
                 context: context,
                 title: "标题",
@@ -166,7 +166,7 @@ class _MaterialPage1 extends State<P04MaterialPageDialog> with SingleTickerProvi
                 ],
               );
             }),
-            _flatButton("自定义 sheet", () {
+            _TextButton("自定义 sheet", () {
               showContentSheet(
                 context: context,
                 content: Container(
@@ -180,7 +180,7 @@ class _MaterialPage1 extends State<P04MaterialPageDialog> with SingleTickerProvi
             Column(
               children: <Widget>[
                 TextField(),
-                _flatButton("Toast.success", () {
+                _TextButton("Toast.success", () {
                   Toast.success(
                       context: context,
                       dismissDuration: Duration(seconds: 10),
@@ -188,7 +188,7 @@ class _MaterialPage1 extends State<P04MaterialPageDialog> with SingleTickerProvi
                         print('Toast.success');
                       });
                 }),
-                _flatButton("Toast.failure", () {
+                _TextButton("Toast.failure", () {
                   Toast.failure(
                       context: context,
                       dismissDuration: Duration(seconds: 3),
@@ -196,14 +196,14 @@ class _MaterialPage1 extends State<P04MaterialPageDialog> with SingleTickerProvi
                         print('Toast.failure');
                       });
                 }),
-                _flatButton("Toast.error", () {
+                _TextButton("Toast.error", () {
                   Toast.error(
                       context: context,
                       callBack: () {
                         print('Toast.error');
                       });
                 }),
-                _flatButton("Toast.showToast-1", () {
+                _TextButton("Toast.showToast-1", () {
                   Toast toast = Toast.showToast(
                       context: context,
                       child: Text('showToast-1'),
@@ -216,7 +216,7 @@ class _MaterialPage1 extends State<P04MaterialPageDialog> with SingleTickerProvi
                     toast.dismissToast();
                   });
                 }),
-                _flatButton("Toast.showToast-2", () {
+                _TextButton("Toast.showToast-2", () {
                   Toast toast = Toast.showToast(
                       context: context,
                       child: Text('showToast-2'),
@@ -229,9 +229,9 @@ class _MaterialPage1 extends State<P04MaterialPageDialog> with SingleTickerProvi
                     toast.dismissToast();
                   });
                 }),
-                _flatButton("Toast.dismissToast-1", () {}),
-                _flatButton("Toast.dismissToast-2", () {}),
-                _flatButton("Toast.loading", () {
+                _TextButton("Toast.dismissToast-1", () {}),
+                _TextButton("Toast.dismissToast-2", () {}),
+                _TextButton("Toast.loading", () {
                   Toast toast = Toast.loading(context: context);
                   double current = 0;
                   Timer.periodic(Duration(milliseconds: 500), (timer) {
@@ -247,12 +247,12 @@ class _MaterialPage1 extends State<P04MaterialPageDialog> with SingleTickerProvi
                 }),
               ],
             ),
-            _flatButton("自定义 sheet 时间", () {
+            _TextButton("自定义 sheet 时间", () {
               showDateSheet(context: context);
             }),
 
-            _flatButton("会消失的", () {
-              _scaffoldKey.currentState?.showSnackBar(
+            _TextButton("会消失的", () {
+              ScaffoldMessengerState().showSnackBar(
                 SnackBar(
                   content: Text('Are you talkin\' to me?'),
                   duration: Duration(seconds: 2),
@@ -329,11 +329,11 @@ class _MaterialPage1 extends State<P04MaterialPageDialog> with SingleTickerProvi
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
-                RaisedButton(
+                ElevatedButton(
                   onPressed: () => _animationController?.forward(),
                   child: Text('Forward'),
                 ),
-                RaisedButton(
+                ElevatedButton(
                   onPressed: () => _animationController?.reverse(),
                   child: Text('Reverse'),
                 ),
@@ -365,13 +365,13 @@ class _MaterialPage1 extends State<P04MaterialPageDialog> with SingleTickerProvi
 class _ShowSnackBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return FlatButton(
+    return TextButton(
       child: Text("会消失的"),
-      splashColor: Colors.red,
-      color: Colors.green,
-      textColor: Colors.white,
+      // splashColor: Colors.red,
+      // color: Colors.green,
+      // textColor: Colors.white,
       onPressed: () {
-        Scaffold.of(context).showSnackBar(
+        ScaffoldMessengerState().showSnackBar(
           SnackBar(
             content: Text("消失"),
             backgroundColor: Colors.red,
@@ -406,7 +406,7 @@ class AlertDialogWidget extends StatelessWidget {
           Divider(height: 1, color: Colors.grey),
           Container(
             child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: <Widget>[
-              FlatButton(
+              TextButton(
                 child: Text('我知道了'),
                 onPressed: () {
                   Navigator.pop(context);

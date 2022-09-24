@@ -57,14 +57,14 @@ class _MaterialPage1 extends State<MaterialPageCard> {
                   ),
                   child: ButtonBar(
                     children: <Widget>[
-                      FlatButton(
+                      TextButton(
                         child: Text("评论"),
-                        color: Colors.red,
+                        // color: Colors.red,
                         onPressed: () {},
                       ),
-                      FlatButton(
+                      TextButton(
                         child: Text("赞"),
-                        color: Colors.red,
+                        // color: Colors.red,
                         onPressed: () {},
                       ),
                     ],

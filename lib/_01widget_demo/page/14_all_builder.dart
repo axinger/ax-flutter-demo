@@ -76,8 +76,8 @@ class _P14AllBuilderPageState extends State<P14AllBuilderPage> {
               title: 'list-ValueListenableBuilder',
               child: Column(
                 children: <Widget>[
-                  FlatButton(
-                    color: Colors.grey,
+                  TextButton(
+                    // color: Colors.grey,
                     child: Text('listNotifier'),
                     // 点击的时候用 ValueNotifier 来更新值
                     onPressed: () {
@@ -116,8 +116,8 @@ class _P14AllBuilderPageState extends State<P14AllBuilderPage> {
                     // 如果child 的构建成本很高，并且不依赖于通知程序的值，则child参数非常有用。
                     child: Text('并且不依赖于通知程序的值，则child参数非常有用。', style: TextStyle(backgroundColor: Colors.orange)),
                   ),
-                  FlatButton(
-                    color: Colors.grey,
+                  TextButton(
+                    // color: Colors.grey,
                     child: Text('加1'),
                     // 点击的时候用 ValueNotifier 来更新值
                     onPressed: () => _counterValueNotifier.value += 1,
@@ -139,7 +139,7 @@ class _P14AllBuilderPageState extends State<P14AllBuilderPage> {
                         print('snapshot.data = ${snapshot.data}');
                         return Text('${snapshot.data ?? ''}');
                       }),
-                  FlatButton(
+                  TextButton(
                     child: Text('加1'),
                     // 点击的时候用 ValueNotifier 来更新值
                     onPressed: () {
@@ -176,7 +176,7 @@ class _P14AllBuilderPageState extends State<P14AllBuilderPage> {
               title: 'rxdart - BehaviorSubject,当前页面add,下个页面listen 同样可以收到数据',
               child: Column(
                 children: <Widget>[
-                  FlatButton(
+                  TextButton(
                     child: Text('添加'),
                     onPressed: () {
                       _behaviorSubject = BehaviorSubject<String>(onListen: () {
@@ -188,13 +188,13 @@ class _P14AllBuilderPageState extends State<P14AllBuilderPage> {
                       });
                     },
                   ),
-                  FlatButton(
+                  TextButton(
                     child: Text('发送内容'),
                     onPressed: () {
                       _behaviorSubject?.add('jim');
                     },
                   ),
-                  FlatButton(
+                  TextButton(
                     child: Text('下一页'),
                     onPressed: () {
                       push(
@@ -253,7 +253,7 @@ class __TestPageState extends State<_TestPage> {
                 print('snapshot.data = ${snapshot.data}');
                 return Text(snapshot.data ?? '');
               }),
-          FlatButton(
+          TextButton(
             child: Text('callBack'),
             onPressed: () {
               widget.callBack('tom');

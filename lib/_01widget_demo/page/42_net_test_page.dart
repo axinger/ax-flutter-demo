@@ -47,7 +47,7 @@ class _P42NetTestPageState extends State<P42NetTestPage> {
       ),
       body: Column(
         children: [
-          FlatButton(
+          TextButton(
             child: Text('get'),
             onPressed: () async {
               var success = await _net().catchError((onError) {

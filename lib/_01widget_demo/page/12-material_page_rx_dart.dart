@@ -50,7 +50,7 @@ class _MaterialPage1 extends State<MaterialPageRxDart> {
             children: <Widget>[
               Text("Observable 把以前的 Stream放入"),
               Text(textData),
-              FlatButton(
+              TextButton(
                 child: Text("Stream按钮"),
                 onPressed: () async {
                   List<String> list = ["Stream 返回结果 ${Random().nextInt(100)}", "Stream 返回结果 ${Random().nextInt(100)}"];
@@ -100,7 +100,7 @@ class _MaterialPage1 extends State<MaterialPageRxDart> {
               Divider(
                 color: Colors.red,
               ),
-              FlatButton(
+              TextButton(
                 child: Text("重复触发,根据内容关闭,不可以关闭"),
                 onPressed: () {
                   /// 重复触发
@@ -124,7 +124,7 @@ class _MaterialPage1 extends State<MaterialPageRxDart> {
               Divider(
                 color: Colors.red,
               ),
-              FlatButton(
+              TextButton(
                 child: Text("吐出数据”后间隔一段时间再吐下一个数据。"),
                 onPressed: () {
 //                  Stream stream  = Stream.fromIterable([1, 2, 3, 4, 5]);
@@ -144,7 +144,7 @@ class _MaterialPage1 extends State<MaterialPageRxDart> {
               Divider(
                 color: Colors.red,
               ),
-              FlatButton(
+              TextButton(
                 child: Text("PublishSubject重复,且可关闭"),
                 onPressed: () async {
 //                  PublishSubject _subject = PublishSubject<String>().listen((data) {
@@ -181,7 +181,7 @@ class _MaterialPage1 extends State<MaterialPageRxDart> {
               Divider(
                 color: Colors.red,
               ),
-              FlatButton(
+              TextButton(
                 child: Text("PublishSubject"),
                 onPressed: () {
                   PublishSubject _subject = PublishSubject();
@@ -203,7 +203,7 @@ class _MaterialPage1 extends State<MaterialPageRxDart> {
               Divider(
                 color: Colors.red,
               ),
-              FlatButton(
+              TextButton(
                 child: Text("5--BehaviorSubjec,add后listen 也可以监听,2个add,不同位置不同效果"),
                 onPressed: () {
                   BehaviorSubject _subject = BehaviorSubject(onListen: () {
@@ -234,7 +234,7 @@ class _MaterialPage1 extends State<MaterialPageRxDart> {
               Divider(
                 color: Colors.red,
               ),
-              FlatButton(
+              TextButton(
                 child: Text("ReplaySubject,2个add后listen 也可以监听"),
                 onPressed: () {
                   ///maxSize 直接接收最后的2个
@@ -259,7 +259,7 @@ class _MaterialPage1 extends State<MaterialPageRxDart> {
               Divider(
                 color: Colors.red,
               ),
-              FlatButton(
+              TextButton(
                 child: Text("转map-拦截一下"),
                 onPressed: () {
 //                  PublishSubject _subject = PublishSubject() ;
