@@ -208,23 +208,23 @@ dependencies:
     #quick_actions: 0.4.0+4
 
   ## ⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬阿星组件 ⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
-#  ax_flutter_util:
-#    git:
-#      url: 'https://github.com/axinger/ax-flutter-util.git'
-#  ax_flutter_plugin:
-#    git:
-#      url: 'https://github.com/axinger/ax-flutter-plugin.git'
-#  ax_flutter_toast:
-#    git:
-#      url: 'https://github.com/axinger/ax-flutter-toast.git'
-
-
   ax_flutter_util:
-    path: ../ax-flutter-util
+    git:
+      url: 'https://github.com/axinger/ax-flutter-util.git'
   ax_flutter_plugin:
-    path: ../ax-flutter-plugin
+    git:
+      url: 'https://github.com/axinger/ax-flutter-plugin.git'
   ax_flutter_toast:
-    path: ../ax-flutter-toast
+    git:
+      url: 'https://github.com/axinger/ax-flutter-toast.git'
+
+
+#  ax_flutter_util:
+#    path: ../ax-flutter-util
+#  ax_flutter_plugin:
+#    path: ../ax-flutter-plugin
+#  ax_flutter_toast:
+#    path: ../ax-flutter-toast
 
   ##=============================================================================##
 

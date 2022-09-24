@@ -20,7 +20,7 @@ class CustomScrollView1State extends State<P54SliverPersisten> with SingleTicker
               collapsedHeight: 43.0,
               expandedHeight: 220.0,
               paddingTop: 27.0,
-              coverImgUrl: 'http://via.placeholder.com/350x160/1296db?text=cat',
+              coverImgUrl: 'https://via.placeholder.com/350x160/1296db?text=cat',
               title: '标题',
             ),
           ),
