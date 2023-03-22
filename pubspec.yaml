@@ -43,7 +43,7 @@ dependencies:
   # https://jhuo.ca/post/ocsp-stapling-letsencrypt/
   cached_network_image: ^3.2.2
   http: ^0.13.3
-  dio: ^4.0.4
+  dio: ^5.0.3
   #  http_parser: any
   #  json_annotation: any
   json_annotation: ^4.3.0
