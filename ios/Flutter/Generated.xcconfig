@@ -1,8 +1,8 @@
 // This is a generated file; do not edit or check into version control.
-FLUTTER_ROOT=/Users/xing/Develop/sdk/flutter
-FLUTTER_APPLICATION_PATH=/Users/xing/Develop/GitHub/ax_flutter_demo
+FLUTTER_ROOT=/Users/xing/develop/sdk/flutter
+FLUTTER_APPLICATION_PATH=/Users/xing/develop/github/ax-flutter-demo
 COCOAPODS_PARALLEL_CODE_SIGN=true
-FLUTTER_TARGET=/Users/xing/Develop/GitHub/ax_flutter_demo/lib/main.dart
+FLUTTER_TARGET=/Users/xing/develop/github/ax-flutter-demo/lib/main.dart
 FLUTTER_BUILD_DIR=build
 FLUTTER_BUILD_NAME=1.0.0
 FLUTTER_BUILD_NUMBER=1
@@ -12,4 +12,4 @@ DART_DEFINES=Zmx1dHRlci5pbnNwZWN0b3Iuc3RydWN0dXJlZEVycm9ycz10cnVl,RkxVVFRFUl9XRU
 DART_OBFUSCATION=false
 TRACK_WIDGET_CREATION=true
 TREE_SHAKE_ICONS=false
-PACKAGE_CONFIG=/Users/xing/Develop/GitHub/ax_flutter_demo/.dart_tool/package_config.json
+PACKAGE_CONFIG=/Users/xing/develop/github/ax-flutter-demo/.dart_tool/package_config.json

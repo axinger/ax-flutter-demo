@@ -29,14 +29,14 @@ class _P42NetTestPageState extends State<P42NetTestPage> {
 //      print('失败 = $onError');
 //      return '失败12';
 //    });
-
-    return Future.delayed(Duration(seconds: 1), () {
-      throw Exception('Expected at least 1 section');
-      throw FormatException('Expected at least 1 section');
-      return '成功';
-    }).catchError((onError) {
-      return '失败12';
-    });
+//     Duration duration = Duration(seconds: 2); // creates a new duration of 5 seconds
+//     return Future.delayed(duration, () {
+    // throw Exception('Expected at least 1 section');
+    // throw FormatException('Expected at least 1 section');
+    return '成功';
+    // }).catchError((onError) {
+    //   return '失败12';
+    // });
   }
 
   @override
