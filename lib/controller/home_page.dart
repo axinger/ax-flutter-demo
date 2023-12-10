@@ -1,5 +1,5 @@
 import 'package:ax_flutter_demo/module/login/view/login_view.dart';
-import 'package:ax_flutter_util/ax_flutter_util.dart';
+// import 'package:ax_flutter_util/ax_flutter_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -42,7 +42,7 @@ class _HomePage extends State<HomePage> {
               IconButton(
                 icon: Icon(Icons.favorite),
                 onPressed: () {
-                  AxLogger.info("ax>>>>>>>info=======");
+                  // AxLogger.info("ax>>>>>>>info=======");
                 },
                 tooltip: "按钮提示",
               ),

@@ -23,9 +23,6 @@ class ThemeDataNotifier extends ChangeNotifier {
       iconTheme: IconThemeData(color: Colors.white),
     ),
 
-    /// 按钮统一颜色
-    buttonColor: Colors.deepPurpleAccent,
-
     /// 容器默认背景色
 //        scaffoldBackgroundColor: ColorScheme().background,
     buttonTheme: ButtonThemeData(

@@ -5,6 +5,7 @@ import 'package:ax_flutter_demo/theme_data_notifier.dart';
 import 'package:ax_flutter_util/ax_flutter_util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 class P01ContentPage2 extends StatefulWidget {
@@ -82,9 +83,6 @@ class _State extends State<P01ContentPage2> with SingleTickerProviderStateMixin,
       appBar: AppBar(
         /// 状态栏的背景颜色
         backgroundColor: Colors.red,
-
-        /// 状态栏的文字颜色
-        brightness: Brightness.light,
         title: Text('01_02形状'),
         actions: <Widget>[
           TextButton(
@@ -123,7 +121,7 @@ class _State extends State<P01ContentPage2> with SingleTickerProviderStateMixin,
               );
             },
           ),
-        ],
+        ], systemOverlayStyle: SystemUiOverlayStyle.dark,
       ),
       body: SafeArea(
         child: SingleChildScrollView(

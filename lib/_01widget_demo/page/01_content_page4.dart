@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class P01ContentPage4 extends StatelessWidget {
   @override
@@ -9,8 +10,7 @@ class P01ContentPage4 extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.red,
-        brightness: Brightness.light,
-        title: Text('圆角设置组件'),
+        title: Text('圆角设置组件'), systemOverlayStyle: SystemUiOverlayStyle.dark,
       ),
       body: SafeArea(
         child: SingleChildScrollView(

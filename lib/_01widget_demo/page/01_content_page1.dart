@@ -105,17 +105,17 @@ class _State extends State<P01ContentPage>
       ///在第一次绘制完成时再添加实时回调的监听
 
       /// 都只能在这里,在外面报错
-      WidgetsBinding.instance?.addPersistentFrameCallback((timeStamp) {
+      WidgetsBinding.instance.addPersistentFrameCallback((timeStamp) {
         debugPrint('WidgetsBinding-addPersistentFrameCallback'); // 只回调一次
       });
 
-      SchedulerBinding.instance?.addPersistentFrameCallback((timeStamp) {
+      SchedulerBinding.instance.addPersistentFrameCallback((timeStamp) {
         debugPrint('SchedulerBinding-addPersistentFrameCallback');
       });
-      ServicesBinding.instance?.addPersistentFrameCallback((timeStamp) {
+      ServicesBinding.instance.addPersistentFrameCallback((timeStamp) {
         debugPrint('ServicesBinding-addPersistentFrameCallback');
       });
-      RendererBinding.instance?.addPersistentFrameCallback((timeStamp) {
+      RendererBinding.instance.addPersistentFrameCallback((timeStamp) {
         debugPrint('RendererBinding-addPersistentFrameCallback');
       });
     });
@@ -183,17 +183,10 @@ class _State extends State<P01ContentPage>
       },
       child: Scaffold(
         appBar: AppBar(
-          title: Text(
+          title: const Text(
             '测试,状态栏颜色',
             style: TextStyle(color: Colors.red),
           ),
-
-          ///状态栏颜色 brightness 亮度
-          ///在 AppBar 中配置属性： brightness ，其取值：
-          ///     Brightness.dark AppBar 配置为暗色，显示图标为 白色图标
-          ///    Brightness.light AppBar 配置为亮色，显示图标为 暗色 图标
-
-          brightness: Brightness.dark,
           // backgroundColor: Colors.white,
           centerTitle: true,
           bottom: TabBar(
@@ -204,12 +197,12 @@ class _State extends State<P01ContentPage>
             isScrollable: true,
             indicatorColor: Colors.red,
             tabs: List.generate(10, (index) {
-              return Tab(
+              return const Tab(
                 text: "主页",
                 icon: Icon(Icons.local_florist),
               );
             }),
-          ),
+          ), systemOverlayStyle: SystemUiOverlayStyle.light,
         ),
 
         /// 悬浮按钮
@@ -232,7 +225,7 @@ class _State extends State<P01ContentPage>
                 /// 直接用_isShow 方便控制,比snapshot?.data 不知道为什么
                 child: (!_isShow)
                     ? null
-                    : Container(
+                    : SizedBox(
                         height: 80,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -249,11 +242,11 @@ class _State extends State<P01ContentPage>
                                 alignment: Alignment.center,
                                 color: Colors.orange,
                                 child: TextButton(
-                                  child: Text('请求'),
+                                  child: const Text('请求'),
                                   onPressed: () async {
                                     var options = BaseOptions(
-                                      connectTimeout: 15000,
-                                      receiveTimeout: 15000,
+                                      connectTimeout: const Duration(seconds: 15),
+                                      receiveTimeout: const Duration(seconds: 15),
 //                                      responseType: ResponseType.plain,
 //                                      validateStatus: (status) {
 //                                        print('status = $status');
@@ -748,17 +741,6 @@ class _State extends State<P01ContentPage>
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     CupertinoContextMenu(
-                      child: Container(
-                        alignment: Alignment.centerLeft,
-//                color: Colors.red,
-                        width: 100,
-                        height: 200,
-                        child: Image.asset(
-                          assetsOfImagePath('headIcon.png'),
-                          width: 50,
-                          height: 50,
-                        ),
-                      ),
                       previewBuilder: (context, animation, child) {
                         return Container(
                           color: Colors.greenAccent,
@@ -783,16 +765,27 @@ class _State extends State<P01ContentPage>
                           },
                         ),
                       ],
+                      child: Container(
+                        alignment: Alignment.centerLeft,
+//                color: Colors.red,
+                        width: 100,
+                        height: 200,
+                        child: Image.asset(
+                          assetsOfImagePath('headIcon.png'),
+                          width: 50,
+                          height: 50,
+                        ),
+                      ),
                     ),
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
 
               TextButton(
-                child: Text('控制AbsorbPointer'),
+                child: const Text('控制AbsorbPointer'),
                 onPressed: () {
                   isAbsorbPointer.value = !isAbsorbPointer.value;
                 },
@@ -805,8 +798,10 @@ class _State extends State<P01ContentPage>
                     child: TextButton(
                       // color: Colors.greenAccent,
                       // disabledColor: Colors.orange,
-                      child: Text('AbsorbPointer'),
                       onPressed: value ? null : () {},
+                      // color: Colors.greenAccent,
+                      // disabledColor: Colors.orange,
+                      child: const Text('AbsorbPointer'),
                     ),
                   );
                 },
@@ -1066,7 +1061,7 @@ class _State extends State<P01ContentPage>
     CupertinoPicker picker = CupertinoPicker(
       /// 每行的高度
       itemExtent: 50,
-      children: <Widget>[
+      children: const <Widget>[
         Text('1'),
         Text('2'),
         Text('3'),

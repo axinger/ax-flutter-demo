@@ -7,6 +7,8 @@ import 'package:ax_flutter_demo/_02get_demo/demo_translations.dart';
 import 'package:ax_flutter_demo/_02get_demo/route/route_pages.dart';
 import 'package:ax_flutter_demo/theme_data_notifier.dart';
 import 'package:ax_flutter_util/ax_flutter_util.dart';
+
+// import 'package:ax_flutter_util/ax_flutter_util.dart';
 import 'package:device_info/device_info.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -41,10 +43,10 @@ class _MyApp extends State<AxApp> with WidgetsBindingObserver {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance?.addObserver(this);
+    WidgetsBinding.instance.addObserver(this);
 
     /// build完成
-    WidgetsBinding.instance?.addPostFrameCallback((callback) {
+    WidgetsBinding.instance.addPostFrameCallback((callback) {
 //      _overlayEntry();
       if (mounted) {
         _overlayEntry();
@@ -128,7 +130,8 @@ class _MyApp extends State<AxApp> with WidgetsBindingObserver {
 
   /// 监听安卓返回按键
   void _androidBack() {
-    const basicMessageChannel = const BasicMessageChannel('Android_back', StringCodec());
+    const basicMessageChannel =
+        const BasicMessageChannel('Android_back', StringCodec());
 
 //接受并回复消息
 
@@ -197,7 +200,8 @@ class _MyApp extends State<AxApp> with WidgetsBindingObserver {
     );
 
     double OffsetY = 200;
-    ValueNotifier<Offset> offsetNotifier = ValueNotifier<Offset>(Offset(0, OffsetY));
+    ValueNotifier<Offset> offsetNotifier =
+        ValueNotifier<Offset>(Offset(0, OffsetY));
     var entry = OverlayEntry(
         maintainState: true,
         builder: (BuildContext context) {
@@ -243,7 +247,8 @@ class _MyApp extends State<AxApp> with WidgetsBindingObserver {
       String packageName = packageInfo.packageName;
       String version = packageInfo.version;
       String buildNumber = packageInfo.buildNumber;
-      print("appName = $appName packageName = $packageName version = $version buildNumber = $buildNumber");
+      print(
+          "appName = $appName packageName = $packageName version = $version buildNumber = $buildNumber");
     });
   }
 
@@ -262,6 +267,9 @@ class _MyApp extends State<AxApp> with WidgetsBindingObserver {
         break;
       case AppLifecycleState.detached: // 申请将暂时暂停
         print("app转态 暂时暂停");
+        break;
+      case AppLifecycleState.hidden:
+        // TODO: Handle this case.
         break;
     }
   }
@@ -317,7 +325,8 @@ class _MyApp extends State<AxApp> with WidgetsBindingObserver {
 
       /// 自定义文字 国际化
       translations: DemoTranslations(),
-      locale: Locale('zh', 'CN'), //设置默认语言
+      locale: Locale('zh', 'CN'),
+      //设置默认语言
       fallbackLocale: Locale("zh", "CN"),
 
       /// 路由
@@ -484,7 +493,8 @@ class _MyApp extends State<AxApp> with WidgetsBindingObserver {
     }
   }
 
-  void _onRoutePushed(String pageName, String uniqueId, Map params, Route route, Future _) {
+  void _onRoutePushed(
+      String pageName, String uniqueId, Map params, Route route, Future _) {
     print('_onRoutePushed == $pageName  uniqueId = $uniqueId');
   }
 }
@@ -518,9 +528,9 @@ class DismissKeyboardDemo extends StatelessWidget {
       appBar: AppBar(),
       body: Center(
         child: TextButton(
-          child: Text('0000'),
+          child: const Text('0000'),
           onPressed: () {
-            push(context: context, widget: DismissKeyboardDemo2());
+            push(context: context, widget: const DismissKeyboardDemo2());
           },
         ),
       ),
@@ -529,11 +539,13 @@ class DismissKeyboardDemo extends StatelessWidget {
 }
 
 class DismissKeyboardDemo2 extends StatelessWidget {
+  const DismissKeyboardDemo2({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: Center(
+      body: const Center(
         child: TextField(),
       ),
     );

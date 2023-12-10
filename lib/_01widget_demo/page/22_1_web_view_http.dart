@@ -22,38 +22,39 @@ class _WebViewPageState extends State<WebViewPage> {
         title: Text("$_title"),
       ),
       body: SafeArea(
-        child: WebView(
-          initialUrl: url,
-          //JS执行模式 是否允许JS执行
-          javascriptMode: JavascriptMode.unrestricted,
-          onWebViewCreated: (controller) {
-            _controller = controller;
-          },
-          onPageFinished: (url) {
-            _controller?.evaluateJavascript("document.title").then((result) {
-              setState(() {
-                _title = result;
-              });
-            });
-          },
-          navigationDelegate: (NavigationRequest request) {
-            print('request.url = ${request.url}');
-
-            if (request.url.startsWith("myapp://")) {
-              print("即将打开 ${request.url}");
-
-              return NavigationDecision.prevent;
-            }
-            return NavigationDecision.navigate;
-          },
-          javascriptChannels: <JavascriptChannel>[
-            JavascriptChannel(
-                name: "share",
-                onMessageReceived: (JavascriptMessage message) {
-                  print("参数： ${message.message}");
-                }),
-          ].toSet(),
-        ),
+        child: SizedBox.fromSize(),
+        // child: WebView(
+        //   initialUrl: url,
+        //   //JS执行模式 是否允许JS执行
+        //   javascriptMode: JavascriptMode.unrestricted,
+        //   onWebViewCreated: (controller) {
+        //     _controller = controller;
+        //   },
+        //   onPageFinished: (url) {
+        //     _controller?.evaluateJavascript("document.title").then((result) {
+        //       setState(() {
+        //         _title = result;
+        //       });
+        //     });
+        //   },
+        //   navigationDelegate: (NavigationRequest request) {
+        //     print('request.url = ${request.url}');
+        //
+        //     if (request.url.startsWith("myapp://")) {
+        //       print("即将打开 ${request.url}");
+        //
+        //       return NavigationDecision.prevent;
+        //     }
+        //     return NavigationDecision.navigate;
+        //   },
+        //   javascriptChannels: <JavascriptChannel>[
+        //     JavascriptChannel(
+        //         name: "share",
+        //         onMessageReceived: (JavascriptMessage message) {
+        //           print("参数： ${message.message}");
+        //         }),
+        //   ].toSet(),
+        // ),
       ),
     );
   }

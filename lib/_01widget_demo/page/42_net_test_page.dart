@@ -9,10 +9,10 @@ class P42NetTestPage extends StatefulWidget {
 }
 
 class _P42NetTestPageState extends State<P42NetTestPage> {
-  Future<dynamic> _net() {
+  Future<String> _net() {
     var options = BaseOptions(
-      connectTimeout: 15000,
-      receiveTimeout: 15000,
+      connectTimeout: const Duration(seconds: 15),
+      receiveTimeout: const Duration(seconds: 15),
       baseUrl: 'http://localhost:8080',
     );
 
@@ -33,7 +33,8 @@ class _P42NetTestPageState extends State<P42NetTestPage> {
 //     return Future.delayed(duration, () {
     // throw Exception('Expected at least 1 section');
     // throw FormatException('Expected at least 1 section');
-    return '成功';
+    // return '成功';
+    return Future.value('成功');
     // }).catchError((onError) {
     //   return '失败12';
     // });
